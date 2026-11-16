@@ -422,10 +422,22 @@ $tla_active      = '';
 
     /* ── Offer highlight card (the flyer centerpiece) ───────────────────────── */
     .mm-offer {
-      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      background-color: #021c36;
+      background-image: url('<?php echo TLA_BASE; ?>/assets/consultation-header.png');
+      background-size: cover;
+      background-position: center;
       padding-block: clamp(48px, 6vw, 88px);
       position: relative;
       overflow: hidden;
+    }
+    /* Navy gradient overlay over the photo (same treatment as mastermind's .mm-offer) */
+    .mm-offer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(6, 14, 28, 0.92) 0%, rgba(2, 28, 54, 0.88) 50%, rgba(6, 14, 28, 0.94) 100%);
+      pointer-events: none;
+      z-index: 0;
     }
     .mm-offer > .container { position: relative; z-index: 1; }
     .mm-offer__card {
@@ -638,61 +650,105 @@ $tla_active      = '';
       line-height: 1.5;
     }
 
-    /* ── Bridge (visual + copy split) ───────────────────────────────────────── */
-    .lp-bridge {
-      background: #ffffff;
-      padding-block: clamp(48px, 6vw, 88px);
-      border-bottom: 1px solid var(--outline-variant);
-    }
-    .lp-bridge__split {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(32px, 4vw, 64px);
-      align-items: center;
-    }
-    @media (min-width: 860px) {
-      .lp-bridge__split {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-      }
-    }
-    .lp-bridge__inner {
-      max-width: 40rem;
-    }
-
-    /* Stacked variant — copy on top, full-width video below */
-    .lp-bridge__stack {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(32px, 4vw, 56px);
-      align-items: center;
+    /* ── Replay video section (ported from replay-mbs-111926.html) ─────────── */
+    .rp-head__inner {
+      max-width: 52rem;
+      margin: 0 auto clamp(28px, 4vw, 48px);
       text-align: center;
     }
-    .lp-bridge__stack .lp-bridge__inner {
-      max-width: 56rem;
+    .rp-head__cta {
+      margin-top: clamp(24px, 3vw, 36px);
     }
-    .lp-bridge__cta {
-      display: flex;
-      justify-content: center;
+    .rp-head__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass-bright);
+      margin: 0 0 var(--space-sm);
     }
-    .lp-bridge__video {
-      width: 100%;
+    .rp-head__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 1.4rem + 2.8vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin: 0 0 var(--space-sm);
+      text-wrap: balance;
+    }
+    .rp-head__sub {
+      font-family: var(--font-body);
+      font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem);
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 0 auto;
+      max-width: 40rem;
+    }
+    .rp-video {
+      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      padding-block: clamp(40px, 6vw, 80px) clamp(48px, 6vw, 88px);
+    }
+    .rp-video__frame {
+      max-width: 68rem;
+      margin-inline: auto;
       border-radius: var(--radius-2xl);
       overflow: hidden;
-      box-shadow: var(--shadow-lg, 0 24px 60px -24px rgba(2, 28, 54, 0.45));
+      box-shadow:
+        0 40px 90px rgba(2, 28, 54, 0.5),
+        0 0 60px rgba(234, 194, 90, 0.14);
+      border: 1px solid rgba(234, 194, 90, 0.28);
     }
+    /* "Replay coming soon" placeholder — 16:9 panel until the video exists */
+    .rp-video__soon {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2.4vw, 28px);
+      padding: var(--space-md);
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(234, 194, 90, 0.12), transparent 60%),
+        linear-gradient(135deg, #0a1628 0%, #021c36 55%, #0a223d 100%);
+    }
+    .rp-video__soon-icon {
+      display: grid;
+      place-items: center;
+      width: clamp(56px, 8vw, 96px);
+      height: clamp(56px, 8vw, 96px);
+      border-radius: 50%;
+      border: 2px solid rgba(234, 194, 90, 0.55);
+      color: var(--brass-bright);
+    }
+    .rp-video__soon-icon svg { width: 40%; height: 40%; margin-left: 6%; }
+    .rp-video__soon-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.25rem, 0.9rem + 1.8vw, 2.25rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0;
+    }
+    /* Clear the sticky header + offer bar when jumping here from the hero */
+    #replay { scroll-margin-top: calc(var(--header-h) + 56px); }
 
-    /* Click-to-play video with a Loan Atlas-branded play button */
-    .mm-video {
-      position: relative;
-      padding-top: 56.25%;
-      background: #021c36;
+    /* Hero secondary CTA — same size as the gold landing CTA, outlined navy */
+    .lp-intro .btn--ghost.btn--lg {
+      font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.3125rem);
+      padding: clamp(19px, calc(1.6vw - 1px), 25px) clamp(35px, calc(4vw - 1px), 55px);
+      border-radius: var(--radius-2xl);
+      border: 1px solid rgba(2, 28, 54, 0.28);
+      color: var(--primary);
+      font-weight: 700;
     }
-    .mm-video__frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .lp-intro .btn--ghost.btn--lg:hover {
+      border-color: var(--primary);
+      background: rgba(2, 28, 54, 0.04);
     }
 
     /* Volume-up / hours-down chart */
@@ -1337,6 +1393,7 @@ $tla_active      = '';
     .mm-plat__thumb--pair img:first-child { top: 0; left: 8%; }
     .mm-plat__thumb--pair img:last-child { bottom: 0; right: 8%; }
     .mm-plat__thumb--wide img { height: auto; width: 68%; }
+
     .mm-plat__thumb--wide img:first-child { top: 6%; left: 4%; }
     .mm-plat__thumb--wide img:last-child { bottom: 6%; right: 4%; }
 
@@ -1394,6 +1451,52 @@ $tla_active      = '';
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #7d8594;
+    }
+
+    /* Mobile: hide the chat; the five outputs fill the card one at a time
+       (image on top, label underneath), cycled by the script. */
+    @media (max-width: 559.98px) {
+      .mm-plat__chat { display: none; }
+      .mm-plat__tiles {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .mm-plat__tiles .mm-plat__tile,
+      .mm-plat__tiles .mm-plat__tile:last-child {
+        grid-area: 1 / 1;
+        min-width: 0;
+        gap: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 500ms ease, visibility 0s linear 500ms;
+      }
+      .mm-plat__tiles .mm-plat__tile.is-active {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 500ms ease, visibility 0s;
+      }
+      .mm-plat__thumb {
+        max-width: 100%;
+        height: clamp(200px, 62vw, 280px);
+      }
+      .mm-plat__tile-label {
+        font-size: clamp(1.125rem, 0.9rem + 1.2vw, 1.375rem);
+      }
+      /* Email sequence scaled up to fill the slot */
+      .mm-plat__thumb--email {
+        max-width: 300px;
+        height: auto;
+        min-height: clamp(200px, 62vw, 280px);
+      }
+      .mm-plat__thumb--email ol { gap: 6px; }
+      .mm-plat__thumb--email li { gap: 10px; padding: 6px 10px; border-radius: 6px; }
+      .mm-plat__thumb--email b { width: 22px; height: 22px; font-size: 11px; }
+      .mm-plat__thumb--email span { font-size: 12px; }
+      .mm-plat__thumb--email i { font-size: 9px; }
+    }
+    @media (max-width: 559.98px) and (prefers-reduced-motion: reduce) {
+      .mm-plat__tiles .mm-plat__tile,
+      .mm-plat__tiles .mm-plat__tile.is-active { transition: none; }
     }
 
     /* Caption under the card */
@@ -1844,11 +1947,24 @@ $tla_active      = '';
 
     /* ── Pricing section — the Mastermind offer card ────────────────────────── */
     .mm-pricing {
-      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      background-color: #021c36;
+      background-image: url('<?php echo TLA_BASE; ?>/assets/consultation-header.png');
+      background-size: cover;
+      background-position: center;
       padding-block: clamp(56px, 7vw, 104px);
       position: relative;
       overflow: hidden;
     }
+    /* Navy gradient overlay over the photo (same treatment as mastermind's .mm-offer) */
+    .mm-pricing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(6, 14, 28, 0.92) 0%, rgba(2, 28, 54, 0.88) 50%, rgba(6, 14, 28, 0.94) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .mm-pricing > .container { position: relative; z-index: 1; }
     .mm-pricing::before {
       content: '';
       position: absolute;
@@ -1859,6 +1975,7 @@ $tla_active      = '';
       background: radial-gradient(closest-side, rgba(234, 194, 90, 0.1), transparent);
       filter: blur(70px);
       pointer-events: none;
+      z-index: 1;
     }
     .mm-plan {
       position: relative;
@@ -2547,6 +2664,7 @@ $tla_active      = '';
           <p class="lp-intro__subtitle" data-hero-step="3">Five AI-powered systems, live coaching every week, and the tools to turn ignored marketing into real clients.</p>
           <div class="lp-intro__actions" data-hero-step="4">
             <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mbs-5-laws/">Start Your Transformation</a>
+            <a class="btn btn--ghost btn--lg" href="#replay">Watch the Replay</a>
           </div>
         </div>
       </div>
@@ -2638,7 +2756,7 @@ $tla_active      = '';
             <div class="naq-plan__cta">
               <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mbs-5-laws/">Start Your Transformation</a>
             </div>
-            <p class="naq-plan__fine">12-month commitment. Offer only available to new members.</p>
+            <p class="naq-plan__fine">Discount pricing available through <strong>Monday, November&nbsp;23</strong>. 12-month commitment. Offer only available to new members.</p>
           </div>
         </div>
       </div>
@@ -2681,74 +2799,22 @@ $tla_active      = '';
       </div>
     </section>
 
-    <!-- ── 4. BRIDGE ────────────────────────────────────────────────────────── -->
-    <div class="lp-bridge">
+    <!-- ── 4. REPLAY — heading + video (from replay-mbs-111926.html) ───────── -->
+    <section class="rp-video" id="replay" aria-labelledby="rp-head-title">
       <div class="container">
-        <div class="lp-bridge__stack">
-          <!-- TOP: copy -->
-          <div class="lp-bridge__inner" data-reveal="up">
-            <p class="t-headline-md" style="font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); line-height: 1.35; margin: 0 0 var(--space-md);">
-              The loan officers pulling away from the pack aren&rsquo;t working harder than you. They&rsquo;re running systems that compound their production every month.
-            </p>
-            <p class="text-brass" style="font-family: var(--font-display); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.015em; margin: 0;">
-              With your Highway Member Offer, you can install them all for less than the commission of one extra loan.
-            </p>
-          </div>
-
-          <!-- BOTTOM: full-width video -->
-          <div class="lp-bridge__video" data-reveal="fade">
-            <div class="mm-video">
-              <iframe class="mm-video__frame"
-                src="https://player.mediadelivery.net/embed/684087/c27ffc9d-ddca-4238-b29a-15849e2347f8?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-                loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen="true"></iframe>
-            </div>
-          </div>
-
+        <div class="rp-head__inner">
+          <span class="rp-head__eyebrow">Webinar Replay</span>
+          <h2 id="rp-head-title" class="rp-head__title">The 5 Laws of Marketing</h2>
         </div>
-      </div>
-    </div>
-
-    <!-- ── 5. FIVE AI SYSTEMS ───────────────────────────────────────────────── -->
-    <section class="lp-systems" id="systems" aria-labelledby="systems-heading">
-      <div class="container">
-        <div class="center" data-reveal="up" style="max-width: 46rem; margin-inline: auto;">
-          <h2 id="systems-heading" class="t-display" style="color: #ffffff; font-weight: 800; margin-bottom: var(--space-md);">
-            <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">AI-Powered Systems</span> That Help You Close More Loans With Less Chaos
-          </h2>
-          <p class="t-body-lg" style="color: rgba(255, 255, 255, 0.68); font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);">Inside The Loan Atlas, these five systems work together to help you close more loans, make better decisions, and finally feel in control of your production.</p>
-        </div>
-
-        <div class="lp-systems__grid" data-reveal-stagger="100">
-          <article class="system-card">
-            <span class="system-card__num">01</span>
-            <span class="system-card__tagline">Stop Flying Blind</span>
-            <h3 class="system-card__title">AI Business Intelligence System</h3>
-            <p>See exactly what's driving your numbers. Which lead sources are producing, which referral partners are worth your time, where deals are dying. Guesswork becomes answers.</p>
-          </article>
-          <article class="system-card">
-            <span class="system-card__num">02</span>
-            <span class="system-card__tagline">Stop Starting Every Week From Scratch</span>
-            <h3 class="system-card__title">AI Business Planning Tool</h3>
-            <p>A personalized plan and weekly priority list based on your real pipeline and goals. Not a generic to-do list — a system that tells you what moves the needle right now.</p>
-          </article>
-          <article class="system-card">
-            <span class="system-card__num">03</span>
-            <span class="system-card__tagline">Stop Guessing What to Say</span>
-            <h3 class="system-card__title">AI Sales &amp; Marketing Advisor</h3>
-            <p>The right words for every conversation. Rate shoppers, Realtor meetings, objections, follow-up. Stop improvising; start communicating with clarity and precision.</p>
-          </article>
-          <article class="system-card">
-            <span class="system-card__num">04</span>
-            <span class="system-card__tagline">Stop Spinning Your Wheels</span>
-            <h3 class="system-card__title">AI Performance Coach</h3>
-            <p>Find the exact gaps slowing your growth and fix them faster. Instead of consuming more content and hoping something sticks, you get a focused plan to improve what matters most right now.</p>
-          </article>
-          <article class="system-card">
-            <span class="system-card__num">05</span>
-            <span class="system-card__tagline">Stop Making Big Decisions Alone</span>
-            <h3 class="system-card__title">AI Strategic Thought Partner</h3>
-            <p>Real-time guidance on decisions, deal scenarios, and growth opportunities. Think more clearly. Move faster. Make better calls with less hesitation.</p>
-          </article>
+        <div class="rp-video__frame">
+          <!-- Placeholder until the 5 Laws of Marketing replay is available.
+               When it is, swap this div for the Wistia embed (loader scripts go in <body>). -->
+          <div class="rp-video__soon">
+            <span class="rp-video__soon-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>
+            </span>
+            <p class="rp-video__soon-text">Replay Coming Soon</p>
+          </div>
         </div>
       </div>
     </section>
@@ -3046,7 +3112,7 @@ $tla_active      = '';
             <div class="naq-plan__cta">
               <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mbs-5-laws/">Start Your Transformation</a>
             </div>
-            <p class="naq-plan__fine">12-month commitment. Offer only available to new members.</p>
+            <p class="naq-plan__fine">Discount pricing available through <strong>Monday, November&nbsp;23</strong>. 12-month commitment. Offer only available to new members.</p>
           </div>
         </article>
 
@@ -3058,6 +3124,28 @@ $tla_active      = '';
   <!-- ── Footer (standard site chrome) ──────────────────────────────────────── -->
 <?php include get_stylesheet_directory() . '/tla/partials/footer.php'; ?>
 
+  <script>
+    // ── Platinum tiles: on mobile, show one output at a time and cycle ──
+    (function () {
+      var list = document.querySelector('.mm-plat__tiles');
+      if (!list) return;
+      var tiles = list.querySelectorAll('.mm-plat__tile');
+      var mq = window.matchMedia('(max-width: 559.98px)');
+      var i = 0, timer = null;
+      function show(n) {
+        tiles.forEach(function (t, k) { t.classList.toggle('is-active', k === n); });
+      }
+      function start() {
+        if (timer) return;
+        show(i);
+        timer = setInterval(function () { i = (i + 1) % tiles.length; show(i); }, 2600);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+      function sync() { mq.matches ? start() : stop(); }
+      (mq.addEventListener ? mq.addEventListener('change', sync) : mq.addListener(sync));
+      sync();
+    })();
+  </script>
   <!-- LeadConnector form embed (NAMB enrollment form) -->
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
   <script>
