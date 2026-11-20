@@ -920,7 +920,7 @@
 
     /* ══════════════════════════════════════════════════════════════════════════
        REPLAY — light band at the bottom (namb-build-your-custom-gpt.html's
-       .naq-replay), holding the "coming soon" panel until the video is ready
+       .naq-replay), holding the YouTube replay embed
        ══════════════════════════════════════════════════════════════════════════ */
     .rp-replay {
       background: var(--background);
@@ -960,6 +960,7 @@
       box-shadow: 0 30px 70px rgba(2, 28, 54, 0.22);
     }
     .rp-replay__frame wistia-player { display: block; }
+    .rp-replay__video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
     .rp-replay__soon {
       aspect-ratio: 16 / 9;
       display: flex;
@@ -1248,18 +1249,13 @@
           <h2 id="rp-title" class="rp-replay__title">The 5 Laws of Marketing</h2>
         </div>
         <div class="rp-replay__frame">
-          <!-- Placeholder until the 5 Laws of Marketing replay is available.
-               When it is, swap this div for the Wistia embed (loader scripts
-               stay in <body>, the build strips <head> scripts):
-                 <script src="https://fast.wistia.com/player.js" async></script>
-                 <script src="https://fast.wistia.com/embed/MEDIA_ID.js" async type="module"></script>
-                 <wistia-player media-id="MEDIA_ID" seo="false" aspect="1.7777777777777777"></wistia-player> -->
-          <div class="rp-replay__soon">
-            <span class="rp-replay__soon-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.85l10.6-6.86a1 1 0 0 0 0-1.7L9.52 4.29A1 1 0 0 0 8 5.14z"/></svg>
-            </span>
-            <p class="rp-replay__soon-text">Replay Coming Soon</p>
-          </div>
+          <iframe class="rp-replay__video"
+            src="https://www.youtube.com/embed/8_r6k6BRixg?rel=0"
+            title="The 5 Laws of Marketing — Webinar Replay"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
       </div>
     </section>
