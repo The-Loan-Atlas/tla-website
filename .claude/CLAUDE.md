@@ -146,3 +146,21 @@ the five page families, motion specs, and the "fresh page design" rules. Highlig
   classes and visual language — keep only colors + fonts + logo. See DESIGN.md.
 - All motion must include a `prefers-reduced-motion: reduce` fallback (the site honors it
   everywhere).
+
+## Landing pages: creative freedom
+
+Landing and marketing pages (e.g. Platinum Marketing) should **stand out**, not look like
+interchangeable pages assembled from the base component library.
+
+- **Sacred — never change:** the brand color palette (Midnight Slate `#021c36`, the brass
+  gradient, backgrounds), Manrope/Inter typography, and the logo.
+- **Free to invent:** section layouts, page-specific CSS and JS, custom interactive/visual
+  sections, and real motion (parallax, sticky-scroll, animated counters, hover states, SVG
+  draw-ins, etc.) — still with a `prefers-reduced-motion` fallback.
+- This applies to **landing/marketing pages only**. Ordinary and utility pages keep the
+  strict rule: restyle tokens/colors/type only, leave layout and section structure intact.
+- Use the `frontend-design` skill when building one. Before showing it, self-review:
+  `npm run shoot <page>.html` for desktop/tablet/mobile screenshots, critique for
+  genericness, refine, then do the final check in the built `_preview-*.html`.
+- Ask for reference sites the requester loves and real product screenshots, and use them
+  instead of placeholder frames.
