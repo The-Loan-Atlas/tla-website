@@ -1,6 +1,6 @@
 # Consultation — Corporate — Copy
 
-**Source:** public/consultation-corporate.html
+**Source:** public/enterprise-consultation.html
 **Live URL:** theloanatlas.com/enterprise-consultation/
 **SEO title:** Schedule an Enterprise Consultation — The Loan Atlas
 **Meta description:** A free strategy session for mortgage leaders and teams — see exactly where production is leaking across your roster and how to make your top producers' playbook the standard for everyone.

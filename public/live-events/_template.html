@@ -45,7 +45,7 @@
                 convert <event-slug>   <event-slug>   ""
           A missing file only prints "SKIP", so a forgotten line means the page
           silently never builds.
-       5. Add it to public/events.html: the featured hero card (it is the next
+       5. Add it to public/live-events.html: the featured hero card (it is the next
           masterclass) and a card in the Upcoming Live Events grid, in date order.
        6. npm run build && npm run preview
           Judge from wp-theme/_preview-<event-slug>.html — NEVER from the raw
@@ -58,8 +58,8 @@
        Converting to a replay is a different shape, not a tweak: the eyebrow and
        the single "Join This Masterclass" CTA give way to replay framing
        ("Recorded on <date>", a video embed, "Watch the Full Replay"), and the
-       event moves from the Upcoming grid to Past Masterclasses on events.html.
-       Copy an existing replay page (e.g. leveraging-google-reviews.html) rather
+       event moves from the Upcoming grid to Past Masterclasses on live-events.html.
+       Copy an existing replay page (e.g. leveraging-google-reviews-to-attract-clients-and-agents.html) rather
        than editing this one in place.
 
        -- TOKENS ----------------------------------------------------------------

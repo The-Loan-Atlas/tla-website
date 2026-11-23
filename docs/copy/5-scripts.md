@@ -1,6 +1,6 @@
 # 5 Scripts — Copy
 
-**Source:** public/5-scripts.html
+**Source:** public/5-scripts-for-dominating-point-of-sale.html
 **Live URL:** theloanatlas.com/5-scripts-for-dominating-point-of-sale/
 **SEO title:** 5 Essential Scripts for Dominating the Point of Sale | Free Download from The Loan Atlas
 **Meta description:** Free word-for-word scripts for the 5 objections that kill mortgage deals at the point of sale — rate shopping, rate-drop fear, market timing, the stall, and Rocket/Zillow — plus the coaching notes that make them work.

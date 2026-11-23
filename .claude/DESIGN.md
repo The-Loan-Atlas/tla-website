@@ -164,23 +164,23 @@ their hero and bespoke layout. This is the dominant pattern, not the exception:
 | Page | Inline `<style>` lines | Notes |
 |---|---|---|
 | `whats-inside.html` | ~2,650 | Most elaborate; full curriculum/showcase ecosystem |
-| `mastermind.html` | ~1,940 | Sticky offer bar, hero assistant, trust strip |
-| `consultation-mastermind.html` | ~830 | Offer bar + booking |
+| `join-mastermind-2026.html` | ~1,940 | Sticky offer bar, hero assistant, trust strip |
+| `consultation-mastermind-2026.html` | ~830 | Offer bar + booking |
 | `enterprise.html` | ~690 | Enterprise hero + offer sections |
 | `faculty.html` | ~570 | Navy hero w/ right-edge image fade + grid |
-| `sales-individual.html` | ~480 | LP header + hero |
+| `membership.html` | ~480 | LP header + hero |
 | `join.html` | ~420 | Dark hero + pricing grid |
 | `platinum-marketing.html` | ~340 | Reuses mastermind `.lp-`/`.mm-` language |
 | `consultation.html` | ~285 | Navy hero + booking |
 | `contact.html` | ~265 | Two-column contact shell |
 | `blog-post.html` | ~265 | Two-column post (future `blog.css`) |
 | `index.html` | ~240 | Hero/content width overrides |
-| `consultation-corporate.html` | ~230 | Navy hero + booking |
+| `enterprise-consultation.html` | ~230 | Navy hero + booking |
 | blog / blog-archive | ~220 / ~125 | Future `blog.css` |
 | legal pages | ~40 each | `.legal-header` + `.legal-doc` prose rhythm |
-| `events.html` | 0 | Pure house style (shared classes only) |
+| `live-events.html` | 0 | Pure house style (shared classes only) |
 | `ai-originator-masterplan.html` | 0 | Fresh design lives in styles.css as `.aimp-*` |
-| `5-scripts.html` | 0 | Fresh design lives in styles.css as `.s5-*` |
+| `5-scripts-for-dominating-point-of-sale.html` | 0 | Fresh design lives in styles.css as `.s5-*` |
 
 **Rule of thumb:** shared tokens, chrome, and reusable components live in the
 stylesheets; per-page hero + layout choreography lives inline. When adding a new page,
@@ -481,15 +481,15 @@ centers a lone logo (landing pages). All chrome values are hardcoded (token-inde
 
 Every live page belongs to one of these. Match the family when adding pages.
 
-1. **House style** — `index`, `join`, `sales-individual`, `events`, `contact`.
+1. **House style** — `index`, `join`, `membership`, `live-events`, `contact`.
    Shared catalog + light/dark section rhythm; modest inline hero/layout CSS.
-2. **Dark-hero / enterprise** — `faculty`, `consultation`, `consultation-corporate`,
-   `consultation-mastermind`, `enterprise`, `whats-inside`. Coordinated navy hero
+2. **Dark-hero / enterprise** — `faculty`, `consultation`, `enterprise-consultation`,
+   `consultation-mastermind-2026`, `enterprise`, `whats-inside`. Coordinated navy hero
    (standard dark band `160deg,#060e1c→#021c36→#060e1c`), brass/blue radial glows,
    right-edge image fades, large bespoke inline component suites. `whats-inside` is the
    richest.
 3. **Fresh standalone landings** — `ai-originator-masterplan` (`.aimp-*`),
-   `5-scripts` (`.s5-*`), `mastermind` + `platinum-marketing` (`.mm-*`/`.lp-*`). Distinct
+   `5-scripts-for-dominating-point-of-sale` (`.s5-*`), `join-mastermind-2026` + `platinum-marketing` (`.mm-*`/`.lp-*`). Distinct
    visual languages; see next section.
 4. **Blog** — `blog`, `blog-archive`, `blog-post`. Inline styles slated to become
    `tla/css/blog.css`. Distinctive: navy masthead hero (standard dark band) with a
@@ -579,7 +579,7 @@ gradient** for accent words — `linear-gradient(100deg, #41b7f9 0%, #7fc4ff 32%
 55%, #63a3f9 100%)` — instead of the house brass gradient. It has its own hero device
 stage, animated vertical timeline (blue→brass rail fill), animated SVG closings chart,
 lead-capture `<dialog>`, and before→after shift list. It does **not** reuse `.eyebrow`,
-`.systems`, `.compare-v2`, etc. `5-scripts` (`.s5-*`) and `mastermind`/`platinum-marketing`
+`.systems`, `.compare-v2`, etc. `5-scripts-for-dominating-point-of-sale` (`.s5-*`) and `join-mastermind-2026`/`platinum-marketing`
 (`.mm-*`/`.lp-*`) are the same idea in their own languages.
 
 **What stays sacred (the ONLY things that carry over):**

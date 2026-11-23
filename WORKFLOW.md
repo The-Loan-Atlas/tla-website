@@ -114,10 +114,10 @@ If a deployed change isn't visible, it's almost always cache — not the deploy.
 
 The deploy uploads the file, but WordPress still needs a Page created once:
 
-1. Add `public/<name>.html` (copy an existing page; keep its `<title>`,
+1. Add `public/<folder>/<slug>.html` — the filename must equal the slug (copy an existing page; keep its `<title>`,
    `<meta name="description">`, and the `<!-- TLA_HEADER -->` / `<!-- TLA_FOOTER -->`
    sentinels where the shared nav/footer should go), then add a line to the slug
-   map at the bottom of `scripts/convert-pages.sh`: `convert <name> <slug> <active-key>`
+   map at the bottom of `scripts/convert-pages.sh`: `convert <folder>/<slug> <slug> <active-key>`
 2. `npm run ship "add <name> page"` (file deploys).
 3. WP Admin → **Pages → Add New** → set **Slug** = `<slug>` →
    **Page Attributes → Template → "TLA Full HTML"** → leave body empty → Publish.
@@ -127,19 +127,11 @@ The deploy uploads the file, but WordPress still needs a Page created once:
 
 ## Slug map (source file → live URL)
 
-| Source (`public/`) | Live URL |
-|---|---|
-| `index.html` | `/` (homepage — set via Appearance → Customize → Homepage) |
-| `join.html` | `/join/` |
-| `faculty.html` | `/faculty/` |
-| `enterprise.html` | `/enterprise/` |
-| `whats-inside.html` | `/whats-inside/` |
-| `sales-individual.html` | `/membership/` |
-| `consultation.html` | `/consultation/` |
-| `events.html` | `/events/` |
-| `mastermind.html` | `/join-mastermind-2026/` |
-| `consultation-corporate.html` | `/enterprise-consultation/` |
-| `consultation-mastermind.html` | `/consultation-mastermind-2026/` |
+**Filename = slug, always:** `public/<folder>/<slug>.html` → `/<slug>/`. The only
+exception is `index.html` → `/` (homepage — set via Appearance → Customize →
+Homepage). If a slug changes, `git mv` the file to match and update its slug-map
+line, its link-map rule in `rewrite()`, and any `href="<old>.html"` links. The full
+list is the slug map at the bottom of `scripts/convert-pages.sh`.
 
 ---
 

@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NAMB Platinum Super Bonus — Exclusive Loan Atlas Pricing</title>
+  <title>Mastermind Summit 2026 — Exclusive Loan Atlas Offer</title>
   <meta name="description"
-    content="NAMB member pricing: full access to The Loan Atlas at $149/mo — down from $349/mo — locked in, plus 3 months free of Platinum Marketing." />
+    content="An offer exclusively for Mastermind Summit 2026 attendees: full access to The Loan Atlas at $249/mo locked in, plus 6 months free of Platinum Marketing — over $1,800 in savings." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,208 +18,64 @@
   <style>
     /* ── MASTERMIND-SPECIFIC STYLES (page-scoped) ───────────────────────────── */
 
-    /* ── Sticky offer bar — pinned under the header ─────────────────────────────
-       Two tiers: a thin brass strip naming the audience, and a dark row carrying
-       the numbers. The dark row continues the header's gradient so the bar reads
-       as part of the chrome rather than a banner stapled below it. ──────────── */
-    .namb-bar {
+    /* ── Sticky offer bar — pinned under the header ─────────────────────────── */
+    .mm-bar {
       position: sticky;
       top: var(--header-h);
       z-index: 40;
-      border-bottom: 2px solid transparent;
-      border-image: linear-gradient(90deg, #c9961c, #ffd56c, #c9961c) 1;
-      box-shadow: 0 8px 26px rgba(2, 28, 54, 0.28);
-    }
-
-    /* The whole bar is one link to checkout. It stays a plain block that
-       inherits its children's colors, so the two tiers look identical to the
-       pre-link version — only the cursor, a subtle brightening on hover and the
-       focus ring signal that it's clickable. No hover lift on purpose: the bar
-       is sticky, so shifting it would slide it against the scrolling page. */
-    .namb-bar__link {
-      display: block;
-      color: inherit;
-      text-decoration: none;
-      transition: filter 0.2s ease;
-    }
-    .namb-bar__link:hover {
-      filter: brightness(1.06);
-    }
-    .namb-bar__link:focus-visible {
-      outline: 3px solid #ffd56c;
-      outline-offset: -3px;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .namb-bar__link { transition: none; }
-    }
-
-    /* Tier 1 — brass audience strip. The rules either side of the label are
-       pseudo-elements so the markup stays a single span. */
-    .namb-bar__strip {
       background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      color: #021c36;
+      box-shadow: 0 6px 20px rgba(2, 28, 54, 0.18);
     }
-    .namb-bar__strip-in {
+    .mm-bar__inner {
       max-width: var(--container-max);
       margin-inline: auto;
-      padding: 9px var(--gutter);
+      padding: 10px var(--gutter);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-    }
-    .namb-bar__strip-in::before,
-    .namb-bar__strip-in::after {
-      content: "";
-      height: 1px;
-      width: clamp(20px, 6vw, 70px);
-      background: rgba(2, 28, 54, 0.32);
-    }
-    .namb-bar__label {
-      font-family: var(--font-body);
-      font-weight: 900;
-      font-size: 0.9375rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #021c36;
+      flex-wrap: wrap;
+      gap: 8px 16px;
       text-align: center;
     }
-
-    /* Tier 2 — dark detail row.
-       Two nested axes so the copy and the pill are both honest:
-       - .namb-bar__row-in centres its children, so the text group and the CTA
-         share one vertical centre line.
-       - .namb-bar__copy inside it is baseline-aligned, so the price, offer and
-         savings sit on one optical line. */
-    .namb-bar__row {
-      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
-    }
-    .namb-bar__row-in {
-      max-width: var(--container-max);
-      margin-inline: auto;
-      padding: 17px var(--gutter);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .namb-bar__copy {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: clamp(9px, 1.3vw, 14px);
-      flex-wrap: wrap;
-    }
-    .namb-bar__price {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.875rem;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-      line-height: 1.1;
-    }
-    .namb-bar__price i {
-      font-style: normal;
-      font-size: 0.46em;
+    .mm-bar__text {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
       font-weight: 700;
-      opacity: 0.72;
-      letter-spacing: 0;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
     }
-    .namb-bar__price s {
-      font-family: var(--font-display);
-      font-size: 0.6em;
-      font-weight: 600;
-      opacity: 0.42;
-      margin-right: 9px;
-      letter-spacing: 0;
+    .mm-bar__text strong { font-weight: 800; }
+    .mm-bar__sep {
+      opacity: 0.5;
+      padding-inline: 4px;
     }
-    /* The + is its own element, centred between the two facts. It is
-       align-self: center rather than on the shared baseline because the glyph's
-       ink sits high in its em box — baselining it floats it above centre. */
-    .namb-bar__plus {
-      align-self: center;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.5rem;
-      line-height: 1;
-      color: rgba(234, 194, 90, 0.85);
+    .mm-bar__btn {
       flex-shrink: 0;
-      transform: translateY(-0.02em);
-    }
-    .namb-bar__free {
-      font-family: var(--font-display);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #021c36;
+      color: #ffffff;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
       font-weight: 700;
-      font-size: 1.3125rem;
-      color: rgba(255, 255, 255, 0.94);
-      white-space: nowrap;
-      line-height: 1.1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      transition: transform 150ms ease, box-shadow 150ms ease;
     }
-    .namb-bar__free b { color: #eac25a; font-weight: 800; }
-    .namb-bar__save {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.3125rem;
-      color: #6ee7a0;
-      white-space: nowrap;
-      line-height: 1.1;
-      margin-left: clamp(7px, 1.3vw, 16px);
+    .mm-bar__btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(2, 28, 54, 0.3);
     }
-    /* Step the type down so the row holds one line as long as possible. */
-    @media (max-width: 1279px) {
-      .namb-bar__label { font-size: 0.875rem; letter-spacing: 0.15em; }
-      .namb-bar__row-in { padding: 15px var(--gutter); }
-      .namb-bar__price { font-size: 1.625rem; }
-      .namb-bar__free, .namb-bar__save { font-size: 1.125rem; }
-      .namb-bar__plus { font-size: 1.3125rem; }
-    }
-    @media (max-width: 1099px) {
-      .namb-bar__label { font-size: 0.8125rem; letter-spacing: 0.14em; }
-      .namb-bar__price { font-size: 1.375rem; }
-      .namb-bar__free, .namb-bar__save { font-size: 1rem; }
-      .namb-bar__plus { font-size: 1.1875rem; }
-    }
-    @media (max-width: 899px) {
-      .namb-bar__strip-in { padding: 6px var(--gutter); }
-      .namb-bar__label { font-size: 0.75rem; letter-spacing: 0.12em; }
-      .namb-bar__row-in { padding: 13px var(--gutter); }
-      .namb-bar__price { font-size: 1.1875rem; }
-      .namb-bar__free, .namb-bar__save { font-size: 0.875rem; }
-      .namb-bar__plus { font-size: 1rem; }
-    }
-    /* Below 640px the offer copy takes its own centred line, so the standalone
-       + would be orphaned beside the price — hide it and inline it instead. */
-    @media (max-width: 639px) {
-      .namb-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
-      .namb-bar__strip-in::before,
-      .namb-bar__strip-in::after { width: clamp(12px, 4vw, 40px); }
-      .namb-bar__row-in { padding: 9px 14px; gap: 8px 12px; }
-      .namb-bar__copy { gap: 4px 12px; }
-      .namb-bar__price { font-size: 1.25rem; }
-      .namb-bar__price s { display: none; }
-      .namb-bar__plus { display: none; }
-      .namb-bar__free {
-        flex-basis: 100%;
-        text-align: center;
-        font-size: 0.8125rem;
-        order: 3;
-      }
-      .namb-bar__free::before {
-        content: "+ ";
-        color: rgba(234, 194, 90, 0.85);
-        font-weight: 700;
-      }
-      .namb-bar__save { font-size: 0.8125rem; margin-left: 0; }
-    }
-    /* Narrowest phones: the label is wider than the strip at full tracking. */
-    @media (max-width: 380px) {
-      .namb-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
-      .namb-bar__strip-in { gap: 8px; }
-      .namb-bar__strip-in::before,
-      .namb-bar__strip-in::after { display: none; }
+    @media (max-width: 600px) {
+      .mm-bar__hide-sm { display: none; }
     }
 
     /* ── Hero (reuses lp-intro; tightened for offer focus) ──────────────────── */
 
-    /* Eyebrow above the hero heading. */
     /* ── Larger landing-page CTA — bigger pad + text than the shared .btn--lg ── */
     .btn--landing,
     .lp-intro .btn--gold.btn--lg,
@@ -255,20 +111,20 @@
     .lp-intro__title {
       font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.25rem);
     }
-    /* Larger hero body copy (matches the homepage hero). The shared rule caps
-       this at 40rem, which pinches this page's longer subtitle well inside the
-       headline above it — widen it to sit with the 56rem content column. */
+    /* Larger hero body copy (matches the homepage hero). */
     .lp-intro__subtitle {
       font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);
-      max-width: 52rem;
     }
-    /* "With Less Chaos" — brass gold gradient, always on its own line. */
+    /* "With Less Chaos" — brass gold gradient. */
     .mm-hero-gold {
-      display: block;
       background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+    }
+    /* One line on desktop; breaks onto its own line below the desktop breakpoint. */
+    @media (max-width: 859.98px) {
+      .mm-hero-gold { display: block; }
     }
     /* This headline is longer than the default lp-intro title, so scale it down
        on narrow screens to prevent the long words from overflowing the gutter. */
@@ -281,10 +137,21 @@
 
     /* ── Offer highlight card (the flyer centerpiece) ───────────────────────── */
     .mm-offer {
-      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      background-image: url('../assets/bellagio.png');
+      background-size: cover;
+      background-position: center;
       padding-block: clamp(48px, 6vw, 88px);
       position: relative;
       overflow: hidden;
+    }
+    /* Navy gradient overlay over the bellagio photo */
+    .mm-offer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(6, 14, 28, 0.92) 0%, rgba(2, 28, 54, 0.88) 50%, rgba(6, 14, 28, 0.94) 100%);
+      pointer-events: none;
+      z-index: 0;
     }
     .mm-offer > .container { position: relative; z-index: 1; }
     .mm-offer__card {
@@ -321,8 +188,7 @@
     .mm-offer__hero-title {
       position: relative;
       z-index: 1;
-      margin-top: var(--space-sm);
-      margin-bottom: var(--space-lg);
+      margin-bottom: var(--space-md);
     }
     .mm-offer__strike {
       position: relative;
@@ -387,7 +253,7 @@
       display: block;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.5rem);
+      font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);
       color: rgba(255, 255, 255, 0.85);
     }
     .mm-step__was .mm-offer__strike {
@@ -405,15 +271,24 @@
       color: #ffffff;
     }
     .mm-step--first .mm-step__price {
-      font-size: clamp(3.75rem, 2.3rem + 7vw, 6.25rem);
+      font-size: clamp(3.25rem, 2rem + 6vw, 5rem);
       background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
     .mm-step--rest .mm-step__price {
-      font-size: clamp(3.75rem, 2.3rem + 7vw, 6.25rem);
+      font-size: clamp(3.25rem, 2rem + 6vw, 5rem);
     }
+    .mm-step__sub {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.4;
+    }
+    .mm-step__sub strong { color: #ffffff; font-weight: 700; }
     .mm-offer__arrow {
       display: flex;
       align-items: center;
@@ -708,7 +583,7 @@
     }
     .system-card__tagline {
       font-family: var(--font-body);
-      font-size: 0.8125rem;
+      font-size: 0.6875rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -718,15 +593,15 @@
     }
     .system-card__title {
       font-family: var(--font-display);
-      font-size: clamp(1.3125rem, 1.2rem + 0.4vw, 1.5rem);
+      font-size: 1.1875rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: var(--space-sm);
       line-height: 1.3;
     }
     .system-card p {
-      font-size: clamp(1.03125rem, 0.98rem + 0.22vw, 1.125rem);
-      line-height: 1.62;
+      font-size: 0.9375rem;
+      line-height: 1.68;
       color: rgba(255, 255, 255, 0.7);
       margin: 0;
     }
@@ -1082,38 +957,17 @@
         inset 0 0 0 1px rgba(234, 194, 90, 0.12);
     }
     @media (min-width: 760px) {
-      /* The price column needs more than half the box: "3 Months FREE" is
-         nowrap at up to 68px. Give it the larger share and put the divider on
-         the real column boundary rather than at 50%, so the price can never
-         cross it. --plat-split is that boundary, shared by both. */
-      .mm-plat__offer {
-        --plat-split: 44%;
-        grid-template-columns: var(--plat-split) minmax(0, 1fr);
-      }
-      /* Keep the price block clear of the divider: it sits at the start of its
-         own column rather than centred in it, so a column wider than the text
-         can never let the block drift back across the line. */
-      .mm-plat__offer-deal {
-        align-items: flex-start;
-        text-align: left;
-        padding-left: clamp(16px, 2.6vw, 40px);
-      }
-      .mm-plat__price-tag { align-items: flex-start; }
-      .mm-plat__price-note { text-align: left; }
+      .mm-plat__offer { grid-template-columns: 1fr 1fr; }
+      /* Divider in the exact middle of the box */
       .mm-plat__offer::before {
         content: '';
         position: absolute;
         top: clamp(28px, 4vw, 48px);
         bottom: clamp(28px, 4vw, 48px);
-        /* Sit midway across the grid gap that follows the first column. */
-        left: calc(clamp(28px, 4vw, 48px) + var(--plat-split));
+        left: 50%;
         width: 1px;
         background: rgba(234, 194, 90, 0.22);
       }
-    }
-    /* Below ~1050px the nowrap price still crowds the line; hand it more room. */
-    @media (min-width: 760px) and (max-width: 1049.98px) {
-      .mm-plat__offer { --plat-split: 38%; }
     }
 
     .mm-plat__list-label {
@@ -1147,22 +1001,6 @@
       text-align: center;
     }
     .mm-plat__offer-deal .btn { width: 100%; }
-    /* The shared .eyebrow only draws a rule on its left (::before in
-       styles.css); this page-scoped ::after mirrors it on the right so the
-       label sits between two matching lines. */
-    .mm-plat__eyebrow::after {
-      content: '';
-      width: 32px;
-      height: 1px;
-      background: var(--brass-bright);
-      flex-shrink: 0;
-    }
-    /* Match the shared ::before to the brighter brass used for this label. */
-    .mm-plat__eyebrow::before {
-      background: var(--brass-bright);
-      flex-shrink: 0;
-    }
-
     .mm-plat__price-tag {
       display: flex;
       flex-direction: column;
@@ -1174,32 +1012,25 @@
       position: relative;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: clamp(2.25rem, 1.7rem + 1.7vw, 3.25rem);
+      font-size: 2.5rem;
       color: rgba(255, 255, 255, 0.5);
     }
-    .mm-plat__price-was span { font-size: 0.42em; font-weight: 600; letter-spacing: 0; }
-    /* Strike only the figure, not the trailing "/mo" — and keep it level.
-       The rule used to span the whole element at -8deg, which overshot the
-       digits once the price was enlarged. */
-    .mm-plat__price-was em {
-      position: relative;
-      font-style: normal;
-    }
-    .mm-plat__price-was em::after {
+    .mm-plat__price-was span { font-size: 1.125rem; font-weight: 600; }
+    .mm-plat__price-was::after {
       content: '';
       position: absolute;
-      left: -5px;
-      right: -5px;
-      top: 54%;
+      left: -4px;
+      right: -4px;
+      top: 52%;
       height: 3px;
       border-radius: 2px;
       background: var(--brass-bright);
-      transform: rotate(-6deg);
+      transform: rotate(-8deg);
     }
     .mm-plat__price-now {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: clamp(2.25rem, 1.1rem + 2.6vw, 3.375rem);
+      font-size: clamp(2.25rem, 1.5rem + 2.4vw, 3rem);
       line-height: 0.95;
       letter-spacing: -0.03em;
       white-space: nowrap;
@@ -1210,7 +1041,7 @@
     }
     .mm-plat__price-note {
       font-family: var(--font-body);
-      font-size: clamp(1rem, 0.92rem + 0.3vw, 1.125rem);
+      font-size: 0.9375rem;
       line-height: 1.45;
       color: rgba(255, 255, 255, 0.78);
       margin: calc(var(--space-md) * -0.75) 0 0;
@@ -1346,41 +1177,14 @@
       background: var(--surface);
       padding-block: clamp(56px, 7vw, 96px);
     }
-    /* Footnote for the caption's asterisk. Its own full-width row at the base
-       of the card, pulled toward the bottom padding edge, and kept to a single
-       line — no max-width, and it shrinks rather than wrapping on narrow
-       screens (see the nowrap + clamp below). */
-    .lp-proof-card__footnote {
-      /* Positioned rather than a grid row: as a row it inherited the card's
-         56px row-gap above it, which no negative margin could collapse. */
-      position: absolute;
-      left: clamp(24px, 4vw, 56px);
-      right: clamp(24px, 4vw, 56px);
-      bottom: clamp(12px, 1.4vw, 18px);
+    .mm-page-footnote {
+      margin: clamp(32px, 4vw, 48px) auto 0;
       font-family: var(--font-body);
-      font-size: clamp(0.625rem, 0.36rem + 0.7vw, 0.75rem);
-      font-weight: 400;
-      line-height: 1.3;
-      color: rgba(255, 255, 255, 0.45);
-      white-space: nowrap;
-      margin: 0;
-
+      font-size: 0.9375rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #ffffff;
       text-align: center;
-    }
-    @media (min-width: 760px) {
-      .lp-proof-card__footnote { text-align: left; }
-    }
-    /* Phones: one line is impossible at a readable size — wrap instead. */
-    @media (max-width: 599.98px) {
-      .lp-proof-card__footnote {
-        white-space: normal;
-        font-size: 0.6875rem;
-      }
-    }
-
-    /* Pricing card gets a little scroll offset so the sticky header clears it. */
-    #namb-form {
-      scroll-margin-top: calc(var(--header-h) + 24px);
     }
     .lp-proof-card {
       max-width: 64rem;
@@ -1392,8 +1196,6 @@
         0 30px 70px rgba(2, 28, 54, 0.35),
         inset 0 0 0 1px rgba(234, 194, 90, 0.08);
       padding: clamp(32px, 4vw, 56px) clamp(24px, 4vw, 56px);
-      /* Extra bottom room for the absolutely-positioned footnote. */
-      padding-bottom: clamp(52px, 5.2vw, 74px);
       position: relative;
       overflow: hidden;
       display: grid;
@@ -1401,14 +1203,6 @@
       grid-template-columns: 1fr;
       align-items: center;
       text-align: center;
-    }
-    /* Narrow phones: the footnote wraps to 2–3 lines, which needs more reserved
-       space at the card's base than the desktop single line. */
-    @media (max-width: 430px) {
-      .lp-proof-card { padding-bottom: 62px; }
-    }
-    @media (max-width: 380px) {
-      .lp-proof-card { padding-bottom: 76px; }
     }
     .lp-proof-card::before {
       content: '';
@@ -1692,32 +1486,34 @@
       position: relative;
       z-index: 1;
     }
-    /* Logo over a single-line account heading. No divider rule between them —
-       the gap alone separates the mark from the title. */
+    /* Co-branded logo lockup — Loan Atlas × Mastermind */
     .mm-plan__lockup {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: clamp(12px, 1.6vw, 18px);
-      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+      gap: clamp(12px, 2.5vw, 26px);
+      margin-bottom: var(--space-md);
     }
+    /* Both marks sized to a similar visual height, sitting bare on the card */
     .mm-plan__lockup-atlas {
-      height: clamp(32px, 4.6vw, 46px);
+      height: clamp(56px, 8vw, 84px);
       width: auto;
       display: block;
     }
-    /* Account-tier heading — all white, one line at every width. */
-    .mm-plan__lockup-label {
-      display: block;
+    .mm-plan__lockup-x {
       font-family: var(--font-display);
-      font-size: clamp(0.9375rem, 0.5rem + 2.4vw, 2.875rem);
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.15;
-      color: #ffffff;
-      text-align: center;
-      margin: 0;
+      font-weight: 400;
+      font-size: clamp(1.125rem, 0.9rem + 0.8vw, 1.5rem);
+      color: rgba(234, 194, 90, 0.7);
+      line-height: 1;
+    }
+    .mm-plan__lockup-mm {
+      height: clamp(48px, 7vw, 70px);
+      width: auto;
+      display: block;
+      /* recolor the black/red mastermind logo to solid white */
+      filter: brightness(0) invert(1);
     }
     .mm-plan__sponsored {
       font-family: var(--font-body);
@@ -1768,24 +1564,6 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(234, 194, 90, 0.5), transparent);
     }
-    /* Sub-note under the plus line. Sits close beneath it (the plus line owns a
-       large auto margin, so cancel most of the bottom half) and drops to body
-       face at a smaller size so it reads as a footnote to that line. */
-    .mm-plan__plus-note {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: clamp(1rem, 0.93rem + 0.25vw, 1.0625rem);
-      line-height: 1.45;
-      color: rgba(255, 255, 255, 0.62);
-      text-align: center;
-      max-width: 34rem;
-      margin: calc(var(--space-lg) * -0.6) auto var(--space-lg);
-    }
-    .mm-plan__plus-note strong {
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.92);
-    }
-
     .mm-plan__plus > span {
       flex: 0 1 auto;
     }
@@ -1797,24 +1575,67 @@
       background-clip: text;
       color: transparent;
     }
-    /* Savings line — sits under the card heading. No pill chrome; italic so it
-       reads as an aside to the heading rather than a second label. The lockup
-       above owns a large bottom margin, so pull up into it. */
     .mm-plan__save {
       text-align: center;
+      margin: 0 0 var(--space-xl);
+    }
+    .mm-plan__save-pill {
+      display: inline-block;
       font-family: var(--font-body);
-      font-style: italic;
       font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1875rem);
       font-weight: 600;
-      line-height: 1.4;
+      letter-spacing: 0;
       color: #6ee7a8;
-      max-width: 46rem;
-      margin: calc(var(--space-lg) * -0.7) auto clamp(28px, 3.4vw, 48px);
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.4);
+      border-radius: var(--radius-full);
+      padding: 12px 28px;
+      line-height: 1.5;
     }
-    .mm-plan__save em {
-      font-style: italic;
+    .mm-plan__save-pill em {
+      font-style: normal;
       font-weight: 800;
       color: #34d399;
+    }
+    .mm-plan__list {
+      list-style: none;
+      margin: 0 auto var(--space-xl);
+      padding: var(--space-xl) 0;
+      border-block: 1px solid rgba(234, 194, 90, 0.18);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      text-align: left;
+      max-width: 32rem;
+    }
+    @media (min-width: 640px) {
+      .mm-plan__list {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md) var(--space-lg);
+        max-width: 52rem;
+      }
+    }
+    .mm-plan__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .mm-plan__list .icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      color: var(--brass-bright);
+    }
+    .mm-plan__cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-xl);
     }
     .mm-plan__fine {
       font-size: 0.8125rem;
@@ -2076,153 +1897,6 @@
       .hm-system__name,
       .hm-chat__msg--bot { transition: none; }
     }
-
-    /* ══════════════════════════════════════════════════════════════════════════
-       NAMB EXCLUSIVE PRICING — two-tier monthly/annual card.
-       Ported from public/custom-sales-pages/vmba-convention-2026.html so both pricing
-       sections on this page present the identical NAMB member offer.
-       Uses literal brass values (this page defines no --naq-* tokens).
-       ══════════════════════════════════════════════════════════════════════════ */
-    .naq-plan {
-      --naq-plan-pad: clamp(28px, 4vw, 56px);
-      max-width: 72rem;
-      margin-inline: auto;
-      background: linear-gradient(135deg, #0a1628 0%, #021c36 55%, #0a223d 100%);
-      border-radius: var(--radius-3xl);
-      border: 1px solid rgba(234, 194, 90, 0.4);
-      box-shadow:
-        0 40px 90px rgba(2, 28, 54, 0.45),
-        0 0 60px rgba(234, 194, 90, 0.14),
-        inset 0 0 0 1px rgba(234, 194, 90, 0.12);
-      padding: var(--naq-plan-pad);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .naq-plan__offer { max-width: 48rem; margin-inline: auto; }
-    .naq-plan::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(closest-side, rgba(234, 194, 90, 0.2), transparent);
-      filter: blur(50px);
-      pointer-events: none;
-    }
-    .naq-plan > * { position: relative; z-index: 1; }
-
-    .naq-plan__title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(1.875rem, 1.3rem + 2.6vw, 2.75rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      margin: 0 0 var(--space-lg);
-      text-wrap: balance;
-    }
-
-    /* Two price blocks — monthly + annual */
-    .naq-plan__steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-      align-items: stretch;
-      max-width: 40rem;
-      margin: 0 auto var(--space-lg);
-    }
-    @media (min-width: 620px) {
-      .naq-plan__steps { grid-template-columns: 1fr 1fr; }
-    }
-    .naq-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      border-radius: var(--radius-2xl);
-      padding: clamp(28px, 3.5vw, 44px) var(--space-md);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-    .naq-step--annual {
-      background: rgba(234, 194, 90, 0.1);
-      border: 1px solid rgba(234, 194, 90, 0.45);
-    }
-    .naq-step__was {
-      display: block;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.625rem);
-      color: rgba(255, 255, 255, 0.82);
-    }
-    .naq-step__strike {
-      position: relative;
-      white-space: nowrap;
-    }
-    .naq-step__strike::after {
-      content: '';
-      position: absolute;
-      left: -2px;
-      right: -2px;
-      top: 50%;
-      height: 3px;
-      background: #eac25a;
-      transform: rotate(-6deg);
-    }
-    .naq-step__price {
-      display: block;
-      font-family: var(--font-display);
-      font-weight: 800;
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      font-size: clamp(2.75rem, 1.8rem + 4.6vw, 4.25rem);
-      /* Breathing room around the headline price (adds to the .naq-step 10px gap). */
-      margin-block: clamp(10px, 1.4vw, 18px);
-    }
-    .naq-step--annual .naq-step__price {
-      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .naq-step__price span {
-      font-size: 0.32em;
-      font-weight: 700;
-      letter-spacing: 0;
-      -webkit-text-fill-color: initial;
-    }
-    .naq-step__sub {
-      display: block;
-      font-family: var(--font-body);
-      font-size: clamp(1.0625rem, 0.98rem + 0.35vw, 1.1875rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.45;
-    }
-    .naq-step__sub strong { color: #ffffff; font-weight: 700; }
-
-
-    .naq-plan__cta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    .naq-plan__cta .btn--gold.btn--lg {
-      font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.3125rem);
-      padding: clamp(20px, 1.6vw, 26px) clamp(36px, 4vw, 56px);
-      border-radius: var(--radius-2xl);
-      box-shadow: 0 10px 32px rgba(201, 150, 28, 0.34);
-    }
-    .naq-plan__fine {
-      font-size: 0.8125rem;
-      color: rgba(255, 255, 255, 0.55);
-      margin: var(--space-md) 0 0;
-      line-height: 1.5;
-    }
   </style>
 </head>
 
@@ -2232,24 +1906,15 @@
 <!-- TLA_HEADER_MINIMAL -->
 
   <!-- ── Sticky offer bar ───────────────────────────────────────────────────── -->
-  <div class="namb-bar">
-    <a class="namb-bar__link" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/" aria-label="Activate Your NAMB Platinum Super Bonus — $149/mo plus 3 months free Platinum Marketing, save $2,900">
-      <div class="namb-bar__strip">
-        <div class="namb-bar__strip-in">
-          <span class="namb-bar__label">Activate Your NAMB Platinum Super Bonus</span>
-        </div>
-      </div>
-      <div class="namb-bar__row">
-        <div class="namb-bar__row-in">
-          <div class="namb-bar__copy">
-            <span class="namb-bar__price"><s>$349/mo</s>$149<i>/mo</i></span>
-            <span class="namb-bar__plus" aria-hidden="true">+</span>
-            <span class="namb-bar__free"><b>3 Months FREE</b> Platinum Marketing</span>
-            <span class="namb-bar__save">Save $2,900</span>
-          </div>
-        </div>
-      </div>
-    </a>
+  <div class="mm-bar">
+    <div class="mm-bar__inner">
+      <p class="mm-bar__text">
+        <strong>Mastermind Exclusive</strong>
+        <span class="mm-bar__sep">·</span>
+        Save $100/mo + 6 Months Free Platinum Marketing
+      </p>
+      <a class="mm-bar__btn" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">Claim Offer</a>
+    </div>
   </div>
 
   <main>
@@ -2259,9 +1924,9 @@
       <div class="container">
         <div class="lp-intro__content">
           <h1 id="mm-hero-heading" class="lp-intro__title" data-hero-step="2">Close More Loans <span class="mm-hero-gold">With Less Chaos</span></h1>
-          <p class="lp-intro__subtitle" data-hero-step="3">The Loan Atlas installs 5 AI-powered systems into your mortgage business to help you make better decisions, execute faster, and stay focused on what actually drives production.</p>
+          <p class="lp-intro__subtitle" data-hero-step="3">Five AI-powered systems, live coaching every week, and the tools to turn ignored marketing into real clients — <em>at a price exclusively for Mastermind.</em></p>
           <div class="lp-intro__actions" data-hero-step="4">
-            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">Activate Your NAMB Platinum Super Bonus</a>
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">Start Your Transformation</a>
           </div>
         </div>
       </div>
@@ -2315,27 +1980,33 @@
     <!-- ── 2. OFFER HIGHLIGHT CARD ──────────────────────────────────────────── -->
     <section class="mm-offer" aria-labelledby="mm-offer-heading">
       <div class="container">
-        <div id="namb-form" class="mm-offer__card" data-reveal="scale">
-          <div class="mm-plan__lockup" aria-label="The Loan Atlas — NAMB Platinum Super Bonus pricing">
-            <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logo-gold.png" alt="The Loan Atlas" />
-            <h3 class="mm-plan__lockup-label">NAMB Platinum Super Bonus</h3>
+        <div class="mm-offer__card" data-reveal="scale">
+          <div class="mm-plan__lockup" aria-label="The Loan Atlas — official Mastermind Summit 2026 offer">
+            <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logomark-18.png" alt="The Loan Atlas" />
+            <span class="mm-plan__lockup-x" aria-hidden="true">×</span>
+            <img class="mm-plan__lockup-mm" src="../assets/mastermind-logo.webp" alt="Mastermind Summit 2026" />
           </div>
-          <p class="mm-plan__save"><em>$2,900</em> in Annual Savings — Exclusively for NAMB Members</p>
+          <h3 class="mm-plan__hero-title mm-offer__hero-title"><span class="mm-plan__hero-plat">Platinum</span> Super Bonus</h3>
+
           <div id="mm-offer-heading" class="mm-offer__steps" style="grid-template-columns: 1fr; max-width: 22rem;">
             <div class="mm-step mm-step--rest">
               <span class="mm-step__was"><span class="mm-offer__strike">$349/mo</span></span>
-              <span class="mm-step__price" style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$149<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
+              <span class="mm-step__price">$249<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
+              <span class="mm-step__sub"><strong>Locked in</strong> — no increase</span>
             </div>
           </div>
 
-          <p class="mm-plan__plus"><span>plus <em>3 months FREE</em> of Platinum Marketing</span></p>
-          <p class="mm-plan__plus-note">Then just <strong>$69/mo</strong> (full price Platinum Marketing = $99/mo)</p>
+          <p class="mm-plan__plus"><span>plus <em>6 months FREE</em> of Platinum Marketing</span></p>
 
+          <p class="mm-plan__save"><span class="mm-plan__save-pill"><em>$1,800</em> in Annual Savings — Exclusively for Mastermind Attendees</span></p>
 
           <div class="mm-offer__cta">
-            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">Activate Your NAMB Platinum Super Bonus</a>
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">Start Your Transformation</a>
+            <a href="consultation-mastermind-2026.html" style="font-size: 0.9375rem; color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px;">
+              Have questions? Book a free coaching session
+            </a>
           </div>
-          <p class="mm-offer__fine">12-month commitment. Offer exclusively for NAMB members. Available to new members only.</p>
+          <p class="mm-offer__fine">12-month commitment. Offer exclusively for Mastermind Summit 2026 attendees. Available to new members only.</p>
         </div>
       </div>
     </section>
@@ -2383,11 +2054,11 @@
         <div class="lp-bridge__stack">
           <!-- TOP: copy -->
           <div class="lp-bridge__inner" data-reveal="up">
-            <p class="t-headline-md" style="font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); line-height: 1.35; margin: 0 0 var(--space-md);">
+            <p class="t-headline-md" style="line-height: 1.5; margin: 0 0 var(--space-md);">
               The loan officers pulling away from the pack aren&rsquo;t working harder than you. They&rsquo;re running systems that compound their production every month.
             </p>
-            <p class="text-brass" style="font-family: var(--font-display); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 800; line-height: 1.35; letter-spacing: -0.015em; margin: 0;">
-              With your NAMB Platinum Super Bonus, you can install them all for less than the commission of one extra loan.
+            <p class="text-brass" style="font-family: var(--font-display); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 800; line-height: 1.25; letter-spacing: -0.015em; margin: 0;">
+              Mastermind is your chance to install them all &mdash; for less than the commission of one extra loan.
             </p>
           </div>
 
@@ -2398,6 +2069,11 @@
                 src="https://player.mediadelivery.net/embed/684087/c27ffc9d-ddca-4238-b29a-15849e2347f8?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
                 loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen="true"></iframe>
             </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="lp-bridge__cta" data-reveal="up">
+            <a class="btn btn--gold btn--lg btn--landing" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">Start Your Transformation</a>
           </div>
 
         </div>
@@ -2545,8 +2221,8 @@
       <div class="container">
 
         <div class="mm-plat__header" data-reveal="up">
-          <span class="eyebrow mm-plat__eyebrow" style="justify-content: center; margin-bottom: var(--space-md);">
-            <span class="eyebrow__text" style="color: var(--brass-bright);">New Inside The Loan Atlas</span>
+          <span class="eyebrow" style="justify-content: center; margin-bottom: var(--space-md);">
+            <span class="eyebrow__text" style="color: var(--brass-bright);">Just Launched for Mastermind</span>
           </span>
           <h2 id="plat-heading" class="mm-plat__title">Platinum Marketing</h2>
           <p class="mm-plat__subhead">
@@ -2569,12 +2245,89 @@
 
           <div class="mm-plat__offer-deal">
             <div class="mm-plat__price-tag">
-              <span class="mm-plat__price-was"><em>$99</em><span>/mo</span></span>
-              <span class="mm-plat__price-now">3 Months FREE</span>
+              <span class="mm-plat__price-was">$100<span>/mo</span></span>
+              <span class="mm-plat__price-now">6 Months FREE</span>
             </div>
             <p class="mm-plat__price-note">then $69/mo, or cancel anytime.</p>
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">Start Your Transformation</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ── 9. 8 DISCIPLINES ─────────────────────────────────────────────────── -->
+    <section class="disc-section" id="disciplines">
+      <div class="disc-section__inner">
+
+        <div class="disc-split">
+
+          <!-- LEFT: heading + body + testimonial -->
+          <div class="disc-copy" data-reveal="up">
+            <h2 class="disc-copy__title">Built upon the <em>8 Disciplines</em> of Mortgage Origination Mastery.</h2>
+            <p class="disc-copy__lede">Nobody taught you how to run a mortgage business. They taught you how to originate loans. The 8 Disciplines cover what's actually required to do both — so you're constantly improving and building a business that compounds month after month.</p>
+
+            <!-- Inline testimonial quote (homepage quote-card style) -->
+            <figure class="quote-card quote-card--block">
+              <span class="quote-card__mark" aria-hidden="true">&ldquo;</span>
+              <blockquote class="quote-card__quote">If you did nothing else but go through the System for Selling module &mdash; it&rsquo;ll change your career and your life.</blockquote>
+              <figcaption class="quote-card__attr">
+                <div class="quote-card__name">Jim Juergens</div>
+                <div class="quote-card__org">NEO Home Loans</div>
+              </figcaption>
+            </figure>
+          </div>
+
+          <!-- RIGHT: vertical marquee of module thumbnails -->
+          <div class="disc-marquee" aria-hidden="true">
+            <div class="disc-marquee__col disc-marquee__col--up">
+              <div class="disc-marquee__track">
+                <div class="disc-thumb"><img src="../assets/connect-with-target-agents-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/Minimizing-Taxes-Maximizing-Investments-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/fixed-adjustable-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/handling-a-negative-review-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/peak-performance-rituals-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/experiencing-your-genius-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/reverse%20mortgages-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/turning-clients-into-advocates-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/ultimate-business-planning-tool-module-thumbnail.jpg" alt="" /></div>
+                <!-- duplicate set for seamless loop -->
+                <div class="disc-thumb"><img src="../assets/connect-with-target-agents-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/Minimizing-Taxes-Maximizing-Investments-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/fixed-adjustable-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/handling-a-negative-review-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/peak-performance-rituals-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/experiencing-your-genius-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/reverse%20mortgages-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/turning-clients-into-advocates-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/ultimate-business-planning-tool-module-thumbnail.jpg" alt="" /></div>
+              </div>
+            </div>
+
+            <div class="disc-marquee__col disc-marquee__col--down">
+              <div class="disc-marquee__track">
+                <div class="disc-thumb"><img src="../assets/female-empowerment-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/email-optimization-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/gratitude-calls-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/handling-objections-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/employee-reviews-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/the-process-for-creating-content-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/presenting-new-lead-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/take-care-of-your-epople-module-thumbnail.png" alt="" /></div>
+                <!-- duplicate set for seamless loop -->
+                <div class="disc-thumb"><img src="../assets/female-empowerment-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/email-optimization-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/gratitude-calls-module-thumbnail.jpg" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/handling-objections-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/employee-reviews-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/the-process-for-creating-content-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/presenting-new-lead-module-thumbnail.png" alt="" /></div>
+                <div class="disc-thumb"><img src="../assets/take-care-of-your-epople-module-thumbnail.png" alt="" /></div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /disc-split -->
+
       </div>
     </section>
 
@@ -2653,45 +2406,78 @@
               </div>
             </figcaption>
           </figure>
-
-          <p class="lp-proof-card__footnote">* Past 12 months, ending 2/15/2026. Must have closed one loan in last 90 days (154,000 LO population).</p>
         </div>
       </div>
     </section>
 
-    <!-- ── 12. NAMB PRICING ──────────────────────────────────────────────────── -->
+    <!-- ── 12. MASTERMIND PRICING ───────────────────────────────────────────── -->
     <section class="mm-pricing" id="pricing" aria-labelledby="pricing-heading">
       <div class="container">
         <div class="center" data-reveal="up" style="max-width: 46rem; margin-inline: auto;">
-          <h2 id="pricing-heading" class="t-display" style="color: #ffffff; font-weight: 800; margin-bottom: var(--space-sm);">Everything You Need to Scale. <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Exclusive NAMB Pricing.</span></h2>
-          <p class="t-body-lg" style="color: rgba(255, 255, 255, 0.68); font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);">Full access to everything above — the AI systems, live coaching, and community — at a price reserved only for NAMB members.</p>
+          <h2 id="pricing-heading" class="t-display" style="color: #ffffff; font-weight: 800; margin-bottom: var(--space-sm);">Everything You Need to Scale. <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">A Price Only for Mastermind.</span></h2>
+          <p class="t-body-lg" style="color: rgba(255, 255, 255, 0.68); font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);">Full access to everything above — the AI systems, live coaching, the curriculum, the community — at the exclusive Mastermind Summit rate.</p>
         </div>
 
-        <article id="namb-pricing-card" class="mm-plan" data-reveal="scale">
-          <div class="mm-plan__lockup" aria-label="The Loan Atlas — NAMB Platinum Super Bonus pricing">
-            <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logo-gold.png" alt="The Loan Atlas" />
-            <h3 class="mm-plan__lockup-label">NAMB Platinum Super Bonus</h3>
+        <article class="mm-plan" data-reveal="scale">
+          <div class="mm-plan__lockup" aria-label="The Loan Atlas — official Mastermind Summit 2026 offer">
+            <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logomark-18.png" alt="The Loan Atlas" />
+            <span class="mm-plan__lockup-x" aria-hidden="true">×</span>
+            <img class="mm-plan__lockup-mm" src="../assets/mastermind-logo.webp" alt="Mastermind Summit 2026" />
           </div>
-          <p class="mm-plan__save"><em>$2,900</em> in Annual Savings — Exclusively for NAMB Members</p>
+          <h3 class="mm-plan__hero-title mm-offer__hero-title"><span class="mm-plan__hero-plat">Platinum</span> Super Bonus</h3>
+
           <div class="mm-offer__steps" style="grid-template-columns: 1fr; max-width: 22rem;">
             <div class="mm-step mm-step--rest">
               <span class="mm-step__was"><span class="mm-offer__strike">$349/mo</span></span>
-              <span class="mm-step__price" style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$149<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
+              <span class="mm-step__price">$249<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
+              <span class="mm-step__sub"><strong>Locked in</strong> — no increase</span>
             </div>
           </div>
 
-          <p class="mm-plan__plus"><span>plus <em>3 months FREE</em> of Platinum Marketing</span></p>
-          <p class="mm-plan__plus-note">Then just <strong>$69/mo</strong> (full price Platinum Marketing = $99/mo)</p>
+          <p class="mm-plan__plus"><span>plus <em>6 months FREE</em> of Platinum Marketing</span></p>
 
+          <p class="mm-plan__save"><span class="mm-plan__save-pill"><em>$1,800</em> in Annual Savings — Exclusively for Mastermind Attendees</span></p>
 
           <div class="mm-plan__cta">
-            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">
-              Activate Your NAMB Platinum Super Bonus
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mastermind-2026/">
+              Start Your Transformation
+            </a>
+            <a href="consultation-mastermind-2026.html" style="font-size: 0.9375rem; color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px;">
+              Have questions? Book a free coaching session
             </a>
           </div>
 
-          <p class="mm-plan__fine">12-month commitment. Offer exclusively for NAMB members. Available to new members only.</p>
+          <ul class="mm-plan__list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              5 AI-powered systems to help you close twice the loans in half the time
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Live weekly and monthly coaching sessions
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              200+ training modules
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Full library of scripts, templates, and playbooks
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Platinum Marketing free for 6 months (then $69/mo, or cancel)
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              New tools and content added every month
+            </li>
+          </ul>
+
+          <p class="mm-plan__fine">12-month commitment. Offer exclusively for Mastermind Summit 2026 attendees. Available to new members only.</p>
         </article>
+
+        <p class="mm-page-footnote">* Past 12 months, ending 2/15/2026. Must have closed one loan in last 90 days (154,000 LO population).</p>
       </div>
     </section>
 
@@ -2702,8 +2488,6 @@
 
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js" defer></script>
-  <!-- LeadConnector form embed (NAMB enrollment form) -->
-  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
   <script>
     // ── Hero system-cycling chat: eyebrow + name (left) + bot heading + typed input ──
     (function () {
@@ -2736,6 +2520,12 @@
           name: 'AI Strategic Thought Partner',
           heading: 'What Decision Can I Help You Think Through?',
           message: 'Should I hire an LOA or stay solo this year?'
+        },
+        {
+          eyebrow: 'Turn Ignored Marketing Into Real Clients',
+          name: 'Platinum Marketing',
+          heading: 'What Should We Create Today?',
+          message: 'Create a flyer for my new 5%-down program'
         }
       ];
 

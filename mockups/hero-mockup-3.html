@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="../public/css/chrome.css?v=3" />
   <style>
     /* ── HERO MOCKUP 3 — Mastermind hero, phone removed, chat over dashboard ───
-       Duplicates the mastermind.html hero (sticky offer bar + hero copy +
+       Duplicates the join-mastermind-2026.html hero (sticky offer bar + hero copy +
        countdown). The phone mockup is removed; a cycling AI persona chatbox
        (ported from hero-mockup.html / the homepage 5-systems chat tab) fades in
        over the dashboard image. Page-scoped; live pages untouched. */
 
-    /* ── Sticky offer bar (1:1 from mastermind.html) ────────────────────────── */
+    /* ── Sticky offer bar (1:1 from join-mastermind-2026.html) ────────────────────────── */
     .mm-bar {
       position: sticky;
       top: var(--header-h);
@@ -78,7 +78,7 @@
       .mm-bar__hide-sm { display: none; }
     }
 
-    /* ── Larger CTA (1:1 from mastermind.html) ──────────────────────────────── */
+    /* ── Larger CTA (1:1 from join-mastermind-2026.html) ──────────────────────────────── */
     .lp-intro .btn--gold.btn--lg {
       font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.3125rem);
       padding: clamp(20px, 1.6vw, 26px) clamp(36px, 4vw, 56px);
@@ -86,7 +86,7 @@
       box-shadow: 0 10px 32px rgba(201, 150, 28, 0.34);
     }
 
-    /* ── Countdown timer (1:1 from mastermind.html) ─────────────────────────── */
+    /* ── Countdown timer (1:1 from join-mastermind-2026.html) ─────────────────────────── */
     .mm-countdown {
       display: inline-flex;
       flex-direction: column;
@@ -154,7 +154,7 @@
     }
     .mm-countdown.is-ended .mm-countdown__ended { display: block; }
 
-    /* ── Hero headline (1:1 from mastermind.html) ───────────────────────────── */
+    /* ── Hero headline (1:1 from join-mastermind-2026.html) ───────────────────────────── */
     .lp-intro__title {
       font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.25rem);
     }
@@ -424,7 +424,7 @@
 
   <main>
 
-    <!-- ── HERO (duplicated from mastermind.html; phone removed, chat added) ──── -->
+    <!-- ── HERO (duplicated from join-mastermind-2026.html; phone removed, chat added) ──── -->
     <section class="lp-intro" aria-labelledby="mm-hero-heading">
       <div class="container">
         <div class="lp-intro__content">
@@ -506,7 +506,7 @@
   <script src="../public/js/nav.js?v=3"></script>
   <script src="../public/js/animations.js?v=3" defer></script>
   <script>
-    // ── Offer countdown (1:1 from mastermind.html) ───────────────────────────
+    // ── Offer countdown (1:1 from join-mastermind-2026.html) ───────────────────────────
     (function () {
       var el = document.querySelector('[data-countdown]');
       if (!el) return;

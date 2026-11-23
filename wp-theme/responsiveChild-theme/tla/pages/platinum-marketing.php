@@ -14,7 +14,7 @@ $tla_active      = '';
     /* ── PLATINUM — built in the Mastermind page design language ─────────────
        Reuses the shared styles.css classes (lp-intro, btn--gold, eyebrow,
        checklist, trust strip) and ports the page-scoped mm-*/lp-*/disc-*
-       component patterns from mastermind.html so the page reads as the same
+       component patterns from join-mastermind-2026.html so the page reads as the same
        design system. Page-scoped here, prefixed to match their originals. */
 
     @media (max-width: 600px) { .lp-intro__title { font-size: clamp(1.75rem, 0.9rem + 3.6vw, 2.4rem); overflow-wrap: break-word; } }

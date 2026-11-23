@@ -1186,7 +1186,7 @@ $tla_active      = '';
 
   <script>
     // ── Hero system-cycling chat: eyebrow + name (left) + bot heading + typed input ──
-    // (Ported from mastermind.html — drives the .hm-stage hero graphic.)
+    // (Ported from join-mastermind-2026.html — drives the .hm-stage hero graphic.)
     (function () {
       var stage = document.querySelector('[data-hm-stage]');
       var chat = stage && stage.querySelector('[data-hm-chat]');

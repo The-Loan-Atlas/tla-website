@@ -15,7 +15,7 @@
 
 The Loan Atlas is the operating system mortgage leaders use to close that gap across their entire team.
 
-**[Button: Schedule an Enterprise Consultation]** (→ consultation-corporate.html)
+**[Button: Schedule an Enterprise Consultation]** (→ enterprise-consultation.html)
 **[Button: Get the AI-Empowered Mortgage Leader Masterplan]** (→ https://go.theloanatlas.com/the-ai-empowered-mortgage-leader-masterplan, new tab)
 
 ---
@@ -97,7 +97,7 @@ On-demand input on deal positioning, partner strategy, and tough calls. Your LOs
 Learn how the best leaders in mortgage are thinking about the next two years.
 
 **[Button: Get the Masterplan]** (→ https://go.theloanatlas.com/the-ai-empowered-mortgage-leader-masterplan, new tab)
-**[Link: Talk to us first →]** (→ consultation-corporate.html)
+**[Link: Talk to us first →]** (→ enterprise-consultation.html)
 
 ---
 
@@ -177,7 +177,7 @@ The Loan Atlas works because all four are in one place: the playbook, the AI too
 
 Every quarter you wait, your top LOs keep pulling ahead and the rest of your team keeps falling behind. **The leaders closing that gap are giving the whole team the same playbook to run from.** Let's talk about what that would look like for you.
 
-**[Button: Schedule an Enterprise Consultation]** (→ consultation-corporate.html)
+**[Button: Schedule an Enterprise Consultation]** (→ enterprise-consultation.html)
 *Hint:* Map your team's playbook with our leadership coaches
 
 **[Button: Download the Masterplan]** (→ https://go.theloanatlas.com/the-ai-empowered-mortgage-leader-masterplan, new tab)

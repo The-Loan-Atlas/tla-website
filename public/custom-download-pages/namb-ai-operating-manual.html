@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Give Your Partners the Seller Advantage — The Loan Atlas</title>
+  <title>The Mortgage Advisor AI Operating Manual — The Loan Atlas</title>
   <meta name="description"
-    content="Download the Seller Advantage templates — a Realtor pitch deck, program handout, and two open house flyer samples — and give your Realtor partners the competitive advantage they need right now." />
+    content="Answer 40 short questions about your business and teach AI who you serve, how you solve problems, and how you sound — so what it writes actually sounds like you." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,20 +17,12 @@
   <link rel="stylesheet" href="../css/chrome.css" />
 
   <!-- ============================================================
-       NAMB BUILD YOUR CUSTOM GPT — LEAD-GEN LANDING
+       NAMB AI OPERATING MANUAL — LEAD-GEN LANDING
        Standalone landing (self-contained centered-logo header,
        shared footer). Copy left / GHL LeadConnector form right.
        Page-scoped namespace: .naq-*
        ============================================================ -->
   <style>
-    /* Blur-up swatch while the Wistia web component defines itself */
-    wistia-player[media-id='1k07af1o60']:not(:defined) {
-      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/1k07af1o60/swatch');
-      display: block;
-      filter: blur(5px);
-      padding-top: 56.25%;
-    }
-
     .naq {
       --naq-navy: #021c36;
       --naq-navy-deep: #060e1c;
@@ -75,13 +67,36 @@
     .site-header--naq .btn--header .btn__short { display: none; }
     .site-header--naq .btn--header .btn__full  { display: inline; }
 
-    /* On narrow screens the savings copy won't fit beside the logo + button,
-       so drop it entirely — the header keeps just logo + button. (No band
-       below the header, so the hero needs no extra top padding here.) */
+    /* On narrow screens the savings copy won't fit beside the logo + full
+       button, so drop it out of the header into a full-width band directly
+       below the fixed header. The header keeps just logo + button. */
     @media (max-width: 767.98px) {
-      .naq-header-save { display: none; }
+      .naq-header-save {
+        position: fixed;
+        top: var(--header-h, 72px);
+        left: 0;
+        right: 0;
+        z-index: 49;
+        max-width: none;
+        text-align: center;
+        font-size: 0.875rem;
+        line-height: 1.3;
+        padding: 8px 16px;
+        background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      /* chrome.css already gives `body > main` a 72px top pad to clear the fixed
+         header. The savings band is fixed just below that header and is ~53px
+         tall (its copy wraps to two lines on narrow screens, more on the
+         narrowest), so the hero must add at least the band height + spacing on
+         top. Use a generous floor so the eyebrow always clears the band.
+         Doubled class raises specificity so this wins over the base .naq-hero
+         padding-top regardless of source order. */
+      .naq-hero.naq-hero {
+        padding-top: calc(64px + clamp(24px, 6vw, 40px));
+      }
       /* Shrink the button so the full "Join The Loan Atlas" label fits beside
-         the logo. */
+         the logo now that the savings copy has moved to the band below. */
       .site-header.site-header--naq .btn--header {
         padding: 9px 15px;
         font-size: 0.8125rem;
@@ -110,27 +125,20 @@
       .naq-hero__grid {
         grid-template-columns: 1.05fr 0.95fr;
         gap: clamp(40px, 4vw, 72px);
-        /* Top-align the columns so the H1 starts level with the form card. */
-        align-items: start;
       }
-      /* Nudge the copy down by the card's own top padding so the headline and
-         the card's title sit on the same line, not just the boxes' edges.
-         Blocks sit on a fixed gap (not space-between) so the rhythm stays
-         tight regardless of how tall the form card grows. */
-      .naq-hero__grid > .naq-hero__copy {
-        padding-top: clamp(20px, 2vw, 28px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 0;
-      }
-      /* Proximity: the subhead explains the headline, so it sits tight to it;
-         the bigger gap falls before the list, which is its own block. */
-      .naq-hero__copy > .naq-hero__title { margin-bottom: clamp(10px, 1vw, 14px); }
-      .naq-hero__copy > .naq-hero__sub   { margin-bottom: clamp(28px, 3vw, 40px); }
     }
 
     /* ── Left column — copy ─────────────────────────────────────────────────── */
+    .naq-hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--naq-brass-bright);
+      margin: 0 0 var(--space-sm);
+    }
     .naq-hero__title {
       font-family: var(--font-display);
       font-weight: 800;
@@ -149,13 +157,13 @@
       color: transparent;
     }
     .naq-hero__sub {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: clamp(1.125rem, 0.98rem + 0.62vw, 1.4375rem);
-      line-height: 1.45;
-      letter-spacing: -0.005em;
-      color: rgba(255, 255, 255, 0.88);
-      margin: 0 0 var(--space-lg);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: #ffffff;
+      margin: 0 0 var(--space-md);
       text-wrap: balance;
     }
     .naq-hero__lede {
@@ -175,49 +183,37 @@
       color: transparent;
     }
 
-    /* What you get — brass ✓ bullets */
-    .naq-wins {
+    /* Frustrations list — red ✗ bullets (matches the slide) */
+    .naq-pains {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: clamp(12px, 1.4vw, 16px);
+      gap: var(--space-sm);
       max-width: 36rem;
     }
-    /* Each deliverable sits in its own subtly-lit row so the list reads as a
-       set of assets you receive, not as running body copy. */
-    .naq-wins__item {
+    .naq-pains__item {
       display: flex;
-      align-items: center;
-      gap: clamp(14px, 1.6vw, 18px);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(1.125rem, 1rem + 0.65vw, 1.4375rem);
-      line-height: 1.3;
-      letter-spacing: -0.015em;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(234, 194, 90, 0.28);
-      border-radius: var(--radius-lg);
-      padding: clamp(14px, 1.6vw, 18px) clamp(16px, 1.8vw, 22px);
+      align-items: flex-start;
+      gap: 14px;
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
     }
-    .naq-wins__check {
+    .naq-pains__x {
       flex: none;
-      width: 34px;
-      height: 34px;
+      width: 26px;
+      height: 26px;
+      margin-top: 1px;
       border-radius: 50%;
-      background: var(--naq-grad);
-      box-shadow: 0 6px 18px rgba(234, 194, 90, 0.28);
+      background: #dc2626;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
-    .naq-wins__check svg { width: 18px; height: 18px; display: block; }
-    @media (max-width: 480px) {
-      .naq-wins__check { width: 28px; height: 28px; }
-      .naq-wins__check svg { width: 15px; height: 15px; }
-    }
+    .naq-pains__x svg { width: 13px; height: 13px; }
 
     /* ── Right column — GHL form card ───────────────────────────────────────── */
     .naq-formcard {
@@ -254,65 +250,22 @@
     /* Placeholder box — sized to hold a real LeadConnector form (~620px). Swap
        the .naq-formcard__placeholder div for the commented-out iframe below. */
     .naq-formcard__embed {
-      min-height: 500px;
+      min-height: 520px;
       display: flex;
     }
-    /* form_embed.js resizes the iframe to the form's own height (~492px);
+    /* form_embed.js resizes the iframe to the form's own height (~514px);
        keep a floor so there's no empty gap before the script runs. */
     .naq-formcard__embed iframe {
       display: block;
       width: 100%;
-      min-height: 492px;
+      min-height: 514px;
       border: none;
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       PRICING CARD — NAMB exclusive discount (ported from mastermind.html's
+       PRICING CARD — NAMB exclusive discount (ported from join-mastermind-2026.html's
        .mm-offer / .mm-step pricing pattern, scoped to .naq-*)
        ══════════════════════════════════════════════════════════════════════════ */
-    /* ══════════════════════════════════════════════════════════════════════════
-       REPLAY — light band between the two dark sections, framed Wistia video
-       ══════════════════════════════════════════════════════════════════════════ */
-    .naq-replay {
-      background: var(--background);
-      padding-block: clamp(56px, 7vw, 104px);
-    }
-    .naq-replay__head {
-      max-width: 52rem;
-      margin: 0 auto clamp(32px, 4vw, 52px);
-      text-align: center;
-    }
-    .naq-replay__eyebrow {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.8125rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--naq-brass);
-      margin: 0 0 var(--space-sm);
-    }
-    .naq-replay__title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-      color: var(--primary);
-      margin: 0;
-      text-wrap: balance;
-    }
-
-    .naq-replay__frame {
-      max-width: 68rem;
-      margin-inline: auto;
-      border-radius: var(--radius-2xl);
-      overflow: hidden;
-      border: 1px solid rgba(2, 28, 54, 0.12);
-      box-shadow: 0 30px 70px rgba(2, 28, 54, 0.22);
-    }
-    .naq-replay__frame wistia-player { display: block; }
-
     .naq-pricing {
       background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
       padding-block: clamp(56px, 7vw, 104px);
@@ -398,24 +351,8 @@
       font-size: clamp(1.875rem, 1.3rem + 2.6vw, 2.75rem);
       line-height: 1.05;
       letter-spacing: -0.03em;
-      /* Small bottom padding so background-clip: text doesn't crop descenders. */
-      padding-bottom: 0.12em;
-      margin: 0 0 var(--space-sm);
-      text-wrap: balance;
-      background: var(--naq-grad);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
-    /* Subheading under the gradient title. */
-    .naq-plan__sub {
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
-      line-height: 1.55;
-      color: rgba(255, 255, 255, 0.82);
-      max-width: 40rem;
-      margin: 0 auto var(--space-lg);
+      color: #ffffff;
+      margin: 0 0 var(--space-lg);
       text-wrap: balance;
     }
 
@@ -503,8 +440,6 @@
       font-weight: 500;
       color: rgba(255, 255, 255, 0.72);
       line-height: 1.4;
-      /* Extra breathing room under the big price (adds to the .naq-step 10px gap). */
-      margin-top: 10px;
     }
     .naq-step__sub strong { color: #ffffff; font-weight: 700; }
 
@@ -640,8 +575,8 @@
         <img src="../assets/Loan Atlas logo-gold.png" alt="The Loan Atlas" class="brand__logo" />
       </a>
       <div class="site-header__actions">
-        <span class="naq-header-save">Save <span class="naq-header-save__amt">$1,500/yr</span> with your Highway discount!</span>
-        <a class="btn btn--header" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mbs-sep-2026/" target="_blank" rel="noopener">
+        <span class="naq-header-save">Save <span class="naq-header-save__amt">$1,200</span> on your membership with your NAMB discount!</span>
+        <a class="btn btn--header" href="https://theloanatlas.com/NAMB" target="_blank" rel="noopener">
           <span class="btn__full">Join The Loan Atlas</span>
           <span class="btn__short">Join</span>
         </a>
@@ -658,20 +593,26 @@
 
           <!-- LEFT: copy -->
           <div class="naq-hero__copy">
-            <h1 id="naq-title" class="naq-hero__title">Give Your Partners the Seller Advantage</h1>
-            <p class="naq-hero__sub">Download these templates and TAKE ACTION toward giving your Realtor partners the competitive advantage they need right now:</p>
-            <ul class="naq-wins">
-              <li class="naq-wins__item">
-                <span class="naq-wins__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="#021c36" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <span><strong>Seller Advantage Realtor Pitch Deck</strong></span>
+            <span class="naq-hero__eyebrow">40 Questions. One Time. Every Prompt Better.</span>
+            <h1 id="naq-title" class="naq-hero__title">The Mortgage Advisor AI Operating Manual</h1>
+            <p class="naq-hero__sub">Teach AI who you serve, how you solve problems, and how you sound.</p>
+            <p class="naq-hero__lede">Answer <strong>40 short questions</strong> about your business and say goodbye to these frustrations for good:</p>
+            <ul class="naq-pains">
+              <li class="naq-pains__item">
+                <span class="naq-pains__x" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+                <span>&ldquo;I tried AI and it sounds nothing like me.&rdquo;</span>
               </li>
-              <li class="naq-wins__item">
-                <span class="naq-wins__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="#021c36" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <span><strong>Seller Advantage Program Handout</strong></span>
+              <li class="naq-pains__item">
+                <span class="naq-pains__x" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+                <span>&ldquo;I spend more time fixing the AI&rsquo;s output than it would&rsquo;ve taken to write it myself.&rdquo;</span>
               </li>
-              <li class="naq-wins__item">
-                <span class="naq-wins__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="#021c36" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                <span><strong>TWO Open House Flyer Samples</strong></span>
+              <li class="naq-pains__item">
+                <span class="naq-pains__x" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+                <span>&ldquo;Everyone&rsquo;s marketing sounds the same now, including mine.&rdquo;</span>
+              </li>
+              <li class="naq-pains__item">
+                <span class="naq-pains__x" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+                <span>&ldquo;I can&rsquo;t get AI to understand my business, my audience, or how I really talk.&rdquo;</span>
               </li>
             </ul>
           </div>
@@ -679,14 +620,14 @@
           <!-- RIGHT: GHL LeadConnector form card -->
           <div class="naq-formcard">
             <div class="naq-formcard__head">
-              <h2 class="naq-formcard__title">Get the Seller Advantage Templates</h2>
-              <p class="naq-formcard__sub">Enter your info and we&rsquo;ll send you the full template kit.</p>
+              <h2 class="naq-formcard__title">Get the Operating Manual</h2>
+              <p class="naq-formcard__sub">Enter your details and we&rsquo;ll send you the questionnaire.</p>
             </div>
             <div class="naq-formcard__embed">
               <iframe
-                src="https://api.leadconnectorhq.com/widget/form/L20AUAcVIyjQzzsLGp5J"
+                src="https://api.leadconnectorhq.com/widget/form/kAALoM0qH1soqgENiXFt"
                 style="width:100%;height:100%;border:none;border-radius:0px"
-                id="inline-L20AUAcVIyjQzzsLGp5J"
+                id="inline-kAALoM0qH1soqgENiXFt"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
                 data-trigger-value=""
@@ -694,33 +635,15 @@
                 data-activation-value=""
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
-                data-form-name="Event LM: Winning Mortgage Referrals From Listing Agents 9.23.26"
-                data-height="492"
-                data-layout-iframe-id="inline-L20AUAcVIyjQzzsLGp5J"
-                data-form-id="L20AUAcVIyjQzzsLGp5J"
-                data-cookie-consent="true"
-                data-cookie-consent-provider="auto"
-                title="Event LM: Winning Mortgage Referrals From Listing Agents 9.23.26">
+                data-form-name="NAMB 7.23.26"
+                data-height="514"
+                data-layout-iframe-id="inline-kAALoM0qH1soqgENiXFt"
+                data-form-id="kAALoM0qH1soqgENiXFt"
+                title="NAMB 7.23.26">
               </iframe>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- ── REPLAY — session recording ───────────────────────────────────────── -->
-    <section class="naq-replay" aria-labelledby="naq-replay-title">
-      <div class="container">
-        <div class="naq-replay__head">
-          <span class="naq-replay__eyebrow">Watch the replay</span>
-          <h2 id="naq-replay-title" class="naq-replay__title">Winning Mortgage Referrals From Listing Agents</h2>
-        </div>
-        <div class="naq-replay__frame">
-          <!-- Wistia loader scripts live in <body> (the build strips <head> scripts) -->
-          <script src="https://fast.wistia.com/player.js" async></script>
-          <script src="https://fast.wistia.com/embed/1k07af1o60.js" async type="module"></script>
-          <wistia-player media-id="1k07af1o60" seo="false" aspect="1.7777777777777777"></wistia-player>
         </div>
       </div>
     </section>
@@ -730,27 +653,28 @@
       <div class="container">
         <article class="naq-plan">
           <div class="naq-plan__offer">
-          <h2 id="naq-pricing-title" class="naq-plan__title">Install The Systems Top Producers Are Using</h2>
-          <p class="naq-plan__sub">Enjoy full access to The Loan Atlas at a price reserved exclusively for Highway members.</p>
+          <span class="naq-plan__eyebrow">NAMB Exclusive</span>
+          <h2 id="naq-pricing-title" class="naq-plan__title">Full access to The Loan Atlas — at your NAMB member rate.</h2>
 
           <div class="naq-plan__steps">
             <div class="naq-step naq-step--monthly">
               <span class="naq-step__label">Monthly</span>
               <span class="naq-step__was"><span class="naq-step__strike">$349/mo</span></span>
-              <span class="naq-step__price">$199<span>/mo</span></span>
+              <span class="naq-step__price">$249<span>/mo</span></span>
               <span class="naq-step__sub">Billed monthly</span>
             </div>
             <div class="naq-step naq-step--annual">
               <span class="naq-step__label">Annual · Best Value</span>
               <span class="naq-step__was"><span class="naq-step__strike">$3,490/yr</span></span>
-              <span class="naq-step__price">$1,990<span>/yr</span></span>
-              <span class="naq-step__sub">Get <strong>TWO MONTHS</strong> for free with your annual membership!</span>
+              <span class="naq-step__price">$2,490<span>/yr</span></span>
+              <span class="naq-step__sub"><strong>Save $1,200</strong> vs. monthly</span>
             </div>
           </div>
 
+          <p class="naq-plan__save"><span class="naq-plan__save-pill">Save <em>$1,200 a year</em> with your NAMB exclusive discount</span></p>
 
           <div class="naq-plan__cta">
-            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-mbs-sep-2026/">Start Your Transformation</a>
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb/">Start Your Transformation</a>
           </div>
           <p class="naq-plan__fine">12-month commitment. Offer available to new members only.</p>
           </div>
@@ -802,7 +726,7 @@
 <!-- TLA_FOOTER -->
 
   <script src="../js/nav.js"></script>
-  <!-- LeadConnector form embed (Event LM: Winning Mortgage Referrals From Listing Agents 9.23.26) -->
+  <!-- LeadConnector form embed (NAMB 7.23.26 form) -->
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </body>
 

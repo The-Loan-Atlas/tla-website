@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /namb-ai-operating-manual/ (TLA Full HTML template).
- * Generated from public/webinar-offers/namb-ai-operating-manual.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/custom-download-pages/namb-ai-operating-manual.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -251,7 +251,7 @@ $tla_active      = '';
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       PRICING CARD — NAMB exclusive discount (ported from mastermind.html's
+       PRICING CARD — NAMB exclusive discount (ported from join-mastermind-2026.html's
        .mm-offer / .mm-step pricing pattern, scoped to .naq-*)
        ══════════════════════════════════════════════════════════════════════════ */
     .naq-pricing {

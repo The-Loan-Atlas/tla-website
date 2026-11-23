@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /neo/ (TLA Full HTML template).
- * Generated from public/partnership-sales-pages/neo.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/custom-sales-pages/neo.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -1809,7 +1809,7 @@ $tla_active      = '';
 
     /* ══════════════════════════════════════════════════════════════════════════
        NEO EXCLUSIVE PRICING — two-tier monthly/annual card.
-       Ported from public/custom-sales-pages/vmba-convention-2026.html so both pricing
+       Ported from public/webinar-sales-pages/vmba-convention-2026.html so both pricing
        sections on this page present the identical NEO preferred offer.
        Uses literal brass values (this page defines no --naq-* tokens).
        ══════════════════════════════════════════════════════════════════════════ */

@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CHL Preferred Account — Exclusive Loan Atlas Pricing</title>
+  <title>NAMB Platinum Super Bonus — Exclusive Loan Atlas Pricing</title>
   <meta name="description"
-    content="CHL Preferred Account pricing: full access to The Loan Atlas at $99/mo — down from $349/mo — a $3,000 annual savings, exclusively for CHL originators." />
+    content="NAMB member pricing: full access to The Loan Atlas at $149/mo — down from $349/mo — locked in, plus 3 months free of Platinum Marketing." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +22,7 @@
        Two tiers: a thin brass strip naming the audience, and a dark row carrying
        the numbers. The dark row continues the header's gradient so the bar reads
        as part of the chrome rather than a banner stapled below it. ──────────── */
-    .apm-bar {
+    .namb-bar {
       position: sticky;
       top: var(--header-h);
       z-index: 40;
@@ -36,29 +36,29 @@
        pre-link version — only the cursor, a subtle brightening on hover and the
        focus ring signal that it's clickable. No hover lift on purpose: the bar
        is sticky, so shifting it would slide it against the scrolling page. */
-    .apm-bar__link {
+    .namb-bar__link {
       display: block;
       color: inherit;
       text-decoration: none;
       transition: filter 0.2s ease;
     }
-    .apm-bar__link:hover {
+    .namb-bar__link:hover {
       filter: brightness(1.06);
     }
-    .apm-bar__link:focus-visible {
+    .namb-bar__link:focus-visible {
       outline: 3px solid #ffd56c;
       outline-offset: -3px;
     }
     @media (prefers-reduced-motion: reduce) {
-      .apm-bar__link { transition: none; }
+      .namb-bar__link { transition: none; }
     }
 
     /* Tier 1 — brass audience strip. The rules either side of the label are
        pseudo-elements so the markup stays a single span. */
-    .apm-bar__strip {
+    .namb-bar__strip {
       background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
     }
-    .apm-bar__strip-in {
+    .namb-bar__strip-in {
       max-width: var(--container-max);
       margin-inline: auto;
       padding: 9px var(--gutter);
@@ -67,14 +67,14 @@
       justify-content: center;
       gap: 12px;
     }
-    .apm-bar__strip-in::before,
-    .apm-bar__strip-in::after {
+    .namb-bar__strip-in::before,
+    .namb-bar__strip-in::after {
       content: "";
       height: 1px;
       width: clamp(20px, 6vw, 70px);
       background: rgba(2, 28, 54, 0.32);
     }
-    .apm-bar__label {
+    .namb-bar__label {
       font-family: var(--font-body);
       font-weight: 900;
       font-size: 0.9375rem;
@@ -86,14 +86,14 @@
 
     /* Tier 2 — dark detail row.
        Two nested axes so the copy and the pill are both honest:
-       - .apm-bar__row-in centres its children, so the text group and the CTA
+       - .namb-bar__row-in centres its children, so the text group and the CTA
          share one vertical centre line.
-       - .apm-bar__copy inside it is baseline-aligned, so the price, offer and
+       - .namb-bar__copy inside it is baseline-aligned, so the price, offer and
          savings sit on one optical line. */
-    .apm-bar__row {
+    .namb-bar__row {
       background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
     }
-    .apm-bar__row-in {
+    .namb-bar__row-in {
       max-width: var(--container-max);
       margin-inline: auto;
       padding: 17px var(--gutter);
@@ -101,14 +101,14 @@
       align-items: center;
       justify-content: center;
     }
-    .apm-bar__copy {
+    .namb-bar__copy {
       display: flex;
       align-items: baseline;
       justify-content: center;
       gap: clamp(9px, 1.3vw, 14px);
       flex-wrap: wrap;
     }
-    .apm-bar__price {
+    .namb-bar__price {
       font-family: var(--font-display);
       font-weight: 800;
       font-size: 1.875rem;
@@ -117,14 +117,14 @@
       white-space: nowrap;
       line-height: 1.1;
     }
-    .apm-bar__price i {
+    .namb-bar__price i {
       font-style: normal;
       font-size: 0.46em;
       font-weight: 700;
       opacity: 0.72;
       letter-spacing: 0;
     }
-    .apm-bar__price s {
+    .namb-bar__price s {
       font-family: var(--font-display);
       font-size: 0.6em;
       font-weight: 600;
@@ -135,7 +135,7 @@
     /* The + is its own element, centred between the two facts. It is
        align-self: center rather than on the shared baseline because the glyph's
        ink sits high in its em box — baselining it floats it above centre. */
-    .apm-bar__plus {
+    .namb-bar__plus {
       align-self: center;
       font-family: var(--font-display);
       font-weight: 700;
@@ -145,7 +145,7 @@
       flex-shrink: 0;
       transform: translateY(-0.02em);
     }
-    .apm-bar__free {
+    .namb-bar__free {
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.3125rem;
@@ -153,8 +153,8 @@
       white-space: nowrap;
       line-height: 1.1;
     }
-    .apm-bar__free b { color: #eac25a; font-weight: 800; }
-    .apm-bar__save {
+    .namb-bar__free b { color: #eac25a; font-weight: 800; }
+    .namb-bar__save {
       font-family: var(--font-display);
       font-weight: 800;
       font-size: 1.3125rem;
@@ -165,56 +165,56 @@
     }
     /* Step the type down so the row holds one line as long as possible. */
     @media (max-width: 1279px) {
-      .apm-bar__label { font-size: 0.875rem; letter-spacing: 0.15em; }
-      .apm-bar__row-in { padding: 15px var(--gutter); }
-      .apm-bar__price { font-size: 1.625rem; }
-      .apm-bar__free, .apm-bar__save { font-size: 1.125rem; }
-      .apm-bar__plus { font-size: 1.3125rem; }
+      .namb-bar__label { font-size: 0.875rem; letter-spacing: 0.15em; }
+      .namb-bar__row-in { padding: 15px var(--gutter); }
+      .namb-bar__price { font-size: 1.625rem; }
+      .namb-bar__free, .namb-bar__save { font-size: 1.125rem; }
+      .namb-bar__plus { font-size: 1.3125rem; }
     }
     @media (max-width: 1099px) {
-      .apm-bar__label { font-size: 0.8125rem; letter-spacing: 0.14em; }
-      .apm-bar__price { font-size: 1.375rem; }
-      .apm-bar__free, .apm-bar__save { font-size: 1rem; }
-      .apm-bar__plus { font-size: 1.1875rem; }
+      .namb-bar__label { font-size: 0.8125rem; letter-spacing: 0.14em; }
+      .namb-bar__price { font-size: 1.375rem; }
+      .namb-bar__free, .namb-bar__save { font-size: 1rem; }
+      .namb-bar__plus { font-size: 1.1875rem; }
     }
     @media (max-width: 899px) {
-      .apm-bar__strip-in { padding: 6px var(--gutter); }
-      .apm-bar__label { font-size: 0.75rem; letter-spacing: 0.12em; }
-      .apm-bar__row-in { padding: 13px var(--gutter); }
-      .apm-bar__price { font-size: 1.1875rem; }
-      .apm-bar__free, .apm-bar__save { font-size: 0.875rem; }
-      .apm-bar__plus { font-size: 1rem; }
+      .namb-bar__strip-in { padding: 6px var(--gutter); }
+      .namb-bar__label { font-size: 0.75rem; letter-spacing: 0.12em; }
+      .namb-bar__row-in { padding: 13px var(--gutter); }
+      .namb-bar__price { font-size: 1.1875rem; }
+      .namb-bar__free, .namb-bar__save { font-size: 0.875rem; }
+      .namb-bar__plus { font-size: 1rem; }
     }
     /* Below 640px the offer copy takes its own centred line, so the standalone
        + would be orphaned beside the price — hide it and inline it instead. */
     @media (max-width: 639px) {
-      .apm-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
-      .apm-bar__strip-in::before,
-      .apm-bar__strip-in::after { width: clamp(12px, 4vw, 40px); }
-      .apm-bar__row-in { padding: 9px 14px; gap: 8px 12px; }
-      .apm-bar__copy { gap: 4px 12px; }
-      .apm-bar__price { font-size: 1.25rem; }
-      .apm-bar__price s { display: none; }
-      .apm-bar__plus { display: none; }
-      .apm-bar__free {
+      .namb-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
+      .namb-bar__strip-in::before,
+      .namb-bar__strip-in::after { width: clamp(12px, 4vw, 40px); }
+      .namb-bar__row-in { padding: 9px 14px; gap: 8px 12px; }
+      .namb-bar__copy { gap: 4px 12px; }
+      .namb-bar__price { font-size: 1.25rem; }
+      .namb-bar__price s { display: none; }
+      .namb-bar__plus { display: none; }
+      .namb-bar__free {
         flex-basis: 100%;
         text-align: center;
         font-size: 0.8125rem;
         order: 3;
       }
-      .apm-bar__free::before {
+      .namb-bar__free::before {
         content: "+ ";
         color: rgba(234, 194, 90, 0.85);
         font-weight: 700;
       }
-      .apm-bar__save { font-size: 0.8125rem; margin-left: 0; }
+      .namb-bar__save { font-size: 0.8125rem; margin-left: 0; }
     }
     /* Narrowest phones: the label is wider than the strip at full tracking. */
     @media (max-width: 380px) {
-      .apm-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
-      .apm-bar__strip-in { gap: 8px; }
-      .apm-bar__strip-in::before,
-      .apm-bar__strip-in::after { display: none; }
+      .namb-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
+      .namb-bar__strip-in { gap: 8px; }
+      .namb-bar__strip-in::before,
+      .namb-bar__strip-in::after { display: none; }
     }
 
     /* ── Hero (reuses lp-intro; tightened for offer focus) ──────────────────── */
@@ -313,7 +313,7 @@
       filter: blur(50px);
       pointer-events: none;
     }
-    /* Lockup + offer-name title inside the offer card */
+    /* Lockup + Platinum Super Bonus title inside the offer card */
     .mm-offer__card .mm-plan__lockup {
       position: relative;
       z-index: 1;
@@ -323,13 +323,6 @@
       z-index: 1;
       margin-top: var(--space-sm);
       margin-bottom: var(--space-lg);
-    }
-    /* Looser than the base .mm-plan__hero-title (1.02): this headline is a full
-       sentence that wraps to 2–3 lines, so the tight display leading made the
-       lines crowd each other. Two classes, so it wins over .mm-plan__hero-title
-       no matter which rule comes later in the sheet. */
-    .mm-plan__hero-title.mm-offer__hero-title {
-      line-height: 1.18;
     }
     .mm-offer__strike {
       position: relative;
@@ -1386,157 +1379,9 @@
     }
 
     /* Pricing card gets a little scroll offset so the sticky header clears it. */
-    #apm-form {
+    #namb-form {
       scroll-margin-top: calc(var(--header-h) + 24px);
     }
-    /* ── Embedded CHL enrollment form (nested inside the pricing card) ──────── */
-    .apm-form {
-      position: relative;
-      z-index: 1;
-      margin-top: var(--space-lg);
-      /* Fill (nearly) the whole card. The embedded form has no internal width cap,
-         so it grows with the iframe as the box widens. */
-      max-width: 48rem;
-      margin-inline: auto;
-      background: #ffffff;
-      border: 1px solid rgba(234, 194, 90, 0.4);
-      border-radius: var(--radius-2xl);
-      box-shadow: inset 0 0 0 1px rgba(234, 194, 90, 0.12);
-      padding: clamp(16px, 2vw, 24px) clamp(16px, 2.4vw, 32px);
-      overflow: hidden;
-      text-align: center;
-    }
-    .apm-form__head {
-      text-align: center;
-      margin-bottom: var(--space-md);
-    }
-    .apm-form__title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      color: var(--primary);
-      margin: 0 0 8px;
-    }
-    .apm-form__sub {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.55;
-      color: var(--on-surface-variant);
-      margin: 0;
-    }
-    /* The LeadConnector embed script sizes the iframe to the form's own content
-       height (~532px per the embed); keep a floor so there's no big empty gap
-       below the form before the script runs. */
-    .apm-form__embed iframe {
-      display: block;
-      width: 100%;
-      min-height: 540px;
-    }
-    /* Savings pill (ACM-style) — replaces the plain italic savings line. */
-    .mm-plan__save-pill {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: clamp(1rem, 0.9rem + 0.5vw, 1.1875rem);
-      font-weight: 600;
-      letter-spacing: 0;
-      color: #6ee7a8;
-      background: rgba(52, 211, 153, 0.12);
-      border: 1px solid rgba(52, 211, 153, 0.4);
-      border-radius: var(--radius-full);
-      padding: 12px 28px;
-      line-height: 1.5;
-    }
-    .mm-plan__save-pill em {
-      font-style: normal;
-      font-weight: 800;
-      color: #34d399;
-    }
-    /* With the pill, the savings line is upright and needs normal flow spacing
-       (CHL's base .mm-plan__save pulls itself up under a big hero title).
-       The gap above/below must read as equal, so this rule owns both sides:
-       the headline's margin-bottom and the form's margin-top are both zeroed
-       out below, leaving only these two values in play. */
-    .mm-plan__save.mm-plan__save--pill {
-      font-style: normal;
-      color: inherit;
-      /* Two classes: the base .mm-plan__save is declared later in this sheet
-         and its negative margin-top would otherwise win. */
-      margin-top: var(--space-lg);
-      margin-bottom: var(--space-lg);
-      margin-inline: auto;
-    }
-    /* Collapse the neighbours' own spacing into the pill's, so the visible gap
-       is symmetric. Without this the headline contributed ~12px above while
-       --space-xl + .apm-form's margin-top stacked to ~42px below.
-       Both cards order these three elements identically, so plain sibling
-       selectors are enough — no :has() needed. */
-    .mm-offer__card .mm-plan__hero-title,
-    .mm-plan .mm-plan__hero-title {
-      margin-bottom: 0;
-    }
-    .mm-plan__save--pill + .apm-form {
-      margin-top: 0;
-    }
-    /* ── Price build — how the $99 is made up ────────────────────────────────
-       A parenthetical under the headline: the discounted rate plus CHL's
-       subsidy. Deliberately quiet — it explains the "$99/mo" above rather
-       than competing with it, so the parens and connecting words sit back and
-       only the two figures (green, matching the site's savings accents) and
-       the brass "+" carry any weight. ────────────────────────────────────── */
-    .apm-build {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: clamp(1.25rem, 1.02rem + 1.15vw, 1.75rem);
-      line-height: 1.45;
-      color: rgba(255, 255, 255, 0.88);
-      text-align: center;
-      /* Wide enough to hold one line on desktop — at this size a wrap would
-         split the parenthetical across rows and strand the closing paren. */
-      max-width: 54rem;
-      margin: clamp(18px, 2.2vw, 26px) auto 0;
-      text-wrap: balance;
-    }
-    /* The figures — display face, green gradient, a step up in size so the
-       numbers read first within the line. */
-    .apm-build__amount {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.24em;
-      letter-spacing: -0.015em;
-      white-space: nowrap;
-      background: linear-gradient(135deg, #34d399 0%, #6ee7a8 50%, #a7f3d0 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .apm-build__amount i {
-      font-style: normal;
-      font-size: 0.6em;
-      font-weight: 700;
-      letter-spacing: 0;
-    }
-    /* The "+" — brass, the one warm note in the line. */
-    .apm-build__op {
-      font-family: var(--font-display);
-      font-weight: 800;
-      color: var(--brass-bright);
-      padding-inline: 0.15em;
-    }
-    /* The pill's spacing contract (above) assumes the headline, the pill and
-       the form are adjacent siblings and zeroes the headline's bottom margin.
-       With the build line inserted between headline and pill, it owns the gap
-       under the headline and the pill keeps only its bottom gap. */
-    .apm-build + .mm-plan__save.mm-plan__save--pill {
-      margin-top: var(--space-md);
-    }
-    /* With the savings pill removed, the build line is the last thing before
-       the form and owns the full gap above it. */
-    .apm-build + .apm-form {
-      margin-top: clamp(28px, 3.4vw, 44px);
-    }
-
     .lp-proof-card {
       max-width: 64rem;
       margin-inline: auto;
@@ -1820,6 +1665,7 @@
       z-index: 1;
       max-width: 64rem;
       margin-inline: auto;
+      margin-top: var(--space-xl);
       background: linear-gradient(135deg, #0a1628 0%, #021c36 55%, #0a223d 100%);
       border-radius: var(--radius-3xl);
       border: 1px solid rgba(234, 194, 90, 0.4);
@@ -1861,9 +1707,7 @@
       width: auto;
       display: block;
     }
-    /* Account-tier heading — unused: the "CHL Preferred Account" heading was
-       removed from both pricing cards (the headline below states the offer).
-       Rule kept in case the lockup heading returns. */
+    /* Account-tier heading — all white, one line at every width. */
     .mm-plan__lockup-label {
       display: block;
       font-family: var(--font-display);
@@ -2234,9 +2078,9 @@
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       CHL EXCLUSIVE PRICING — two-tier monthly/annual card.
-       Ported from public/custom-sales-pages/namb-conference-2026.html so both pricing
-       sections on this page present the identical CHL member offer.
+       NAMB EXCLUSIVE PRICING — two-tier monthly/annual card.
+       Ported from public/webinar-sales-pages/vmba-convention-2026.html so both pricing
+       sections on this page present the identical NAMB member offer.
        Uses literal brass values (this page defines no --naq-* tokens).
        ══════════════════════════════════════════════════════════════════════════ */
     .naq-plan {
@@ -2388,18 +2232,20 @@
 <!-- TLA_HEADER_MINIMAL -->
 
   <!-- ── Sticky offer bar ───────────────────────────────────────────────────── -->
-  <div class="apm-bar">
-    <a class="apm-bar__link" href="#apm-form" aria-label="Activate Your CHL Preferred Account — $99/mo, save $3,000 a year">
-      <div class="apm-bar__strip">
-        <div class="apm-bar__strip-in">
-          <span class="apm-bar__label">Activate Your CHL Preferred Account</span>
+  <div class="namb-bar">
+    <a class="namb-bar__link" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/" aria-label="Activate Your NAMB Platinum Super Bonus — $149/mo plus 3 months free Platinum Marketing, save $2,900">
+      <div class="namb-bar__strip">
+        <div class="namb-bar__strip-in">
+          <span class="namb-bar__label">Activate Your NAMB Platinum Super Bonus</span>
         </div>
       </div>
-      <div class="apm-bar__row">
-        <div class="apm-bar__row-in">
-          <div class="apm-bar__copy">
-            <span class="apm-bar__price"><s>$349/mo</s>$99<i>/mo</i></span>
-            <span class="apm-bar__save">Save $3,000/yr</span>
+      <div class="namb-bar__row">
+        <div class="namb-bar__row-in">
+          <div class="namb-bar__copy">
+            <span class="namb-bar__price"><s>$349/mo</s>$149<i>/mo</i></span>
+            <span class="namb-bar__plus" aria-hidden="true">+</span>
+            <span class="namb-bar__free"><b>3 Months FREE</b> Platinum Marketing</span>
+            <span class="namb-bar__save">Save $2,900</span>
           </div>
         </div>
       </div>
@@ -2415,7 +2261,7 @@
           <h1 id="mm-hero-heading" class="lp-intro__title" data-hero-step="2">Close More Loans <span class="mm-hero-gold">With Less Chaos</span></h1>
           <p class="lp-intro__subtitle" data-hero-step="3">The Loan Atlas installs 5 AI-powered systems into your mortgage business to help you make better decisions, execute faster, and stay focused on what actually drives production.</p>
           <div class="lp-intro__actions" data-hero-step="4">
-            <a class="btn btn--gold btn--lg" href="#apm-form">Activate Your CHL Preferred Account</a>
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">Activate Your NAMB Platinum Super Bonus</a>
           </div>
         </div>
       </div>
@@ -2469,47 +2315,27 @@
     <!-- ── 2. OFFER HIGHLIGHT CARD ──────────────────────────────────────────── -->
     <section class="mm-offer" aria-labelledby="mm-offer-heading">
       <div class="container">
-        <div id="apm-form" class="mm-offer__card" data-reveal="scale">
-          <div class="mm-plan__lockup" aria-label="The Loan Atlas — CHL Preferred Account pricing">
+        <div id="namb-form" class="mm-offer__card" data-reveal="scale">
+          <div class="mm-plan__lockup" aria-label="The Loan Atlas — NAMB Platinum Super Bonus pricing">
             <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logo-gold.png" alt="The Loan Atlas" />
+            <h3 class="mm-plan__lockup-label">NAMB Platinum Super Bonus</h3>
           </div>
-          <h3 id="mm-offer-heading" class="mm-plan__hero-title mm-offer__hero-title" style="color: #ffffff;">Complete the Form to Activate Your CHL Preferred Account for just <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$99/mo</span></h3>
-
-          <!-- How the $99 is made up: the discounted rate, plus CHL's subsidy. -->
-          <p class="apm-build">(<span class="apm-build__amount">$199<i>/mo</i></span> discounted rate <span class="apm-build__op">+</span>&nbsp;<span class="apm-build__amount">$100<i>/mo</i></span> subsidy from CHL)</p>
-
-          <!-- Savings pill — hidden for review. Uncomment to bring it back.
-          <p class="mm-plan__save mm-plan__save--pill"><span class="mm-plan__save-pill"><em>$3,000</em> in Annual Savings — Exclusively for CHL Originators</span></p>
-          -->
-
-          <!-- ── Embedded CHL enrollment form (inside the top offer card) ─────── -->
-          <div class="apm-form">
-            <div class="apm-form__head">
-              <h4 class="apm-form__title">Activate Your CHL Preferred Account</h4>
-              <p class="apm-form__sub">Complete the form below and our team will get you set up at $99/mo.</p>
-            </div>
-            <div class="apm-form__embed">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/3ZQFIuaR5CEVCPxazkCr"
-                style="width:100%;height:100%;border:none;border-radius:3px"
-                id="inline-3ZQFIuaR5CEVCPxazkCr-top"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="CA: CHL"
-                data-height="532"
-                data-layout-iframe-id="inline-3ZQFIuaR5CEVCPxazkCr-top"
-                data-form-id="3ZQFIuaR5CEVCPxazkCr"
-                data-cookie-consent="true"
-                data-cookie-consent-provider="auto"
-                title="CA: CHL">
-              </iframe>
+          <p class="mm-plan__save"><em>$2,900</em> in Annual Savings — Exclusively for NAMB Members</p>
+          <div id="mm-offer-heading" class="mm-offer__steps" style="grid-template-columns: 1fr; max-width: 22rem;">
+            <div class="mm-step mm-step--rest">
+              <span class="mm-step__was"><span class="mm-offer__strike">$349/mo</span></span>
+              <span class="mm-step__price" style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$149<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
             </div>
           </div>
+
+          <p class="mm-plan__plus"><span>plus <em>3 months FREE</em> of Platinum Marketing</span></p>
+          <p class="mm-plan__plus-note">Then just <strong>$69/mo</strong> (full price Platinum Marketing = $99/mo)</p>
+
+
+          <div class="mm-offer__cta">
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">Activate Your NAMB Platinum Super Bonus</a>
+          </div>
+          <p class="mm-offer__fine">12-month commitment. Offer exclusively for NAMB members. Available to new members only.</p>
         </div>
       </div>
     </section>
@@ -2561,7 +2387,7 @@
               The loan officers pulling away from the pack aren&rsquo;t working harder than you. They&rsquo;re running systems that compound their production every month.
             </p>
             <p class="text-brass" style="font-family: var(--font-display); font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.125rem); font-weight: 800; line-height: 1.35; letter-spacing: -0.015em; margin: 0;">
-              With your CHL Preferred Account, you can install them all for less than the commission of one extra loan.
+              With your NAMB Platinum Super Bonus, you can install them all for less than the commission of one extra loan.
             </p>
           </div>
 
@@ -2697,10 +2523,60 @@
       </div>
     </section>
 
-    <!-- NOTE: the Platinum Marketing section (was 7b) is intentionally removed —
-         the CHL Preferred Account is $99/mo flat with no free-months bonus, so
-         advertising it here would promise something the offer doesn't include.
-         Its .mm-plat__* CSS above is left in place (same as acm.html). -->
+    <!-- ── 7b. PLATINUM MARKETING ───────────────────────────────────────────── -->
+    <section class="mm-plat" id="platinum" aria-labelledby="plat-heading">
+      <div class="mm-plat__glow" aria-hidden="true"></div>
+
+      <!-- Faded background collage of every Platinum asset -->
+      <div class="mm-plat__bg" aria-hidden="true">
+        <img src="../assets/platinum-landing-page-1.png" alt="" loading="lazy">
+        <img src="../assets/platinum-presentation-deck-1.png" alt="" loading="lazy">
+        <img src="../assets/platinum-flyer-1.jpeg" alt="" loading="lazy">
+        <img src="../assets/platinum-social-image-1.jpeg" alt="" loading="lazy">
+        <img src="../assets/platinum-newsletter.png" alt="" loading="lazy">
+        <img src="../assets/platinum-presentation-deck-2.png" alt="" loading="lazy">
+        <img src="../assets/platinum-social-image-2.jpeg" alt="" loading="lazy">
+        <img src="../assets/platinum-landing-page-2.png" alt="" loading="lazy">
+        <img src="../assets/platinum-flyer-2.jpeg" alt="" loading="lazy">
+        <img src="../assets/platinum-social-image-3.jpeg" alt="" loading="lazy">
+        <img src="../assets/platinum-social-image-4.png" alt="" loading="lazy">
+      </div>
+
+      <div class="container">
+
+        <div class="mm-plat__header" data-reveal="up">
+          <span class="eyebrow mm-plat__eyebrow" style="justify-content: center; margin-bottom: var(--space-md);">
+            <span class="eyebrow__text" style="color: var(--brass-bright);">New Inside The Loan Atlas</span>
+          </span>
+          <h2 id="plat-heading" class="mm-plat__title">Platinum Marketing</h2>
+          <p class="mm-plat__subhead">
+            Take your marketing from ignored to <span class="mm-plat__subhead-em" style="font-weight: 800;">irresistible.</span>
+          </p>
+        </div>
+
+        <!-- Full-width box: checklist (left) + offer (right) -->
+        <div class="mm-plat__offer" data-reveal="scale">
+          <div class="mm-plat__offer-list">
+            <ul class="checklist checklist--inverse mm-plat__list">
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Marketing Assistant</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Decks &amp; Flyers</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Newsletters</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Email Campaigns</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Social Graphics</li>
+              <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brass-bright);"><polyline points="20 6 9 17 4 12"></polyline></svg>Landing Pages</li>
+            </ul>
+          </div>
+
+          <div class="mm-plat__offer-deal">
+            <div class="mm-plat__price-tag">
+              <span class="mm-plat__price-was"><em>$99</em><span>/mo</span></span>
+              <span class="mm-plat__price-now">3 Months FREE</span>
+            </div>
+            <p class="mm-plat__price-note">then $69/mo, or cancel anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ── 11. TESTIMONIALS + PROOF ─────────────────────────────────────────── -->
     <section class="lp-testimonials" id="testimonials" aria-labelledby="testimonials-heading">
@@ -2783,50 +2659,38 @@
       </div>
     </section>
 
-    <!-- ── 12. CHL PRICING ──────────────────────────────────────────────────── -->
-    <section class="mm-pricing" id="pricing" aria-label="CHL Preferred Account pricing">
+    <!-- ── 12. NAMB PRICING ──────────────────────────────────────────────────── -->
+    <section class="mm-pricing" id="pricing" aria-labelledby="pricing-heading">
       <div class="container">
-        <article id="apm-pricing-card" class="mm-plan" data-reveal="scale">
-          <div class="mm-plan__lockup" aria-label="The Loan Atlas — CHL Preferred Account pricing">
+        <div class="center" data-reveal="up" style="max-width: 46rem; margin-inline: auto;">
+          <h2 id="pricing-heading" class="t-display" style="color: #ffffff; font-weight: 800; margin-bottom: var(--space-sm);">Everything You Need to Scale. <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Exclusive NAMB Pricing.</span></h2>
+          <p class="t-body-lg" style="color: rgba(255, 255, 255, 0.68); font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);">Full access to everything above — the AI systems, live coaching, and community — at a price reserved only for NAMB members.</p>
+        </div>
+
+        <article id="namb-pricing-card" class="mm-plan" data-reveal="scale">
+          <div class="mm-plan__lockup" aria-label="The Loan Atlas — NAMB Platinum Super Bonus pricing">
             <img class="mm-plan__lockup-atlas" src="../assets/Loan Atlas logo-gold.png" alt="The Loan Atlas" />
+            <h3 class="mm-plan__lockup-label">NAMB Platinum Super Bonus</h3>
           </div>
-          <h3 class="mm-plan__hero-title mm-offer__hero-title" style="color: #ffffff;">Complete the Form to Activate Your CHL Preferred Account for just <span style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$99/mo</span></h3>
-
-          <!-- How the $99 is made up: the discounted rate, plus CHL's subsidy. -->
-          <p class="apm-build">(<span class="apm-build__amount">$199<i>/mo</i></span> discounted rate <span class="apm-build__op">+</span>&nbsp;<span class="apm-build__amount">$100<i>/mo</i></span> subsidy from CHL)</p>
-
-          <!-- Savings pill — hidden for review. Uncomment to bring it back.
-          <p class="mm-plan__save mm-plan__save--pill"><span class="mm-plan__save-pill"><em>$3,000</em> in Annual Savings — Exclusively for CHL Originators</span></p>
-          -->
-
-          <!-- ── Embedded CHL enrollment form (inside the pricing card) ──────── -->
-          <div class="apm-form">
-            <div class="apm-form__head">
-              <h4 class="apm-form__title">Activate Your CHL Preferred Account</h4>
-              <p class="apm-form__sub">Complete the form below and our team will get you set up at $99/mo.</p>
-            </div>
-            <div class="apm-form__embed">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/3ZQFIuaR5CEVCPxazkCr"
-                style="width:100%;height:100%;border:none;border-radius:3px"
-                id="inline-3ZQFIuaR5CEVCPxazkCr"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="CA: CHL"
-                data-height="532"
-                data-layout-iframe-id="inline-3ZQFIuaR5CEVCPxazkCr"
-                data-form-id="3ZQFIuaR5CEVCPxazkCr"
-                data-cookie-consent="true"
-                data-cookie-consent-provider="auto"
-                title="CA: CHL">
-              </iframe>
+          <p class="mm-plan__save"><em>$2,900</em> in Annual Savings — Exclusively for NAMB Members</p>
+          <div class="mm-offer__steps" style="grid-template-columns: 1fr; max-width: 22rem;">
+            <div class="mm-step mm-step--rest">
+              <span class="mm-step__was"><span class="mm-offer__strike">$349/mo</span></span>
+              <span class="mm-step__price" style="background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">$149<span style="font-size: 0.32em; font-weight: 700; letter-spacing: 0;">/mo</span></span>
             </div>
           </div>
+
+          <p class="mm-plan__plus"><span>plus <em>3 months FREE</em> of Platinum Marketing</span></p>
+          <p class="mm-plan__plus-note">Then just <strong>$69/mo</strong> (full price Platinum Marketing = $99/mo)</p>
+
+
+          <div class="mm-plan__cta">
+            <a class="btn btn--gold btn--lg" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-namb3/">
+              Activate Your NAMB Platinum Super Bonus
+            </a>
+          </div>
+
+          <p class="mm-plan__fine">12-month commitment. Offer exclusively for NAMB members. Available to new members only.</p>
         </article>
       </div>
     </section>
@@ -2838,7 +2702,7 @@
 
   <script src="../js/nav.js"></script>
   <script src="../js/animations.js" defer></script>
-  <!-- LeadConnector form embed (CHL enrollment form) -->
+  <!-- LeadConnector form embed (NAMB enrollment form) -->
   <script src="https://link.msgsndr.com/js/form_embed.js"></script>
   <script>
     // ── Hero system-cycling chat: eyebrow + name (left) + bot heading + typed input ──

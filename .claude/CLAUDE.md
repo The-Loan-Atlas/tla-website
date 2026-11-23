@@ -49,10 +49,10 @@ npm run shoot     # Playwright screenshots (run `npm run shoot:install` once fir
 ## Architecture
 
 **Pages:** ~20 live `.html` pages in `public/`, each standalone. They fall into four
-`public/` design families (see DESIGN.md; the blog is separate — see below): house style (`index`, `join`, `sales-individual`,
-`events`, `contact`), dark-hero/enterprise (`faculty`, `consultation*`, `enterprise`,
-`whats-inside`), fresh standalone landings (`ai-originator-masterplan`, `5-scripts`,
-`mastermind`, `platinum-marketing`), and
+`public/` design families (see DESIGN.md; the blog is separate — see below): house style (`index`, `join`, `membership`,
+`live-events`, `contact`), dark-hero/enterprise (`faculty`, `consultation*`, `enterprise`,
+`whats-inside`), fresh standalone landings (`ai-originator-masterplan`, `5-scripts-for-dominating-point-of-sale`,
+`join-mastermind-2026`, `platinum-marketing`), and
 legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 
 > ⚠️ **The blog is NOT a `public/` page — it's the #1 thing that trips people up.**
@@ -79,12 +79,20 @@ legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 **Mockups live in `/mockups/` at the repo root (NOT in `public/`)** — `hero-mockup*.html`,
 `patterns.html`, section mockups, `emails/`. They never deploy. Put every new mockup there.
 View them with `npm run serve` at `http://localhost:4321/mockups/<file>.html`. Live pages in
-`public/` are grouped into subfolders (`live-events/`, `partnership-sales-pages/`,
-`webinar-offers/`, `webinar-registration/`, `webinar-replays/`, `trainings/`). Subfolder pages
+`public/` are grouped into subfolders (`live-events/`, `custom-sales-pages/`,
+`webinar-sales-pages/`, `custom-download-pages/`, `custom-consultation-pages/`, `webinar-registration/`, `trainings/`). Subfolder pages
 reference shared files with `../` (`../css/…`, `../js/…`, `../assets/…`, `url('../assets/…')`)
 so they render when opened straight from disk; the build strips any `../`. Links to other
 pages stay bare (`join.html`) — the build's link map only matches that form.
 A new page must be added to the slug map in `scripts/convert-pages.sh` with its folder prefix.
+
+**Filename = slug, always.** A page's source file is named exactly after its live slug:
+`/join-mastermind-2026/` lives at `public/webinar-sales-pages/join-mastermind-2026.html`.
+The only exception is `index.html` → homepage. Draft-slug pages are named after the draft
+slug (`webinar-registration-draft.html`) and renamed when promoted. Never change a slug
+without renaming the file: `git mv` it, then update its `convert` line and its
+`href="<name>\.html"` rule in `rewrite()` in `convert-pages.sh`, plus every
+`href="<old>.html"` link in `public/`.
 
 **Shared live-event sidebar:** the Join The Loan Atlas / Free Business Assessment sidebar on
 every `public/live-events/` page is ONE file, `public/partials/event-sidebar.html`. Pages

@@ -148,19 +148,19 @@ rewrite() {
 
   # Internal *.html links -> WP slugs
   perl -0pi -e 's/href="index\.html"/href="\/"/g'                         "$f"
-  perl -0pi -e 's/href="sales-individual\.html"/href="\/membership\/"/g'  "$f"
+  perl -0pi -e 's/href="membership\.html"/href="\/membership\/"/g'  "$f"
   perl -0pi -e 's/href="enterprise\.html"/href="\/enterprise\/"/g'         "$f"
   perl -0pi -e 's/href="consultation\.html"/href="\/consultation\/"/g'    "$f"
-  perl -0pi -e 's/href="consultation-corporate\.html"/href="\/enterprise-consultation\/"/g' "$f"
-  perl -0pi -e 's/href="consultation-mastermind\.html"/href="\/consultation-mastermind-2026\/"/g' "$f"
+  perl -0pi -e 's/href="enterprise-consultation\.html"/href="\/enterprise-consultation\/"/g' "$f"
+  perl -0pi -e 's/href="consultation-mastermind-2026\.html"/href="\/consultation-mastermind-2026\/"/g' "$f"
   perl -0pi -e 's/href="join\.html"/href="\/join\/"/g'                 "$f"
   perl -0pi -e 's/href="faculty\.html"/href="\/faculty\/"/g'             "$f"
   perl -0pi -e 's/href="whats-inside\.html"/href="\/whats-inside\/"/g'    "$f"
   perl -0pi -e 's/href="ai-originator-masterplan\.html"/href="\/ai-originator-masterplan\/"/g' "$f"
   perl -0pi -e 's/href="ai-business-planner\.html"/href="\/ai-business-planner\/"/g' "$f"
   perl -0pi -e 's/href="perfect-loan-process\.html"/href="\/perfect-loan-process\/"/g' "$f"
-  perl -0pi -e 's/href="5-scripts\.html"/href="\/5-scripts-for-dominating-point-of-sale\/"/g' "$f"
-  perl -0pi -e 's/href="events\.html"/href="\/live-events\/"/g'           "$f"
+  perl -0pi -e 's/href="5-scripts-for-dominating-point-of-sale\.html"/href="\/5-scripts-for-dominating-point-of-sale\/"/g' "$f"
+  perl -0pi -e 's/href="live-events\.html"/href="\/live-events\/"/g'           "$f"
   perl -0pi -e 's/href="office-hours-caleb-legrand\.html"/href="\/office-hours-caleb-legrand\/"/g' "$f"
   perl -0pi -e 's/href="office-hours-trevor-carlson\.html"/href="\/office-hours-trevor-carlson\/"/g' "$f"
   perl -0pi -e 's/href="office-hours-michael-belfor\.html"/href="\/office-hours-michael-belfor\/"/g' "$f"
@@ -177,14 +177,14 @@ rewrite() {
   perl -0pi -e 's/href="lead-generation-that-converts\.html"/href="\/lead-generation-that-converts\/"/g' "$f"
   perl -0pi -e 's/href="ai-lab-success-with-follow-up-pro\.html"/href="\/ai-lab-success-with-follow-up-pro\/"/g' "$f"
   perl -0pi -e 's/href="market-update-with-barry-habib\.html"/href="\/market-update-with-barry-habib\/"/g' "$f"
-  perl -0pi -e 's/href="leveraging-google-reviews\.html"/href="\/leveraging-google-reviews-to-attract-clients-and-agents\/"/g' "$f"
+  perl -0pi -e 's/href="leveraging-google-reviews-to-attract-clients-and-agents\.html"/href="\/leveraging-google-reviews-to-attract-clients-and-agents\/"/g' "$f"
   perl -0pi -e 's/href="winning-mortgage-referrals-from-listing-agents\.html"/href="\/winning-mortgage-referrals-from-listing-agents\/"/g' "$f"
   perl -0pi -e 's/href="emergency-game-plan\.html"/href="\/emergency-game-plan\/"/g' "$f"
   perl -0pi -e 's/href="2027-business-planning\.html"/href="\/2027-business-planning\/"/g' "$f"
-  perl -0pi -e 's/href="replay-winning-the-ai-game\.html"/href="\/winning-the-ai-game\/"/g' "$f"
-  perl -0pi -e 's/href="replay-ai-lab-follow-up-pro\.html"/href="\/ai-lab-follow-up-pro\/"/g' "$f"
-  perl -0pi -e 's/href="replay-2026-mid-year-playbook\.html"/href="\/2026-mid-year-playbook\/"/g' "$f"
-  perl -0pi -e 's/href="mastermind\.html"/href="\/join-mastermind-2026\/"/g'   "$f"
+  perl -0pi -e 's/href="winning-the-ai-game\.html"/href="\/winning-the-ai-game\/"/g' "$f"
+  perl -0pi -e 's/href="ai-lab-follow-up-pro\.html"/href="\/ai-lab-follow-up-pro\/"/g' "$f"
+  perl -0pi -e 's/href="2026-mid-year-playbook\.html"/href="\/2026-mid-year-playbook\/"/g' "$f"
+  perl -0pi -e 's/href="join-mastermind-2026\.html"/href="\/join-mastermind-2026\/"/g'   "$f"
   perl -0pi -e 's/href="privacy-policy\.html"/href="\/privacy-policy\/"/g'      "$f"
   perl -0pi -e 's/href="terms-of-use\.html"/href="\/terms-of-use\/"/g'          "$f"
   perl -0pi -e 's/href="end-user-agreement\.html"/href="\/end-user-agreement\/"/g' "$f"
@@ -196,14 +196,17 @@ rewrite() {
 }
 
 # slug map (source | slug | active)
+# RULE: the source filename must equal the slug (public/<folder>/<slug>.html -> /<slug>/).
+# Only exception: index -> home. If a slug changes, git mv the file to match, then update
+# its line here, its href="<name>\.html" rule in rewrite(), and every link to it.
 convert index                   home                          ""
 convert join                    join                          join
 convert faculty                 faculty                       faculty
 convert enterprise              enterprise                    enterprise
 convert whats-inside            whats-inside                  whats-inside
-convert sales-individual        membership                    membership
+convert membership        membership                    membership
 convert consultation            consultation                  ""
-convert events                  live-events                   events
+convert live-events                  live-events                   events
 convert live-events/office-hours-caleb-legrand office-hours-caleb-legrand  ""
 convert live-events/office-hours-trevor-carlson office-hours-trevor-carlson ""
 convert live-events/office-hours-michael-belfor office-hours-michael-belfor ""
@@ -220,7 +223,7 @@ convert live-events/talk-to-tim              talk-to-tim                  ""
 convert live-events/lead-generation-that-converts lead-generation-that-converts ""
 convert live-events/ai-lab-success-with-follow-up-pro ai-lab-success-with-follow-up-pro ""
 convert live-events/market-update-with-barry-habib market-update-with-barry-habib ""
-convert live-events/leveraging-google-reviews leveraging-google-reviews-to-attract-clients-and-agents ""
+convert live-events/leveraging-google-reviews-to-attract-clients-and-agents leveraging-google-reviews-to-attract-clients-and-agents ""
 # Upcoming live-event (masterclass) detail pages. public/live-events/_template.html
 # is the copy-and-fill source and is deliberately NOT listed here (never deploys);
 # the pages themselves live in public/live-events/ and are listed individually.
@@ -229,41 +232,40 @@ convert live-events/emergency-game-plan     emergency-game-plan           ""
 convert live-events/2027-business-planning  2027-business-planning        ""
 # Revolution Mortgage webinar registration (.evc-* suite). The two
 # webinar-registration*-draft lines are unused design drafts (uncommitted).
-convert webinar-registration/webinar-registration    webinar-registration-draft    ""
-convert webinar-registration/webinar-registration-b  webinar-registration-b-draft  ""
+convert webinar-registration/webinar-registration-draft    webinar-registration-draft    ""
+convert webinar-registration/webinar-registration-b-draft  webinar-registration-b-draft  ""
 convert webinar-registration/revolution-register    revolution-register           ""
 convert webinar-registration/register-121726       register-121726               ""
-convert live-events/replay-winning-the-ai-game winning-the-ai-game        ""
-convert live-events/replay-ai-lab-follow-up-pro ai-lab-follow-up-pro      ""
-convert live-events/replay-2026-mid-year-playbook 2026-mid-year-playbook   ""
-convert webinar-replays/replay-execute-on-mastermind execute-on-mastermind    ""
-convert live-events/replay-your-marketing-is-being-ignored acm-replay-072326 ""
-convert webinar-replays/replay-mbs-111926      replay-mbs-111926             ""
-convert partnership-sales-pages/mastermind join-mastermind-2026          ""
-convert partnership-sales-pages/camp-irvine             camp-irvine                   ""
-convert partnership-sales-pages/acm       acm                           ""
-convert partnership-sales-pages/namb      namb                          ""
-convert webinar-offers/join-mbs-111926          join-mbs-111926               ""
-convert partnership-sales-pages/vmba-convention-2026 vmba-convention-2026 ""
-convert partnership-sales-pages/namb-conference-2026 namb-conference-2026 ""
-convert partnership-sales-pages/neo                  neo                           ""
-convert partnership-sales-pages/apm-symposium-2026 apm-symposium-2026 ""
-convert partnership-sales-pages/apm                  apm                           ""
-convert partnership-sales-pages/certainty-home-lending certainty-home-lending ""
-convert partnership-sales-pages/revolution           revolution                    ""
-convert webinar-offers/launch-namb-ai-operating-manual launch-namb-ai-operating-manual  ""
-convert webinar-offers/namb-ai-operating-manual namb-ai-operating-manual      ""
-convert webinar-offers/namb-build-your-custom-gpt namb-build-your-custom-gpt    ""
-convert webinar-offers/mbs-seller-advantage    mbs-seller-advantage          ""
-convert consultation-corporate  enterprise-consultation       ""
-convert consultation-mastermind consultation-mastermind-2026  ""
+convert live-events/winning-the-ai-game winning-the-ai-game        ""
+convert live-events/ai-lab-follow-up-pro ai-lab-follow-up-pro      ""
+convert live-events/2026-mid-year-playbook 2026-mid-year-playbook   ""
+convert webinar-sales-pages/execute-on-mastermind execute-on-mastermind    ""
+convert webinar-sales-pages/acm-replay-072326 acm-replay-072326 ""
+convert webinar-sales-pages/join-mastermind-2026 join-mastermind-2026          ""
+convert custom-sales-pages/camp-irvine             camp-irvine                   ""
+convert custom-sales-pages/acm       acm                           ""
+convert custom-sales-pages/namb      namb                          ""
+convert webinar-sales-pages/join-mbs-111926          join-mbs-111926               ""
+convert webinar-sales-pages/vmba-convention-2026 vmba-convention-2026 ""
+convert webinar-sales-pages/namb-conference-2026 namb-conference-2026 ""
+convert custom-sales-pages/neo                  neo                           ""
+convert webinar-sales-pages/apm-symposium-2026 apm-symposium-2026 ""
+convert custom-sales-pages/apm                  apm                           ""
+convert custom-sales-pages/certainty-home-lending certainty-home-lending ""
+convert custom-sales-pages/revolution           revolution                    ""
+convert custom-download-pages/launch-namb-ai-operating-manual launch-namb-ai-operating-manual  ""
+convert custom-download-pages/namb-ai-operating-manual namb-ai-operating-manual      ""
+convert custom-download-pages/namb-build-your-custom-gpt namb-build-your-custom-gpt    ""
+convert webinar-sales-pages/mbs-seller-advantage    mbs-seller-advantage          ""
+convert enterprise-consultation  enterprise-consultation       ""
+convert custom-consultation-pages/consultation-mastermind-2026 consultation-mastermind-2026  ""
 convert privacy-policy          privacy-policy                ""
 convert terms-of-use            terms-of-use                  ""
 convert end-user-agreement      end-user-agreement            ""
 convert ai-originator-masterplan ai-originator-masterplan     ""
 convert ai-business-planner     ai-business-planner           ""
 convert perfect-loan-process    perfect-loan-process          ""
-convert 5-scripts               5-scripts-for-dominating-point-of-sale  ""
+convert 5-scripts-for-dominating-point-of-sale               5-scripts-for-dominating-point-of-sale  ""
 # Lead magnet.
 convert refinance-masterplan    refinance-masterplan          ""
 convert contact                 contact                       ""
@@ -272,7 +274,7 @@ convert platinum-marketing      platinum-marketing            ""
 # per training sold à la carte. public/trainings/_template.html is the
 # copy-and-fill source and is deliberately NOT listed here (never deploys).
 # Staged on a draft slug for review; move to its real slug once approved.
-convert trainings/2026-mid-year-playbook-masterclass standalone-product-draft ""
+convert trainings/standalone-product-draft standalone-product-draft ""
 # NOTE: blog/blog-post/blog-archive are NOT fullhtml partials — the live blog
 # is rendered by home.php/single.php/archive.php (WP post loop) with CSS in
 # tla/css/blog.css. Do NOT add them here. The blog*.html link rewrites in

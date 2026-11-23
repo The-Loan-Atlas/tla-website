@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /enterprise-consultation/ (TLA Full HTML template).
- * Generated from public/consultation-corporate.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/enterprise-consultation.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }

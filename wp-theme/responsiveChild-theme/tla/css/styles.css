@@ -5626,7 +5626,7 @@ body.is-loaded [data-hero-step="5"] {
 }
 
 /* --- Takeaways: dark/enterprise variant --------------------------------- */
-/* Scoped to the .takeaways--dark modifier (consultation-corporate.html only).
+/* Scoped to the .takeaways--dark modifier (enterprise-consultation.html only).
    Flips the flat-white "What you'll leave with" section to a dark, glassy
    card treatment matching the corporate "Five AI Systems" .system-card look.
    Base .takeaways* rules are untouched so the individual/mastermind pages

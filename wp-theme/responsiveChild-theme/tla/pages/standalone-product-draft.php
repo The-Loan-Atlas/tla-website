@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /standalone-product-draft/ (TLA Full HTML template).
- * Generated from public/trainings/2026-mid-year-playbook-masterclass.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/trainings/standalone-product-draft.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }

@@ -1,0 +1,4 @@
+source,target,regex,code
+/blog-revamp-test/,/blog/,0,301
+/elementor-4980/,/,0,301
+/the-loan-atlas-coming-soon-2/,/,0,301

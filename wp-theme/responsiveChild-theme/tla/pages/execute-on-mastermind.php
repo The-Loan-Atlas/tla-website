@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /execute-on-mastermind/ (TLA Full HTML template).
- * Generated from public/webinar-replays/replay-execute-on-mastermind.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/webinar-sales-pages/execute-on-mastermind.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -79,7 +79,7 @@ $tla_active      = '';
     }
     .rp-video__frame wistia-player { display: block; }
 
-    /* ── Larger landing-page CTA (from mastermind.html) ─────────────────────── */
+    /* ── Larger landing-page CTA (from join-mastermind-2026.html) ─────────────────────── */
     .btn--landing,
     .mm-offer__cta .btn--gold.btn--lg {
       font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.3125rem);
@@ -97,7 +97,7 @@ $tla_active      = '';
     }
 
     /* ══════════════════════════════════════════════════════════════════════════
-       OFFER CARD — ported verbatim from mastermind.html's inline styles
+       OFFER CARD — ported verbatim from join-mastermind-2026.html's inline styles
        ══════════════════════════════════════════════════════════════════════════ */
     .mm-offer {
       background-image: url('<?php echo TLA_BASE; ?>/assets/bellagio.png');
@@ -353,7 +353,7 @@ $tla_active      = '';
       </div>
     </section>
 
-    <!-- ── 3. OFFER HIGHLIGHT CARD (from mastermind.html) ───────────────────── -->
+    <!-- ── 3. OFFER HIGHLIGHT CARD (from join-mastermind-2026.html) ───────────────────── -->
     <section class="mm-offer" aria-labelledby="mm-offer-heading">
       <div class="container">
         <div class="mm-offer__card">

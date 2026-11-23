@@ -93,21 +93,12 @@ For each page: WP Admin → **Pages → Add New** → set the **Slug** (table be
 **Publish**. (Don't open these with Elementor — set the template in the normal
 page editor.)
 
-### Slug map (source file → WordPress slug → nav highlight)
+### Slug map (source file → WordPress slug)
 
-| Source (`public/`) | Slug → URL | Notes |
-|---|---|---|
-| `index.html` | `home` → set as homepage (see below) | |
-| `join.html` | `join` → `/join/` | |
-| `faculty.html` | `faculty` → `/faculty/` | has the faculty modal |
-| `enterprise.html` | `enterprise` → `/enterprise/` | |
-| `whats-inside.html` | `whats-inside` → `/whats-inside/` | |
-| `sales-individual.html` | `individuals` → `/individuals/` | old SEO slug |
-| `consultation.html` | `book-a-demo` → `/book-a-demo/` | old SEO slug; GHL form embed |
-| `events.html` | `events` → `/events/` | |
-| `mastermind.html` | `mastermind` → `/mastermind/` | |
-| `consultation-corporate.html` | `consultation-corporate` → `/consultation-corporate/` | GHL form embed |
-| `consultation-mastermind.html` | `consultation-mastermind` → `/consultation-mastermind/` | GHL form embed |
+**A page's filename is its slug:** `public/<folder>/<slug>.html` → `/<slug>/`. The
+one exception is `index.html` → `home` (set as the homepage, see below). The full
+list (with nav-highlight keys) is the slug map at the bottom of
+`scripts/convert-pages.sh`.
 
 > **Slug collisions:** the old WordPress site already has pages at some of these
 > slugs (e.g. `/individuals/`, `/businesses/`, `/book-a-demo/`). WordPress won't

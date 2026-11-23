@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /apm/ (TLA Full HTML template).
- * Generated from public/partnership-sales-pages/apm.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/custom-sales-pages/apm.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -2230,7 +2230,7 @@ $tla_active      = '';
 
     /* ══════════════════════════════════════════════════════════════════════════
        APM EXCLUSIVE PRICING — two-tier monthly/annual card.
-       Ported from public/custom-sales-pages/namb-conference-2026.html so both pricing
+       Ported from public/webinar-sales-pages/namb-conference-2026.html so both pricing
        sections on this page present the identical APM member offer.
        Uses literal brass values (this page defines no --naq-* tokens).
        ══════════════════════════════════════════════════════════════════════════ */
