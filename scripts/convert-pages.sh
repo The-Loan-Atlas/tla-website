@@ -264,8 +264,8 @@ convert ai-originator-masterplan ai-originator-masterplan     ""
 convert ai-business-planner     ai-business-planner           ""
 convert perfect-loan-process    perfect-loan-process          ""
 convert 5-scripts               5-scripts-for-dominating-point-of-sale  ""
-# Lead magnet — staged on a draft slug for review; rename to refinance-masterplan once approved.
-convert refinance-masterplan    refinance-masterplan-draft    ""
+# Lead magnet.
+convert refinance-masterplan    refinance-masterplan          ""
 convert contact                 contact                       ""
 convert platinum-marketing      platinum-marketing            ""
 # Individual training sales pages (public/trainings/, .trn-* suite). One page

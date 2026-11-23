@@ -1,6 +1,6 @@
 <?php
 /**
- * Body partial for /refinance-masterplan-draft/ (TLA Full HTML template).
+ * Body partial for /refinance-masterplan/ (TLA Full HTML template).
  * Generated from public/refinance-masterplan.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
