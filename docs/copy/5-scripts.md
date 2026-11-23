@@ -1,110 +1,117 @@
-# 5 Essential Scripts for Dominating the Point of Sale — Copy
+# 5 Scripts — Copy
+
 **Source:** public/5-scripts.html
-**URL slug:** /5-scripts
+**Live URL:** theloanatlas.com/5-scripts-for-dominating-point-of-sale/
+**SEO title:** 5 Essential Scripts for Dominating the Point of Sale | Free Download from The Loan Atlas
+**Meta description:** Free word-for-word scripts for the 5 objections that kill mortgage deals at the point of sale — rate shopping, rate-drop fear, market timing, the stall, and Rocket/Zillow — plus the coaching notes that make them work.
 
 ---
 
-## Hero
+## Hero (copy left, download form right)
 
-Free Download · For Loan Officers
+*Eyebrow:* [The Loan Atlas logo] | Free Sales Scripts
 
-# The 5 Essential Scripts for Dominating the Point of Sale
+# Stop losing borrowers the moment they **ask a difficult question.**
 
-You can keep getting thrown off at the point of sale. Or you can get intentional about it. Every fumbled objection is **a deal that didn't have to die** — these free scripts make sure you're never caught flat-footed again.
+The worst time to think about what you're going to say is when you need to say it. These 5 scripts will help you stay calm, ask better questions, and keep control of the conversation.
 
-**[Button: Get the free scripts]**
+- Free download
+- Instant access
 
-Instant access · No cost · Word-for-word scripts with coaching notes.
+### Hero testimonials (no names attributed)
 
-### The 5 objections answered inside the scripts
+> "It helped me save two loans so far from going to a competitor. It's fantastic to see these work!"
 
-- " Can you beat my credit union?
-- " What if rates drop right after we lock?
-- " Is now even the right time?
-- " Can I think about it and get back to you?
-- " How are you different from Rocket?
+> "This is literally the best tool I have EVER used in 40 years in the business!"
+
+### Download form card
+
+## Get the 5 Essential Scripts for Dominating the Point of Sale
+
+*[Embedded form: GHL — "LM: 5 Essential Scripts for Dominating the Point of Sale" (form ID sKtyqXeMElEIzI277jwu) — fields not in our HTML]*
 
 ---
 
-## Lead-Capture Band
+## Problem
 
-Instant access · Free
+## The point of sale is where good deals **start slipping.**
 
-### Get the 5 scripts — free
+**[Button: Send Me the Scripts]** (→ #get-the-scripts, scrolls to the hero form)
 
-Fill out the form and we'll send the complete scripts instantly — word-for-word messaging plus the coaching notes that make them work.
+A borrower asks about rate. Then another lender. Then the market. Then whether they should wait.
 
-- Delivered instantly
-- Word-for-word scripts
-- Coaching notes included
+Then they say they need to think about it, and suddenly you are chasing a deal that felt solid five minutes ago.
 
-**[Form: Get the 5 Essential Scripts for Dominating the Point of Sale]**
-
-No spam. We respect your inbox — unsubscribe anytime.
+That's because the worst time to think about what you're going to say is the **moment you need to say it.**
 
 ---
 
 ## What's Inside
 
-What's Inside
+*Eyebrow:* What's Inside
 
-### The 5 objections that kill deals — answered.
+## 5 Essential Scripts for **Dominating the Point of Sale**
 
-Clear, calm, confident responses to the moments that decide loans at the point of sale — each with coaching notes that break down why the move works.
+Each script includes a short version, a longer conversational version, and coaching notes on how to use it.
 
-### 01 — "What rate can you offer? Can you beat my credit union?"
+### 01 — "What rate can you offer today? Can you beat my credit union's rate?"
 
-Reclaim control before the conversation turns into a race to the bottom.
+Learn how to avoid getting reduced to a number before you've built value — and how to reframe the rate conversation around structure, options, and the borrower's full outcome.
 
-### 02 — "What if rates go down right after we lock?"
+### 02 — "What if rates go down right after we lock the rate with you?"
 
-Turn rate anxiety into a trust-building moment — without overpromising.
+Use this when borrowers are worried about making the wrong move. You'll learn how to respond without overpromising, overexplaining, or losing authority.
 
 ### 03 — "I don't know if now is the right time with the market."
 
-Move them from market timing to personal clarity — and a clear next step.
+Shift the conversation from market timing to personal timing, so borrowers can compare real scenarios instead of freezing in uncertainty.
 
 ### 04 — "Can I think about it and get back to you?"
 
-Unpack the hesitation, restore confidence, and keep the deal alive.
+Stop letting this objection disappear into the follow-up black hole. Learn how to uncover what they actually need to think through and guide them back to a clearer decision.
 
-### 05 — "How are you different from Rocket or Zillow?"
+### 05 — "How are you guys different from Rocket or Zillow?"
 
-Earn the right to differentiate before you answer — so it actually lands.
+Answer comparison questions without sounding defensive, generic, or commoditized — and earn the right to go deeper before making your value proposition.
 
-### All five, free.
+*(Sticky photo beside the cards: a loan officer on the phone with a client.)*
 
-Word-for-word scripts plus coaching notes, delivered to your inbox in seconds.
-
-**[Link: Get the free scripts →]**
+**[Button: Send Me the Scripts]** (→ #get-the-scripts, scrolls to the hero form)
 
 ---
 
-## Why This Matters
+## Sales & Scripting Coach Callout
 
-Why This Matters
+## These scripts come straight out of the **Loan Atlas AI Sales & Scripting Coach.**
 
-Most loan officers are reacting to their clients in real time. A borrower pushes back on the rate. Someone says they want to wait. Another one compares you to Rocket. And in that split second — without a plan — whatever comes out is whatever comes out.
+**The right words for every conversation.** Trained on hundreds of hours of coaching calls, training modules, top-producer interviews, and masterclasses from originators who have closed over $29 Billion in loan volume.
 
-Getting intentional means having the right language *before* you need it.
+> "GAME CHANGER!! It walked me through my whole loan scenario start to finish. It didn't matter if it was 8:00 am or 1:00 am — it was RIGHT THERE when I needed it. I am so confident now!"
 
-> The worst time to think about what you're going to say is the moment you need to say it.
+*(no name attributed)*
 
-**[Button: Get the free scripts]**
+**[Button: Send Me the Scripts]** (→ #get-the-scripts, scrolls to the hero form)
+
+### Sample coach chat (JS-typed, plays on scroll) (in-mockup UI text)
+
+- **User:** I'm trying to get more referrals from my clients after their loans close.
+- **Coach:** What are you currently saying (if anything) when you ask for referrals after closing? And are you making that ask on a call, text, email — or a mix?
+- **User:** Nothing right now. I'll be making the ask on a call.
+- **Coach:** Got it — this is about earning the right to ask through the experience, then confidently claiming the next step with a clear call to action. Try this: *"It's been a pleasure getting this done for you. Most of my business comes from people like you — so if a friend or coworker mentions buying or refinancing, would you feel comfortable connecting us?"*
 
 ---
 
-## From The Loan Atlas
+## Closing CTA (copy left, download form right)
 
-From The Loan Atlas
+## Stop losing deals because you didn't have the **right words ready.**
 
-### These scripts are a taste of what The Loan Atlas builds with you.
+Loan officers who prepare for the point of sale close more deals, feel more confident, and finally stop leaving money on the table.
 
-Winning at the point of sale isn't one set of scripts — it's a system. The Loan Atlas gives you the AI sales coach, live training, and community that sharpen every conversation that decides a loan, deal after deal.
+- Free download
+- Instant access
 
-- An AI sales & scripting coach trained on your niche
-- Live weekly coaching & masterclasses
-- A private community of top originators
+### Download form card
 
-**[Button: Get the free scripts]**
-**[Link: or explore The Loan Atlas →]**
+## Get the 5 Essential Scripts for Dominating the Point of Sale
+
+*[Embedded form: GHL — same form as the hero (sKtyqXeMElEIzI277jwu) — fields not in our HTML]*

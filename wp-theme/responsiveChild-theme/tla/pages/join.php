@@ -1,7 +1,7 @@
 <?php
 /**
  * Body partial for /join/ (TLA Full HTML template).
- * Generated from public/pricing.html by scripts/convert-pages.sh — do not hand-edit;
+ * Generated from public/join.html by scripts/convert-pages.sh — do not hand-edit;
  * edit the source HTML (or the shared header/footer partials) and re-run.
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -13,7 +13,7 @@ $tla_active      = 'join';
   <style>
     /* ── Pricing page ─────────────────────────────────────────────── */
 
-    /* Dark hero — matches corporate.html / whats-inside.html / faculty.html */
+    /* Dark hero — matches enterprise.html / whats-inside.html / faculty.html */
     .pr-hero {
       background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
       padding-top: calc(var(--header-h) + clamp(56px, 8vw, 96px));

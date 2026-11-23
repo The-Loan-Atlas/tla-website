@@ -22,7 +22,8 @@ every build.** There are three copies of each page; you only author one.
 ```bash
 npm run serve     # localhost:4321 — raw-source dev server (no nav/footer chrome); /mockups/ too
 npm run build     # scripts/convert-pages.sh — regenerates wp-theme/…/tla/ from public/
-npm run preview   # scripts/preview-pages.sh — assembles wp-theme/_preview-*.html
+npm run preview   # scripts/preview-pages.sh + preview-blog.js — assembles wp-theme/_preview-*.html
+npm run preview:blog # LIVE blog only: runs the real blog PHP → wp-theme/_preview-tpl-{home,single,archive}.html
 npm run ship "msg"# build → preview → commit → push (push to main auto-deploys in ~30s)
 npm run shoot     # Playwright screenshots (run `npm run shoot:install` once first)
 ```
@@ -48,8 +49,8 @@ npm run shoot     # Playwright screenshots (run `npm run shoot:install` once fir
 ## Architecture
 
 **Pages:** ~20 live `.html` pages in `public/`, each standalone. They fall into four
-`public/` design families (see DESIGN.md; the blog is separate — see below): house style (`index`, `pricing`, `sales-individual`,
-`events`, `contact`), dark-hero/enterprise (`faculty`, `consultation*`, `corporate`,
+`public/` design families (see DESIGN.md; the blog is separate — see below): house style (`index`, `join`, `sales-individual`,
+`events`, `contact`), dark-hero/enterprise (`faculty`, `consultation*`, `enterprise`,
 `whats-inside`), fresh standalone landings (`ai-originator-masterplan`, `5-scripts`,
 `mastermind`, `platinum-marketing`), and
 legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
@@ -60,18 +61,37 @@ legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 > **not** build it. The live `/blog/` is WordPress's native posts index, rendered by
 > `wp-theme/responsiveChild-theme/home.php` (markup) + `…/tla/partials/blog-head.php`
 > (CSS) + `…/blog-foot.php` (scripts) + `tla_blog_*` helpers in `functions.php`. Single
-> posts = `single.php`, category archives = `archive.php`. To change the live blog you
-> **hand-edit those `wp-theme/` files directly** (no `public/` source, no build step);
-> port any mockup change INTO them. `_preview-blog*.html` previews the mockup, not the
-> live page.
+> posts = `single.php`, category archives = `archive.php`. To change the live blog's
+> **markup** you **hand-edit those `wp-theme/` PHP files directly** (no `public/` source);
+> port any mockup change INTO them. Blog **styles** are the exception: edit
+> `public/css/blog.css` (the theme's `tla/css/blog.css` is overwritten by the build).
+>
+> **Previewing the live blog:** `npm run build && npm run preview:blog`, then open
+> `wp-theme/_preview-tpl-home.html` (/blog/), `_preview-tpl-single.html` (a post, with
+> every content element + all `[tla_cta]` bands) and `_preview-tpl-archive.html`. These
+> run the real templates, `functions.php` and partials through PHP (`brew install php`)
+> against a fake WordPress (`scripts/blog-preview/wp-stub.php`) and sample posts
+> (`scripts/blog-preview/fixtures.php` — edit freely, never ships). Any PHP warning fails
+> the run. It does NOT load the CSS WordPress/plugins add on the live site (block
+> library, global styles, Additional CSS), so still glance at a live post after shipping.
+> The older `_preview-blog-*.html` files preview the **mockups**, not the live blog.
 
 **Mockups live in `/mockups/` at the repo root (NOT in `public/`)** — `hero-mockup*.html`,
 `patterns.html`, section mockups, `emails/`. They never deploy. Put every new mockup there.
 View them with `npm run serve` at `http://localhost:4321/mockups/<file>.html`. Live pages in
 `public/` are grouped into subfolders (`live-events/`, `partnership-sales-pages/`,
-`webinar-offers/`, `webinar-registration/`, `webinar-replays/`, `trainings/`); each still uses
-root-style paths (`css/…`, `assets/…`, `pricing.html`) — the build and dev server handle that.
+`webinar-offers/`, `webinar-registration/`, `webinar-replays/`, `trainings/`). Subfolder pages
+reference shared files with `../` (`../css/…`, `../js/…`, `../assets/…`, `url('../assets/…')`)
+so they render when opened straight from disk; the build strips any `../`. Links to other
+pages stay bare (`join.html`) — the build's link map only matches that form.
 A new page must be added to the slug map in `scripts/convert-pages.sh` with its folder prefix.
+
+**Shared live-event sidebar:** the Join The Loan Atlas / Free Business Assessment sidebar on
+every `public/live-events/` page is ONE file, `public/partials/event-sidebar.html`. Pages
+include it with `<!-- TLA_EVENT_SIDEBAR title="Want to Be Coached By Josh?" -->` (own line);
+the build inlines it and fills `{{TITLE}}`. The column heading is the only per-page value —
+edit card copy in the partial, never per page. Like the header, it's absent in `npm run
+serve`; check it in the previews.
 
 **Shared resources (linked by every page, in this order):**
 - `css/styles.css` (~8,200 lines) — design tokens at the top, then the component
@@ -91,6 +111,11 @@ inline. Match this pattern when adding pages.
 
 **Assets:** all images in `public/assets/`. Logos: gold variant in the header, color
 variant in the footer (`Loan Atlas logo-gold.png` / `…-color.png` / `…-white.png`).
+`public/assets/` deploys, so it holds **only images the live site uses**. Every
+unpublished image lives in `/image-library/` at the repo root (`retired/`, `unused/`,
+`source/`). Never delete a site image; `git mv` it into `image-library/retired/`.
+`npm run assets:unused` lists candidates (report only; `-- --move` files them). It can't
+see the WordPress database, so spot-check before moving. See `image-library/README.md`.
 
 ## Design System
 

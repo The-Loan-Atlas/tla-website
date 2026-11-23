@@ -33,7 +33,7 @@ There are three copies of every page, but **you only ever edit one of them**:
 
 ```bash
 # 1. Edit the SOURCE only:
-#    - a page:       public/index.html, public/pricing.html, …
+#    - a page:       public/index.html, public/join.html, …
 #    - shared CSS/JS: public/css/styles.css, public/js/nav.js, …
 #    - the nav/footer: wp-theme/responsiveChild-theme/tla/partials/header.php (or footer.php)
 
@@ -130,9 +130,9 @@ The deploy uploads the file, but WordPress still needs a Page created once:
 | Source (`public/`) | Live URL |
 |---|---|
 | `index.html` | `/` (homepage — set via Appearance → Customize → Homepage) |
-| `pricing.html` | `/join/` |
+| `join.html` | `/join/` |
 | `faculty.html` | `/faculty/` |
-| `corporate.html` | `/enterprise/` |
+| `enterprise.html` | `/enterprise/` |
 | `whats-inside.html` | `/whats-inside/` |
 | `sales-individual.html` | `/membership/` |
 | `consultation.html` | `/consultation/` |

@@ -10,7 +10,8 @@
     "preview:blog": "node scripts/preview-blog.js",
     "ship": "bash scripts/ship.sh",
     "shoot": "node scripts/screenshot.js",
-    "shoot:install": "playwright install chromium"
+    "shoot:install": "playwright install chromium",
+    "assets:unused": "node scripts/unused-assets.js"
   },
   "devDependencies": {
     "playwright": "^1.49.0"

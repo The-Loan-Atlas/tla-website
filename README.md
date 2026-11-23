@@ -7,12 +7,13 @@ step (each `public/` page becomes a theme partial). Edit source in `public/`, pu
 ## Layout
 
 ```
-public/        Source pages — you edit these (HTML, css/, js/, assets/)
-wp-theme/      Generated WordPress child theme that deploys (see DEPLOY.md)
-docs/          Page copy briefs (never deployed)
-experiments/   Historical variants, mockups, design references
-scripts/       Build & dev tooling (build, preview, ship, serve, screenshot)
-.claude/       Agent docs — CLAUDE.md (guidance) + DESIGN.md (design system)
+public/           Source pages — you edit these (HTML, css/, js/, assets/)
+wp-theme/         Generated WordPress child theme that deploys (see DEPLOY.md)
+docs/             Page copy briefs (never deployed)
+alternate-styles/ Historical variants and design references
+image-library/    Unpublished images: retired, unused, raw source (never deployed)
+scripts/          Build & dev tooling (build, preview, ship, serve, screenshot)
+.claude/          Agent docs — CLAUDE.md (guidance) + DESIGN.md (design system)
 ```
 
 ## Local development
@@ -21,6 +22,7 @@ scripts/       Build & dev tooling (build, preview, ship, serve, screenshot)
 npm run serve     # raw source at http://localhost:4321 (no nav/footer chrome)
 npm run build     # regenerate the WordPress theme from public/
 npm run preview    # assemble wp-theme/_preview-*.html (the real shipping render)
+npm run assets:unused  # list images in public/assets/ no page uses (see image-library/README.md)
 ```
 
 Edit only under `public/`. To check a change, open `wp-theme/_preview-<slug>.html` —

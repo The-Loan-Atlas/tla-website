@@ -20,7 +20,7 @@ wp-theme/responsiveChild-theme/        ← mirror of the live child theme
     js/    (nav.js, animations.js, ai-systems-carousel.js)
     assets/ (images)
     partials/ (header.php, footer.php — SHARED nav + footer)
-    pages/ (one PHP partial per page, e.g. home.php, pricing.php)
+    pages/ (one PHP partial per page, e.g. home.php, join.php)
 ```
 
 ## How a page works
@@ -98,9 +98,9 @@ page editor.)
 | Source (`public/`) | Slug → URL | Notes |
 |---|---|---|
 | `index.html` | `home` → set as homepage (see below) | |
-| `pricing.html` | `pricing` → `/pricing/` | |
+| `join.html` | `join` → `/join/` | |
 | `faculty.html` | `faculty` → `/faculty/` | has the faculty modal |
-| `corporate.html` | `businesses` → `/businesses/` | old SEO slug |
+| `enterprise.html` | `enterprise` → `/enterprise/` | |
 | `whats-inside.html` | `whats-inside` → `/whats-inside/` | |
 | `sales-individual.html` | `individuals` → `/individuals/` | old SEO slug |
 | `consultation.html` | `book-a-demo` → `/book-a-demo/` | old SEO slug; GHL form embed |

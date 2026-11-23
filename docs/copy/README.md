@@ -10,23 +10,21 @@ HTML in `public/` is the source of truth, these docs are a snapshot.
 
 ## Pages
 
-| Page | Slug | Copy doc |
-|---|---|---|
-| Homepage | `/` | [index.md](index.md) |
-| Pricing | `/pricing` | [pricing.md](pricing.md) |
-| Sales — Individual | `/sales-individual` | [sales-individual.md](sales-individual.md) |
-| Events | `/events` | [events.md](events.md) |
-| Contact | `/contact` | [contact.md](contact.md) |
-| Faculty | `/faculty` | [faculty.md](faculty.md) |
-| Consultation | `/consultation` | [consultation.md](consultation.md) |
-| Consultation — Corporate | `/consultation-corporate` | [consultation-corporate.md](consultation-corporate.md) |
-| Consultation — Mastermind | `/consultation-mastermind` | [consultation-mastermind.md](consultation-mastermind.md) |
-| Corporate | `/corporate` | [corporate.md](corporate.md) |
-| What's Inside | `/whats-inside` | [whats-inside.md](whats-inside.md) |
-| AI-Empowered Originator Masterplan | `/ai-originator-masterplan` | [ai-originator-masterplan.md](ai-originator-masterplan.md) |
-| 5 Scripts | `/5-scripts` | [5-scripts.md](5-scripts.md) |
-| Mastermind | `/mastermind` | [mastermind.md](mastermind.md) |
-| Platinum Marketing | `/platinum-marketing` | [platinum-marketing.md](platinum-marketing.md) |
+| Page | Live URL | Copy doc | Last refreshed |
+|---|---|---|---|
+| Homepage | `/` | [index.md](index.md) | 2026-11-22 |
+| What's Inside (individual sales page) | `/whats-inside/` | [whats-inside.md](whats-inside.md) | 2026-11-22 |
+| Faculty | `/faculty/` | [faculty.md](faculty.md) | 2026-11-22 |
+| Perfect Loan Process | `/perfect-loan-process/` | [perfect-loan-process.md](perfect-loan-process.md) | 2026-11-22 |
+| Corporate (enterprise sales page) | `/enterprise/` | [enterprise.md](enterprise.md) | 2026-11-22 |
+| Consultation | `/consultation/` | [consultation.md](consultation.md) | 2026-11-22 |
+| 5 Scripts | `/5-scripts-for-dominating-point-of-sale/` | [5-scripts.md](5-scripts.md) | 2026-11-22 |
+| AI Originator Masterplan | `/ai-originator-masterplan/` | [ai-originator-masterplan.md](ai-originator-masterplan.md) | 2026-11-22 |
+| Consultation — Corporate | `/enterprise-consultation/` | [consultation-corporate.md](consultation-corporate.md) | 2026-11-22 |
+| Pricing | `/join/` | [join.md](join.md) | 2026-11-22 |
+
+Each refreshed doc opens with the page's SEO title and meta description. JS-rendered copy
+is labeled, and sample text inside product mockups is marked "(in-mockup UI text)".
 
 ## Not included
 
@@ -37,18 +35,12 @@ HTML in `public/` is the source of truth, these docs are a snapshot.
 
 ## Notes worth knowing for review
 
-A few pages have copy that lives outside plain HTML; it was captured but flagged in-file:
-
-- **Embedded forms/calendars** (contact, consultation, consultation-corporate,
-  consultation-mastermind, ai-originator-masterplan, 5-scripts) use third-party
-  LeadConnector / GoHighLevel iframe embeds. Their field labels and submit-button text
-  are **not** in our HTML, so those aren't in the docs — only the surrounding copy.
-- **events.html** is template/sample content (placeholder coach names, 2026 dates), not
-  real scheduled events.
-- **JS-driven copy** — the homepage hero showcase, faculty bios/stats (modal data),
-  mastermind hero chat demo, and several animated count-up stats are rendered from
-  JavaScript rather than static HTML. This copy is captured and labeled where it appears.
-- **whats-inside.md** includes in-mockup tool UI labels (sample dashboard text) under
-  clearly-marked subsections — skip those if you're only reviewing persuasive copy.
-- **consultation-mastermind** mixes a free-consultation booking flow with a paid
-  Mastermind Summit 2026 upsell, despite its "Book a Free Consultation" page title.
+- **Embedded forms/calendars** (consultation, consultation-corporate,
+  perfect-loan-process, ai-originator-masterplan, 5-scripts) use third-party
+  LeadConnector / GoHighLevel embeds. Their field labels and submit-button text are
+  **not** in our HTML, so the docs only note where they sit.
+- **JS-driven copy** — the homepage hero showcase, faculty bios/stats (pop-up data),
+  tabbed showcases, typed chat demos and count-up stats are rendered by JavaScript.
+  This copy is captured and labeled where it appears.
+- **In-mockup UI text** (sample dashboards, chat screens) is under clearly marked
+  subsections — skip those if you're only reviewing persuasive copy.

@@ -1,14 +1,19 @@
-# The AI-Empowered Originator Masterplan — Copy
+# AI Originator Masterplan — Copy
+
 **Source:** public/ai-originator-masterplan.html
-**URL slug:** /ai-originator-masterplan
+**Live URL:** theloanatlas.com/ai-originator-masterplan/
+**SEO title:** The AI-Empowered Originator Masterplan
+**Meta description:** The free guide showing how the next generation of mortgage originators close twice the loans in half the time — using the 5 AI systems behind today's top producers.
+**Social share (OG/Twitter) description:** How the next generation of mortgage advisors will close twice the loans in half the time. Get the free 5-system masterplan.
 
 ---
 
 ## Hero
 
-Free Guide For Mortgage Originators
+*Eyebrow:* Free Guide For Mortgage Originators
 
-# The AI-Empowered Originator Masterplan
+# The **AI-Empowered**
+# Originator Masterplan
 
 Learn how the next generation of mortgage advisors are closing **twice the loans in half the time** — and the 5 AI systems they're using to do it.
 
@@ -16,31 +21,41 @@ Learn how the next generation of mortgage advisors are closing **twice the loans
 - The 5 AI systems behind today's top producers — and where you stand today
 - What to change first to make next year more predictable than this one
 
-**[Button: Get the Masterplan]**
+**[Button: Get the Masterplan]** (→ opens the lead-capture modal)
+
+*(Decorative imagery: the Masterplan shown on an iPad with a phone hovering above.)*
+
+---
+
+## Lead-Capture Modal (JS — opens from every "Get the Masterplan" button)
+
+## Learn How to Become an AI-Empowered Originator
+
+*[Embedded form: GHL — "LM: The AI-Empowered Originator Masterplan" (form ID MeLvO1N8Pxv5GOxYyJrD) — fields not in our HTML]*
 
 ---
 
 ## Problem / Agitation
 
-## You're working harder than ever — but the numbers aren't following.
+## You're working harder than ever — **but the numbers aren't following**.
 
 Realtor referrals are less predictable. Borrowers shop more. Margins are tighter. You're putting in the same hours (or more) for results that swing wildly from one month to the next.
 
-The originators succeeding in this market aren't working harder than you. They've changed how their business actually operates day-to-day — and you can't close a gap you can't yet see.
+**The originators succeeding in this market aren't working harder than you. They've changed how their business actually operates day-to-day — and you can't close a gap you can't yet see.**
 
-### Does This Look Familiar?
+### Chart card: Does This Look Familiar?
 
-Your Monthly Closings
+*Chart label:* Your Monthly Closings
 
-Legend: Closings · Target
+*(Illustrative bar chart, months J–D: monthly closings swing up and down and repeatedly miss a flat dashed target line. No numbers shown.)*
 
-Month labels: J F M A M J J A S O N D
+*Legend:* Closings · Target
 
 ---
 
 ## What You'll Learn Inside
 
-## Learn How to Become an AI-Empowered Originator
+## Learn How to Become an **AI-Empowered Originator**
 
 ### The AI Maturity Ladder
 
@@ -62,25 +77,23 @@ How AI-empowered originators turn chaotic, fire-fighting days into a focused ope
 
 A simple way to decide which system to build first — so the shift feels achievable, not overwhelming, starting this week.
 
-**[Button: Get the Masterplan]**
+**[Button: Get the Masterplan]** (→ opens the lead-capture modal)
+
+*(Decorative: Masterplan iPad image beside the timeline.)*
 
 ---
 
-## What Changes For You
+## What Changes For You (Payoff)
 
-## Once you see how AI-empowered originators operate, everything changes.
+## Once you see how AI-empowered originators operate, **everything changes**.
 
-- Inconsistent, coin-flip months → Production you can actually forecast
-- Reacting to your day → A focused weekly operating rhythm
-- Working more hours for less → Twice the loans in half the time
-- Falling behind quietly → Leading the shift in your market
+| From | → To |
+|---|---|
+| Inconsistent, coin-flip months | Production you can actually forecast |
+| Reacting to your day | A focused weekly operating rhythm |
+| Working more hours for less | Twice the loans in half the time |
+| Falling behind quietly | Leading the shift in your market |
 
-**[Button: Get the Masterplan]**
+**[Button: Get the Masterplan]** (→ opens the lead-capture modal)
 
----
-
-## Lead-Capture Modal
-
-## Learn How to Become an AI-Empowered Originator
-
-**[Embedded form: "LM: The AI-Empowered Originator Masterplan" (LeadConnector / GoHighLevel) — field labels not present in page markup; rendered from external embed]**
+*(Decorative: loan officer smiling on the phone.)*

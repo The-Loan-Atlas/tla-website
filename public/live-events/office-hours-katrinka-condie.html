@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/chrome.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/chrome.css" />
 
   <!-- ============================================================
        OFFICE HOURS DETAIL — fresh standalone design, namespaced .oh-*.
@@ -358,7 +358,7 @@
             <!-- Header: thumbnail + title + date -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="assets/live-events/KATRINKA-OFFICE-HOURS-NOVEMBER-2026.jpg" alt="Office Hours with Katrinka Condie" loading="eager" />
+                <img src="../assets/live-events/KATRINKA-OFFICE-HOURS-NOVEMBER-2026.jpg" alt="Office Hours with Katrinka Condie" loading="eager" />
               </div>
               <div class="oh-titleblock">
               <div class="oh-meta">
@@ -397,7 +397,7 @@
               <h2 class="oh-h2">About Katrinka Condie</h2>
               <div class="oh-about">
                 <div class="oh-about__photo">
-                  <img src="assets/katrinka-condie-headshot.png" alt="Katrinka Condie" loading="lazy" />
+                  <img src="../assets/katrinka-condie-headshot.png" alt="Katrinka Condie" loading="lazy" />
                 </div>
                 <div class="oh-about__body">
                   <p>Katrinka has originated more than $309M in lifetime production and helped over 755 families, while ranking in the top 1% of originators nationwide since her second year in the business. She is one of the most respected client-relationship operators in the industry.</p>
@@ -439,54 +439,7 @@
 
           </div>
 
-          <!-- ─────────── RIGHT: sticky sidebar ─────────── -->
-          <aside class="oh-side" data-reveal="up">
-
-            <!-- Column header — frames the two cards as an either/or choice -->
-            <div class="oh-side__head">
-              <h2 class="oh-side__title">Want to Be Coached By Katrinka?</h2>
-              <p class="oh-side__sub">Join The Loan Atlas to get immediate access, or schedule your free business assessment to see everything inside.</p>
-            </div>
-
-            <!-- Card 1 — Join The Loan Atlas — A1 Navy Slab callout (.tlc-navy) -->
-            <div class="tlc-navy">
-              <div class="tlc-navy__in">
-                <h3 class="tlc-navy__title">Join The Loan Atlas</h3>
-                <p class="tlc-navy__text">Office hours are included with membership. Here's everything you unlock inside The Loan Atlas:</p>
-                <!-- Brass gradient definition for the bare checkmarks below -->
-                <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="tlcGoldCheck" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c9961c"/><stop offset="50%" stop-color="#eac25a"/><stop offset="100%" stop-color="#ffd56c"/></linearGradient></defs></svg>
-                <ul class="tlc-list">
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Seven live coaching calls</strong> every month, including this one</span></li>
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>200+ training modules</strong> across the 8 Disciplines of Loan Origination Mastery</span></li>
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>An all-star faculty</strong> with over $29 billion in collective loan funding</span></li>
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Perfect Loan Process™</strong> — from initial inquiry to final approval</span></li>
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Ultimate AI GPT Coach</strong> for scripting, follow-up, realtor relationships and more</span></li>
-                </ul>
-                <a class="tlc-btn" href="pricing.html">View Membership Options</a>
-              </div>
-              <div class="oh-join__media">
-                <img src="assets/hero image.png" alt="The Loan Atlas member platform" loading="lazy" />
-              </div>
-            </div>
-
-            <!-- Either/or divider -->
-            <div class="oh-or" aria-hidden="true"><span>or</span></div>
-
-            <!-- Card 2 — Free coaching session — A2 Gold-Header Split (.tlc-split) -->
-            <div class="tlc-split">
-              <div class="tlc-split__cap">
-                <h3 class="tlc-split__cap-title">Schedule Your Free Business Assessment</h3>
-              </div>
-              <div class="tlc-split__body" style="padding-bottom:0;">
-                <p style="margin-bottom:14px;">Get a tour of The Loan Atlas and walk away with a clear read on what's actually holding your production back and what you can do to fix it.</p>
-                <!-- LeadConnector booking widget — same as consultation.html -->
-                <iframe src="https://api.leadconnectorhq.com/widget/booking/5MfGSBd2cfTjpKzdFXGi"
-                  class="oh-book__iframe" allow="payment" scrolling="no"
-                  id="oh-booking-condie" data-embed-id="oh-booking-condie" title="Schedule Booking"></iframe>
-              </div>
-            </div>
-
-          </aside>
+          <!-- TLA_EVENT_SIDEBAR title="Want to Be Coached By Katrinka?" -->
 
         </div>
       </div>
@@ -506,11 +459,11 @@
         <!-- Square event tiles, full-bleed across the top, fading into the navy -->
         <div class="ev-modal__strip" aria-hidden="true">
           <div class="ev-modal__strip-row">
-            <img src="assets/live-events/AI-Lab-Inside-Platinum-0717.png" alt="" loading="lazy" />
-            <img src="assets/live-events/November-2026-Office-Hours-Katrinka-Condie-500x500.png" alt="" loading="lazy" />
-            <img src="assets/live-events/Office-Hours-Jay-Dacey-0722.png" alt="" loading="lazy" />
-            <img src="assets/live-events/Talk-to-Tim-0731.png" alt="" loading="lazy" />
-            <img src="assets/live-events/Masterclass-Mortgage-Success-Plan-0723.png" alt="" loading="lazy" />
+            <img src="../assets/live-events/AI-Lab-Inside-Platinum-0717.png" alt="" loading="lazy" />
+            <img src="../assets/live-events/November-2026-Office-Hours-Katrinka-Condie-500x500.png" alt="" loading="lazy" />
+            <img src="../assets/live-events/Office-Hours-Jay-Dacey-0722.png" alt="" loading="lazy" />
+            <img src="../assets/live-events/Talk-to-Tim-0731.png" alt="" loading="lazy" />
+            <img src="../assets/live-events/Masterclass-Mortgage-Success-Plan-0723.png" alt="" loading="lazy" />
           </div>
         </div>
         <div class="ev-modal__head-in">
@@ -536,10 +489,10 @@
               <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#evGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>An all-star faculty</strong> with over $29 billion in collective loan funding</span></li>
               <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#evGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Ultimate AI GPT Coach</strong> for scripting, follow-up, realtor relationships and more</span></li>
             </ul>
-            <a class="tlc-btn" href="pricing.html">View Membership Options</a>
+            <a class="tlc-btn" href="join.html">View Membership Options</a>
           </div>
           <div class="ev-join__media">
-            <img src="assets/hero image.png" alt="The Loan Atlas member platform" loading="lazy" />
+            <img src="../assets/hero image.png" alt="The Loan Atlas member platform" loading="lazy" />
           </div>
         </div>
 
@@ -565,8 +518,8 @@
 
 <!-- TLA_FOOTER -->
 
-  <script src="js/nav.js"></script>
-  <script src="js/animations.js" defer></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js" defer></script>
   <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
   <script>
     /* ── Access modal: every CTA with [data-ev-modal] opens it ── */

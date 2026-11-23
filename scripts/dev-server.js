@@ -5,7 +5,7 @@
 //   /mockups/<anything>  -> mockups/<anything>   (repo root; never deploys)
 //
 // Pages are authored as if they sat at the root of public/ (href="css/...",
-// src="assets/...", href="pricing.html"). That's what convert-pages.sh expects,
+// src="assets/...", href="join.html"). That's what convert-pages.sh expects,
 // and the WordPress build rewrites those paths. Pages in subfolders
 // (public/live-events/, mockups/, …) therefore ask for paths like
 // /live-events/css/styles.css. When the exact file doesn't exist, this server

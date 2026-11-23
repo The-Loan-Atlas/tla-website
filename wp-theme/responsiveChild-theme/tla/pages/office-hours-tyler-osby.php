@@ -432,7 +432,7 @@ $tla_active      = '';
 
           </div>
 
-          <!-- ─────────── RIGHT: sticky sidebar ─────────── -->
+          <!-- ─────────── RIGHT: sticky sidebar (shared — public/partials/event-sidebar.html) ─────────── -->
           <aside class="oh-side" data-reveal="up">
 
             <!-- Column header — frames the two cards as an either/or choice -->
@@ -445,11 +445,12 @@ $tla_active      = '';
             <div class="tlc-navy">
               <div class="tlc-navy__in">
                 <h3 class="tlc-navy__title">Join The Loan Atlas</h3>
-                <p class="tlc-navy__text">Office hours are included with membership. Here's everything you unlock inside The Loan Atlas:</p>
+                <p class="tlc-navy__text">Every masterclass, office hours, and special session is included with your membership — live and on demand. Here's everything you unlock inside The Loan Atlas:</p>
                 <!-- Brass gradient definition for the bare checkmarks below -->
                 <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="tlcGoldCheck" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c9961c"/><stop offset="50%" stop-color="#eac25a"/><stop offset="100%" stop-color="#ffd56c"/></linearGradient></defs></svg>
                 <ul class="tlc-list">
-                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Seven live coaching calls</strong> every month, including this one</span></li>
+                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Live + on-demand access</strong> to every masterclass, office hours and AI Lab</span></li>
+                  <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Seven live coaching calls</strong> every month</span></li>
                   <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>200+ training modules</strong> across the 8 Disciplines of Loan Origination Mastery</span></li>
                   <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>An all-star faculty</strong> with over $29 billion in collective loan funding</span></li>
                   <li><svg class="tlc-chk tlc-chk--bare" viewBox="0 0 24 24" fill="none" stroke="url(#tlcGoldCheck)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Perfect Loan Process™</strong> — from initial inquiry to final approval</span></li>
@@ -475,7 +476,7 @@ $tla_active      = '';
                 <!-- LeadConnector booking widget — same as consultation.html -->
                 <iframe src="https://api.leadconnectorhq.com/widget/booking/5MfGSBd2cfTjpKzdFXGi"
                   class="oh-book__iframe" allow="payment" scrolling="no"
-                  id="oh-booking-osby" data-embed-id="oh-booking-osby" title="Schedule Booking"></iframe>
+                  id="oh-booking" data-embed-id="oh-booking" title="Schedule Booking"></iframe>
               </div>
             </div>
 

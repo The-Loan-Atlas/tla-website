@@ -1,46 +1,42 @@
-# The Loan Atlas (Homepage) — Copy
+# Home — Copy
 
 **Source:** public/index.html
-**URL slug:** / (homepage)
+**Live URL:** theloanatlas.com/
+**SEO title:** The Loan Atlas | AI-Powered Systems That Help You Close More Loans With Less Chaos
+**Meta description:** The Loan Atlas installs five AI-powered systems into your mortgage business so you close more loans in less time, with less chaos.
 
 ---
 
 ## Hero
 
-*Eyebrow / heading:* **AI-Powered Systems** That Help You Close More Loans With Less Chaos
+# **AI-Powered Systems** That Help You Close More Loans With Less Chaos
 
 The Loan Atlas installs 5 AI-powered systems into your mortgage business to help you make better decisions, execute faster, and stay focused on what actually drives production.
 
-**[Button: Install the System Top Producers Are Using]**
-**[Button: Schedule Your Free Coaching Session]**
+**[Button: Install the System Top Producers Are Using]** (→ /join/ pricing page)
+**[Button: Schedule Your Free Coaching Session]** (→ /consultation/)
 
-### Hero system showcase (cycling chat graphic)
+### Hero showcase (JS-cycled)
 
-The graphic cycles through four systems. Each shows an eyebrow, a system name, a bot prompt, and a sample typed user message.
+A card over the member dashboard image. Left side: a cycling eyebrow + system name. Right side: a chat with a Loan Atlas bot prompt and a user message that types out. It cycles through three systems:
 
-**System 1**
+**1.**
 - Eyebrow: Stop Guessing What to Say
-- Name: AI Sales & Marketing Advisor
+- System name: AI Sales & Marketing Advisor
 - Bot prompt: What's Your Sales Challenge Today?
-- Sample message: How do I respond to "I want to wait for rates to drop"?
+- Typed user message: How do I respond to "I want to wait for rates to drop"?
 
-**System 2**
+**2.**
 - Eyebrow: Stop Spinning Your Wheels
-- Name: AI Performance Coach
+- System name: AI Performance Coach
 - Bot prompt: Where Are You Stuck Right Now?
-- Sample message: What's the biggest gap holding me back this quarter?
+- Typed user message: What's the biggest gap holding me back this quarter?
 
-**System 3**
+**3.**
 - Eyebrow: Stop Making Big Decisions Alone
-- Name: AI Strategic Thought Partner
+- System name: AI Strategic Thought Partner
 - Bot prompt: What Decision Can I Help You Think Through?
-- Sample message: Should I hire an LOA or stay solo this year?
-
-**System 4**
-- Eyebrow: Turn Ignored Marketing Into Real Clients
-- Name: Platinum Marketing
-- Bot prompt: What Should We Create Today?
-- Sample message: Create a flyer for my new 5%-down program
+- Typed user message: Should I hire an LOA or stay solo this year?
 
 ---
 
@@ -48,13 +44,13 @@ The graphic cycles through four systems. Each shows an eyebrow, a system name, a
 
 Trusted by over 1,000+ top producing loan officers and teams across the country.
 
-*Logos: UWM, CMG Financial, CrossCountry Mortgage, Guaranteed Rate, Fairway Independent Mortgage, loanDepot, Better, American Pacific Mortgage, ACM, Lower, SWBC Mortgage*
+*Logos (scrolling marquee): UWM, CMG Financial, CrossCountry Mortgage, Guaranteed Rate, Fairway Independent Mortgage, loanDepot, Better, American Pacific Mortgage, ACM, Lower, SWBC Mortgage*
 
 ---
 
 ## Problem vs. Reality
 
-There's a Reason Your Production Feels Inconsistent
+## There's a Reason Your Production Feels Inconsistent
 **And It Has Nothing to Do With The Market**
 
 You're putting in the hours — the calls, the follow-ups, the favors — but your pipeline still feels like it's one bad month away from falling apart.
@@ -63,88 +59,102 @@ That's because nobody taught you how to run a mortgage business. They taught you
 
 Instead of running a system, you're reacting:
 
-- Leads show up inconsistently
-- Conversations feel improvised
-- Busy weeks exhaust you, slow weeks make you question everything
-- Every few months, you try a new strategy and hope this one sticks
+- ✕ Leads show up inconsistently
+- ✕ Conversations feel improvised
+- ✕ Busy weeks exhaust you, slow weeks make you question everything
+- ✕ Every few months, you try a new strategy and hope this one sticks
 
 ### Comparison
 
-**Conventional advice — What You've Been Told**
-- Chase more leads
-- Compete on rate
-- Work longer hours
-- Hope consistency follows
+**Left column**
+*Label:* Conventional advice
+### What You've Been Told
+- ✕ Chase more leads
+- ✕ Compete on rate
+- ✕ Work longer hours
+- ✕ Hope consistency follows
 
-**What top producers do — What Actually Works**
-- Double down on what's already producing
-- Win on trust, speed, and communication
-- Spend your best hours on the right work
-- Build a system that makes consistency the default
+**Right column**
+*Label:* What top producers do
+### What Actually Works
+- ✓ Double down on what's already producing
+- ✓ Win on trust, speed, and communication
+- ✓ Spend your best hours on the right work
+- ✓ Build a system that makes consistency the default
 
-The loan officers producing consistently are not working harder than you.
+### Closing statement
+
+**The loan officers producing consistently are not working harder than you.**
 
 If you want a different future, you need a drastically different way of operating now.
 
 ---
 
-## AI-Powered Systems
+## AI-Powered Systems Carousel
 
-Stop Flying Blind. **Start Closing Loans.**
+## Stop Flying Blind. **Start Closing Loans.**
 
 Inside The Loan Atlas, these five systems work together to help you close more loans, make better decisions, and finally feel in control of your production.
 
-*Carousel step labels:* Business Intelligence · Planning & Execution · Sales & Marketing · Performance Coach · Strategic Thought Partner
+### Step tabs (JS-cycled, auto-advance every 5 seconds)
 
-### 1. AI Business Intelligence System
+1. Business Intelligence
+2. Planning & Execution
+3. Sales & Marketing
+4. Performance Coach
+5. Strategic Thought Partner
+
+### Slide 1
 
 *Eyebrow:* Stop Flying Blind
-
+### AI Business Intelligence System
 See exactly what's driving your numbers — and what isn't. Which lead sources are producing? Which referral partners are worth your time? Where are deals dying? This system replaces guesswork with real answers so you stop wasting effort on things that aren't working.
 
-### 2. AI Business Planning & Execution
+*(Visual: dashboard screenshots — core assumptions, monthly income breakdown, conversion average summary)*
+
+### Slide 2
 
 *Eyebrow:* Stop Starting from Scratch Every Week
-
+### AI Business Planning & Execution
 Know exactly what to do tomorrow, next week, and next month. Get a personalized business plan and a clear weekly priority list based on your real pipeline and goals. Not a generic to-do list — a system that tells you what moves the needle right now.
 
-### 3. AI Sales & Marketing Advisor
+*(Visual: screenshots — business plan summary dashboard, weekly action item, business planning wheel diagram)*
+
+### Slide 3
 
 *Eyebrow:* Stop Guessing What to Say
-
+### AI Sales & Marketing Advisor
 Get the right words for every conversation. Rate shoppers. Realtor meetings. Objections. Follow-up. This system helps you stop improvising and start communicating with more clarity, confidence, and precision.
 
-*Bot prompt:* What's Your Sales Challenge Today?
+### Slide 4
 
-*Sample messages:*
+*Eyebrow:* Stop Spinning Your Wheels
+### AI Performance Coach
+Find the exact gaps slowing your growth — and fix them faster. Instead of consuming more content and hoping something sticks, you get a focused plan to improve the skills that matter most right now.
+
+### Slide 5
+
+*Eyebrow:* Stop Making Big Decisions Alone
+### AI Strategic Thought Partner
+Get real-time guidance on decisions, deal scenarios, and growth opportunities. Think more clearly. Move faster. Make better decisions with less hesitation.
+
+### Chat demos for slides 3–5 (in-mockup UI text, JS-typed)
+
+A sample chat input box types out each message, erases it, and moves to the next.
+
+**Slide 3 — heading:** What's Your Sales Challenge Today?
 - How do I respond to "I want to wait for rates to drop"?
 - Write a follow-up email to a realtor I met last week
 - What should I say to a rate shopper who's price-checking me?
 - Draft a script for tomorrow's open house
 
-### 4. AI Performance Coach
-
-*Eyebrow:* Stop Spinning Your Wheels
-
-Find the exact gaps slowing your growth — and fix them faster. Instead of consuming more content and hoping something sticks, you get a focused plan to improve the skills that matter most right now.
-
-*Bot prompt:* Where Are You Stuck Right Now?
-
-*Sample messages:*
+**Slide 4 — heading:** Where Are You Stuck Right Now?
 - What's the biggest gap holding me back this quarter?
 - Why am I losing pre-approvals to the competition?
 - Help me build a 90-day improvement plan
 - How do I get more disciplined with my morning routine?
 
-### 5. AI Strategic Thought Partner
-
-*Eyebrow:* Stop Making Big Decisions Alone
-
-Get real-time guidance on decisions, deal scenarios, and growth opportunities. Think more clearly. Move faster. Make better decisions with less hesitation.
-
-*Bot prompt:* What Decision Can I Help You Think Through?
-
-*Sample messages:*
+**Slide 5 — heading:** What Decision Can I Help You Think Through?
 - Should I hire an LOA or stay solo this year?
 - Walk me through whether this referral partner is worth the time
 - How should I handle this counter-offer scenario?
@@ -154,21 +164,25 @@ Get real-time guidance on decisions, deal scenarios, and growth opportunities. T
 
 ## Faculty
 
-*Eyebrow:* 18 Experienced Coaches · $29 Billion Closed
+*Eyebrow:* 19 Experienced Coaches · $29 Billion Closed
 
-Systems Built by Top Producers Behind $29 Billion in Loan Volume
+## Systems Built by Top Producers Behind $29 Billion in Loan Volume
 
 Every member of The Loan Atlas faculty is a proven originator, leader, or strategist with decades of experience and hundreds of millions — in many cases, billions — in funded loans. They're not just teaching theories. They're coaching from experience.
 
-**[Button: Meet Your Mentors]**
+**[Button: Meet Your Mentors]** (→ /faculty/)
+
+*(Photo: Tim Braheem, Josh Mettle, and Craig Strent)*
 
 ---
 
-## Everything You Need (Featured Gallery)
+## Everything You Need (Gallery)
 
-Everything You Need to Achieve Lasting Success in Your Mortgage Business
+## Everything You Need to Achieve Lasting Success in Your Mortgage Business
 
 The Loan Atlas gives you complete access to the systems and support top producers use to scale consistently and confidently in any market.
+
+*Each card links to /whats-inside/.*
 
 ### On-Demand Training
 200+ training modules built around the 8 Disciplines of Origination Mastery.
@@ -192,7 +206,7 @@ Direct access to Tim Braheem. Bring your toughest deals, scripts, and business c
 
 ## Who We Serve
 
-There Comes a Point Where Working Harder Stops Working
+## There Comes a Point Where Working Harder Stops Working
 
 Whether you're building your first pipeline or leading a high-producing team, your next level will not come from more hustle. It will come from better systems.
 
@@ -212,45 +226,54 @@ Scale without babysitting. Build an organization that runs on systems, not heroi
 
 ## Testimonials
 
-Real Originators. Real Systems. **Real Results.**
+## Real Originators. Real Systems. **Real Results.**
 
 The Loan Atlas is a living community of active originators learning and executing at a high level.
 
-### Video Testimonials
+### Video testimonials
 
-**33 Loans Locked in 13 Days**
+*[Video: YouTube OpsSREztc6E — "Watch Eric Bibel's story"]*
+### 33 Loans Locked in 13 Days
 "We didn't get lucky. We had systems in place, and when the window opened, we were ready.."
 — Eric Bibel, NEO Home Loans
 
-**Growing a Team to Serve 200+ Families**
+*[Video: YouTube UN226XymiEg — "Watch Julie Crow's story"]*
+### Growing a Team to Serve 200+ Families
 "It's helped me know who should do which role and what type of partner I need for which role so that I can grow my business."
 — Julie Crow, First National Mortgage
 
-**$8M Locked in 48 Hours**
+*[Video: YouTube iYQuc-D8CgM — "Watch Gian Ceretto's story"]*
+### $8M Locked in 48 Hours
 "I now have people say, 'I'm willing to pay a little extra just to work with you because I know the job's going to get done.'."
 — Gian Ceretto, Prosperity Home Mortgage
 
-### Quote Marquee
+### Quote marquee (scrolling)
 
-"The Loan Atlas makes it so I never have to guess. Anything you could need in your business, you'll find there — whether it's a better presentation, a great script, or a mastermind class telling you exactly what you need to do."
+> The Loan Atlas makes it so I never have to guess. Anything you could need in your business, you'll find there — whether it's a better presentation, a great script, or a mastermind class telling you exactly what you need to do.
+
 — Edgardo Balentine, NEO Home Loans
 
-"I've been using the Business Planning Tool for over a year. It's the best goal-setting and goal-achieving system I've ever used — professionally and personally."
+> I've been using the Business Planning Tool for over a year. It's the best goal-setting and goal-achieving system I've ever used — professionally and personally.
+
 — Jenifer Hawkins, Lower Mortgage
 
-"The Loan Atlas has been invaluable for targeting financial advisors and expanding my referral base beyond Realtors. The tools and strategies made it simple to build meaningful partnerships and create new opportunities."
+> The Loan Atlas has been invaluable for targeting financial advisors and expanding my referral base beyond Realtors. The tools and strategies made it simple to build meaningful partnerships and create new opportunities.
+
 — Maxwell Lloyd, Trust Mortgage
 
-"The depth of knowledge from the faculty is incredible. If you have an area you want to focus on, there's a high probability someone on the faculty is a world-class expert in it."
+> The depth of knowledge from the faculty is incredible. If you have an area you want to focus on, there's a high probability someone on the faculty is a world-class expert in it.
+
 — Bryce Olsen, SelectRate Mortgage
 
 ---
 
 ## Featured Testimonial
 
-"The wealth that's in The Loan Atlas is absolutely incredible. Imagine how valuable it is to have access to the smartest minds in our industry."
-— Barry Habib
-Founder & CEO, MBS Highway
+*(Photo: Barry Habib)*
+
+> *"The wealth that's in The Loan Atlas is absolutely incredible. Imagine how valuable it is to have access to the smartest minds in our industry."*
+
+— **Barry Habib**, Founder & CEO, MBS Highway
 
 ---
 
@@ -258,9 +281,12 @@ Founder & CEO, MBS Highway
 
 *Eyebrow:* Start Your Transformation
 
-Take Control of **Your Production, Your Income, and Your Life.**
+## Take Control of **Your Production, Your Income, and Your Life.**
 
 If you're tired of inconsistent months, if you're done improvising your way through a business that should be predictable by now — **The Loan Atlas is the system that fixes that.**
 
-**[Button: Join The Loan Atlas]** — View membership options and get access today.
-**[Button: Book Your Free Coaching Session]** — Start building your growth plan.
+**[Button: Join The Loan Atlas]** (→ /join/ pricing page)
+*Hint:* View membership options and get access today.
+
+**[Button: Book Your Free Coaching Session]** (→ /consultation/)
+*Hint:* Start building your growth plan.

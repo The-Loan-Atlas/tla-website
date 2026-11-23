@@ -19,6 +19,7 @@ set -euo pipefail
 SRC="public"
 TLA="wp-theme/responsiveChild-theme/tla"
 OUT="$TLA/pages"
+SIDEBAR="$SRC/partials/event-sidebar.html"   # shared live-event sidebar (TLA_EVENT_SIDEBAR marker)
 MISSING=()   # source files listed below that no longer exist (see end-of-run warning)
 mkdir -p "$OUT"
 
@@ -102,8 +103,17 @@ convert() {
   #    scripts (nav.js, animations.js) the template already adds; page-specific
   #    scripts (carousel, inline blocks, form embeds) and post-footer markup
   #    (e.g. the faculty modal) are preserved wherever they sit.
+  #    Also expands <!-- TLA_EVENT_SIDEBAR title="..." --> into the shared live-event
+  #    sidebar (public/partials/event-sidebar.html), filling {{TITLE}}. Runs before
+  #    rewrite() so the sidebar's ../assets/ and join.html links get rewritten too.
   awk 'NR>'"$body_open"' && NR<'"$body_close"'' "$file" \
     | grep -vE '<script[^>]*src="(\.\./)*js/(nav|animations)\.js' \
+    | SB="$SIDEBAR" SRCFILE="$file" perl -0pe '
+        BEGIN { local $/; open my $fh, "<", $ENV{SB} or die "Cannot read $ENV{SB}\n"; $sb = <$fh>;
+                $sb =~ s/^[ \t]*<!--\s*BUILD-NOTE.*?-->[ \t]*\n//gms; }
+        s{^[ \t]*<!--\s*TLA_EVENT_SIDEBAR\s+title="([^"]*)"\s*-->[ \t]*\n?}{ my $t = $1; (my $o = $sb) =~ s/\{\{TITLE\}\}/$t/g; $o }gme;
+        die "Malformed TLA_EVENT_SIDEBAR marker in $ENV{SRCFILE} (needs title=\"...\", on its own line)\n"
+          if /<!--\s*TLA_EVENT_SIDEBAR/;' \
     | perl -0pe "s{<!-- TLA_HEADER_MINIMAL -->}{<?php include get_stylesheet_directory() . '/tla/partials/header-minimal.php'; ?>}g;
                  s{<!-- TLA_HEADER -->}{<?php include get_stylesheet_directory() . '/tla/partials/header.php'; ?>}g;
                  s{<!-- TLA_FOOTER -->}{<?php include get_stylesheet_directory() . '/tla/partials/footer.php'; ?>}g" \
@@ -139,14 +149,15 @@ rewrite() {
   # Internal *.html links -> WP slugs
   perl -0pi -e 's/href="index\.html"/href="\/"/g'                         "$f"
   perl -0pi -e 's/href="sales-individual\.html"/href="\/membership\/"/g'  "$f"
-  perl -0pi -e 's/href="corporate\.html"/href="\/enterprise\/"/g'         "$f"
+  perl -0pi -e 's/href="enterprise\.html"/href="\/enterprise\/"/g'         "$f"
   perl -0pi -e 's/href="consultation\.html"/href="\/consultation\/"/g'    "$f"
   perl -0pi -e 's/href="consultation-corporate\.html"/href="\/enterprise-consultation\/"/g' "$f"
   perl -0pi -e 's/href="consultation-mastermind\.html"/href="\/consultation-mastermind-2026\/"/g' "$f"
-  perl -0pi -e 's/href="pricing\.html"/href="\/join\/"/g'                 "$f"
+  perl -0pi -e 's/href="join\.html"/href="\/join\/"/g'                 "$f"
   perl -0pi -e 's/href="faculty\.html"/href="\/faculty\/"/g'             "$f"
   perl -0pi -e 's/href="whats-inside\.html"/href="\/whats-inside\/"/g'    "$f"
   perl -0pi -e 's/href="ai-originator-masterplan\.html"/href="\/ai-originator-masterplan\/"/g' "$f"
+  perl -0pi -e 's/href="ai-business-planner\.html"/href="\/ai-business-planner\/"/g' "$f"
   perl -0pi -e 's/href="perfect-loan-process\.html"/href="\/perfect-loan-process\/"/g' "$f"
   perl -0pi -e 's/href="5-scripts\.html"/href="\/5-scripts-for-dominating-point-of-sale\/"/g' "$f"
   perl -0pi -e 's/href="events\.html"/href="\/live-events\/"/g'           "$f"
@@ -186,9 +197,9 @@ rewrite() {
 
 # slug map (source | slug | active)
 convert index                   home                          ""
-convert pricing                 join                          join
+convert join                    join                          join
 convert faculty                 faculty                       faculty
-convert corporate               enterprise                    enterprise
+convert enterprise              enterprise                    enterprise
 convert whats-inside            whats-inside                  whats-inside
 convert sales-individual        membership                    membership
 convert consultation            consultation                  ""
@@ -250,8 +261,11 @@ convert privacy-policy          privacy-policy                ""
 convert terms-of-use            terms-of-use                  ""
 convert end-user-agreement      end-user-agreement            ""
 convert ai-originator-masterplan ai-originator-masterplan     ""
+convert ai-business-planner     ai-business-planner           ""
 convert perfect-loan-process    perfect-loan-process          ""
 convert 5-scripts               5-scripts-for-dominating-point-of-sale  ""
+# Lead magnet — staged on a draft slug for review; rename to refinance-masterplan once approved.
+convert refinance-masterplan    refinance-masterplan-draft    ""
 convert contact                 contact                       ""
 convert platinum-marketing      platinum-marketing            ""
 # Individual training sales pages (public/trainings/, .trn-* suite). One page

@@ -166,10 +166,10 @@ their hero and bespoke layout. This is the dominant pattern, not the exception:
 | `whats-inside.html` | ~2,650 | Most elaborate; full curriculum/showcase ecosystem |
 | `mastermind.html` | ~1,940 | Sticky offer bar, hero assistant, trust strip |
 | `consultation-mastermind.html` | ~830 | Offer bar + booking |
-| `corporate.html` | ~690 | Enterprise hero + offer sections |
+| `enterprise.html` | ~690 | Enterprise hero + offer sections |
 | `faculty.html` | ~570 | Navy hero w/ right-edge image fade + grid |
 | `sales-individual.html` | ~480 | LP header + hero |
-| `pricing.html` | ~420 | Dark hero + pricing grid |
+| `join.html` | ~420 | Dark hero + pricing grid |
 | `platinum-marketing.html` | ~340 | Reuses mastermind `.lp-`/`.mm-` language |
 | `consultation.html` | ~285 | Navy hero + booking |
 | `contact.html` | ~265 | Two-column contact shell |
@@ -481,10 +481,10 @@ centers a lone logo (landing pages). All chrome values are hardcoded (token-inde
 
 Every live page belongs to one of these. Match the family when adding pages.
 
-1. **House style** — `index`, `pricing`, `sales-individual`, `events`, `contact`.
+1. **House style** — `index`, `join`, `sales-individual`, `events`, `contact`.
    Shared catalog + light/dark section rhythm; modest inline hero/layout CSS.
 2. **Dark-hero / enterprise** — `faculty`, `consultation`, `consultation-corporate`,
-   `consultation-mastermind`, `corporate`, `whats-inside`. Coordinated navy hero
+   `consultation-mastermind`, `enterprise`, `whats-inside`. Coordinated navy hero
    (standard dark band `160deg,#060e1c→#021c36→#060e1c`), brass/blue radial glows,
    right-edge image fades, large bespoke inline component suites. `whats-inside` is the
    richest.
