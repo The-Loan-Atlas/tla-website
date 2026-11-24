@@ -425,7 +425,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + meta + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Market-Update-Barry-Habib-0820-16x9.jpg" alt="Market Update with Barry Habib — The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/Market-Update-Barry-Habib-0820-16x9.jpg" alt="Market Update with Barry Habib — The Loan Atlas" loading="eager" />
               </div>
               <div class="oh-titleblock">
               <div class="oh-meta">
@@ -564,7 +564,7 @@ $tla_active      = '';
         <div class="ev-modal__strip" aria-hidden="true">
           <div class="ev-modal__strip-row">
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/AI-Lab-Inside-Platinum-0717.png" alt="" loading="lazy" />
-            <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Market-Update-Barry-Habib-0820-1x1.jpg" alt="" loading="lazy" />
+            <img src="<?php echo TLA_BASE; ?>/assets/live-events/Market-Update-Barry-Habib-0820-1x1.jpg" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Office-Hours-Jay-Dacey-0722.png" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Talk-to-Tim-0731.png" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Mortgage-Success-Plan-0723.png" alt="" loading="lazy" />

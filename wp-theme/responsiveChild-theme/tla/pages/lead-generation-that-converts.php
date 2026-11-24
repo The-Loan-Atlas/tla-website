@@ -383,7 +383,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + meta + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Lead-Generation-That-Converts-0806-16x9.png" alt="Lead Generation That Converts masterclass — The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Lead-Generation-That-Converts-0806-16x9.png" alt="Lead Generation That Converts masterclass — The Loan Atlas" loading="eager" />
               </div>
               <div class="oh-meta">
                 <span class="oh-meta__item">

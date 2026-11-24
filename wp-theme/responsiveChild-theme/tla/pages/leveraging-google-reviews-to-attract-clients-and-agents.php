@@ -418,7 +418,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Leveraging-Google-Reviews-0903-16x9.png" alt="Leveraging Google Reviews to Attract Clients and Agents — The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Leveraging-Google-Reviews-0903-16x9.png" alt="Leveraging Google Reviews to Attract Clients and Agents — The Loan Atlas" loading="eager" />
               </div>
               <span class="tlc-eyebrow oh-eyebrow">Mortgage Originator Masterclass</span>
               <h1 class="oh-title">Leveraging Google Reviews to Attract Clients and Agents</h1>

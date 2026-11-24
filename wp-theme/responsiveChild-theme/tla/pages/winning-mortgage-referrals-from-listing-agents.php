@@ -430,7 +430,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/MBS-Highway-Winning-More-Referals-from-Listing-Agents-1920x1080-1-768x432.png" alt="Win More Referrals from Listing Agents masterclass &mdash; The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/MBS-Highway-Winning-More-Referals-from-Listing-Agents-1920x1080-1-768x432.png" alt="Win More Referrals from Listing Agents masterclass &mdash; The Loan Atlas" loading="eager" />
               </div>
               <span class="tlc-eyebrow oh-eyebrow">Mortgage Originator Masterclass</span>
               <h1 class="oh-title">Win More Referrals from Listing Agents</h1>

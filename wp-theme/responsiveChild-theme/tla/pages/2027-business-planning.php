@@ -430,7 +430,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/OCTOBER_BUSINESS_PLANNING-768x432.png" alt="2027 Business Planning masterclass &mdash; The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/OCTOBER_BUSINESS_PLANNING-768x432.png" alt="2027 Business Planning masterclass &mdash; The Loan Atlas" loading="eager" />
               </div>
               <span class="tlc-eyebrow oh-eyebrow">Mortgage Originator Masterclass</span>
               <h1 class="oh-title">2027 Business Planning &ndash; Turn Your Goals Into an Execution Plan</h1>

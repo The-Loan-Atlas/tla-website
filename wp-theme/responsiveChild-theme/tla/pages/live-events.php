@@ -462,26 +462,26 @@ $tla_active      = 'events';
 
           <div class="ev-feature-card__grid">
             <!-- Square thumbnail -->
-            <a class="ev-feature-card__media" href="/office-hours-katrinka-condie/" tabindex="-1" aria-hidden="true">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/November-2026-Office-Hours-Katrinka-Condie-500x500.png" alt="Office Hours with Katrinka Condie — The Loan Atlas" loading="eager" />
+            <a class="ev-feature-card__media" href="/office-hours-jay-dacey/" tabindex="-1" aria-hidden="true">
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/November-2026-Jay-Dacey-Office-Hours-500x500.png" alt="Office Hours with Jay Dacey — The Loan Atlas" loading="eager" />
             </a>
 
             <!-- Copy -->
             <div class="ev-feature-card__copy">
               <span class="ev-tag ev-tag--on-dark ev-tag--masterclass">Next Live Event</span>
-              <h1 id="ev-featured-heading" class="ev-feature-card__title">Office Hours with Katrinka Condie</h1>
+              <h1 id="ev-featured-heading" class="ev-feature-card__title">Office Hours with Jay Dacey</h1>
               <div class="ev-feature-card__meta">
                 <span class="ev-feature-card__meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  Wednesday, November 18, 2026
+                  Wednesday, November 25, 2026
                 </span>
                 <span class="ev-feature-card__meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>
                   11:00 AM PT
                 </span>
               </div>
-              <p class="ev-feature-card__desc">Bring your live deals and real questions to Katrinka Condie &mdash; a top-1% originator nationwide since her second year in the business, with more than $309M in lifetime production and 755+ families served. Katrinka coaches on building relationships, deep client connection and the Perfect Loan Process, showing you how to earn trust fast with clients and referral partners alike.</p>
-              <a class="btn btn--gold btn--xl" href="/office-hours-katrinka-condie/">Learn More and Get Access</a>
+              <p class="ev-feature-card__desc">Join this session with Jay Dacey, whose niche / specialty is in the area of Database Management, the Perfect Loan Process, First-Time Homebuyers and Divorce Situations.</p>
+              <a class="btn btn--gold btn--xl" href="/office-hours-jay-dacey/">Learn More and Get Access</a>
             </div>
           </div>
 
@@ -500,28 +500,15 @@ $tla_active      = 'events';
         <div class="ev-grid" data-reveal-stagger="80">
 
           <article class="ev-card">
-            <a class="ev-card__media" href="/talk-to-tim/" tabindex="-1" aria-hidden="true"><img src="<?php echo TLA_BASE; ?>/assets/live-events/November-2026-Talk-to-Tim-500x500.png" alt="Talk to Tim" loading="lazy" /></a>
+            <a class="ev-card__media" href="/office-hours-trevor-carlson/" tabindex="-1" aria-hidden="true"><img src="<?php echo TLA_BASE; ?>/assets/live-events/December-2026-Trevor-Carlson-Office-Hours-500x500.png" alt="Office Hours with Trevor Carlson" loading="lazy" /></a>
             <div class="ev-card__body">
               <div class="ev-card__date">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                Nov 20, 2026 &middot; 10:00 AM PT
+                Dec 2, 2026 &middot; 11:00 AM PT
               </div>
-              <h3 class="ev-card__title">Talk to Tim</h3>
-              <p class="ev-card__desc">Once a month, Tim Braheem gets in the room with you to coach you through the deeper stuff: the mindset blocks, the leadership doubts, and the fear of change holding your business back.</p>
-              <div class="ev-card__foot"><a class="ev-card__join" href="/talk-to-tim/">Get Access</a></div>
-            </div>
-          </article>
-
-          <article class="ev-card">
-            <a class="ev-card__media" href="/office-hours-jay-dacey/" tabindex="-1" aria-hidden="true"><img src="<?php echo TLA_BASE; ?>/assets/live-events/November-2026-Jay-Dacey-Office-Hours-500x500.png" alt="Office Hours with Jay Dacey" loading="lazy" /></a>
-            <div class="ev-card__body">
-              <div class="ev-card__date">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                Nov 25, 2026 &middot; 11:00 AM PT
-              </div>
-              <h3 class="ev-card__title">Office Hours with Jay Dacey</h3>
-              <p class="ev-card__desc">Join this session with Jay Dacey, whose niche / specialty is in the area of Database Management, the Perfect Loan Process, First-Time Homebuyers and Divorce Situations.</p>
-              <div class="ev-card__foot"><a class="ev-card__join" href="/office-hours-jay-dacey/">Get Access</a></div>
+              <h3 class="ev-card__title">Office Hours with Trevor Carlson</h3>
+              <p class="ev-card__desc">Join this session with Trevor Carlson, whose niche / specialty is in the area of Reverse Mortgage, Operational Systems and Consumer-Direct Marketing.</p>
+              <div class="ev-card__foot"><a class="ev-card__join" href="/office-hours-trevor-carlson/">Get Access</a></div>
             </div>
           </article>
 
@@ -542,7 +529,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/2027-business-planning/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/OCTOBER_BUSINESS_PLANNING-768x432.png" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/OCTOBER_BUSINESS_PLANNING-768x432.png" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -560,7 +547,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/winning-mortgage-referrals-from-listing-agents/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/MBS-Highway-Winning-More-Referals-from-Listing-Agents-1920x1080-1-768x432.png" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/MBS-Highway-Winning-More-Referals-from-Listing-Agents-1920x1080-1-768x432.png" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -578,7 +565,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/leveraging-google-reviews-to-attract-clients-and-agents/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Leveraging-Google-Reviews-0903-16x9.png" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Leveraging-Google-Reviews-0903-16x9.png" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -596,7 +583,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/market-update-with-barry-habib/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Market-Update-Barry-Habib-0820-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Market-Update-Barry-Habib-0820-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -614,7 +601,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/lead-generation-that-converts/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Lead-Generation-That-Converts-0806-16x9.png" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Lead-Generation-That-Converts-0806-16x9.png" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -632,7 +619,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/2026-mid-year-playbook/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-2026-Mid-Year-Playbook-0716-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-2026-Mid-Year-Playbook-0716-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -650,7 +637,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/winning-the-ai-game/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Winning-AI-Game-0709-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Winning-AI-Game-0709-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -667,7 +654,7 @@ $tla_active      = 'events';
 
           <a class="ev-pastcard" href="#" data-ev-modal>
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Masterclass-Fuel-Your-Fire-0611-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Fuel-Your-Fire-0611-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -684,7 +671,7 @@ $tla_active      = 'events';
 
           <a class="ev-pastcard" href="#" data-ev-modal>
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Talk-To-Tim-0616-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Talk-To-Tim-0616-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -702,7 +689,7 @@ $tla_active      = 'events';
           <!-- Whole card is clickable → replay detail page -->
           <a class="ev-pastcard" href="/ai-lab-follow-up-pro/">
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/AI-Lab-Follow-Up-Pro-0514-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/AI-Lab-Follow-Up-Pro-0514-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">
@@ -719,7 +706,7 @@ $tla_active      = 'events';
 
           <a class="ev-pastcard" href="#" data-ev-modal>
             <div class="ev-pastcard__media">
-              <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/Sales-Leadership-Panel-0507-16x9.jpg" alt="" loading="lazy" />
+              <img src="<?php echo TLA_BASE; ?>/assets/live-events/Sales-Leadership-Panel-0507-16x9.jpg" alt="" loading="lazy" />
             </div>
             <div class="ev-pastcard__body">
               <span class="ev-pastcard__recorded">

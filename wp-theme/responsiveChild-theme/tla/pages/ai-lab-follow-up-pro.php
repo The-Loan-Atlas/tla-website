@@ -372,7 +372,7 @@ $tla_active      = '';
             <!-- Header: thumbnail + meta + title -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/past-events/AI-Lab-Follow-Up-Pro-0514-16x9.jpg" alt="AI Lab: Follow Up Pro — The Loan Atlas" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/AI-Lab-Follow-Up-Pro-0514-16x9.jpg" alt="AI Lab: Follow Up Pro — The Loan Atlas" loading="eager" />
               </div>
               <div class="oh-meta">
                 <span class="oh-meta__item">
