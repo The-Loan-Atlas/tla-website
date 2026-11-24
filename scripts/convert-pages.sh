@@ -27,10 +27,24 @@ mkdir -p "$OUT"
 # are the files the deploy Action SFTPs to WP Engine, so public/ must be the
 # single edit point and the theme copies are generated. Direction is always
 # public/ -> tla/, never the reverse.
+#
+# rsync is used when available (Mac/Linux). Windows Git Bash has no rsync, so
+# fall back to a clean wipe-and-copy, which gives the same result as
+# `rsync -a --delete` (an exact mirror of the public/ folder).
+sync_dir() {
+  local from="$1" to="$2"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --delete "$from/" "$to/"
+  else
+    rm -rf "$to"
+    mkdir -p "$to"
+    cp -R "$from/." "$to/"
+  fi
+}
 echo "Syncing css / js / assets from public/ into the theme…"
-rsync -a --delete "$SRC/css/"    "$TLA/css/"
-rsync -a --delete "$SRC/js/"     "$TLA/js/"
-rsync -a --delete "$SRC/assets/" "$TLA/assets/"
+sync_dir "$SRC/css"    "$TLA/css"
+sync_dir "$SRC/js"     "$TLA/js"
+sync_dir "$SRC/assets" "$TLA/assets"
 
 # source-basename | slug | active-key | title | description
 # (title/description pulled from the file; active-key drives nav highlight)
