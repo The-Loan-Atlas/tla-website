@@ -3,6 +3,8 @@
 //
 //   /<anything>          -> public/<anything>
 //   /mockups/<anything>  -> mockups/<anything>   (repo root; never deploys)
+//   /wp-theme/<anything> -> wp-theme/<anything>  (the built _preview-*.html files,
+//                           so mockups/blog/index.html can link to them)
 //
 // Pages are authored as if they sat at the root of public/ (href="css/...",
 // src="assets/...", href="join.html"). That's what convert-pages.sh expects,
@@ -23,6 +25,7 @@ const path = require('path');
 const REPO = path.resolve(__dirname, '..');
 const PUBLIC = path.join(REPO, 'public');
 const MOCKUPS = path.join(REPO, 'mockups');
+const WPTHEME = path.join(REPO, 'wp-theme');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -62,8 +65,10 @@ function findPageByName(name) {
 function resolve(urlPath) {
   const rel = path.normalize(urlPath).replace(/^([/\\])+/, '');
   const inMockups = rel === 'mockups' || rel.startsWith('mockups' + path.sep);
-  const root = inMockups ? MOCKUPS : PUBLIC;
-  const sub = inMockups ? rel.slice('mockups'.length).replace(/^[/\\]+/, '') : rel;
+  const inWpTheme = rel.startsWith('wp-theme' + path.sep);
+  const root = inMockups ? MOCKUPS : inWpTheme ? WPTHEME : PUBLIC;
+  const sub = inMockups ? rel.slice('mockups'.length).replace(/^[/\\]+/, '')
+    : inWpTheme ? rel.slice('wp-theme'.length).replace(/^[/\\]+/, '') : rel;
 
   let p = path.join(root, sub);
   if (!p.startsWith(root)) return null;
@@ -105,5 +110,6 @@ if (require.main === module) {
   start(port).then(() => {
     console.log(`Serving public/ at http://localhost:${port}/`);
     console.log(`Mockups at        http://localhost:${port}/mockups/<file>.html`);
+    console.log(`Blog hub at       http://localhost:${port}/mockups/blog/`);
   });
 }

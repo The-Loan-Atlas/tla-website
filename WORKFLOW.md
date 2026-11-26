@@ -65,17 +65,23 @@ page run through `convert-pages.sh`. It is rendered by real WordPress templates:
 | single post | `single.php` | `tla/css/blog.css` | — |
 | category/tag/search | `archive.php` | `tla/css/blog.css` | `tla_blog_*` |
 
-`public/blog.html`, `blog-post.html`, `blog-archive.html` are **design mockups only**
-— editing them changes nothing live. To change the blog, edit `home.php` /
-`single.php` / `archive.php` + `tla/css/blog.css` directly.
+`mockups/blog/blog.html`, `blog-post.html`, `blog-archive.html` are **design mockups
+only** — editing them changes nothing live. To change the blog's markup, edit `home.php` /
+`single.php` / `archive.php` directly; for its styles, edit `public/css/blog.css` (the
+build copies it to `tla/css/blog.css`). `mockups/blog/index.html` links to every blog
+mockup, preview and the shortcode reference.
 
-Preview them with **`npm run preview:blog`** (or it runs inside `npm run preview`):
-it stubs the WordPress post loop with fixture posts and renders the real template
-markup + real `blog.css` to `wp-theme/_preview-tpl-<template>.html`. No PHP needed.
-It prints a warning for any PHP it doesn't model (so the preview is honestly
-flagged as approximate) — `home.php` is fully modeled; `single`/`archive` are
-partial. It's a visual/structure check, not a real WP render — still verify the
-live page after deploy.
+**Blog shortcodes:** `npm run preview:blog` also writes `mockups/blog/shortcodes.html`,
+every shortcode registered in `functions.php` rendered by its real function, with the
+text to paste. Examples come from the usage lines in each shortcode function's doc
+comment, so keep those current when you add or change a shortcode.
+
+Preview them with **`npm run build && npm run preview:blog`** (`preview:blog` also runs
+inside `npm run preview`). It runs the real templates, `functions.php` and partials
+through PHP (`brew install php`) against a fake WordPress and sample posts
+(`scripts/blog-preview/`), and writes `wp-theme/_preview-tpl-<template>.html`. Any PHP
+warning fails the run. It doesn't load the CSS WordPress and plugins add on the live
+site, so still glance at a live post after deploy.
 
 ---
 

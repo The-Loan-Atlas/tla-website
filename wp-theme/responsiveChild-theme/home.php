@@ -2,7 +2,7 @@
 /**
  * home.php — the blog posts index (the page set as Settings → Reading →
  * "Posts page", slug `blog`, URL /blog/). NOT the site front page.
- * Source mockup: public/blog.html.
+ * Source mockup: mockups/blog/blog.html.
  *
  * Dark masthead (eyebrow + headline + category filter) → FEATURED hero
  * (newest post on page 1) → grid of the rest → pagination.

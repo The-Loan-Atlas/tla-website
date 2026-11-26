@@ -3,7 +3,7 @@
  * preview-blog.js — render the LIVE blog templates (home.php, single.php,
  * archive.php) to static HTML for local review, using real PHP.
  *
- * The live /blog/ is NOT public/blog.html (that's a mockup). It's rendered by
+ * The live /blog/ is NOT mockups/blog/blog.html (that's a mockup). It's rendered by
  * the WordPress templates in wp-theme/responsiveChild-theme/ + tla/css/blog.css
  * + the tla_blog_* helpers in functions.php. This script runs those exact files
  * through PHP against a small fake WordPress (scripts/blog-preview/wp-stub.php)
@@ -13,9 +13,17 @@
  * Requires PHP (`brew install php`). Not modeled: the database, plugins, the
  * parent theme. Still glance at the live page after a deploy.
  *
- * Usage:  npm run preview:blog              # all four
- *         node scripts/preview-blog.js home # just one
+ * It also writes the blog SHORTCODE REFERENCE, mockups/blog/shortcodes.html:
+ * every shortcode registered in functions.php, rendered by its real function,
+ * with the text to paste beside it. Examples come from the usage lines in each
+ * shortcode function's doc comment (lines that start with "[tag"), so a new
+ * shortcode shows up as soon as its comment lists them.
+ *
+ * Usage:  npm run preview:blog                    # everything
+ *         node scripts/preview-blog.js home       # just one
+ *         node scripts/preview-blog.js shortcodes # just the reference page
  * Output: wp-theme/_preview-tpl-<template>.html  (gitignored)
+ *         mockups/blog/shortcodes.html           (gitignored)
  *         Run `npm run build` first so tla/css/blog.css has your public/ edits.
  */
 'use strict';
@@ -25,7 +33,7 @@ const { spawnSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const STUB = path.join(__dirname, 'blog-preview', 'wp-stub.php');
-const VIEWS = ['home', 'single', 'archive', 'search']; // search renders archive.php
+const VIEWS = ['home', 'single', 'archive', 'search', 'shortcodes']; // search renders archive.php
 
 // Find PHP: PATH first, then Homebrew's locations (editor terminals opened
 // before Homebrew was installed may not have it on PATH yet).
@@ -59,8 +67,12 @@ for (const view of targets) {
     failed = true;
     continue;
   }
-  const html = r.stdout.replace(/<title>/, '<title>PREVIEW — ');
-  const out = path.join(ROOT, 'wp-theme', `_preview-tpl-${view}.html`);
+  // The shortcode reference lives with the blog mockups so developers find it
+  // in one place; the template previews stay next to the other _preview files.
+  const out = view === 'shortcodes'
+    ? path.join(ROOT, 'mockups', 'blog', 'shortcodes.html')
+    : path.join(ROOT, 'wp-theme', `_preview-tpl-${view}.html`);
+  const html = view === 'shortcodes' ? r.stdout : r.stdout.replace(/<title>/, '<title>PREVIEW — ');
   fs.writeFileSync(out, html);
   console.log(`built ${path.relative(ROOT, out)}`);
 }

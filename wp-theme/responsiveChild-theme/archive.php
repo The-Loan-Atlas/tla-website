@@ -1,7 +1,7 @@
 <?php
 /**
  * archive.php — category / tag / author / date archives AND search results,
- * rendered in the TLA blog design. Source mockup: public/blog-archive.html.
+ * rendered in the TLA blog design. Source mockup: mockups/blog/blog-archive.html.
  *
  * WordPress falls category.php/tag.php/author.php/date.php back to this file.
  * Search does NOT fall back here natively (search.php → index.php) — it is

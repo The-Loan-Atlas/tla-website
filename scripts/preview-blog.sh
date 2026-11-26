@@ -2,7 +2,7 @@
 # Preview the blog PHP templates (single.php / home.php / archive.php) WITHOUT
 # a WordPress install or PHP. We can't execute the WP loop locally, so this
 # does the next best thing: it reuses the already-built static MOCKUPS
-# (public/blog*.html) — which are visually identical to what the templates
+# (mockups/blog/blog*.html) — which are visually identical to what the templates
 # render — but rewrites their asset paths to the theme's tla/ folder and
 # inlines the SHARED header/footer partials, exactly as preview-pages.sh does.
 #
@@ -34,7 +34,7 @@ render_partial "$TLA/partials/header.php" > "$HDR"
 render_partial "$TLA/partials/footer.php" > "$FTR"
 trap 'rm -f "$HDR" "$FTR"' EXIT
 
-# map: <mockup in public/>  ->  <template it represents>
+# map: <mockup in mockups/blog/>  ->  <template it represents>
 declare -a PAIRS=(
   "blog.html|home.php (the /blog/ index)"
   "blog-post.html|single.php (one post)"
@@ -44,7 +44,7 @@ declare -a PAIRS=(
 for pair in "${PAIRS[@]}"; do
   src="${pair%%|}"; src="${pair%%|*}"
   label="${pair#*|}"
-  mock="$ROOT/public/$src"
+  mock="$ROOT/mockups/blog/$src"
   [ -f "$mock" ] || { echo "skip (missing) $src"; continue; }
   out="$OUTDIR/_preview-blog-${src%.html}.html"
 
@@ -52,8 +52,8 @@ for pair in "${PAIRS[@]}"; do
   #    is exercised), 2) swap the inline mock header/footer for the SHARED
   #    partials so we preview the real chrome.
   B="$BASE" HDR="$HDR" FTR="$FTR" perl -0pe '
-      # assets: css/, js/, assets/  ->  $ENV{B}/...
-      s{(?<=["'"'"'])(css/|js/|assets/)}{$ENV{B}/$1}g;
+      # assets: ../../public/css/, js/, assets/  ->  $ENV{B}/...
+      s{(?<=["'"'"'(])(?:\.\./\.\./public/)?(css/|js/|assets/)}{$ENV{B}/$1}g;
     ' "$mock" \
   | HDR="$HDR" FTR="$FTR" perl -0pe '
       BEGIN { local $/; open my $h,"<",$ENV{HDR}; our $H=<$h>; open my $f,"<",$ENV{FTR}; our $F=<$f>; }

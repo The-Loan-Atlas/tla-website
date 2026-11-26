@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mockup — Blog "About Tim Braheem" section ([tla_about_tim])</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../public/css/styles.css" />
+  <link rel="stylesheet" href="../../public/css/blog.css" />
+  <style>
+    /* ---------------------------------------------------------------------
+       Mockup scaffolding (same as blog-cta-bands.html). Each option is shown
+       at the END of a post body inside .tla-article: the last paragraph, the
+       final [tla_cta] band (real .ctab-* styles from blog.css), then the
+       proposed About Tim block. Resize below 640px for mobile.
+       --------------------------------------------------------------------- */
+    body { background: #f7f9fb; margin: 0; }
+    .mk-top { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); color: #fff; padding: 48px 24px 32px; }
+    .mk-top__in, .mk-main { max-width: 760px; margin: 0 auto; }
+    .mk-top .t-eyebrow { color: var(--brass-bright); margin: 0 0 8px; }
+    .mk-top h1 { color: #fff; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 12px; letter-spacing: -0.01em; }
+    .mk-top p { color: rgba(255,255,255,.78); margin: 0 0 20px; line-height: 1.6; }
+    .mk-top code, .mk-label code, .mk-offer__head code { font-family: ui-monospace, Menlo, monospace; font-size: .8125em; }
+    .mk-top code { background: rgba(255,255,255,.1); padding: 2px 6px; border-radius: 4px; color: #ffd56c; }
+    .mk-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mk-nav a { font: 600 .8125rem var(--font-body); color: #fff; text-decoration: none; padding: 6px 12px; border: 1px solid rgba(234,194,90,.4); border-radius: 999px; }
+    .mk-nav a:hover { background: rgba(234,194,90,.15); }
+    .mk-main { padding: 16px 24px 80px; }
+    .mk-offer { padding-top: 48px; border-bottom: 1px solid var(--outline-variant); padding-bottom: 24px; }
+    .mk-offer__head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+    .mk-offer__head h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin: 0; color: var(--primary); }
+    .mk-num { font: 700 .875rem var(--font-body); color: var(--brass); }
+    .mk-offer__head code { color: var(--on-surface-variant); }
+    .mk-why { color: var(--on-surface-variant); font-size: .9375rem; line-height: 1.6; margin: 0 0 8px; }
+    .mk-variant { margin-top: 20px; }
+    .mk-label { font: 700 .75rem var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--on-surface-variant); margin: 0 0 8px; }
+    .mk-label code { text-transform: none; letter-spacing: 0; color: var(--secondary); margin-left: 8px; }
+    .mk-article { background: var(--surface-container-lowest); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); padding: clamp(20px, 4vw, 40px); }
+    .mk-article > p:first-child { margin-top: 0; }
+
+    /* =====================================================================
+       PROPOSED: ABOUT TIM BLOCK (.atim-*)
+       Would move to public/css/blog.css. Shares the .tla-article resets the
+       .ctab bands use so the post's p/h3/a/img styles don't leak in.
+       ===================================================================== */
+    .atim { position: relative; margin: 2.6em 0 0; border-radius: var(--radius-xl); }
+    .tla-article .atim p, .tla-article .atim h3 { margin: 0; }
+    .tla-article .atim img { margin: 0; border-radius: 0; box-shadow: none; max-width: none; }
+    .tla-article .atim a { text-decoration: none; }
+    .atim__eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); }
+    .tla-article .atim .atim__eyebrow { margin: 0 0 6px; }
+    .tla-article .atim .atim__name, .atim__name { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; line-height: 1.15; letter-spacing: -0.01em; color: var(--on-surface); }
+    .atim__role { font-size: 0.875rem; font-weight: 600; color: var(--on-surface-variant); }
+    .atim__bio { font-size: 0.9375rem; line-height: 1.65; color: var(--on-surface-variant); }
+    .atim__bio em { font-style: italic; }
+    .atim__link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-body); font-weight: 700; font-size: 0.875rem; color: var(--primary); transition: color 150ms ease; }
+    .atim__link svg { width: 14px; height: 14px; transition: transform 150ms ease; }
+    .atim__link:hover { color: var(--brass); }
+    .atim__link:hover svg { transform: translateX(3px); }
+    .tla-article .atim .atim__link { color: var(--primary); }
+    .tla-article .atim .atim__link:hover { color: var(--brass); }
+    .atim__link:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
+
+    /* Circular avatar cropped from the transparent cutout headshot: the image
+       sits on a navy disc, scaled up so the face fills the circle. */
+    .atim__avatar { position: relative; flex: 0 0 auto; width: 104px; height: 104px; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 35%, #17345a 0%, #021c36 70%); box-shadow: 0 0 0 3px #fff, 0 0 0 4px rgba(201,150,28,.55), 0 10px 24px rgba(2,28,54,.18); }
+    .tla-article .atim .atim__avatar img { position: absolute; width: 175%; left: -36%; top: -4%; height: auto; }
+
+    /* --- A · EDITORIAL AUTHOR CARD ------------------------------------- */
+    .atim--card { background: var(--surface-container-lowest); border: 1px solid var(--outline-variant); border-top: 3px solid var(--brass); padding: clamp(22px, 3.5vw, 32px); box-shadow: var(--shadow); }
+    .atim--card .atim__head { display: flex; align-items: center; gap: 20px; margin-bottom: 18px; }
+    .tla-article .atim--card .atim__role { margin-top: 4px; }
+    .atim--card .atim__stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 20px 0; border-block: 1px solid var(--surface-container-high); }
+    .atim--card .atim__stat { padding: 14px 12px; text-align: center; }
+    .atim--card .atim__stat + .atim__stat { border-left: 1px solid var(--surface-container-high); }
+    .atim__stat-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; line-height: 1.1; color: var(--primary); }
+    .atim__stat-label { display: block; margin-top: 4px; font-size: 0.75rem; line-height: 1.35; color: var(--on-surface-variant); }
+    .atim--card .atim__link { display: inline; }
+    .atim--card .atim__link svg { display: inline-block; vertical-align: -2px; margin-left: 6px; }
+    .atim--card .atim__links { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--surface-container-high); display: flex; flex-wrap: wrap; gap: 10px 24px; }
+
+    /* --- B · DARK FOUNDER BAND (cutout breaks out the top) -------------- */
+    .atim--band { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); border: 1px solid rgba(201,150,28,.32); margin-top: 4.5em; padding: clamp(24px, 3.5vw, 34px); padding-left: clamp(230px, 41%, 290px); }
+    .atim--band::before { content: ""; position: absolute; left: 0; bottom: 0; width: 46%; height: 100%; background: radial-gradient(55% 55% at 45% 45%, rgba(234,194,90,.2), transparent 70%); border-radius: inherit; pointer-events: none; }
+    .atim--band { clip-path: inset(-90px -40px 0 -40px round var(--radius-xl)); }
+    .atim--band .atim__cutout { position: absolute; left: clamp(-12px, 0%, 8px); top: -62px; width: clamp(230px, 40%, 285px); z-index: 1; }
+    .tla-article .atim--band .atim__cutout img { display: block; width: 100%; height: auto; filter: drop-shadow(0 4px 8px rgba(2,28,54,.22)); -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 96%); mask-image: linear-gradient(180deg, #000 72%, transparent 96%); }
+    .atim--band .atim__body { position: relative; z-index: 2; }
+    .atim--band .atim__eyebrow { color: var(--brass-bright); }
+    .tla-article .atim--band .atim__name { color: #fff; font-size: 1.625rem; }
+    .tla-article .atim--band .atim__role { color: rgba(255,255,255,.66); margin-top: 4px; }
+    .tla-article .atim--band .atim__bio { color: rgba(255,255,255,.8); margin-top: 14px; }
+    .atim--band .atim__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .atim__chip { font-size: 0.75rem; font-weight: 600; color: #fff; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(234,194,90,.32); }
+    .atim__chip b { color: var(--brass-bright); font-weight: 800; }
+    .tla-article .atim--band .atim__link { color: var(--brass-bright); margin-top: 18px; }
+    .tla-article .atim--band .atim__link:hover { color: #ffd56c; }
+
+    /* --- C · PERSONAL NOTE (first person, warm paper) ------------------- */
+    .atim--note { background: linear-gradient(180deg, #fbf7ec 0%, #f6f1e2 100%); border: 1px solid rgba(201,150,28,.28); padding: clamp(24px, 4vw, 38px); }
+    .atim--note::before { content: "\201C"; position: absolute; right: clamp(16px, 4vw, 34px); top: -6px; font-family: var(--font-display); font-weight: 800; font-size: 7.5rem; line-height: 1; color: rgba(201,150,28,.22); pointer-events: none; }
+    .tla-article .atim--note .atim__eyebrow { margin-bottom: 14px; }
+    .atim--note .atim__quote { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.0625rem, 2.2vw, 1.25rem); line-height: 1.55; color: var(--primary); letter-spacing: -0.005em; position: relative; }
+    .tla-article .atim--note .atim__bio { margin-top: 14px; }
+    .atim--note .atim__sign { display: flex; align-items: center; gap: 16px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(201,150,28,.3); }
+    .atim--note .atim__avatar { width: 64px; height: 64px; box-shadow: 0 0 0 2px #fbf7ec, 0 0 0 3px rgba(201,150,28,.6); }
+    .atim--note .atim__sign-text { flex: 1 1 0; min-width: 0; }
+    .atim--note .atim__name { font-size: 1.0625rem; }
+    .tla-article .atim--note .atim__role { font-size: 0.8125rem; margin-top: 2px; }
+    .atim--note .atim__link { flex: 0 0 auto; }
+
+    /* --- D · COMPACT BYLINE STRIP --------------------------------------- */
+    .atim--strip { display: flex; align-items: center; gap: 18px; padding: 18px 0 0; margin-top: 2.4em; border-top: 1px solid var(--outline-variant); border-radius: 0; }
+    .atim--strip .atim__avatar { width: 72px; height: 72px; }
+    .atim--strip .atim__body { flex: 1 1 auto; min-width: 0; }
+    .atim--strip .atim__line { font-size: 0.9375rem; line-height: 1.55; color: var(--on-surface-variant); }
+    .atim--strip .atim__line strong { color: var(--on-surface); font-family: var(--font-display); font-weight: 800; }
+    .tla-article .atim--strip .atim__link { margin-top: 6px; }
+
+    /* --- mobile ---------------------------------------------------------- */
+    @media (max-width: 640px) {
+      .atim--card .atim__head { gap: 16px; }
+      .atim--card .atim__avatar { width: 84px; height: 84px; }
+      .atim--card .atim__stat { padding: 12px 6px; }
+      .atim__stat-num { font-size: 1.125rem; }
+
+      .atim--band { padding: 172px 22px 26px; margin-top: 6em; text-align: center; min-height: 0; }
+      .atim--band::before { width: 100%; height: 60%; top: 0; bottom: auto; background: radial-gradient(50% 60% at 50% 40%, rgba(234,194,90,.18), transparent 70%); }
+      .atim--band .atim__cutout { left: 50%; top: -64px; width: 190px; transform: translateX(-50%); }
+      .atim--band { padding-top: 168px; }
+      .atim--band .atim__chips { justify-content: center; }
+
+      .atim--note .atim__sign { flex-wrap: wrap; }
+      .atim--note .atim__link { flex-basis: 100%; }
+
+      .atim--strip { align-items: flex-start; }
+      .atim--strip .atim__avatar { width: 56px; height: 56px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .atim__link svg { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mk-top"><div class="mk-top__in">
+    <p class="t-eyebrow">Blog · end-of-post author section</p>
+    <h1>About Tim Braheem</h1>
+    <p>Four options for a new <code>[tla_about_tim]</code> shortcode. It goes at the very bottom of a post, below the final <code>[tla_cta]</code> band. Each option is shown after a sample closing paragraph and a consult band, so you can judge how it sits next to the CTA. It shouldn't compete with the CTA: it's a credibility block, so it uses quiet text links instead of a second gold button. Make the window narrower than 640px to see the mobile layouts.</p>
+    <nav class="mk-nav"><a href="#a">A · Author card</a><a href="#b">B · Founder band</a><a href="#c">C · Personal note</a><a href="#d">D · Compact byline</a></nav>
+  </div></div>
+
+  <main class="mk-main">
+
+  <!-- ============================ A ============================ -->
+  <section class="mk-offer" id="a">
+    <header class="mk-offer__head"><span class="mk-num">A</span><h2>Editorial author card</h2><code>[tla_about_tim]</code></header>
+    <p class="mk-why">A white card with a brass top rule, a round headshot, and a link to the faculty page. It's the safest fit with the existing post card and reads as a classic "about the author" box.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>None of this works as a one-time push. The originators who win treat follow-up as a system they run every week, and that's the habit worth building first.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <aside class="atim atim--card" aria-label="About Tim Braheem">
+          <div class="atim__head">
+            <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+            <div>
+              <p class="atim__eyebrow">About the author</p>
+              <h3 class="atim__name">Tim Braheem</h3>
+              <p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>
+            </div>
+          </div>
+          <p class="atim__bio">Tim has spent more than 30 years as a mortgage originator and coach. He founded First Rate Financial in 1995 and built Loantoolbox.com into an <em>Inc. 500</em> company with 10,800 paying members. Today he teaches the scripts, systems, and personal development work behind everything at The Loan Atlas, and hosts <em>The 360 Experience</em> podcast.</p>
+          <div class="atim__links">
+            <a class="atim__link" href="/faculty/">Learn more about Tim and The Loan Atlas Faculty <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ B ============================ -->
+  <section class="mk-offer" id="b">
+    <header class="mk-offer__head"><span class="mk-num">B</span><h2>Dark founder band</h2><code>[tla_about_tim style="band"]</code></header>
+    <p class="mk-why">Tim's cutout breaks out above a navy band, the same move as the AI Masterplan band's iPad. It has the most presence of the four, but it's another dark block right under the CTA, so it works best when the final CTA is a light one (consult, scripts, PLP).</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>None of this works as a one-time push. The originators who win treat follow-up as a system they run every week, and that's the habit worth building first.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <aside class="atim atim--band" aria-label="About Tim Braheem">
+          <div class="atim__cutout"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+          <div class="atim__body">
+            <p class="atim__eyebrow">Meet the founder</p>
+            <h3 class="atim__name">Tim Braheem</h3>
+            <p class="atim__role">Founder &amp; Chief Content Officer</p>
+            <p class="atim__bio">A producer who built coaching because he couldn't find coaching that worked. Tim now teaches the operating system he wishes he'd had in the seat.</p>
+            <div class="atim__chips">
+              <span class="atim__chip"><b>$1.4B</b> personal volume</span>
+              <span class="atim__chip"><b>30+</b> years</span>
+              <span class="atim__chip"><b>Inc. 500</b> founder</span>
+            </div>
+            <a class="atim__link" href="#">More about Tim <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ C ============================ -->
+  <section class="mk-offer" id="c">
+    <header class="mk-offer__head"><span class="mk-num">C</span><h2>Personal note</h2><code>[tla_about_tim style="note"]</code></header>
+    <p class="mk-why">This one opens with a short first-person note from Tim, then signs off with his name and photo. It feels the most human, but the quote is draft copy and Tim needs to approve or rewrite it.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>None of this works as a one-time push. The originators who win treat follow-up as a system they run every week, and that's the habit worth building first.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <aside class="atim atim--note" aria-label="About Tim Braheem">
+          <p class="atim__eyebrow">A note from Tim</p>
+          <p class="atim__quote">I spent 30 years in the seat before I ever coached anyone. Everything we write here is something I've tested on real files, with real clients and real referral partners. If it didn't work in production, it doesn't go on this blog.</p>
+          <p class="atim__bio">Tim Braheem has originated $1.4 billion in personal volume, founded First Rate Financial and the <em>Inc. 500</em> company Loantoolbox.com, and hosts <em>The 360 Experience</em> podcast.</p>
+          <div class="atim__sign">
+            <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+            <div class="atim__sign-text">
+              <h3 class="atim__name">Tim Braheem</h3>
+              <p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>
+            </div>
+            <a class="atim__link" href="#">Meet Tim <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ D ============================ -->
+  <section class="mk-offer" id="d">
+    <header class="mk-offer__head"><span class="mk-num">D</span><h2>Compact byline</h2><code>[tla_about_tim style="compact"]</code></header>
+    <p class="mk-why">The lightest touch: a rule, a small avatar, and two sentences. It leaves the CTA as the clear last thing to act on, so it suits short posts or posts with a strong final CTA.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>None of this works as a one-time push. The originators who win treat follow-up as a system they run every week, and that's the habit worth building first.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <aside class="atim atim--strip" aria-label="About Tim Braheem">
+          <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+          <div class="atim__body">
+            <p class="atim__line"><strong>Tim Braheem</strong> is the founder of The Loan Atlas. He has more than 30 years and $1.4 billion in personal production as an originator, and hosts <em>The 360 Experience</em> podcast.</p>
+            <a class="atim__link" href="#">More about Tim <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  </main>
+</body>
+</html>

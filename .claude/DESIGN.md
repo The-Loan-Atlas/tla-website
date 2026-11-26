@@ -173,10 +173,10 @@ their hero and bespoke layout. This is the dominant pattern, not the exception:
 | `platinum-marketing.html` | ~340 | Reuses mastermind `.lp-`/`.mm-` language |
 | `consultation.html` | ~285 | Navy hero + booking |
 | `contact.html` | ~265 | Two-column contact shell |
-| `blog-post.html` | ~265 | Two-column post (future `blog.css`) |
+| `mockups/blog/blog-post.html` | ~265 | Two-column post mockup (live styles: `blog.css`) |
 | `index.html` | ~240 | Hero/content width overrides |
 | `enterprise-consultation.html` | ~230 | Navy hero + booking |
-| blog / blog-archive | ~220 / ~125 | Future `blog.css` |
+| `mockups/blog/` blog / blog-archive | ~220 / ~125 | Mockups (live styles: `blog.css`) |
 | legal pages | ~40 each | `.legal-header` + `.legal-doc` prose rhythm |
 | `live-events.html` | 0 | Pure house style (shared classes only) |
 | `ai-originator-masterplan.html` | 0 | Fresh design lives in styles.css as `.aimp-*` |

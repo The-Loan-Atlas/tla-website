@@ -2,7 +2,7 @@
 /**
  * wp-stub.php — run the REAL WordPress blog templates locally with real PHP.
  *
- *   php scripts/blog-preview/wp-stub.php <home|single|archive>   (prints HTML)
+ *   php scripts/blog-preview/wp-stub.php <home|single|archive|search|shortcodes>   (prints HTML)
  *
  * Normally invoked by scripts/preview-blog.js (`npm run preview:blog`), which
  * writes wp-theme/_preview-tpl-<view>.html.
@@ -25,8 +25,8 @@ error_reporting( E_ALL );
 ini_set( 'display_errors', 'stderr' );
 
 $view = $argv[1] ?? 'home';
-if ( ! in_array( $view, array( 'home', 'single', 'archive', 'search' ), true ) ) {
-	fwrite( STDERR, "Unknown view '$view' (use home, single, archive or search)\n" );
+if ( ! in_array( $view, array( 'home', 'single', 'archive', 'search', 'shortcodes' ), true ) ) {
+	fwrite( STDERR, "Unknown view '$view' (use home, single, archive, search or shortcodes)\n" );
 	exit( 1 );
 }
 
@@ -35,8 +35,9 @@ define( 'ABSPATH', __DIR__ . '/' );
 $ROOT  = dirname( __DIR__, 2 );
 $THEME = $ROOT . '/wp-theme/responsiveChild-theme';
 
-// Asset URLs are relative to wp-theme/, where the preview HTML files are written.
-define( 'TLA_PREVIEW_URI', 'responsiveChild-theme' );
+// Asset URLs are relative to where the HTML is written: wp-theme/ for the
+// template previews, mockups/blog/ for the shortcode reference page.
+define( 'TLA_PREVIEW_URI', 'shortcodes' === $view ? '../../wp-theme/responsiveChild-theme' : 'responsiveChild-theme' );
 define( 'TLA_PREVIEW_HOME', 'https://www.theloanatlas.com' );
 
 // Links between the three previews, so you can click around them.
@@ -289,7 +290,7 @@ function shortcode_atts( $pairs, $atts, $shortcode = '' ) {
 	return $out;
 }
 function do_shortcode( $content ) {
-	return preg_replace_callback( '/\[([a-z_]+)((?:\s+[a-z_]+="[^"]*")*)\s*\]/i', function ( $m ) {
+	return preg_replace_callback( '/\[([a-z_-]+)((?:\s+[a-z_]+="[^"]*")*)\s*\]/i', function ( $m ) {
 		$cb = $GLOBALS['tla_shortcodes'][ $m[1] ] ?? null;
 		if ( ! $cb ) {
 			return $m[0];
@@ -307,4 +308,8 @@ function do_shortcode( $content ) {
 // Run the real theme.
 // ---------------------------------------------------------------------------
 require $THEME . '/functions.php';
-require $THEME . '/' . ( 'search' === $view ? 'archive' : $view ) . '.php';
+if ( 'shortcodes' === $view ) {
+	require __DIR__ . '/shortcodes-page.php'; // reference page, not a WP template
+} else {
+	require $THEME . '/' . ( 'search' === $view ? 'archive' : $view ) . '.php';
+}

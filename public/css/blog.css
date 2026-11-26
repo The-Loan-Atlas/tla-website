@@ -5,7 +5,7 @@
    so it never collides with the main stylesheet. Uses the shared design
    tokens defined at the top of styles.css.
 
-   Source of truth for the look: public/blog.html, blog-post.html,
+   Source of truth for the look: mockups/blog/blog.html, blog-post.html,
    blog-archive.html (the previewable mockups).
    ========================================================================== */
 
@@ -650,7 +650,7 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 /* ==========================================================================
    INLINE MID-POST CTA BANDS (.ctab-*)
    Drop into a post body (the_content / .tla-article). One base .ctab + six
-   per-offer skins, each with a with-image and a text-only form. Built only
+   per-offer skins, each built around its offer's image. Built only
    from the shared design tokens; gradients written literally (styles.css has
    no --gold/--band token). Buttons reuse the .ctab-btn family below.
 
@@ -714,10 +714,12 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 .ctab--ai .ctab__device img { width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.55)); box-shadow: none; }
 
 /* --- 02 · 5 SCRIPTS — warm paper, brass top bar, thumb left --- */
-.ctab--scripts { background: linear-gradient(180deg, #fbf7ec 0%, #f7f3e6 100%); border: 1px solid rgba(201, 150, 28, 0.3); border-top: 4px solid var(--brass); display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); padding: 22px clamp(20px, 3vw, 26px); }
-.ctab--scripts .ctab__thumb { flex: 0 0 auto; width: 112px; height: 88px; border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 16px rgba(2, 28, 54, 0.18); }
-.ctab--scripts .ctab__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; margin: 0; border-radius: 0; box-shadow: none; }
-.ctab--scripts .ctab__body { flex: 1 1 15rem; min-width: 0; }
+/* The photo fills the band's full height, flush to the left edge; the band's
+   overflow:hidden + radius clip it into the rounded corners. */
+.ctab--scripts { background: linear-gradient(180deg, #fbf7ec 0%, #f7f3e6 100%); border: 1px solid rgba(201, 150, 28, 0.3); border-top: 4px solid var(--brass); display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); padding: 0 clamp(20px, 3vw, 26px) 0 0; }
+.ctab--scripts .ctab__thumb { flex: 0 0 clamp(150px, 28%, 210px); align-self: stretch; position: relative; min-height: 150px; }
+.ctab--scripts .ctab__thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; margin: 0; border-radius: 0; box-shadow: none; }
+.ctab--scripts .ctab__body { flex: 1 1 15rem; min-width: 0; padding-block: 22px; }
 .ctab--scripts .ctab__eyebrow { color: var(--secondary); }
 .ctab--scripts .ctab__title { color: var(--on-surface); }
 .ctab--scripts .ctab__pitch { color: var(--on-surface-variant); }
@@ -736,7 +738,7 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 
 /* --- 04 · JOIN — full-bleed photo + scrim --- */
 .ctab--join { border: 1px solid rgba(201, 150, 28, 0.34); min-height: 188px; display: flex; align-items: center; }
-.ctab--join .ctab__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.62) saturate(0.95); margin: 0; border-radius: 0; box-shadow: none; }
+.ctab--join .ctab__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.74) saturate(1); margin: 0; border-radius: 0; box-shadow: none; }
 .ctab--join::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(2, 12, 26, 0.95) 0%, rgba(2, 12, 26, 0.82) 42%, rgba(2, 12, 26, 0.42) 100%); }
 .ctab--join .ctab__body { position: relative; z-index: 1; padding: clamp(22px, 3vw, 30px); display: flex; align-items: center; gap: clamp(16px, 3vw, 28px); flex-wrap: wrap; width: 100%; }
 .ctab--join .ctab__copy { flex: 1 1 16rem; min-width: 0; }
@@ -744,8 +746,6 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 .ctab--join .ctab__title { color: #fff; font-size: 1.375rem; }
 .ctab--join .ctab__pitch { color: rgba(255, 255, 255, 0.85); }
 .ctab--join .ctab-btn { flex: 0 0 auto; }
-.ctab--join.ctab--join-flat { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); min-height: 0; }
-.ctab--join.ctab--join-flat .ctab__body { padding: clamp(20px, 3vw, 28px); }
 
 /* --- 05 · CONSULTATION — light navy-tint, photo split right --- */
 .ctab--consult { background: linear-gradient(165deg, #eef3f9 0%, #e3edf7 100%); border: 1px solid #cdddee; display: flex; align-items: stretch; gap: 0; }
@@ -753,10 +753,11 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 .ctab--consult .ctab__eyebrow { color: #1f4e79; }
 .ctab--consult .ctab__title { color: var(--primary); }
 .ctab--consult .ctab__pitch { color: #33506e; margin-bottom: 16px; }
-.ctab--consult .ctab__photo { flex: 0 0 38%; max-width: 230px; position: relative; }
-.ctab--consult .ctab__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; border-radius: 0; box-shadow: none; }
+/* The photo is a wide scene with the man at the far right: anchor the crop to
+   the right so he and the screen he's looking at stay in frame. */
+.ctab--consult .ctab__photo { flex: 0 0 42%; max-width: 300px; position: relative; }
+.ctab--consult .ctab__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 100% 30%; margin: 0; border-radius: 0; box-shadow: none; }
 .ctab--consult .ctab-btn { align-self: flex-start; }
-.ctab--consult.ctab--consult-flat .ctab__body { padding: clamp(22px, 3vw, 30px); }
 
 /* --- 06 · PERFECT LOAN PROCESS — white document card, framed shot left --- */
 .ctab--doc { background: var(--surface-container-lowest); border: 1px solid var(--outline-variant); display: flex; align-items: center; gap: clamp(18px, 3vw, 30px); padding: clamp(18px, 3vw, 24px); box-shadow: var(--shadow); }
@@ -786,7 +787,11 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
   .ctab--ai { display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; padding: clamp(22px, 5vw, 30px); padding-right: clamp(22px, 5vw, 30px); margin-block: 1.7em; }
   .ctab--ai .ctab__device { position: static; transform: none; order: -1; height: auto; width: 150px; aspect-ratio: auto; margin-bottom: 16px; }
   .ctab--ai .ctab__body { text-align: center; }
-  .ctab--scripts .ctab__thumb { width: 100%; height: 150px; }
+  /* Scripts: photo bleeds edge to edge across the top; copy + button padded. */
+  .ctab--scripts { padding: 0 0 20px; gap: 0; }
+  .ctab--scripts .ctab__thumb { flex: 0 0 auto; height: 170px; min-height: 0; }
+  .ctab--scripts .ctab__body { padding: 18px 20px 16px; }
+  .ctab--scripts .ctab-btn { margin-inline: 20px; }
   .ctab--podcast { text-align: center; }
   .ctab--podcast .ctab__cover { align-self: center; }
   .ctab--podcast .ctab__body { text-align: center; }
@@ -795,11 +800,51 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
   .ctab--doc.ctab--doc-img { overflow: hidden; margin-block: 1.7em; padding-left: clamp(18px, 3vw, 24px); }
   .ctab--doc-img .ctab__shot { position: static; transform: none; height: auto; width: 150px; aspect-ratio: auto; }
   .ctab--consult { flex-direction: column; }
-  .ctab--consult .ctab__photo { flex: 0 0 150px; max-width: none; height: 150px; order: -1; }
-  .ctab--consult .ctab__photo img { position: static; height: 150px; }
+  .ctab--consult .ctab__photo { flex: 0 0 auto; max-width: none; height: auto; aspect-ratio: 16 / 9; order: -1; }
+  .ctab--consult .ctab__photo img { object-position: 70% 30%; }
   .ctab--join .ctab__body { flex-direction: column; align-items: flex-start; }
   .ctab .ctab-btn { justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ctab-btn, .ctab-btn svg { transition: none; }
+}
+
+/* ==========================================================================
+   END-OF-POST AUTHOR CARD (.atim-*) — [tla-tim-bio]
+   Sits at the bottom of the post body, below the final [tla_cta] band.
+   Markup: tla_tim_bio_shortcode() in functions.php. Mockup:
+   mockups/blog/blog-about-tim.html (option A). Resets .tla-article's p/h3/a/img
+   styles the same way the .ctab bands do.
+   ========================================================================== */
+.atim { position: relative; margin: 2.6em 0 0; border-radius: var(--radius-xl); }
+.tla-article .atim p, .tla-article .atim h3 { margin: 0; }
+.tla-article .atim img { margin: 0; border-radius: 0; box-shadow: none; max-width: none; }
+.tla-article .atim a { text-decoration: none; }
+.atim__eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brass); }
+.tla-article .atim .atim__eyebrow { margin: 0 0 6px; }
+.atim__name, .tla-article .atim .atim__name { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; line-height: 1.15; letter-spacing: -0.01em; color: var(--on-surface); }
+.atim__role { font-size: 0.875rem; font-weight: 600; color: var(--on-surface-variant); }
+.atim__bio { font-size: 0.9375rem; line-height: 1.65; color: var(--on-surface-variant); }
+.atim__link, .tla-article .atim .atim__link { font-family: var(--font-body); font-weight: 700; font-size: 0.875rem; line-height: 1.5; color: var(--primary); transition: color 150ms ease; }
+.atim__link svg { display: inline-block; width: 14px; height: 14px; margin-left: 6px; vertical-align: -2px; transition: transform 150ms ease; }
+.atim__link:hover, .tla-article .atim .atim__link:hover { color: var(--brass); }
+.atim__link:hover svg { transform: translateX(3px); }
+.atim__link:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
+/* Round avatar cropped from the transparent cutout headshot: the image sits on
+   a navy disc, scaled up so the face fills the circle. */
+.atim__avatar { position: relative; flex: 0 0 auto; width: 104px; height: 104px; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 35%, #17345a 0%, #021c36 70%); box-shadow: 0 0 0 3px #fff, 0 0 0 4px rgba(201, 150, 28, 0.55), 0 10px 24px rgba(2, 28, 54, 0.18); }
+.tla-article .atim .atim__avatar img { position: absolute; width: 175%; height: auto; left: -36%; top: -4%; }
+
+.atim--card { background: var(--surface-container-lowest); border: 1px solid var(--outline-variant); border-top: 3px solid var(--brass); padding: clamp(22px, 3.5vw, 32px); box-shadow: var(--shadow); }
+.atim--card .atim__head { display: flex; align-items: center; gap: 20px; margin-bottom: 18px; }
+.tla-article .atim--card .atim__role { margin-top: 4px; }
+.atim--card .atim__links { font-size: 0.875rem; line-height: 1.5; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--surface-container-high); }
+
+@media (max-width: 640px) {
+  .atim--card .atim__head { gap: 14px; align-items: flex-start; }
+  .atim--card .atim__avatar { width: 68px; height: 68px; }
+  .atim__name, .tla-article .atim .atim__name { font-size: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .atim__link, .atim__link svg { transition: none; }
 }

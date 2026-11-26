@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog workspace</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../public/css/styles.css" />
+  <style>
+    /* Entry point for everything blog-related. Nothing in mockups/ deploys.
+       Open from disk, or at http://localhost:4321/mockups/blog/ with `npm run serve`. */
+    body { background: #f7f9fb; margin: 0; color: var(--on-surface); font-family: var(--font-body); }
+    code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; background: var(--surface-container); padding: 1px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+    .bh-top { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); color: #fff; padding: 48px 24px 36px; }
+    .bh-top__in, .bh-main { max-width: 880px; margin: 0 auto; }
+    .bh-top .t-eyebrow { color: var(--brass-bright); margin: 0 0 8px; }
+    .bh-top h1 { color: #fff; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 12px; letter-spacing: -0.01em; }
+    .bh-top p { color: rgba(255,255,255,.8); margin: 0; line-height: 1.6; max-width: 62ch; }
+    .bh-top code { background: rgba(255,255,255,.1); color: #ffd56c; }
+    .bh-main { padding: 8px 24px 80px; }
+    .bh-sec { padding-top: 40px; }
+    .bh-sec h2 { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; color: var(--primary); margin: 0 0 6px; }
+    .bh-sec > p { color: var(--on-surface-variant); line-height: 1.6; margin: 0 0 16px; }
+    .bh-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+    .bh-card { display: block; text-decoration: none; background: #fff; border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); padding: 18px 20px; transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease; }
+    .bh-card:hover { border-color: var(--brass); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .bh-card:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    .bh-card strong { display: block; font-family: var(--font-display); font-weight: 700; color: var(--primary); font-size: 1.0625rem; margin-bottom: 4px; }
+    .bh-card span { display: block; font-size: .875rem; color: var(--on-surface-variant); line-height: 1.5; }
+    .bh-card--lead { border-top: 3px solid var(--brass); }
+    .bh-card span.bh-tag { display: inline-block; }
+    .bh-card code { white-space: nowrap; }
+    .bh-tag { display: inline-block; font: 700 .6875rem var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--secondary); background: var(--secondary-fixed); padding: 2px 8px; border-radius: 999px; margin-bottom: 8px; }
+    .bh-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); overflow: hidden; font-size: .9375rem; }
+    .bh-table th, .bh-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--surface-container-high); vertical-align: top; line-height: 1.5; }
+    .bh-table th { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--on-surface-variant); background: var(--surface-container-low); }
+    .bh-table tr:last-child td { border-bottom: 0; }
+    .bh-note { margin-top: 18px; font-size: .875rem; color: var(--on-surface-variant); }
+    @media (max-width: 640px) {
+      .bh-table, .bh-table tbody, .bh-table tr, .bh-table td { display: block; width: 100%; }
+      .bh-table thead { display: none; }
+      .bh-table td { border-bottom: 0; padding: 4px 16px; }
+      .bh-table td:first-child { padding-top: 14px; font-weight: 600; }
+      .bh-table tr { border-bottom: 1px solid var(--surface-container-high); padding-bottom: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .bh-card { transition: none; } .bh-card:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <header class="bh-top"><div class="bh-top__in">
+    <p class="t-eyebrow">Developer reference</p>
+    <h1>Blog workspace</h1>
+    <p>Everything for the blog in one place: the shortcode reference, previews of the live templates, and the design mockups. Nothing in this folder deploys. The live blog is built from the WordPress files listed at the bottom of this page.</p>
+  </div></header>
+
+  <main class="bh-main">
+    <section class="bh-sec">
+      <h2>Shortcode reference</h2>
+      <p>Every blog shortcode, rendered by its real PHP function, with the text to paste into a post. Generated by <code>npm run preview:blog</code>, so it always matches <code>functions.php</code>.</p>
+      <div class="bh-grid">
+        <a class="bh-card bh-card--lead" href="shortcodes.html"><span class="bh-tag">Generated</span><strong>Blog shortcodes</strong><span><code>[tla_cta]</code> bands and the <code>[tla-tim-bio]</code> author card</span></a>
+      </div>
+    </section>
+
+    <section class="bh-sec">
+      <h2>Live blog previews</h2>
+      <p>The real templates rendered through PHP with sample posts. This is what ships. Generated by <code>npm run preview:blog</code>.</p>
+      <div class="bh-grid">
+        <a class="bh-card" href="../../wp-theme/_preview-tpl-home.html"><span class="bh-tag">Generated</span><strong>Blog index</strong><span><code>/blog/</code> · <code>home.php</code></span></a>
+        <a class="bh-card" href="../../wp-theme/_preview-tpl-single.html"><span class="bh-tag">Generated</span><strong>Single post</strong><span>Every content element and shortcode · <code>single.php</code></span></a>
+        <a class="bh-card" href="../../wp-theme/_preview-tpl-archive.html"><span class="bh-tag">Generated</span><strong>Category archive</strong><span><code>archive.php</code></span></a>
+        <a class="bh-card" href="../../wp-theme/_preview-tpl-search.html"><span class="bh-tag">Generated</span><strong>Search results</strong><span><code>archive.php</code> in search mode</span></a>
+      </div>
+      <p class="bh-note">If a link here or above opens a missing page, run <code>npm run build &amp;&amp; npm run preview:blog</code>. The generated files aren't committed.</p>
+    </section>
+
+    <section class="bh-sec">
+      <h2>Design mockups</h2>
+      <p>Static design references. Editing these changes nothing live: port any change into the WordPress files below.</p>
+      <div class="bh-grid">
+        <a class="bh-card" href="blog.html"><strong>Blog index</strong><span>Mockup behind <code>home.php</code></span></a>
+        <a class="bh-card" href="blog-post.html"><strong>Blog post</strong><span>Mockup behind <code>single.php</code></span></a>
+        <a class="bh-card" href="blog-archive.html"><strong>Blog archive</strong><span>Mockup behind <code>archive.php</code></span></a>
+        <a class="bh-card" href="blog-cta-bands.html"><strong>CTA bands</strong><span>Design set for <code>[tla_cta]</code></span></a>
+        <a class="bh-card" href="blog-about-tim.html"><strong>About Tim options</strong><span>Design options for <code>[tla-tim-bio]</code> (option A shipped)</span></a>
+      </div>
+    </section>
+
+    <section class="bh-sec">
+      <h2>Where the real files live</h2>
+      <p>The live blog is WordPress's own posts pages, not a <code>public/</code> page.</p>
+      <table class="bh-table">
+        <thead><tr><th>What</th><th>Edit this</th></tr></thead>
+        <tbody>
+          <tr><td>Blog index markup</td><td><code>wp-theme/responsiveChild-theme/home.php</code></td></tr>
+          <tr><td>Single post markup</td><td><code>wp-theme/responsiveChild-theme/single.php</code></td></tr>
+          <tr><td>Archive / search markup</td><td><code>wp-theme/responsiveChild-theme/archive.php</code></td></tr>
+          <tr><td>Blog &lt;head&gt; and scripts</td><td><code>…/tla/partials/blog-head.php</code>, <code>blog-foot.php</code></td></tr>
+          <tr><td>Shortcodes and <code>tla_blog_*</code> helpers</td><td><code>wp-theme/responsiveChild-theme/functions.php</code></td></tr>
+          <tr><td>Blog styles</td><td><code>public/css/blog.css</code> (the build copies it into the theme)</td></tr>
+          <tr><td>Sample posts for the previews</td><td><code>scripts/blog-preview/fixtures.php</code> (never ships)</td></tr>
+          <tr><td>Rules for writing posts</td><td><code>docs/copy/blog-writing-guide.md</code></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

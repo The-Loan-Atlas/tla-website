@@ -1,7 +1,7 @@
 <?php
 /**
  * single.php — a single blog post, rendered in the TLA blog design.
- * Source mockup: public/blog-post.html.
+ * Source mockup: mockups/blog/blog-post.html.
  *
  * Two-column layout: a wide white content card (the_content styled via
  * .tla-article) + a sticky sidebar (header image, jump-to TOC, resources).

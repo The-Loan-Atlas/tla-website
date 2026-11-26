@@ -121,7 +121,12 @@ block looks like this:</p>
 }</code></pre>
 
 <p>A closing paragraph wraps up the sample so the last-child spacing rule can be
-verified at the bottom of the article body.</p>
+verified at the bottom of the article body. The post then ends the way a
+real one does: a final CTA band, then the About Tim author card.</p>
+
+[tla_cta offer="consult"]
+
+[tla-tim-bio]
 HTML;
 
 $tla_post_rows = array(

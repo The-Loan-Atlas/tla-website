@@ -56,9 +56,10 @@ npm run shoot     # Playwright screenshots (run `npm run shoot:install` once fir
 legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 
 > ⚠️ **The blog is NOT a `public/` page — it's the #1 thing that trips people up.**
-> `public/blog.html` (also `blog-archive.html`, `blog-post.html`) is a **static mockup
-> only** — editing it changes nothing on the live site, and `convert-pages.sh` does
-> **not** build it. The live `/blog/` is WordPress's native posts index, rendered by
+> The blog's design mockups live in **`mockups/blog/`** (`blog.html`, `blog-post.html`,
+> `blog-archive.html`, plus the shortcode mockups) and are **static mockups only** — editing
+> them changes nothing on the live site, and `convert-pages.sh` does **not** build them.
+> `mockups/blog/index.html` is the entry point that links to all of it. The live `/blog/` is WordPress's native posts index, rendered by
 > `wp-theme/responsiveChild-theme/home.php` (markup) + `…/tla/partials/blog-head.php`
 > (CSS) + `…/blog-foot.php` (scripts) + `tla_blog_*` helpers in `functions.php`. Single
 > posts = `single.php`, category archives = `archive.php`. To change the live blog's
@@ -75,6 +76,13 @@ legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 > the run. It does NOT load the CSS WordPress/plugins add on the live site (block
 > library, global styles, Additional CSS), so still glance at a live post after shipping.
 > The older `_preview-blog-*.html` files preview the **mockups**, not the live blog.
+>
+> **Blog shortcodes** (`[tla_cta]`, `[tla-tim-bio]`, …) are registered in `functions.php`.
+> `npm run preview:blog` also generates **`mockups/blog/shortcodes.html`** (gitignored): every
+> registered shortcode rendered by its real function, with the text to paste. Its examples
+> come from the usage lines in each shortcode function's doc comment (lines starting with
+> `[tag`), so when you add or change a shortcode, keep those lines current. When adding a
+> shortcode, also document it for writers in `docs/copy/blog-writing-guide.md`.
 
 **Mockups live in `/mockups/` at the repo root (NOT in `public/`)** — `hero-mockup*.html`,
 `patterns.html`, section mockups, `emails/`. They never deploy. Put every new mockup there.

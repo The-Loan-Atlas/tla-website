@@ -430,8 +430,20 @@ function tla_blog_toolbar() {
 /**
  * Inline mid-post CTA band shortcode.
  *
- *   [tla_cta offer="consult"]            -> the offer's band, with its image
- *   [tla_cta offer="consult" image="no"] -> text-only variant of that band
+ * Pick the offer with offer="KEY". Every band shows its image. (The old
+ * text-only form, image="no", was removed on 2026-11-26. WordPress ignores
+ * the attribute now, so older posts that still have it show the image band.)
+ *
+ * Every usage line below (a line starting with "[tla_cta") is rendered on the
+ * shortcode reference page, mockups/blog/shortcodes.html, which
+ * `npm run preview:blog` generates. Add a line here when you add an offer.
+ *
+ *   [tla_cta offer="ai"]       -> AI-Empowered Originator Masterplan
+ *   [tla_cta offer="scripts"]  -> 5 Scripts for Dominating the Point of Sale
+ *   [tla_cta offer="podcast"]  -> The 360 Experience podcast
+ *   [tla_cta offer="join"]     -> Join The Loan Atlas (membership)
+ *   [tla_cta offer="consult"]  -> Free business assessment
+ *   [tla_cta offer="plp"]      -> The Perfect Loan Process
  *
  * Drop into a post body (Shortcode block, or inline in a paragraph). Styles
  * come from .ctab-* in tla/css/blog.css. The offer copy/links/images live here
@@ -441,14 +453,13 @@ function tla_blog_toolbar() {
  * / --doc). The Perfect Loan Process offer key is "plp" (it uses the --doc
  * skin; "doc" is still accepted as a legacy alias).
  *
- * @param array $atts  offer (required), image ("no" for the text-only form).
+ * @param array $atts  offer (required).
  * @return string  band HTML, or empty string for an unknown offer.
  */
 function tla_cta_shortcode( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'offer' => '',
-			'image' => 'yes',
 		),
 		$atts,
 		'tla_cta'
@@ -460,7 +471,6 @@ function tla_cta_shortcode( $atts ) {
 	if ( 'doc' === $key ) {
 		$key = 'plp';
 	}
-	$with_img  = ! in_array( strtolower( (string) $atts['image'] ), array( 'no', 'false', '0' ), true );
 	$assets    = get_stylesheet_directory_uri() . '/tla/assets';
 
 	// One entry per offer: skin class, copy, link, image file, alt, button icon.
@@ -478,9 +488,9 @@ function tla_cta_shortcode( $atts ) {
 		),
 		'scripts' => array(
 			'skin'    => 'scripts',
-			'eyebrow' => 'Free download',
+			'eyebrow' => 'Stop losing deals',
 			'title'   => '5 Scripts for Dominating the Point of Sale',
-			'pitch'   => "Stop losing deals because you didn't know what to say. The exact words, ready to use.",
+			'pitch'   => 'These 5 scripts will help you stay calm, ask better questions, and keep control of the conversation.',
 			'btn'     => 'Get the scripts',
 			'url'     => 'https://www.theloanatlas.com/5-scripts-for-dominating-point-of-sale/',
 			'img'     => '5-scripts-hero.png',
@@ -491,7 +501,7 @@ function tla_cta_shortcode( $atts ) {
 			'skin'    => 'podcast',
 			'eyebrow' => 'The 360 Experience podcast',
 			'title'   => 'Real conversations with the best in the business',
-			'pitch'   => 'Tactics, stories, and systems from top originators — a new episode every week.',
+			'pitch'   => 'Listen to industry experts, coaches, and change makers as they inspire you to take action to thrive in your business.',
 			'btn'     => 'Listen now',
 			'url'     => 'https://www.theloanatlas.com/podcast/',
 			'img'     => '360 experience podcast.webp',
@@ -500,20 +510,22 @@ function tla_cta_shortcode( $atts ) {
 		),
 		'join' => array(
 			'skin'    => 'join',
-			'eyebrow' => 'Membership',
+			'eyebrow' => 'Start your transformation',
 			'title'   => 'Join The Loan Atlas',
-			'pitch'   => 'Coaching, community, and the AI business system that runs your pipeline — all in one place.',
+			'pitch'   => 'Install the systems and take control of your production, your income, and your life.',
 			'btn'     => 'Become a member',
 			'url'     => '/join/',
-			'img'     => 'hero image.png',
-			'alt'     => 'Join The Loan Atlas',
+			// Collage of live-event art, composited into one image so the band
+			// loads a single ~250 KB file instead of two dozen event graphics.
+			'img'     => 'join-band-live-events-collage.jpg',
+			'alt'     => 'A collage of Loan Atlas live events',
 			'icon'    => 'arrow',
 		),
 		'consult' => array(
 			'skin'    => 'consult',
-			'eyebrow' => 'Free strategy call',
-			'title'   => 'Book a 1:1 consultation',
-			'pitch'   => 'A 30-minute call to pressure-test your growth plan with a Loan Atlas coach. No cost, no pitch.',
+			'eyebrow' => 'Free business assessment',
+			'title'   => 'See Where Your Next 10 Loans Are Hiding',
+			'pitch'   => "Tour the Loan Atlas to find out what's holding your production back and how to fix it.",
 			'btn'     => 'Book my call',
 			'url'     => '/consultation/',
 			'img'     => 'consultation-header.png',
@@ -522,9 +534,9 @@ function tla_cta_shortcode( $atts ) {
 		),
 		'plp' => array(
 			'skin'    => 'doc',
-			'eyebrow' => 'Free system',
-			'title'   => 'The Perfect Loan Process',
-			'pitch'   => 'Create a five-star client experience on every file — the repeatable process behind the referrals.',
+			'eyebrow' => 'Build your Perfect Loan Process',
+			'title'   => 'Create a 5-Star Client Experience Every Time',
+			'pitch'   => 'Download the 72-step framework behind the most consistent, referral-generating originators in the country.',
 			'btn'     => 'Get the system',
 			'url'     => 'https://www.theloanatlas.com/perfect-loan-process/',
 			'img'     => 'PLP-cover.webp',
@@ -565,53 +577,72 @@ function tla_cta_shortcode( $atts ) {
 			// AI band intentionally omits the eyebrow (title leads). The
 			// 'eyebrow' value stays in $offers above so it's easy to restore.
 			$body = '<div class="ctab__body">' . $title . $pitch . $button . '</div>';
-			if ( $with_img ) {
-				return '<div class="ctab ctab--ai">' . $body . '<div class="ctab__device">' . $img . '</div></div>';
-			}
-			return '<div class="ctab ctab--ai">' . $body . '</div>';
+			return '<div class="ctab ctab--ai">' . $body . '<div class="ctab__device">' . $img . '</div></div>';
 
 		case 'scripts':
-			$thumb = $with_img ? '<div class="ctab__thumb">' . $img . '</div>' : '';
-			return '<div class="ctab ctab--scripts">' . $thumb
+			return '<div class="ctab ctab--scripts"><div class="ctab__thumb">' . $img . '</div>'
 				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . '</div>'
 				. $button . '</div>';
 
 		case 'podcast':
-			$cover = $with_img ? '<div class="ctab__cover">' . $img . '</div>' : '';
-			return '<div class="ctab ctab--podcast">' . $cover
+			return '<div class="ctab ctab--podcast"><div class="ctab__cover">' . $img . '</div>'
 				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . '</div>'
 				. $button . '</div>';
 
 		case 'join':
 			$copy = '<div class="ctab__copy">' . $eyebrow . $title . $pitch . '</div>';
-			if ( $with_img ) {
-				return '<div class="ctab ctab--join"><img class="ctab__bg" src="' . $src . '" alt="' . $alt . '">'
-					. '<div class="ctab__body">' . $copy . $button . '</div></div>';
-			}
-			return '<div class="ctab ctab--join ctab--join-flat"><div class="ctab__body">' . $copy . $button . '</div></div>';
+			return '<div class="ctab ctab--join"><img class="ctab__bg" src="' . $src . '" alt="' . $alt . '">'
+				. '<div class="ctab__body">' . $copy . $button . '</div></div>';
 
 		case 'consult':
 			$body = '<div class="ctab__body">' . $eyebrow . $title . $pitch . $button . '</div>';
-			if ( $with_img ) {
-				return '<div class="ctab ctab--consult">' . $body . '<div class="ctab__photo">' . $img . '</div></div>';
-			}
-			return '<div class="ctab ctab--consult ctab--consult-flat">' . $body . '</div>';
+			return '<div class="ctab ctab--consult">' . $body . '<div class="ctab__photo">' . $img . '</div></div>';
 
 		case 'doc':
-			// With image: the booklet cover breaks out past the card edges
-			// (like the AI band's iPad) — the --doc-img modifier reserves room.
-			$shot = '<div class="ctab__shot">' . $img . '</div>';
-			if ( $with_img ) {
-				// Button stacks under the copy (like the AI band) so the copy
-				// column stays wide and the card short enough for the breakout.
-				return '<div class="ctab ctab--doc ctab--doc-img">' . $shot
-					. '<div class="ctab__body">' . $eyebrow . $title . $pitch . $button . '</div></div>';
-			}
-			return '<div class="ctab ctab--doc">'
-				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . '</div>'
-				. $button . '</div>';
+			// The booklet cover breaks out past the card edges (like the AI
+			// band's iPad); the --doc-img modifier reserves room for it. The
+			// button stacks under the copy so the copy column stays wide and
+			// the card short enough for the breakout.
+			return '<div class="ctab ctab--doc ctab--doc-img"><div class="ctab__shot">' . $img . '</div>'
+				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . $button . '</div></div>';
 	}
 
 	return '';
 }
 add_shortcode( 'tla_cta', 'tla_cta_shortcode' );
+
+/**
+ * "About Tim Braheem" author card for the end of a post.
+ *
+ *   [tla-tim-bio]                        -> About Tim Braheem author card
+ *
+ * Meant to sit at the very bottom of a post, below the final [tla_cta] band.
+ * The usage line above is rendered on the shortcode reference page,
+ * mockups/blog/shortcodes.html (generated by `npm run preview:blog`).
+ * Takes no attributes: the copy, photo and link live here, so editing them
+ * once updates every post that uses it. Styles come from .atim-* in
+ * tla/css/blog.css. Source mockup: mockups/blog/blog-about-tim.html (option A).
+ *
+ * @return string  card HTML.
+ */
+function tla_tim_bio_shortcode() {
+	$src = esc_url( get_stylesheet_directory_uri() . '/tla/assets/tim-braheem-headshot.png' );
+	$url = esc_url( home_url( '/faculty/' ) );
+
+	return '<aside class="atim atim--card" aria-label="About Tim Braheem">'
+		. '<div class="atim__head">'
+		. '<div class="atim__avatar"><img src="' . $src . '" alt="Tim Braheem" loading="lazy" width="944" height="1136"></div>'
+		. '<div>'
+		. '<p class="atim__eyebrow">About the author</p>'
+		. '<h3 class="atim__name">Tim Braheem</h3>'
+		. '<p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>'
+		. '</div>'
+		. '</div>'
+		. '<p class="atim__bio">Tim has spent more than 30 years as a mortgage originator and coach. He founded First Rate Financial in 1995 and built Loantoolbox.com into an <em>Inc. 500</em> company with 10,800 paying members. Today he teaches the scripts, systems, and personal development work behind everything at The Loan Atlas, and hosts <em>The 360 Experience</em> podcast.</p>'
+		. '<div class="atim__links">'
+		. '<a class="atim__link" href="' . $url . '">Learn more about Tim and The Loan Atlas Faculty'
+		. '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>'
+		. '</div>'
+		. '</aside>';
+}
+add_shortcode( 'tla-tim-bio', 'tla_tim_bio_shortcode' );
