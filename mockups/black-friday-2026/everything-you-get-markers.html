@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Friday — Option A Marker Alternatives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../public/css/styles.css" />
+  <!-- MOCKUP — three replacements for the generic icons in "Everything You Get"
+       Option A (hub & spokes around public/assets/hero image.png). -->
+  <style>
+    body { margin: 0; background: #f7f9fb; }
+    .x {
+      --ink: #021c36; --brass: #c9961c; --brass-b: #eac25a; --gold: #ffd56c; --muted-d: #b1c8e9;
+      --grad: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      --band: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      font-family: var(--font-body); overflow-x: clip;
+    }
+    .x *, .x *::before, .x *::after { box-sizing: border-box; }
+    :where(.x) :where(h2, h3, p, ul, li, figure) { margin: 0; padding: 0; }
+    :where(.x) ul { list-style: none; }
+    .x img { display: block; max-width: 100%; height: auto; }
+    .x h2, .x h3 { font-family: var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
+    .wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+    .sec { padding-block: clamp(64px, 8vw, 112px); background: var(--band); color: #fff; }
+    .h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; font-weight: 800; color: #fff; }
+    .lede { margin: 16px auto 0; font-size: clamp(1.0625rem, 1.4vw, 1.1875rem); line-height: 1.65; color: var(--muted-d); max-width: 60ch; }
+    .center { text-align: center; }
+    .opt { background: #fff; border-block: 1px solid #e0e3e5; padding: 14px 24px; font: 700 .9375rem/1.4 var(--font-display); color: #021c36; }
+    .opt span { font-family: var(--font-body); font-weight: 400; color: #45464d; }
+
+    .stage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 40px); align-items: center; margin-top: clamp(40px, 5vw, 64px); }
+    .col { display: grid; gap: 14px; }
+    .img { position: relative; }
+    .img::before { content: ""; position: absolute; inset: 8% 4% 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(234,194,90,.28), rgba(234,194,90,0)); filter: blur(10px); }
+    .img img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%); mask-image: linear-gradient(180deg, #000 78%, transparent 100%); }
+    .foot { margin-top: clamp(32px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 28px; }
+    .foot p { font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; color: #fff; }
+    .foot b { color: var(--gold); }
+
+    /* shared card */
+    .card { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; padding: 16px 18px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(234,194,90,.18); }
+    .card h3 { font-size: 1.0625rem; line-height: 1.25; font-weight: 800; color: #fff; }
+    .card p { margin-top: 3px; font-size: .875rem; line-height: 1.45; color: var(--muted-d); }
+    .col--l .card::after, .col--r .card::after { content: ""; position: absolute; top: 50%; width: clamp(16px, 3vw, 40px); height: 1px; background: linear-gradient(90deg, rgba(234,194,90,.7), rgba(234,194,90,0)); }
+    .col--l .card::after { left: 100%; }
+    .col--r .card::after { right: 100%; transform: scaleX(-1); }
+
+    /* V1 — logomark */
+    .mark { width: 34px !important; height: auto; filter: drop-shadow(0 2px 6px rgba(201,150,28,.35)); }
+
+    /* V2 — numbers left, gold rule right */
+    .card--num { grid-template-columns: 104px minmax(0, 1fr); }
+    .num { font-family: var(--font-display); font-weight: 800; font-size: 2.375rem; line-height: 1; letter-spacing: -0.045em; text-align: center; white-space: nowrap; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card--rule { grid-template-columns: minmax(0, 1fr); padding-left: 22px; overflow: hidden; }
+    .card--rule::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px; border-radius: 0 4px 4px 0; background: var(--grad); }
+
+    /* V3 — annotation callouts */
+    .s3 .col { gap: clamp(22px, 3vw, 34px); }
+    .ann { position: relative; padding-block: 2px; }
+    .ann h3 { font-size: 1.125rem; line-height: 1.25; font-weight: 800; color: #fff; }
+    .ann p { margin-top: 4px; font-size: .9375rem; line-height: 1.45; color: var(--muted-d); }
+    .ann--l { text-align: right; padding-right: 28px; }
+    .ann--r { padding-left: 28px; }
+    .ann::before { content: ""; position: absolute; top: 11px; width: calc(28px + clamp(16px, 3vw, 40px)); height: 1px; background: rgba(234,194,90,.55); }
+    .ann--l::before { right: calc(clamp(16px, 3vw, 40px) * -1); }
+    .ann--r::before { left: calc(clamp(16px, 3vw, 40px) * -1); }
+    .ann::after { content: ""; position: absolute; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(255,213,108,.18); }
+    .ann--l::after { right: calc(clamp(16px, 3vw, 40px) * -1 - 4px); }
+    .ann--r::after { left: calc(clamp(16px, 3vw, 40px) * -1 - 4px); }
+
+    @media (max-width: 1000px) {
+      .stage { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .img { grid-column: 1 / -1; order: -1; max-width: 560px; margin-inline: auto; }
+      .card::after { display: none; }
+      .ann--l { text-align: left; padding-right: 0; padding-left: 24px; }
+      .ann--r { padding-left: 24px; }
+      .ann::before { display: none; }
+      .ann--l::after, .ann--r::after { left: 0; right: auto; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding-inline: 16px; }
+      .stage { grid-template-columns: minmax(0, 1fr); }
+      .card--num { grid-template-columns: 90px minmax(0, 1fr); }
+      .num { font-size: 2.125rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="x">
+    <p class="opt">1 — Loan Atlas Logomark <span>· the gold brand triangle replaces every icon</span></p>
+    <section class="sec" aria-labelledby="t1"><div class="wrap"><div class="center"><h2 id="t1" class="h2">Everything You Get When You Join</h2><p class="lede">Coaching, systems and AI tools built by top producers, all included in your membership.</p></div>
+      <div class="stage"><ul class="col col--l"><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>7 Live Coaching Calls a Month</h3><p>Office Hours, Talk to Tim, masterclasses and AI Labs</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>19 Experienced Coaches</h3><p>Top producers with $29B+ in collective production</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>200+ Training Modules</h3><p>Across the 8 Disciplines of Mortgage Origination Mastery</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>The Perfect Loan Process</h3><p>73 steps from first conversation through closing</p></div></li></ul><figure class="img"><img src="../../public/assets/hero%20image.png" alt="A smiling loan officer using The Loan Atlas platform and AI coach on his phone" width="744" height="564" /></figure><ul class="col col--r"><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>AI Sales &amp; Scripting Coach</h3><p>Calm, confident responses in seconds</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>Scripts &amp; Presentation Templates</h3><p>Scripts, presentations, email templates and GPTs</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>AI Business Intelligence System</h3><p>See exactly what&rsquo;s driving your numbers</p></div></li><li class="card"><img class="mark" src="../../public/assets/Loan%20Atlas%20logomark-18.png" alt="" width="870" height="650" /><div><h3>Private Member Community</h3><p>Collaborate with growth-minded originators</p></div></li></ul></div><div class="foot"><p><b>Plus</b> the AI Business &amp; Life Planner and the 2027 Planning Workshop</p><a class="btn btn--gold btn--xl" href="#">Get Everything for $199/Month</a></div></div></section>
+
+    <p class="opt">2 — Numbers + Gold Rule <span>· real site numbers lead the left cards; right cards get a gold accent edge, no marker</span></p>
+    <section class="sec" aria-labelledby="t2"><div class="wrap"><div class="center"><h2 id="t2" class="h2">Everything You Get When You Join</h2><p class="lede">Coaching, systems and AI tools built by top producers, all included in your membership.</p></div>
+      <div class="stage"><ul class="col col--l"><li class="card card--num"><b class="num">7</b><div><h3>Live Coaching Calls a Month</h3><p>Office Hours, Talk to Tim, masterclasses and AI Labs</p></div></li><li class="card card--num"><b class="num">19</b><div><h3>Experienced Coaches</h3><p>Top producers with $29B+ in collective production</p></div></li><li class="card card--num"><b class="num">200+</b><div><h3>Training Modules</h3><p>Across the 8 Disciplines of Mortgage Origination Mastery</p></div></li><li class="card card--num"><b class="num">73</b><div><h3>Step Perfect Loan Process</h3><p>From first conversation through closing</p></div></li></ul><figure class="img"><img src="../../public/assets/hero%20image.png" alt="A smiling loan officer using The Loan Atlas platform and AI coach on his phone" width="744" height="564" /></figure><ul class="col col--r"><li class="card card--rule"><div><h3>AI Sales &amp; Scripting Coach</h3><p>Calm, confident responses in seconds</p></div></li><li class="card card--rule"><div><h3>Scripts &amp; Presentation Templates</h3><p>Scripts, presentations, email templates and GPTs</p></div></li><li class="card card--rule"><div><h3>AI Business Intelligence System</h3><p>See exactly what&rsquo;s driving your numbers</p></div></li><li class="card card--rule"><div><h3>Private Member Community</h3><p>Collaborate with growth-minded originators</p></div></li></ul></div><div class="foot"><p><b>Plus</b> the AI Business &amp; Life Planner and the 2027 Planning Workshop</p><a class="btn btn--gold btn--xl" href="#">Get Everything for $199/Month</a></div></div></section>
+
+    <p class="opt">3 — Callout Annotations <span>· no boxes, no icons — text with gold leader lines pointing at the image</span></p>
+    <section class="sec s3" aria-labelledby="t3"><div class="wrap"><div class="center"><h2 id="t3" class="h2">Everything You Get When You Join</h2><p class="lede">Coaching, systems and AI tools built by top producers, all included in your membership.</p></div>
+      <div class="stage"><ul class="col col--l"><li class="ann ann--l"><h3>7 Live Coaching Calls a Month</h3><p>Office Hours, Talk to Tim, masterclasses and AI Labs</p></li><li class="ann ann--l"><h3>19 Experienced Coaches</h3><p>Top producers with $29B+ in collective production</p></li><li class="ann ann--l"><h3>200+ Training Modules</h3><p>Across the 8 Disciplines of Mortgage Origination Mastery</p></li><li class="ann ann--l"><h3>The Perfect Loan Process</h3><p>73 steps from first conversation through closing</p></li></ul><figure class="img"><img src="../../public/assets/hero%20image.png" alt="A smiling loan officer using The Loan Atlas platform and AI coach on his phone" width="744" height="564" /></figure><ul class="col col--r"><li class="ann ann--r"><h3>AI Sales &amp; Scripting Coach</h3><p>Calm, confident responses in seconds</p></li><li class="ann ann--r"><h3>Scripts &amp; Presentation Templates</h3><p>Scripts, presentations, email templates and GPTs</p></li><li class="ann ann--r"><h3>AI Business Intelligence System</h3><p>See exactly what&rsquo;s driving your numbers</p></li><li class="ann ann--r"><h3>Private Member Community</h3><p>Collaborate with growth-minded originators</p></li></ul></div><div class="foot"><p><b>Plus</b> the AI Business &amp; Life Planner and the 2027 Planning Workshop</p><a class="btn btn--gold btn--xl" href="#">Get Everything for $199/Month</a></div></div></section>
+  </main>
+</body>
+</html>

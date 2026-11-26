@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Friday Pricing Is Live — The Loan Atlas</title>
+  <meta name="description" content="Black Friday pricing on The Loan Atlas: $199/month (normally $349) or $1,990 for the full year (normally $4,188). Plan your 2027 for less than the cost of one loan, with the AI Business &amp; Life Planner and the 2-Part 2027 Business Planning Workshop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/chrome.css" />
+  <!-- ============================================================
+       BLACK FRIDAY 2026 — /black-friday-2026/
+       Landing page for the 11/25–12/4 email + SMS campaign
+       (copy: docs/copy/black-friday-2026.md). Built from mockup V1
+       "Event Wall" (mockups/black-friday-2026/black-friday-v1.html):
+       drifting rows of live-event art behind a blue gradient, centered
+       logo + headline; pricing cards overlap the hero; photo-led
+       sections below. Wall images are compressed copies in
+       assets/black-friday-2026/ (originals: assets/live-events/).
+       Deadline logic is the inline script at the bottom:
+         · until 11/30 23:59 PT → "Ends Monday, November 30th"
+         · 12/1 – 12/4 23:59 PT → "Extended Through Friday, December 4th"
+           (the extension is NOT revealed before 12/1)
+         · after 12/4           → offer ended, CTAs fall back to /join/
+       Test any state with ?now=2026-12-02T10:00:00-08:00
+       All buttons → members checkout (premium-membership-checkout-bf2026).
+       ============================================================ -->
+  <style>
+    .v1 {
+      --ink: #021c36;
+      --night: #060e1c;
+      --brass: #c9961c;
+      --brass-b: #eac25a;
+      --gold: #ffd56c;
+      --paper: #f7f9fb;
+      --line: rgba(2, 28, 54, .12);
+      --muted: #45464d;
+      --muted-d: #b1c8e9;
+      --band: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      --ov: clamp(180px, 20vw, 280px); /* how far the pricing cards overlap the hero */
+      font-family: var(--font-body);
+      color: var(--on-surface);
+      overflow-x: clip;
+    }
+    .v1 *, .v1 *::before, .v1 *::after { box-sizing: border-box; }
+    :where(.v1) :where(h1, h2, h3, p, figure, blockquote, ul, ol) { margin: 0; }
+    :where(.v1) :where(ul, ol) { padding: 0; list-style: none; }
+    .v1 img { max-width: 100%; height: auto; display: block; }
+    .v1 h1, .v1 h2, .v1 h3 { font-family: var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
+
+    .v1-wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+    .v1-sec { padding-block: clamp(64px, 8vw, 112px); }
+    .v1-h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; font-weight: 800; color: var(--ink); }
+    .v1-dark .v1-h2 { color: #fff; }
+    .v1-lede { margin-top: 18px; font-size: clamp(1.0625rem, 1.4vw, 1.1875rem); line-height: 1.65; color: var(--muted); max-width: 60ch; }
+    .v1-dark .v1-lede { color: var(--muted-d); }
+    .v1-dark { background: var(--band); color: #fff; }
+    .v1-center { text-align: center; }
+    .v1-center .v1-lede { margin-inline: auto; }
+
+    /* ── HERO ───────────────────────────────────────────────────── */
+    .v1-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--night);
+      color: #fff;
+      padding: clamp(72px, 9vw, 120px) 0 calc(var(--ov) + clamp(48px, 6vw, 72px));
+      text-align: center;
+    }
+    .v1-wall {
+      position: absolute;
+      inset: -12% -10%;
+      z-index: -2;
+      display: grid;
+      align-content: center;
+      gap: 18px;
+      transform: rotate(-5deg);
+    }
+    .v1-wall__row { overflow: hidden; }
+    .v1-wall__track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: v1-drift 90s linear infinite;
+    }
+    .v1-wall__row--2 .v1-wall__track { animation-direction: reverse; animation-duration: 110s; }
+    .v1-wall__row--3 .v1-wall__track { animation-duration: 100s; }
+    .v1-wall__track img {
+      width: clamp(240px, 24vw, 380px);
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 12px;
+      flex: none;
+    }
+    @keyframes v1-drift { to { transform: translateX(-50%); } }
+    .v1-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 42%, rgba(2, 28, 54, .55), transparent 75%),
+        linear-gradient(180deg, rgba(2, 28, 54, .80) 0%, rgba(6, 22, 48, .74) 45%, rgba(2, 28, 54, .93) 85%, #021c36 100%);
+    }
+    .v1-hero h1 {
+      margin-top: 0;
+      font-size: clamp(2.75rem, 7.2vw, 5.75rem);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, .45);
+    }
+    .v1-hero__sub {
+      margin-top: 18px;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.4vw, 1.875rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--gold);
+    }
+
+    .v1-clock { margin-top: 34px; display: inline-flex; flex-direction: column; align-items: center; gap: 10px; }
+    .v1-clock__label { font-weight: 600; font-size: .9375rem; color: var(--brass-b); }
+    .v1-count { display: flex; gap: 8px; font-family: var(--font-display); }
+    .v1-count > div {
+      width: 76px;
+      text-align: center;
+      padding: 10px 0 8px;
+      border-radius: 12px;
+      background: rgba(2, 28, 54, .6);
+      border: 1px solid rgba(234, 194, 90, .28);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .v1-count b { display: block; font-size: 2rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+    .v1-count span { display: block; margin-top: 5px; font-family: var(--font-body); font-size: .75rem; color: var(--muted-d); }
+
+    /* ── PRICING (overlaps hero) ────────────────────────────────── */
+    .v1-pricing {
+      position: relative;
+      z-index: 2;
+      margin-top: calc(var(--ov) * -1);
+      padding-bottom: 8px;
+      /* transparent where the cards sit over the hero, paper below */
+      background: linear-gradient(180deg, transparent 0, transparent var(--ov), var(--paper) var(--ov));
+    }
+    .v1-plans { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; max-width: 960px; margin-inline: auto; }
+    .v1-plan {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(28px, 3.4vw, 40px);
+      border-radius: var(--radius-2xl, 1.5rem);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 60px -30px rgba(2, 28, 54, .45);
+    }
+    .v1-plan--best { border: 2px solid var(--brass); }
+    .v1-plan__flag {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: .8125rem;
+    }
+    .v1-plan__name { font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+    .v1-plan__row { margin-top: 14px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; font-family: var(--font-display); }
+    .v1-plan__now { font-size: clamp(3.25rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--ink); }
+    .v1-plan__per { font-size: 1.125rem; font-weight: 700; color: var(--muted); }
+    .v1-plan__was { margin-top: 8px; color: var(--muted); }
+    .v1-plan__was s { text-decoration-color: #ba1a1a; text-decoration-thickness: 2px; }
+    .v1-plan__save { margin-top: 18px; padding: 12px 16px; border-radius: 12px; background: rgba(234, 194, 90, .18); font-weight: 600; color: #5c4700; line-height: 1.45; }
+    .v1-plan__save b { font-family: var(--font-display); font-weight: 800; color: var(--ink); }
+    .v1-plan__inc { margin-top: 18px; display: grid; gap: 8px; color: var(--muted); font-size: .9375rem; }
+    .v1-plan__inc li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; }
+    .v1-plan__inc svg { width: 20px; height: 20px; margin-top: 1px; }
+    .v1-plan .btn { margin-top: auto; padding-block: 18px; font-size: clamp(1.1875rem, 1.6vw, 1.375rem); font-weight: 800; }
+    .v1-plan__gap { flex: 1; min-height: 24px; }
+
+    /* ── PROOF band (photo + bars) ──────────────────────────────── */
+    .v1-proof { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); align-items: center; }
+    /* live-event grid (proof section) — clean 2×3, no frame */
+    .v1-collage { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .v1-collage__i {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      box-shadow: 0 14px 30px -18px rgba(2, 28, 54, .5);
+    }
+    .v1-bars { margin-top: 32px; display: grid; gap: 24px; }
+    .v1-bars__note { margin-top: -6px; font-size: .8125rem; line-height: 1.5; color: var(--muted); }
+    .v1-bar__who sup { font-size: .75em; line-height: 0; }
+    .v1-bar__top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .v1-bar__who { font-weight: 600; color: var(--muted); }
+    .v1-bar__val { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+    .v1-bar--tla .v1-bar__val { color: var(--brass); }
+    .v1-bar__track { margin-top: 10px; height: 14px; border-radius: 999px; background: var(--surface-container-high); overflow: hidden; }
+    .v1-bar__fill { height: 100%; width: var(--w); border-radius: inherit; background: #8ea3bf; }
+    .v1-bar--tla .v1-bar__fill { background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); }
+    .v1-js .v1-bars[data-reveal] .v1-bar__fill { width: 0; transition: width 1.3s cubic-bezier(.2, .7, .2, 1); }
+    .v1-js .v1-bars[data-reveal].is-revealed .v1-bar__fill { width: var(--w); }
+
+    /* ── PLAN 2027 rows ─────────────────────────────────────────── */
+
+    /* ── EVERYTHING YOU GET (hub & spokes around hero image) ─────────── */
+    .v1-hub {
+      --gap: clamp(16px, 3vw, 40px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--gap);
+      align-items: center;
+      margin-top: clamp(40px, 5vw, 64px);
+    }
+    .v1-hub__col { display: grid; gap: 14px; }
+    .v1-hub__item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(234, 194, 90, .18);
+    }
+    .v1-hub__mark { width: 34px; height: auto; filter: drop-shadow(0 2px 6px rgba(201, 150, 28, .35)); }
+    .v1-hub__item h3 { font-size: 1.0625rem; line-height: 1.25; font-weight: 800; color: #fff; }
+    .v1-hub__item p { margin-top: 3px; font-size: .875rem; line-height: 1.45; color: var(--muted-d); }
+    /* connector line toward the image */
+    .v1-hub__item::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: var(--gap);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(234, 194, 90, .7), rgba(234, 194, 90, 0));
+    }
+    .v1-hub__col--l .v1-hub__item::after { left: 100%; }
+    .v1-hub__col--r .v1-hub__item::after { right: 100%; transform: scaleX(-1); }
+    .v1-hub__img { position: relative; }
+    .v1-hub__img::before {
+      content: "";
+      position: absolute;
+      inset: 8% 4% 0;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(234, 194, 90, .28), rgba(234, 194, 90, 0));
+      filter: blur(10px);
+    }
+    .v1-hub__img img {
+      position: relative;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+    }
+    .v1-gold {
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .v1-gold--line { display: block; }
+    /* PLUS: planner + workshop */
+    .v1-plus { margin-top: clamp(48px, 6vw, 80px); text-align: center; }
+    .v1-plus__title {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      line-height: 1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .v1-plus__sub { max-width: 760px; margin: 14px auto 0; font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.625rem); font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; color: #fff; text-wrap: balance; }
+    .v1-plus__grid { margin-top: clamp(36px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; text-align: left; }
+    .v1-pcard {
+      display: flex;
+      flex-direction: column;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(234, 194, 90, .3);
+      box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
+    }
+    .v1-pcard__media { margin: 0; aspect-ratio: 16 / 9; overflow: hidden; background: #0a1628; border-bottom: 1px solid rgba(234, 194, 90, .2); }
+    .v1-pcard__media img { width: 100%; height: 100%; object-fit: cover; }
+    .v1-pcard__body { padding: clamp(24px, 3vw, 36px); }
+    .v1-pcard__date { margin-top: 8px !important; font-family: var(--font-display); font-weight: 800; font-size: 1.125rem; color: var(--gold) !important; }
+    .v1-pcard h4 { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 1.875rem); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; color: #fff; text-wrap: balance; }
+    .v1-pcard p { margin-top: 12px; line-height: 1.65; color: var(--muted-d); }
+    .v1-steps { margin-top: 20px; display: grid; gap: 12px; }
+    .v1-steps li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: center; font-weight: 600; color: #fff; }
+    .v1-steps i { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); color: var(--ink); font-style: normal; font-family: var(--font-display); font-weight: 800; font-size: .875rem; }
+
+
+    /* ── TESTIMONIALS ───────────────────────────────────────────── */
+    .v1-feature-q {
+      position: relative;
+      margin: clamp(36px, 4vw, 56px) auto 0;
+      padding: clamp(32px, 5vw, 56px) clamp(24px, 6vw, 80px);
+      border-radius: 24px;
+      background: var(--band);
+      text-align: center;
+      overflow: hidden;
+    }
+    .v1-feature-q::before {
+      content: "\201C";
+      position: absolute;
+      top: -0.18em;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(10rem, 18vw, 16rem);
+      line-height: 1;
+      color: rgba(234, 194, 90, .1);
+      pointer-events: none;
+    }
+    .v1-feature-q blockquote {
+      position: relative;
+      max-width: 860px;
+      margin: 0 auto;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.375rem, 2.6vw, 2rem);
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+      color: #fff;
+      text-wrap: balance;
+    }
+    .v1-feature-q .v1-stars { position: relative; margin-bottom: 18px; font-size: 1.125rem; }
+    .v1-feature-q .v1-who { align-items: center; padding-top: 22px; }
+    .v1-feature-q .v1-who b { color: #fff; font-size: 1.0625rem; }
+    .v1-feature-q .v1-who span { color: var(--gold); }
+
+    .v1-quotes { margin-top: 18px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .v1-quote {
+      margin: 0;
+      padding: 26px 22px 24px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--brass);
+      display: flex;
+      flex-direction: column;
+    }
+    .v1-quote blockquote { margin: 0; line-height: 1.6; color: var(--on-surface); }
+    .v1-stars { color: var(--brass); letter-spacing: 2px; margin-bottom: 12px; font-size: .9375rem; }
+    .v1-who { margin-top: auto; padding-top: 18px; display: flex; flex-direction: column; gap: 2px; }
+    .v1-who b { font-family: var(--font-display); font-weight: 800; color: var(--ink); }
+    .v1-who span { font-size: .875rem; color: var(--muted); }
+
+    /* ── FINAL ──────────────────────────────────────────────────── */
+    .v1-final { position: relative; isolation: isolate; overflow: hidden; }
+    .v1-final__bg { position: absolute; inset: 0; z-index: -1; }
+    .v1-final__bg img { width: 100%; height: 100%; object-fit: cover; opacity: .35; }
+    .v1-final__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6, 14, 28, .97) 0%, rgba(2, 28, 54, .9) 55%, rgba(2, 28, 54, .75) 100%); }
+    .v1-final__logo { width: min(300px, 70vw); margin-bottom: 28px; }
+    .v1-final__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: clamp(40px, 6vw, 88px); align-items: center; }
+    .v1-list { margin-top: 28px; display: grid; gap: 14px; }
+    .v1-list li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; line-height: 1.55; color: var(--muted-d); }
+    .v1-list strong { color: #fff; }
+    .v1-list svg { width: 24px; height: 24px; }
+    .v1-ticket { padding: clamp(28px, 3.4vw, 40px); border-radius: 24px; background: #fff; color: var(--ink); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .6); }
+    .v1-ticket__row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 18px; border-bottom: 1px dashed var(--line); }
+    .v1-ticket__row strong { font-family: var(--font-display); font-size: 1.375rem; font-weight: 800; }
+    .v1-ticket__row small { display: block; margin-top: 2px; font-size: 1.0625rem; color: var(--muted); }
+    .v1-ticket__amt { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 4vw, 3rem); line-height: 1; letter-spacing: -0.035em; white-space: nowrap; }
+    .v1-ticket__amt small { display: inline; margin: 0; font-size: 1.125rem !important; letter-spacing: 0; color: var(--muted); }
+    .v1-ticket__save {
+      margin-top: 18px;
+      color: #1f7a3a;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.015em;
+      text-align: center;
+    }
+    .v1-ticket .v1-clock { display: flex; margin-top: 18px; }
+    .v1-ticket .v1-clock__label { color: #765b00; }
+    .v1-ticket .v1-count > div { width: auto; flex: 1; background: var(--surface-container-low); border-color: var(--line); backdrop-filter: none; }
+    .v1-ticket .v1-count { width: 100%; }
+    .v1-ticket .v1-count span { color: var(--muted); }
+    .v1-ticket .btn { margin-top: 20px; }
+    .v1-ticket__ps { margin-top: 16px; font-size: .9375rem; line-height: 1.55; color: var(--muted); }
+    .v1-ticket__ps a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+
+    /* ── DOCK ───────────────────────────────────────────────────── */
+    .v1-deal {
+      position: sticky;
+      top: 72px; /* the fixed site header's height */
+      z-index: 90;
+      background: linear-gradient(90deg, #060e1c 0%, #0b2a4c 50%, #060e1c 100%);
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, rgba(201, 150, 28, 0), #eac25a 50%, rgba(201, 150, 28, 0)) 1;
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .6);
+      color: #fff;
+    }
+    .v1-deal__in { display: flex; align-items: center; justify-content: space-between; gap: 16px 28px; padding-block: 12px; }
+    .v1-deal__tag { display: flex; flex-direction: column; gap: 2px; flex: none; }
+    .v1-deal__bf { font-family: var(--font-display); font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: .04em; color: var(--gold); }
+    .v1-deal__ends { font-size: .8125rem; font-weight: 600; color: var(--muted-d); font-variant-numeric: tabular-nums; }
+    .v1-deal__prices { display: flex; align-items: center; flex-wrap: wrap; justify-content: center; gap: 4px 16px; }
+    .v1-deal__price { display: flex; align-items: baseline; gap: 4px; font-family: var(--font-display); white-space: nowrap; }
+    .v1-deal__price b { font-size: clamp(1.75rem, 2.6vw, 2.25rem); font-weight: 800; line-height: 1; letter-spacing: -0.035em; color: #fff; }
+    .v1-deal__price span { font-size: 1rem; font-weight: 700; color: var(--gold); }
+    .v1-deal__price s { margin-left: 6px; font-family: var(--font-body); font-size: .9375rem; color: rgba(177, 200, 233, .75); text-decoration-color: #e5484d; text-decoration-thickness: 2px; }
+    .v1-deal__or { font-style: italic; color: var(--muted-d); }
+    .v1-deal__save {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1f7a3a 0%, #2a9a4b 100%);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px -8px rgba(42, 154, 75, .8);
+    }
+    .v1-deal__btn { flex: none; }
+
+    @media (max-width: 1100px) {
+      .v1-deal__tag { display: none; }
+    }
+    @media (max-width: 720px) {
+      .v1-deal__in { gap: 10px; padding-block: 8px; }
+      .v1-deal__prices { flex-direction: column; align-items: flex-start; gap: 0; }
+      .v1-deal__or, .v1-deal__save, .v1-deal__price s { display: none; }
+      .v1-deal__price b { font-size: 1.25rem; }
+      .v1-deal__price span { font-size: .8125rem; }
+      .v1-deal__btn.btn { padding: 12px 16px; font-size: .875rem; }
+    }
+    @media (max-width: 960px) {
+      .v1-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .v1-proof, .v1-plus__grid, .v1-final__grid { grid-template-columns: minmax(0, 1fr); }
+      .v1-hub { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .v1-hub__img { grid-column: 1 / -1; order: -1; max-width: 560px; margin-inline: auto; }
+      .v1-hub__item::after { display: none; }
+      .v1-ticket { max-width: 520px; }
+    }
+    @media (max-width: 720px) {
+      .v1-plans, .v1-quotes { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .v1-plan--best { order: -1; }
+      .v1-quotes { gap: 14px; }
+      .v1-hub { grid-template-columns: minmax(0, 1fr); }
+      .v1-hub__img { display: none; }
+    }
+    @media (max-width: 480px) {
+      .v1-wrap { padding-inline: 16px; }
+      .v1-count > div { width: 68px; }
+      .v1-count b { font-size: 1.625rem; }
+      .v1-wall__track img { width: 200px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .v1-wall__track { animation: none; }
+      .v1-js .v1-bars[data-reveal] .v1-bar__fill { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header (minimal landing chrome — logo only) ── -->
+<!-- TLA_HEADER_MINIMAL -->
+
+  <main class="v1" id="v1">
+
+    <!-- ══ DEAL BAR (sticky at the top, under the site header) ══ -->
+    <div class="v1-deal" data-bf-dock>
+      <div class="v1-wrap v1-deal__in">
+        <div class="v1-deal__tag">
+          <span class="v1-deal__bf">Black Friday Pricing</span>
+          <span class="v1-deal__ends">Ends in <span data-bf-short></span></span>
+        </div>
+        <div class="v1-deal__prices">
+          <p class="v1-deal__price"><b>$199</b><span>/mo</span> <s>$349</s></p>
+          <span class="v1-deal__or">or</span>
+          <p class="v1-deal__price"><b>$1,990</b><span>/yr</span> <s>$4,188</s></p>
+          <span class="v1-deal__save">Save $2,198</span>
+        </div>
+        <a class="btn btn--gold btn--lg v1-deal__btn" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Start 2027 With a Plan</a>
+      </div>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="v1-hero" id="bf-hero" aria-labelledby="v1-title">
+      <div class="v1-wall" aria-hidden="true">
+        <div class="v1-wall__row v1-wall__row--1"><div class="v1-wall__track"><img src="../assets/black-friday-2026/wall-Masterclass-Winning-AI-Game-0709-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Josh-Mettle-0923-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-November-2026-Talk-to-Tim.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Market-Update-Barry-Habib-0820-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-October-2026-Holly-Walther-Office-Hours-1920x1080.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Lead-Generation-That-Converts-0806-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Becky-Staples-0819-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Winning-AI-Game-0709-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Josh-Mettle-0923-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-November-2026-Talk-to-Tim.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Market-Update-Barry-Habib-0820-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-October-2026-Holly-Walther-Office-Hours-1920x1080.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Lead-Generation-That-Converts-0806-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Becky-Staples-0819-16x9.webp" alt="" loading="eager" /></div></div>
+        <div class="v1-wall__row v1-wall__row--2"><div class="v1-wall__track"><img src="../assets/black-friday-2026/wall-OCTOBER_BUSINESS_PLANNING-768x432.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-JAY-DACEY-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-AI-Lab-Success-With-Follow-Up-Pro-0813-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Sales-Leadership-Panel-0507-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-November-2026-Josh-Burruss-Office-Hours-1920x1080.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Fuel-Your-Fire-0611-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Marc-Bui.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-OCTOBER_BUSINESS_PLANNING-768x432.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-JAY-DACEY-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-AI-Lab-Success-With-Follow-Up-Pro-0813-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Sales-Leadership-Panel-0507-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-November-2026-Josh-Burruss-Office-Hours-1920x1080.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Fuel-Your-Fire-0611-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Marc-Bui.webp" alt="" loading="eager" /></div></div>
+        <div class="v1-wall__row v1-wall__row--3"><div class="v1-wall__track"><img src="../assets/black-friday-2026/wall-Masterclass-2026-Mid-Year-Playbook-0716-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-KATRINKA-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Talk-To-Tim-0616-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Leveraging-Google-Reviews-0903-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Caleb-Legrand-0701-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-TYLER-OSBY-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Michael-Belfor-0812-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-2026-Mid-Year-Playbook-0716-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-KATRINKA-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Talk-To-Tim-0616-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Masterclass-Leveraging-Google-Reviews-0903-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Caleb-Legrand-0701-16x9.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-TYLER-OSBY-OFFICE-HOURS-NOVEMBER-2026.webp" alt="" loading="eager" /><img src="../assets/black-friday-2026/wall-Office-Hours-Michael-Belfor-0812-16x9.webp" alt="" loading="eager" /></div></div>
+      </div>
+      <div class="v1-wrap">
+        <h1 id="v1-title">Black Friday Pricing Is Live</h1>
+        <p class="v1-hero__sub">Plan Your 2027 for Less Than the Commission of One Extra Loan</p>
+        <div class="v1-clock">
+          <p class="v1-clock__label" data-bf-deadline>Ends Monday, November 30th at Midnight</p>
+          <div class="v1-count" data-bf-count role="timer">
+            <div><b data-u="d">–</b><span>Days</span></div>
+            <div><b data-u="h">–</b><span>Hours</span></div>
+            <div><b data-u="m">–</b><span>Minutes</span></div>
+            <div><b data-u="s">–</b><span>Seconds</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRICING ══ -->
+    <section class="v1-pricing" id="pricing" aria-label="Black Friday pricing">
+      <div class="v1-wrap">
+        <div class="v1-plans">
+          <article class="v1-plan">
+            <h2 class="v1-plan__name">Monthly Membership</h2>
+            <div class="v1-plan__row"><span class="v1-plan__now">$199</span><span class="v1-plan__per">/month</span></div>
+            <p class="v1-plan__was">Normally <s>$349</s> a month</p>
+            <p class="v1-plan__save"><b>$150 off</b> every month</p>
+            <ul class="v1-plan__inc">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#c9961c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>AI Business &amp; Life Planner</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#c9961c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>2027 Business Planning Workshop</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#c9961c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Seven live coaching calls a month</li>
+            </ul>
+            <div class="v1-plan__gap"></div>
+            <a class="btn btn--primary btn--lg btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Save $150/month</a>
+          </article>
+          <article class="v1-plan v1-plan--best">
+            <span class="v1-plan__flag">Best Value</span>
+            <h2 class="v1-plan__name">Annual Membership</h2>
+            <div class="v1-plan__row"><span class="v1-plan__now">$1,990</span><span class="v1-plan__per">/year</span></div>
+            <p class="v1-plan__was">Normally <s>$4,188</s> a year</p>
+            <p class="v1-plan__save"><b>$2,198 off</b> the full year</p>
+            <ul class="v1-plan__inc">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#c9961c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in monthly</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="#c9961c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>$1,990 locked in for all of 2027</li>
+            </ul>
+            <div class="v1-plan__gap"></div>
+            <a class="btn btn--gold btn--lg btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Save $2,198/yr</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PROOF ══ -->
+    <section class="v1-sec" style="background: var(--paper)" aria-labelledby="v1-proof-title">
+      <div class="v1-wrap v1-proof">
+        <div class="v1-collage" data-reveal="fade" aria-label="Recent Loan Atlas live events">
+          <img class="v1-collage__i v1-collage__i--1" src="../assets/black-friday-2026/wall-OCTOBER_BUSINESS_PLANNING-768x432.webp" alt="2027 Business Planning masterclass" width="760" height="428" loading="lazy" />
+          <img class="v1-collage__i v1-collage__i--2" src="../assets/black-friday-2026/wall-Talk-To-Tim-0616-16x9.webp" alt="Talk to Tim with Tim Braheem" width="760" height="428" loading="lazy" />
+          <img class="v1-collage__i v1-collage__i--3" src="../assets/black-friday-2026/wall-Masterclass-Winning-AI-Game-0709-16x9.webp" alt="Winning the AI Game masterclass" width="760" height="428" loading="lazy" />
+          <img class="v1-collage__i v1-collage__i--4" src="../assets/black-friday-2026/wall-Office-Hours-Josh-Mettle-0923-16x9.webp" alt="Office Hours with Josh Mettle" width="760" height="428" loading="lazy" />
+          <img class="v1-collage__i v1-collage__i--5" src="../assets/black-friday-2026/wall-Market-Update-Barry-Habib-0820-16x9.webp" alt="Market Update with Barry Habib" width="760" height="428" loading="lazy" />
+          <img class="v1-collage__i v1-collage__i--6" src="../assets/black-friday-2026/wall-Masterclass-Lead-Generation-That-Converts-0806-16x9.webp" alt="Lead Generation That Converts masterclass" width="760" height="428" loading="lazy" />
+        </div>
+        <div>
+          <h2 id="v1-proof-title" class="v1-h2">The One Black Friday Purchase That Pays You Back</h2>
+          <p class="v1-lede">At just $199/month or $1,990/yr, The Loan Atlas costs less than the commission on a single loan. If the planner, the workshop and seven live coaching calls a month help you close even one more loan in 2027, you&rsquo;re coming out ahead.</p>
+          <div class="v1-bars" data-reveal="fade">
+            <div class="v1-bar v1-bar--tla" style="--w: 100%">
+              <div class="v1-bar__top"><span class="v1-bar__who">Loan Atlas members, average volume</span><span class="v1-bar__val">$12.9M</span></div>
+              <div class="v1-bar__track"><div class="v1-bar__fill"></div></div>
+            </div>
+            <div class="v1-bar" style="--w: 41.9%">
+              <div class="v1-bar__top"><span class="v1-bar__who">The median loan officer<sup>*</sup></span><span class="v1-bar__val">$5.4M</span></div>
+              <div class="v1-bar__track"><div class="v1-bar__fill"></div></div>
+            </div>
+            <p class="v1-bars__note">*Past 12 months, 165,000 active Loan Officers (must have closed one loan in last 90 days)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ EVERYTHING YOU GET (hub & spokes around hero image) ══ -->
+    <section class="v1-sec v1-dark v1-get" aria-labelledby="v1-get-title">
+      <div class="v1-wrap">
+        <div class="v1-center">
+          <h2 id="v1-get-title" class="v1-h2">Don&rsquo;t Hope Next Year Will Be Better. <span class="v1-gold v1-gold--line">Plan for It, Then Execute.</span></h2>
+          <p class="v1-lede">Coaching, systems and AI tools built by top producers, all included in your membership.</p>
+        </div>
+        <div class="v1-hub">
+          <ul class="v1-hub__col v1-hub__col--l">
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>7 Live Coaching Calls a Month</h3><p>Office Hours, Talk to Tim, masterclasses and AI Labs</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>19 Experienced Coaches</h3><p>Top producers with $29B+ in collective production</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>200+ Training Modules</h3><p>Across the 8 Disciplines of Mortgage Origination Mastery</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>The Perfect Loan Process</h3><p>73 steps from first conversation through closing</p></div></li>
+          </ul>
+          <figure class="v1-hub__img"><img src="../assets/black-friday-2026/hero-image.webp" alt="A smiling loan officer using The Loan Atlas platform and AI coach on his phone" width="744" height="564" loading="lazy" /></figure>
+          <ul class="v1-hub__col v1-hub__col--r">
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>AI Sales &amp; Scripting Coach</h3><p>Calm, confident responses in seconds</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>Scripts &amp; Presentation Templates</h3><p>Scripts, presentations, email templates and GPTs</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>AI Business Intelligence System</h3><p>See exactly what&rsquo;s driving your numbers</p></div></li>
+            <li class="v1-hub__item"><img class="v1-hub__mark" src="../assets/black-friday-2026/logomark.webp" alt="" width="120" height="90" loading="lazy" /><div><h3>Private Member Community</h3><p>Collaborate with growth-minded originators</p></div></li>
+          </ul>
+        </div>
+        <!-- PLUS: planner + workshop (was its own "Everything You Need to Plan 2027" section) -->
+        <div class="v1-plus">
+          <h3 class="v1-plus__title">Plus:</h3>
+          <p class="v1-plus__sub">The systems and coaching to build your complete 2027 business plan before the year starts.</p>
+
+          <div class="v1-plus__grid">
+            <article class="v1-pcard">
+              <figure class="v1-pcard__media">
+                <img src="../assets/black-friday-2026/ai-business-intelligence.webp" alt="The Loan Atlas dashboard showing monthly income, loans this month, hourly rate and recent activity" width="1200" height="675" loading="lazy" />
+              </figure>
+              <div class="v1-pcard__body">
+                <h4>The Atlas AI Business &amp; Life Planner</h4>
+                <p>Answer a 40-question assessment and the planner turns it into your 2027 plan, broken into goals, action items and weekly reminders.</p>
+                <ol class="v1-steps">
+                  <li><i>1</i>Take the 40-question business and life assessment</li>
+                  <li><i>2</i>Get your goals and action items for 2027</li>
+                  <li><i>3</i>Stay on track with weekly reminders</li>
+                </ol>
+              </div>
+            </article>
+
+            <article class="v1-pcard">
+              <figure class="v1-pcard__media">
+                <img src="../assets/black-friday-2026/workshop-2027.webp" alt="2027 Business Planning: Turn Your Goals Into an Execution Plan, a 2-part live workshop with Tim Braheem and Josh Mettle starting December 15th" width="1200" height="675" loading="lazy" />
+              </figure>
+              <div class="v1-pcard__body">
+                <h4>The Two&#8209;Part 2027 Business Planning Workshop</h4>
+                <p class="v1-pcard__date">Starts December 15th</p>
+                <p>Tim Braheem and Josh Mettle are going to show you the process that top-producing loan officers follow to keep their business growing and their confidence high while the rest of the industry is stuck. If you want to spend 2027 closing more loans and worrying less about where the next one will come from, this is where you start.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VOICES ══ -->
+    <section class="v1-sec" style="background: var(--paper)" aria-labelledby="v1-voices-title">
+      <div class="v1-wrap">
+        <h2 id="v1-voices-title" class="v1-h2 v1-center">Real Originators. Real Systems. <span class="v1-gold">Real Results.</span></h2>
+
+        <figure class="v1-feature-q">
+          <div class="v1-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>&ldquo;When I first started with The Loan Atlas, I thought if I could get one or two loans out of this by just using the information here, it was well worth it. That has definitely happened already.&rdquo;</blockquote>
+          <figcaption class="v1-who"><b>Tom Hammond</b><span>CrossCountry Mortgage</span></figcaption>
+        </figure>
+
+        <div class="v1-quotes">
+          <figure class="v1-quote">
+            <div class="v1-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>&ldquo;I wish I could go back and sign up right then and there, and I would be so much more ahead. It&rsquo;s worth your money. It&rsquo;s an investment in yourself.&rdquo;</blockquote>
+            <figcaption class="v1-who"><b>Kathy Derangi</b><span>Guarantee Mortgage</span></figcaption>
+          </figure>
+          <figure class="v1-quote">
+            <div class="v1-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>&ldquo;I&rsquo;ve really only scratched the surface of the Atlas content, but everything has been outstanding quality and so very helpful in my business.&rdquo;</blockquote>
+            <figcaption class="v1-who"><b>Aaron Riege</b><span>Movement Mortgage</span></figcaption>
+          </figure>
+          <figure class="v1-quote">
+            <div class="v1-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>&ldquo;The Loan Atlas provides an incredible opportunity for those of us who want to grow and get to the next level, but do not want to pay $18,000 to get access to the experts we need.&rdquo;</blockquote>
+            <figcaption class="v1-who"><b>Judith Lawrence</b><span>Money Max Mortgage</span></figcaption>
+          </figure>
+          <figure class="v1-quote">
+            <div class="v1-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>&ldquo;The best goal setting and achieving system I have used, both professionally and personally.&rdquo;</blockquote>
+            <figcaption class="v1-who"><b>Jenifer Hawkins</b><span>Lower Mortgage</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FINAL ══ -->
+    <section class="v1-sec v1-dark v1-final" id="bf-final" aria-labelledby="v1-final-title">
+      <div class="v1-final__bg" aria-hidden="true"><img src="../assets/homepage-closing-cta.png" alt="" loading="lazy" /></div>
+      <div class="v1-wrap v1-final__grid">
+        <div>
+          <img class="v1-final__logo" src="../assets/Loan%20Atlas%20logo-gold.png" alt="The Loan Atlas" width="1702" height="237" loading="lazy" />
+          <h2 id="v1-final-title" class="v1-h2">Start 2027 With a Plan to <span class="v1-gold v1-gold--line">Find and Close More Loans</span></h2>
+          <ul class="v1-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>The Atlas AI Business &amp; Life Planner:</strong> your 2027 plan, broken into weekly actions</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>The 2-Part 2027 Business Planning Workshop:</strong> with Tim Braheem and Josh Mettle, starting December 15th</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Seven live coaching calls every month:</strong> including weekly Office Hours and Talk to Tim</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>19 experienced coaches:</strong> business owners, branch managers and top 1% originators with $29B+ in collective production</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>The Perfect Loan Process and the AI Sales &amp; Scripting Coach:</strong> so you can close with confidence</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span><strong>200+ training modules:</strong> across the 8 Disciplines of Mortgage Origination Mastery</span></li>
+          </ul>
+        </div>
+        <div class="v1-ticket">
+          <div class="v1-ticket__row"><span><strong>Monthly</strong><small>Normally <s>$349</s></small></span><span class="v1-ticket__amt">$199<small>/mo</small></span></div>
+          <div class="v1-ticket__row"><span><strong>Annual</strong><small>Normally <s>$4,188</s></small></span><span class="v1-ticket__amt">$1,990<small>/yr</small></span></div>
+          <p class="v1-ticket__save">Save $2,198/yr</p>
+          <div class="v1-clock">
+            <p class="v1-clock__label" data-bf-deadline>Ends Monday, November 30th at Midnight</p>
+            <div class="v1-count" data-bf-count role="timer">
+              <div><b data-u="d">–</b><span>Days</span></div>
+              <div><b data-u="h">–</b><span>Hours</span></div>
+              <div><b data-u="m">–</b><span>Minutes</span></div>
+              <div><b data-u="s">–</b><span>Seconds</span></div>
+            </div>
+          </div>
+          <a class="btn btn--gold btn--xl btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Start 2027 With a Plan</a>
+          <p class="v1-ticket__ps">Want to see everything first? <a href="consultation.html">Schedule a free business assessment</a> and we&rsquo;ll walk you through it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer (standard site chrome) ── -->
+<!-- TLA_FOOTER -->
+
+  <script>document.getElementById('v1').classList.add('v1-js');</script>
+  <script>
+/* Black Friday 2026 — shared deadline + countdown logic for the mockups.
+   Hooks (all optional):
+     [data-bf-badge]      text → phase badge
+     [data-bf-deadline]   text → deadline sentence
+     [data-bf-count]      container with [data-u="d|h|m|s"] children
+     [data-bf-short]      text → "5d 09h 54m 01s"
+     [data-bf-cta]        <a> → falls back to /join/ after the offer ends
+     [data-bf-dock]       sticky bar: shown after #bf-hero leaves view, hidden while #bf-final is visible
+   Phases (midnight Pacific): main (≤ 11/30) → ext (12/1–12/4, extension not revealed earlier) → ended.
+   QA: append ?now=2026-12-02T10:00:00-08:00 to preview any moment. */
+(function () {
+  var END_MAIN = Date.parse('2026-11-30T23:59:59-08:00');
+  var END_EXT = Date.parse('2026-12-04T23:59:59-08:00');
+  var offset = 0;
+  var q = /[?&]now=([^&]+)/.exec(location.search);
+  if (q) { var t0 = Date.parse(decodeURIComponent(q[1])); if (!isNaN(t0)) offset = t0 - Date.now(); }
+  function now() { return Date.now() + offset; }
+
+  var COPY = {
+    main: { badge: 'Lowest Price of the Year', deadline: 'Ends Monday, November 30th at Midnight' },
+    ext: { badge: 'Black Friday Pricing Extended', deadline: 'Extended Through Friday, December 4th at Midnight' },
+    ended: { badge: 'Black Friday Pricing Has Ended', deadline: 'Black Friday Pricing Has Ended' }
+  };
+  function phase(t) { return t <= END_MAIN ? 'main' : (t <= END_EXT ? 'ext' : 'ended'); }
+  function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  var current = null;
+  function apply(ph) {
+    if (ph === current) return;
+    current = ph;
+    document.documentElement.setAttribute('data-bf-phase', ph);
+    each('[data-bf-badge]', function (el) { el.textContent = COPY[ph].badge; });
+    each('[data-bf-deadline]', function (el) { el.textContent = COPY[ph].deadline; });
+    if (ph === 'ended') {
+      each('[data-bf-cta]', function (a) { a.href = '/join/'; a.textContent = 'Join The Loan Atlas'; });
+      each('[data-bf-count], [data-bf-short], [data-bf-dock]', function (el) { el.style.display = 'none'; });
+    }
+  }
+
+  function tick() {
+    var t = now(), ph = phase(t);
+    apply(ph);
+    if (ph === 'ended') return;
+    var s = Math.floor(Math.max(0, (ph === 'main' ? END_MAIN : END_EXT) - t) / 1000);
+    var p = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+    each('[data-bf-count] [data-u]', function (el) {
+      var u = el.getAttribute('data-u'), v = u === 'd' ? String(p.d) : pad(p[u]);
+      if (el.textContent !== v) el.textContent = v;
+    });
+    var short = (p.d ? p.d + 'd ' : '') + pad(p.h) + 'h ' + pad(p.m) + 'm ' + pad(p.s) + 's';
+    each('[data-bf-short]', function (el) { el.textContent = short; });
+  }
+  tick();
+  setInterval(tick, 1000);
+
+})();
+  </script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js" defer></script>
+</body>
+
+</html>

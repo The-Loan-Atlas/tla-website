@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Friday 2026 — Version 3 (Momentum) — The Loan Atlas</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../public/css/styles.css" />
+  <link rel="stylesheet" href="../../public/css/chrome.css" />
+
+  <!-- ============================================================
+       BLACK FRIDAY 2026 — MOCKUP VERSION 3: "MOMENTUM"
+       Hero: live-event graphics scattered as rotated cards around
+       the edges (parallax drift), blue wash, centered logo + headline.
+       Body: pricing vs. normal price → count-up stats band →
+       sticky split "what's inside" (people photo crossfades as the
+       benefit blocks scroll) → scroll-snap testimonial row →
+       final offer. Deadline logic: ./bf-deadline.js (shared).
+       ============================================================ -->
+  <style>
+    .v3, .v3-dock {
+      --v3-ink: #021c36;
+      --v3-night: #060e1c;
+      --v3-brass: #c9961c;
+      --v3-brass-bright: #eac25a;
+      --v3-gold: #ffd56c;
+      --v3-paper: #f7f9fb;
+      --v3-line: rgba(2, 28, 54, .12);
+      --v3-muted: #45464d;
+      --v3-muted-dark: #b1c8e9;
+      --v3-band: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      font-family: var(--font-body);
+      color: var(--on-surface);
+    }
+    .v3 { overflow-x: clip; }
+    .v3 *, .v3 *::before, .v3 *::after { box-sizing: border-box; }
+    :where(.v3) :where(h1, h2, h3, p, figure, blockquote) { margin: 0; }
+    .v3 img { max-width: 100%; height: auto; display: block; }
+    .v3 .btn { white-space: normal; text-align: center; text-decoration: none; }
+
+    .v3-wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 24px; }
+    .v3-sec { padding-block: clamp(72px, 9vw, 128px); }
+
+    .v3-h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 4.2vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--v3-ink);
+      text-wrap: balance;
+    }
+    .v3-lede { margin-top: 18px; font-size: clamp(1.0625rem, 1.4vw, 1.1875rem); line-height: 1.65; color: var(--v3-muted); max-width: 60ch; }
+    .v3-head { max-width: 760px; margin: 0 auto clamp(44px, 5vw, 64px); text-align: center; }
+    .v3-head .v3-lede { margin-inline: auto; }
+    .v3-dark .v3-h2 { color: #fff; }
+    .v3-dark .v3-lede { color: var(--v3-muted-dark); }
+
+    /* ══════════ HERO ══════════ */
+    .v3-hero {
+      position: relative;
+      min-height: max(780px, 100svh);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--v3-night);
+      color: #fff;
+      isolation: isolate;
+      --mx: 0;
+      --my: 0;
+      --sy: 0;
+    }
+    .v3-cards { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .v3-card {
+      position: absolute;
+      left: var(--l);
+      top: var(--t);
+      width: var(--w);
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -18px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .08);
+      transform:
+        translate3d(calc(var(--mx) * var(--d) * 18px), calc(var(--my) * var(--d) * 14px + var(--sy) * var(--d) * -60px), 0)
+        rotate(var(--r));
+      will-change: transform;
+      opacity: 0;
+      animation: v3-deal .9s cubic-bezier(.2, .8, .2, 1) forwards;
+      animation-delay: calc(var(--i) * 70ms);
+    }
+    .v3-card img { width: 100%; height: 100%; object-fit: cover; }
+    @keyframes v3-deal { from { opacity: 0; translate: 0 40px; scale: .94; } to { opacity: 1; translate: 0 0; scale: 1; } }
+
+    .v3-hero__wash {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 46% 54% at 50% 50%, rgba(2, 28, 54, .94) 0%, rgba(2, 28, 54, .82) 45%, rgba(2, 28, 54, .5) 75%, rgba(6, 14, 28, .28) 100%),
+        linear-gradient(180deg, rgba(6, 14, 28, .45) 0%, rgba(2, 28, 54, .2) 45%, rgba(6, 14, 28, .6) 100%);
+    }
+    .v3-hero__in {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 860px;
+      padding: 96px 24px 88px;
+      text-align: center;
+    }
+    .v3-logo { width: min(560px, 82%); height: auto; margin: 0 auto; filter: drop-shadow(0 6px 24px rgba(0, 0, 0, .5)); }
+    .v3-pill {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 194, 90, .4);
+      background: rgba(6, 14, 28, .55);
+      color: var(--v3-gold);
+      font-weight: 700;
+      font-size: .875rem;
+      letter-spacing: .02em;
+    }
+    .v3-hero h1 {
+      margin-top: 18px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.75rem, 6.6vw, 5.75rem);
+      line-height: .98;
+      letter-spacing: -0.04em;
+      color: #fff;
+      text-wrap: balance;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, .45);
+    }
+    .v3-hero__line {
+      margin-top: 18px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+      line-height: 1.25;
+      color: var(--v3-brass-bright);
+      text-wrap: balance;
+    }
+    .v3-hero__sub { margin: 16px auto 0; max-width: 40em; font-size: 1.0625rem; line-height: 1.6; color: #dbe6f5; }
+    .v3-hero__sub s { color: var(--v3-muted-dark); text-decoration-color: var(--v3-brass-bright); }
+    .v3-hero__sub strong { color: #fff; }
+    .v3-hero__btns { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    .v3-clock { margin-top: 34px; }
+    .v3-clock__label { font-size: .9375rem; font-weight: 600; color: var(--v3-brass-bright); }
+    .v3-count { margin: 12px auto 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-width: 420px; }
+    .v3-count__u {
+      min-width: 0;
+      text-align: center;
+      padding: 12px 4px 10px;
+      border-radius: var(--radius-xl, 12px);
+      background: rgba(6, 14, 28, .6);
+      border: 1px solid rgba(234, 194, 90, .25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .v3-count__n { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 3.4vw, 2.375rem); line-height: 1; font-variant-numeric: tabular-nums; color: #fff; }
+    .v3-count__l { display: block; margin-top: 6px; font-size: .75rem; color: var(--v3-muted-dark); }
+
+    /* ══════════ PRICING ══════════ */
+    .v3-pricing { background: var(--v3-paper); }
+    .v3-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; max-width: 1000px; margin-inline: auto; align-items: stretch; }
+    .v3-plan {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(28px, 3.5vw, 44px);
+      border-radius: var(--radius-3xl, 24px);
+      background: #fff;
+      border: 1px solid var(--v3-line);
+      box-shadow: 0 20px 50px -30px rgba(2, 28, 54, .35);
+    }
+    .v3-plan--hot { background: var(--v3-band); color: #fff; border-color: rgba(234, 194, 90, .45); box-shadow: 0 34px 70px -28px rgba(2, 28, 54, .75); }
+    .v3-plan__flag {
+      position: absolute; top: -14px; right: 28px;
+      padding: 6px 14px; border-radius: 999px;
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      color: var(--v3-ink); font-family: var(--font-display); font-weight: 800; font-size: .8125rem;
+    }
+    .v3-plan__name { font-family: var(--font-display); font-weight: 800; font-size: 1.375rem; color: var(--v3-ink); }
+    .v3-plan--hot .v3-plan__name { color: var(--v3-brass-bright); }
+    .v3-vs { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-radius: 14px; overflow: hidden; border: 1px solid var(--v3-line); }
+    .v3-plan--hot .v3-vs { border-color: rgba(255, 255, 255, .14); }
+    .v3-vs > div { padding: 16px 18px; }
+    .v3-vs__was { background: var(--surface-container-low); }
+    .v3-plan--hot .v3-vs__was { background: rgba(255, 255, 255, .05); }
+    .v3-vs__k { display: block; font-size: .8125rem; font-weight: 600; color: var(--v3-muted); }
+    .v3-plan--hot .v3-vs__k { color: var(--v3-muted-dark); }
+    .v3-vs__was .v3-vs__v { display: block; margin-top: 4px; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #8a8d96; text-decoration: line-through; text-decoration-color: var(--v3-brass); text-decoration-thickness: 2px; }
+    .v3-vs__now .v3-vs__v { display: block; margin-top: 4px; font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 3.6vw, 2.75rem); line-height: 1; letter-spacing: -0.03em; color: var(--v3-ink); }
+    .v3-plan--hot .v3-vs__now .v3-vs__v { color: var(--v3-gold); }
+    .v3-vs__v small { font-size: .9375rem; font-weight: 700; letter-spacing: 0; }
+    .v3-save {
+      margin-top: 20px;
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; border-radius: 12px;
+      background: rgba(234, 194, 90, .16);
+      color: #765b00; font-weight: 600; line-height: 1.4;
+    }
+    .v3-save strong { font-family: var(--font-display); font-size: 1.375rem; font-weight: 800; color: var(--v3-ink); white-space: nowrap; }
+    .v3-plan--hot .v3-save { background: rgba(234, 194, 90, .14); color: #f2dca0; }
+    .v3-plan--hot .v3-save strong { color: var(--v3-gold); }
+    .v3-plan__note { margin-top: 16px; line-height: 1.6; color: var(--v3-muted); }
+    .v3-plan--hot .v3-plan__note { color: var(--v3-muted-dark); }
+    .v3-plan__fill { flex: 1; min-height: 24px; }
+    .v3-pricing__deadline { margin-top: 30px; text-align: center; font-weight: 700; color: #765b00; }
+
+    /* ══════════ STATS BAND ══════════ */
+    .v3-stats { position: relative; background: var(--v3-band); color: #fff; overflow: hidden; }
+    .v3-stats__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); align-items: center; }
+    .v3-stats__nums { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+    .v3-stat { padding: 28px 24px; border-radius: 20px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .09); }
+    .v3-stat--tla { background: rgba(234, 194, 90, .1); border-color: rgba(234, 194, 90, .38); }
+    .v3-stat__n { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; letter-spacing: -0.04em; color: #fff; }
+    .v3-stat--tla .v3-stat__n { color: var(--v3-gold); }
+    .v3-stat__k { display: block; margin-top: 10px; font-weight: 600; line-height: 1.4; color: var(--v3-muted-dark); }
+    .v3-stat--tla .v3-stat__k { color: #fff; }
+    .v3-stats__photo { margin-top: 20px; grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; padding: 14px; border-radius: 18px; background: rgba(255, 255, 255, .04); }
+    .v3-stats__photo img { width: 88px; height: 88px; border-radius: 14px; object-fit: cover; flex: none; }
+    .v3-stats__photo p { line-height: 1.5; color: var(--v3-muted-dark); }
+    .v3-stats__photo strong { color: #fff; }
+    .v3-stats .btn { margin-top: 32px; }
+
+    /* ══════════ STICKY SPLIT ══════════ */
+    .v3-inside { background: #fff; }
+    .v3-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 88px); }
+    .v3-stick { position: sticky; top: 12vh; height: 76vh; max-height: 680px; }
+    .v3-stick__frame { position: relative; height: 100%; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 80px -40px rgba(2, 28, 54, .6); background: var(--v3-ink); }
+    .v3-stick__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity .7s ease, transform 1.2s ease; }
+    .v3-stick__frame img.is-on { opacity: 1; transform: scale(1); }
+    .v3-stick__frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(2, 28, 54, .78)); }
+    .v3-stick__cap { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1.125rem; }
+    .v3-stick__dots { display: flex; gap: 6px; margin-top: 10px; }
+    .v3-stick__dots span { width: 22px; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .3); transition: background .3s; }
+    .v3-stick__dots span.is-on { background: var(--v3-gold); }
+
+    .v3-blocks { display: grid; }
+    .v3-block { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; padding-block: 40px; }
+    .v3 .v3-block__img { display: none; }
+    .v3-block__k { font-weight: 700; color: #765b00; }
+    .v3-block h3 { margin-top: 10px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 3vw, 2.375rem); line-height: 1.12; letter-spacing: -0.025em; color: var(--v3-ink); text-wrap: balance; }
+    .v3-block p { margin-top: 14px; font-size: 1.0625rem; line-height: 1.65; color: var(--v3-muted); }
+    .v3-block__media { margin-top: 24px; border-radius: 18px; background: var(--surface-container-low); padding: 18px; }
+    .v3-ticks { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+    .v3-ticks li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 12px; line-height: 1.55; color: var(--on-surface); }
+    .v3-ticks svg { width: 22px; height: 22px; margin-top: 1px; }
+    .v3-hosts { margin-top: 22px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .v3-host { display: flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; border-radius: 999px; background: var(--surface-container-low); font-weight: 700; color: var(--v3-ink); }
+    .v3-host img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: top; background: #dfe6ef; }
+    .v3-qa { margin-top: 22px; display: grid; gap: 14px; }
+    .v3-qa > div { padding: 18px 20px; border-radius: 16px; border: 1px solid var(--v3-line); }
+    .v3-qa__q { font-family: var(--font-display); font-weight: 700; color: var(--v3-ink); line-height: 1.35; }
+    .v3-qa__a { margin-top: 6px !important; font-size: .9875rem !important; }
+    .v3-qa__a strong { color: #765b00; }
+    .v3-block .btn { margin-top: 28px; align-self: flex-start; }
+    .v3-duo { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+    .v3-duo > div { padding: 18px; border-radius: 16px; background: var(--surface-container-low); }
+    .v3-duo strong { display: block; font-family: var(--font-display); color: var(--v3-ink); }
+    .v3-duo p { margin-top: 6px; font-size: .9375rem; }
+
+    /* ══════════ TESTIMONIALS ══════════ */
+    .v3-voices { background: var(--v3-paper); overflow: hidden; }
+    .v3-voices__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; }
+    .v3-voices__top .v3-lede { max-width: 56ch; }
+    .v3-arrows { display: flex; gap: 10px; flex: none; }
+    .v3-arrow { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--v3-line); background: #fff; color: var(--v3-ink); display: grid; place-items: center; cursor: pointer; transition: background .15s, border-color .15s; }
+    .v3-arrow:hover { background: var(--v3-ink); color: #fff; border-color: var(--v3-ink); }
+    .v3-arrow:focus-visible { outline: 3px solid var(--v3-brass); outline-offset: 2px; }
+    .v3-row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(400px, 84vw);
+      gap: 22px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: max(24px, calc((100vw - 1200px) / 2 + 24px));
+      padding: 8px max(24px, calc((100vw - 1200px) / 2 + 24px)) 28px;
+      scrollbar-width: none;
+    }
+    .v3-row::-webkit-scrollbar { display: none; }
+    .v3-q {
+      scroll-snap-align: start;
+      display: flex; flex-direction: column;
+      padding: 30px 28px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid var(--v3-line);
+      box-shadow: 0 18px 40px -30px rgba(2, 28, 54, .4);
+    }
+    .v3-q--photo { padding: 0; overflow: hidden; background: var(--v3-ink); color: #fff; border: 0; }
+    .v3-q--photo img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center 22%; }
+    .v3-q--photo .v3-q__body { padding: 24px 26px 28px; }
+    .v3-q__mark { font-family: var(--font-display); font-weight: 800; font-size: 3.5rem; line-height: .6; color: var(--v3-brass); }
+    .v3-q blockquote { margin-top: 14px; font-size: 1.0625rem; line-height: 1.6; color: var(--on-surface); flex: 1; }
+    .v3-q--photo blockquote { color: #e6edf7; }
+    .v3-who { margin-top: 22px; display: flex; align-items: center; gap: 12px; }
+    .v3-who img, .v3-who__m { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: top; flex: none; }
+    .v3-who__m { display: grid; place-items: center; background: var(--v3-ink); color: var(--v3-gold); font-family: var(--font-display); font-weight: 800; font-size: .9375rem; }
+    .v3-who__n { font-weight: 700; color: var(--v3-ink); }
+    .v3-q--photo .v3-who__n { color: #fff; }
+
+    /* ══════════ FINAL ══════════ */
+    .v3-final { position: relative; color: #fff; isolation: isolate; overflow: hidden; background: var(--v3-night); }
+    .v3 .v3-final__bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .v3-final::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(100deg, rgba(6, 14, 28, .96) 0%, rgba(2, 28, 54, .9) 48%, rgba(2, 28, 54, .62) 100%); }
+    .v3-final__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: clamp(40px, 6vw, 88px); align-items: center; }
+    .v3-final .v3-h2 { font-size: clamp(2.25rem, 4.8vw, 3.75rem); }
+    .v3-list { list-style: none; padding: 0; margin: 30px 0 0; display: grid; gap: 14px; }
+    .v3-list li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 14px; line-height: 1.55; color: var(--v3-muted-dark); }
+    .v3-list strong { color: #fff; }
+    .v3-list svg { width: 24px; height: 24px; margin-top: 1px; }
+    .v3-ticket { padding: clamp(28px, 3.5vw, 40px); border-radius: 24px; background: #fff; color: var(--v3-ink); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .7); }
+    .v3-ticket__badge { font-weight: 700; color: #765b00; }
+    .v3-ticket__row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-block: 15px; border-bottom: 1px dashed var(--v3-line); }
+    .v3-ticket__row span:first-child { font-weight: 600; }
+    .v3-ticket__row small { display: block; font-weight: 400; font-size: .875rem; color: var(--v3-muted); }
+    .v3-ticket__amt { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.03em; white-space: nowrap; }
+    .v3-ticket__save { margin-top: 16px; font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; }
+    .v3-ticket .v3-clock { margin-top: 18px; }
+    .v3-ticket .v3-clock__label { color: #765b00; }
+    .v3-ticket .v3-count { margin-inline: 0; }
+    .v3-ticket .v3-count__u { background: var(--surface-container-low); border-color: var(--v3-line); backdrop-filter: none; }
+    .v3-ticket .v3-count__n { color: var(--v3-ink); font-size: 1.75rem; }
+    .v3-ticket .v3-count__l { color: var(--v3-muted); }
+    .v3-ticket .btn { margin-top: 22px; }
+    .v3-ticket__ps { margin-top: 16px; font-size: .9375rem; line-height: 1.55; color: var(--v3-muted); }
+    .v3-ticket__ps a { color: var(--v3-ink); font-weight: 700; text-underline-offset: 3px; text-decoration-color: var(--v3-brass); }
+
+    /* ══════════ DOCK ══════════ */
+    .v3-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+      background: rgba(6, 14, 28, .96);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(234, 194, 90, .3);
+      color: #fff;
+      transform: translateY(110%);
+      transition: transform .35s ease;
+    }
+    .v3-dock.is-on { transform: none; }
+    .v3-dock__in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+    .v3-dock__txt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 16px; min-width: 0; }
+    .v3-dock__offer { font-family: var(--font-display); font-weight: 800; font-size: 1.0625rem; }
+    .v3-dock__offer span { color: var(--v3-gold); }
+    .v3-dock__clock { font-size: .875rem; color: var(--v3-muted-dark); font-variant-numeric: tabular-nums; }
+    .v3-dock .btn { flex: none; white-space: nowrap; }
+
+    /* ══════════ RESPONSIVE ══════════ */
+    @media (max-width: 1100px) {
+      .v3-card[data-hide-md] { display: none; }
+    }
+    @media (max-width: 960px) {
+      .v3-stats__grid, .v3-final__grid { grid-template-columns: minmax(0, 1fr); }
+      .v3-split { grid-template-columns: minmax(0, 1fr); }
+      .v3-stick { display: none; }
+      .v3-block { min-height: 0; padding-block: 0 56px; }
+      .v3-block:last-child { padding-bottom: 0; }
+      .v3 .v3-block__img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 20px; margin-bottom: 24px; }
+      .v3-ticket { max-width: 520px; }
+    }
+    @media (max-width: 760px) {
+      .v3-plans { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+      .v3-plan--hot { order: -1; }
+      .v3-voices__top { flex-direction: column; align-items: flex-start; }
+      .v3-hero { min-height: 0; }
+      .v3-hero__in { padding: 150px 20px 150px; }
+      .v3-card { left: var(--ml); top: var(--mt); width: var(--mw); }
+      .v3-card[data-hide-sm] { display: none; }
+      .v3-hero__wash {
+        background:
+          linear-gradient(180deg, rgba(6, 14, 28, .35) 0%, rgba(2, 28, 54, .9) 17%, rgba(2, 28, 54, .93) 83%, rgba(6, 14, 28, .4) 100%);
+      }
+      .v3-dock__clock { display: none; }
+      .v3-duo { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .v3-wrap { padding-inline: 16px; }
+      .v3 .btn--xl { padding: 18px 22px; font-size: 1.0625rem; width: 100%; }
+      .v3-hero__btns .btn { width: 100%; }
+      .v3-stats__nums { grid-template-columns: minmax(0, 1fr); }
+      .v3-vs > div { padding: 14px 12px; }
+      .v3-dock__offer { font-size: .9375rem; }
+      .v3-dock .btn { padding: 10px 14px; font-size: .875rem; }
+      .v3-block .btn { align-self: stretch; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .v3-card { animation: none; opacity: 1; transform: rotate(var(--r)); }
+      .v3-stick__frame img { transition: none; transform: none; }
+      .v3-dock { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="v3">
+
+    <!-- ══ HERO ════════════════════════════════════════════════════════════ -->
+    <section class="v3-hero" id="bf-hero" aria-labelledby="v3-title">
+      <div class="v3-cards" aria-hidden="true">
+        <!-- desktop: --l/--t/--w ; mobile: --ml/--mt/--mw ; --d = parallax depth -->
+        <div class="v3-card" style="--i:0;--l:-4vw;--t:5%;--w:25vw;--r:-8deg;--d:1.5;--ml:-14vw;--mt:-2%;--mw:58vw"><img src="../../public/assets/live-events/Masterclass-Winning-AI-Game-0709-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:1;--l:16vw;--t:-7%;--w:18vw;--r:5deg;--d:.8;--ml:40vw;--mt:-4%;--mw:50vw"><img src="../../public/assets/live-events/Talk-To-Tim-0616-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:2;--l:79vw;--t:4%;--w:26vw;--r:7deg;--d:1.6;--ml:76vw;--mt:1%;--mw:46vw"><img src="../../public/assets/live-events/Office-Hours-Josh-Mettle-0923-16x9.png" alt="" /></div>
+        <div class="v3-card" style="--i:3;--l:63vw;--t:-9%;--w:18vw;--r:-4deg;--d:.9" data-hide-sm><img src="../../public/assets/live-events/Market-Update-Barry-Habib-0820-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:4;--l:-6vw;--t:41%;--w:20vw;--r:4deg;--d:1.2" data-hide-sm><img src="../../public/assets/live-events/Masterclass-2026-Mid-Year-Playbook-0716-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:5;--l:85vw;--t:42%;--w:21vw;--r:-6deg;--d:1.3" data-hide-sm><img src="../../public/assets/live-events/Office-Hours-Becky-Staples-0819-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:6;--l:-3vw;--t:75%;--w:25vw;--r:6deg;--d:1.4;--ml:-12vw;--mt:88%;--mw:56vw"><img src="../../public/assets/live-events/Sales-Leadership-Panel-0507-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:7;--l:19vw;--t:86%;--w:18vw;--r:-5deg;--d:.8;--ml:40vw;--mt:93%;--mw:48vw"><img src="../../public/assets/live-events/Office-Hours-Michael-Belfor-0812-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:8;--l:80vw;--t:74%;--w:25vw;--r:-7deg;--d:1.5;--ml:74vw;--mt:87%;--mw:50vw"><img src="../../public/assets/live-events/Masterclass-Leveraging-Google-Reviews-0903-16x9.png" alt="" /></div>
+        <div class="v3-card" style="--i:9;--l:62vw;--t:87%;--w:18vw;--r:4deg;--d:.9" data-hide-sm><img src="../../public/assets/live-events/OCTOBER_BUSINESS_PLANNING-768x432.png" alt="" /></div>
+        <div class="v3-card" style="--i:10;--l:8vw;--t:24%;--w:13vw;--r:-3deg;--d:.5" data-hide-sm data-hide-md><img src="../../public/assets/live-events/AI-Lab-Follow-Up-Pro-0514-16x9.jpg" alt="" /></div>
+        <div class="v3-card" style="--i:11;--l:79vw;--t:26%;--w:13vw;--r:3deg;--d:.5" data-hide-sm data-hide-md><img src="../../public/assets/live-events/Masterclass-Fuel-Your-Fire-0611-16x9.jpg" alt="" /></div>
+      </div>
+      <div class="v3-hero__wash" aria-hidden="true"></div>
+
+      <div class="v3-hero__in">
+        <img class="v3-logo" src="../../public/assets/Loan%20Atlas%20logo-gold.png" alt="The Loan Atlas" width="1702" height="237" />
+        <span class="v3-pill" data-bf-badge>Lowest Price of the Year</span>
+        <h1 id="v3-title">Black Friday Pricing Is Live</h1>
+        <p class="v3-hero__line">Plan Your 2027 for Less Than the Cost of One Loan</p>
+        <p class="v3-hero__sub">Join for <strong>$199/month</strong> (normally <s>$349</s>) or <strong>$1,990 for the full year</strong> (normally <s>$4,188</s>). Save <strong>$2,198</strong> on your first year.</p>
+        <div class="v3-hero__btns">
+          <a class="btn btn--gold btn--xl" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Start Building Your 2027 Plan</a>
+          <a class="btn btn--ghost-on-dark btn--lg" href="#pricing">Compare Plans</a>
+        </div>
+        <div class="v3-clock">
+          <p class="v3-clock__label" data-bf-deadline>Ends Monday, November 30th at Midnight</p>
+          <div class="v3-count" data-bf-count role="timer">
+            <div class="v3-count__u"><span class="v3-count__n" data-u="d">&ndash;</span><span class="v3-count__l">Days</span></div>
+            <div class="v3-count__u"><span class="v3-count__n" data-u="h">&ndash;</span><span class="v3-count__l">Hours</span></div>
+            <div class="v3-count__u"><span class="v3-count__n" data-u="m">&ndash;</span><span class="v3-count__l">Minutes</span></div>
+            <div class="v3-count__u"><span class="v3-count__n" data-u="s">&ndash;</span><span class="v3-count__l">Seconds</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRICING ═════════════════════════════════════════════════════════ -->
+    <section class="v3-sec v3-pricing" id="pricing" aria-labelledby="v3-pricing-title">
+      <div class="v3-wrap">
+        <div class="v3-head">
+          <h2 id="v3-pricing-title" class="v3-h2">The Lowest Price We Offer All Year</h2>
+          <p class="v3-lede">Your full Loan Atlas membership, the AI Business &amp; Life Planner and your seat in the 2027 Business Planning Workshop, at a price that only comes around once.</p>
+        </div>
+
+        <div class="v3-plans">
+          <article class="v3-plan" data-reveal="up">
+            <h3 class="v3-plan__name">Monthly</h3>
+            <div class="v3-vs">
+              <div class="v3-vs__was"><span class="v3-vs__k">Normal Price</span><span class="v3-vs__v">$349</span></div>
+              <div class="v3-vs__now"><span class="v3-vs__k">Black Friday</span><span class="v3-vs__v">$199<small>/mo</small></span></div>
+            </div>
+            <p class="v3-save"><strong>$150</strong> off every single month</p>
+            <p class="v3-plan__note">Everything in the membership, billed monthly.</p>
+            <div class="v3-plan__fill"></div>
+            <a class="btn btn--primary btn--lg btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Join for $199/Month</a>
+          </article>
+
+          <article class="v3-plan v3-plan--hot" data-reveal="up">
+            <span class="v3-plan__flag">Best Value</span>
+            <h3 class="v3-plan__name">Full Year</h3>
+            <div class="v3-vs">
+              <div class="v3-vs__was"><span class="v3-vs__k">Normal Price</span><span class="v3-vs__v">$4,188</span></div>
+              <div class="v3-vs__now"><span class="v3-vs__k">Black Friday</span><span class="v3-vs__v">$1,990<small>/yr</small></span></div>
+            </div>
+            <p class="v3-save"><strong>$2,198</strong> saved on your first year</p>
+            <p class="v3-plan__note">Locks in $1,990 for all of 2027, $398 less than paying monthly.</p>
+            <div class="v3-plan__fill"></div>
+            <a class="btn btn--gold btn--lg btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Join for $1,990/Year</a>
+          </article>
+        </div>
+        <p class="v3-pricing__deadline" data-bf-deadline>Ends Monday, November 30th at Midnight</p>
+      </div>
+    </section>
+
+    <!-- ══ STATS ═══════════════════════════════════════════════════════════ -->
+    <section class="v3-sec v3-stats v3-dark" aria-labelledby="v3-stats-title">
+      <div class="v3-wrap v3-stats__grid">
+        <div>
+          <h2 id="v3-stats-title" class="v3-h2">The One Black Friday Purchase That Pays You Back</h2>
+          <p class="v3-lede">Your inbox is full of deals on things you&rsquo;ll forget about by January. At $1,990 for the year, The Loan Atlas costs less than the commission on a single loan. Close even one more loan in 2027 and you&rsquo;re ahead.</p>
+          <a class="btn btn--gold btn--lg" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Make 2027 Your Most Profitable Year</a>
+        </div>
+        <div class="v3-stats__nums" data-reveal="up">
+          <div class="v3-stat v3-stat--tla">
+            <span class="v3-stat__n" data-countup="12.9" data-countup-prefix="$" data-countup-suffix="M">$12.9M</span>
+            <span class="v3-stat__k">Average volume of Loan Atlas members</span>
+          </div>
+          <div class="v3-stat">
+            <span class="v3-stat__n" data-countup="5.4" data-countup-prefix="$" data-countup-suffix="M">$5.4M</span>
+            <span class="v3-stat__k">Volume of the median loan officer</span>
+          </div>
+          <div class="v3-stats__photo">
+            <img src="../../public/assets/loan-officer-smiling-phone.png" alt="" loading="lazy" />
+            <p><strong>Members do a lot more than one extra loan.</strong> The planner, the workshop and seven live coaching calls a month keep them executing all year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ STICKY SPLIT — WHAT'S INSIDE ════════════════════════════════════ -->
+    <section class="v3-sec v3-inside" id="inside" aria-labelledby="v3-inside-title">
+      <div class="v3-wrap">
+        <div class="v3-head">
+          <h2 id="v3-inside-title" class="v3-h2">Everything You Need to Build Your 2027 Plan</h2>
+          <p class="v3-lede">A tool that builds the plan with you, two live sessions to finish it, and the systems that keep loans coming in after January 1st.</p>
+        </div>
+
+        <div class="v3-split">
+          <div class="v3-stick" aria-hidden="true">
+            <div class="v3-stick__frame">
+              <img class="is-on" src="../../public/assets/loan-officer-business-planning.png" alt="" />
+              <img src="../../public/assets/owners-executives.png" alt="" />
+              <img src="../../public/assets/mortgage-brokers.png" alt="" />
+              <img src="../../public/assets/loan-officers.png" alt="" />
+              <div class="v3-stick__cap"><span data-v3-cap>Plan</span><div class="v3-stick__dots"><span class="is-on"></span><span></span><span></span><span></span></div></div>
+            </div>
+          </div>
+
+          <div class="v3-blocks">
+            <article class="v3-block" data-v3-step="0" data-v3-cap="Plan">
+              <img class="v3-block__img" src="../../public/assets/loan-officer-business-planning.png" alt="A smiling loan officer reviewing his 2027 action plan" loading="lazy" />
+              <p class="v3-block__k">Start the Day You Join</p>
+              <h3>The Atlas AI Business &amp; Life Planner</h3>
+              <p>Answer a 40-question assessment and the planner turns it into your 2027 plan, broken into goals, action items and weekly reminders.</p>
+              <div class="v3-block__media"><img src="../../public/assets/ai-planner-devices.webp" alt="The AI Business &amp; Life Planner on laptop, tablet and phone" loading="lazy" width="1080" height="585" /></div>
+            </article>
+
+            <article class="v3-block" data-v3-step="1" data-v3-cap="Plan Together">
+              <img class="v3-block__img" src="../../public/assets/owners-executives.png" alt="A team of mortgage professionals laughing together over a plan" loading="lazy" />
+              <p class="v3-block__k">Starts Thursday, December 17th</p>
+              <h3>The 2-Part 2027 Business Planning Workshop</h3>
+              <p>Tim Braheem and Josh Mettle walk you through building a complete plan, live, so you can start executing it on January 1st. Joining now gives you time to get settled inside before it begins.</p>
+              <div class="v3-hosts">
+                <span class="v3-host"><img src="../../public/assets/tim-braheem-headshot.png" alt="" loading="lazy" />Tim Braheem</span>
+                <span class="v3-host"><img src="../../public/assets/josh-mettle-headshot.png" alt="" loading="lazy" />Josh Mettle</span>
+              </div>
+            </article>
+
+            <article class="v3-block" data-v3-step="2" data-v3-cap="Win the Business">
+              <img class="v3-block__img" src="../../public/assets/mortgage-brokers.png" alt="A loan officer smiling with clients at a closing table" loading="lazy" />
+              <p class="v3-block__k">Every Answer Has a System</p>
+              <h3>Where Will Your 2027 Loans Come From?</h3>
+              <div class="v3-qa">
+                <div><p class="v3-qa__q">Do I have a plan that brings past clients back to me instead of to another lender?</p><p class="v3-qa__a"><strong>Post-closing retention system:</strong> keeps you in front of past clients long after closing.</p></div>
+                <div><p class="v3-qa__q">Am I giving my Realtor partners a real reason to send me their buyers?</p><p class="v3-qa__a"><strong>Ready-to-use Realtor presentations:</strong> content already built for you to take to your partners.</p></div>
+                <div><p class="v3-qa__q">Will I know which past clients can benefit the moment rates move?</p><p class="v3-qa__a"><strong>The Strike Rate system:</strong> tells you exactly who to call when rates move.</p></div>
+              </div>
+              <a class="btn btn--primary btn--lg" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Stop Stressing About Your Next Loan</a>
+            </article>
+
+            <article class="v3-block" data-v3-step="3" data-v3-cap="Close With Confidence">
+              <img class="v3-block__img" src="../../public/assets/loan-officers.png" alt="A loan officer on a headset, smiling during a client call" loading="lazy" />
+              <p class="v3-block__k">Getting the Lead Is Only Half the Plan</p>
+              <h3>Close Your Next Loan With Confidence</h3>
+              <p>The other half is knowing you can turn the lead into a closed loan, and into a client who sends you the next one.</p>
+              <div class="v3-duo">
+                <div><strong>The Perfect Loan Process</strong><p>73 steps from first conversation through closing and beyond, with scripts, team hand-offs and weekly status updates.</p></div>
+                <div><strong>The AI Sales &amp; Scripting Coach</strong><p>When a conversation gets tough, it helps you respond calmly and confidently in seconds.</p></div>
+              </div>
+              <a class="btn btn--gold btn--lg" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Close Your Next Loan With Confidence</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ════════════════════════════════════════════════════ -->
+    <section class="v3-sec v3-voices" aria-labelledby="v3-voices-title">
+      <div class="v3-wrap v3-voices__top">
+        <div>
+          <h2 id="v3-voices-title" class="v3-h2">You Don&rsquo;t Have to Plan 2027 Alone</h2>
+          <p class="v3-lede">Seven live coaching calls a month with faculty who are still originating, plus a community of loan officers who will be planning alongside you on December 17th.</p>
+        </div>
+        <div class="v3-arrows">
+          <button class="v3-arrow" type="button" data-v3-scroll="-1" aria-label="Previous testimonials"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <button class="v3-arrow" type="button" data-v3-scroll="1" aria-label="Next testimonials"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        </div>
+      </div>
+
+      <div class="v3-row" data-v3-row tabindex="0" aria-label="Member testimonials">
+        <figure class="v3-q v3-q--photo">
+          <img src="../../public/assets/jill-coss-headshot.jpeg" alt="Jill Coss" loading="lazy" />
+          <div class="v3-q__body">
+            <span class="v3-q__mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>I wish I would have known about this 5 years ago. I&rsquo;ve been looking for this level of support my entire Loan Officer career of 15 years.</blockquote>
+            <figcaption class="v3-who"><span class="v3-who__n">Jill Coss</span></figcaption>
+          </div>
+        </figure>
+        <figure class="v3-q">
+          <span class="v3-q__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>It&rsquo;s so easy to feel alone in this business. This community of top-tier professionals, who are experiencing the same successes and failures as I am, has gone so far in helping me grow my business.</blockquote>
+          <figcaption class="v3-who"><img src="../../public/assets/scott-digregorio-headshot.webp" alt="" loading="lazy" /><span class="v3-who__n">Scott DiGregorio</span></figcaption>
+        </figure>
+        <figure class="v3-q">
+          <span class="v3-q__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>The Loan Atlas has given me the tools I need to succeed in this market. I have been able to take the content that is already done for me, present it to my Realtors, and actually add value. It&rsquo;s just EASY!</blockquote>
+          <figcaption class="v3-who"><span class="v3-who__m" aria-hidden="true">MP</span><span class="v3-who__n">Maui Parra</span></figcaption>
+        </figure>
+        <figure class="v3-q v3-q--photo">
+          <img src="../../public/assets/private-member-community.png" alt="Members on a live Loan Atlas coaching call" loading="lazy" />
+          <div class="v3-q__body">
+            <span class="v3-q__mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>Highly recommend The Loan Atlas. Being able to sit in on office hours and the live group coaching is worth the price itself!</blockquote>
+            <figcaption class="v3-who"><span class="v3-who__n">Gabe Garza</span></figcaption>
+          </div>
+        </figure>
+        <figure class="v3-q">
+          <span class="v3-q__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>I took one of the scripts and executed it with a borrower. We never even talked about interest rates, and I got a commitment that they wanted to work with us.</blockquote>
+          <figcaption class="v3-who"><span class="v3-who__m" aria-hidden="true">LA</span><span class="v3-who__n">Loan Atlas Member</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ══ FINAL OFFER ═════════════════════════════════════════════════════ -->
+    <section class="v3-sec v3-final v3-dark" id="bf-final" aria-labelledby="v3-final-title">
+      <img class="v3-final__bg" src="../../public/assets/homepage-closing-cta.png" alt="" loading="lazy" />
+      <div class="v3-wrap v3-final__grid">
+        <div>
+          <h2 id="v3-final-title" class="v3-h2">Start 2027 With a Plan</h2>
+          <p class="v3-lede">The hard part isn&rsquo;t information. It&rsquo;s acting on what you know before the phone rings and suddenly it&rsquo;s three weeks later. Joining today gives you the plan, the tools and the coaching to keep acting on it all year.</p>
+          <ul class="v3-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Atlas AI Business &amp; Life Planner:</strong> your 2027 plan, broken into weekly actions</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The 2-Part 2027 Business Planning Workshop:</strong> with Tim Braheem and Josh Mettle, starting Thursday, December 17th</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>Seven live coaching calls every month:</strong> including weekly Office Hours and Talk to Tim</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>A faculty of 20+ working originators:</strong> with over $29 billion in closed loans</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>The Perfect Loan Process and the AI Sales &amp; Scripting Coach:</strong> so you can close with confidence</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#eac25a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span><strong>200+ training modules:</strong> across the 8 Disciplines of Mortgage Origination Mastery</span></li>
+          </ul>
+        </div>
+
+        <div class="v3-ticket">
+          <p class="v3-ticket__badge" data-bf-badge>Lowest Price of the Year</p>
+          <div class="v3-ticket__row"><span>Monthly<small>Normally <s>$349</s></small></span><span class="v3-ticket__amt">$199<small style="display:inline;font-size:1rem">/mo</small></span></div>
+          <div class="v3-ticket__row"><span>Full Year<small>Normally <s>$4,188</s></small></span><span class="v3-ticket__amt">$1,990<small style="display:inline;font-size:1rem">/yr</small></span></div>
+          <p class="v3-ticket__save">Save $2,198 on Your First Year</p>
+          <div class="v3-clock">
+            <p class="v3-clock__label" data-bf-deadline>Ends Monday, November 30th at Midnight</p>
+            <div class="v3-count" data-bf-count role="timer">
+              <div class="v3-count__u"><span class="v3-count__n" data-u="d">&ndash;</span><span class="v3-count__l">Days</span></div>
+              <div class="v3-count__u"><span class="v3-count__n" data-u="h">&ndash;</span><span class="v3-count__l">Hours</span></div>
+              <div class="v3-count__u"><span class="v3-count__n" data-u="m">&ndash;</span><span class="v3-count__l">Minutes</span></div>
+              <div class="v3-count__u"><span class="v3-count__n" data-u="s">&ndash;</span><span class="v3-count__l">Seconds</span></div>
+            </div>
+          </div>
+          <a class="btn btn--gold btn--lg btn--block" data-bf-cta href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Start 2027 With a Plan</a>
+          <p class="v3-ticket__ps">Want to see everything first? <a href="../../public/consultation.html">Schedule a free business assessment</a> and we&rsquo;ll walk you through it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Sticky dock ──────────────────────────────────────────────────────── -->
+  <div class="v3-dock" data-bf-dock aria-hidden="true">
+    <div class="v3-wrap v3-dock__in">
+      <div class="v3-dock__txt">
+        <span class="v3-dock__offer"><span>$199</span>/mo or <span>$1,990</span>/yr</span>
+        <span class="v3-dock__clock">Ends in <span data-bf-short></span></span>
+      </div>
+      <a class="btn btn--gold btn--lg" data-bf-cta tabindex="-1" href="https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/">Claim Black Friday Pricing</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ── Hero parallax: mouse drift + scroll lift on the scattered cards ──
+      var hero = document.getElementById('bf-hero');
+      if (hero && !reduce) {
+        var raf = null, mx = 0, my = 0;
+        function paint() {
+          raf = null;
+          var r = hero.getBoundingClientRect();
+          var sy = Math.max(-1, Math.min(1, -r.top / Math.max(1, r.height)));
+          hero.style.setProperty('--mx', mx.toFixed(3));
+          hero.style.setProperty('--my', my.toFixed(3));
+          hero.style.setProperty('--sy', sy.toFixed(3));
+        }
+        function req() { if (!raf) raf = requestAnimationFrame(paint); }
+        hero.addEventListener('pointermove', function (e) {
+          var r = hero.getBoundingClientRect();
+          mx = ((e.clientX - r.left) / r.width - .5) * 2;
+          my = ((e.clientY - r.top) / r.height - .5) * 2;
+          req();
+        });
+        window.addEventListener('scroll', req, { passive: true });
+      }
+
+      // ── Sticky split: crossfade the people photo to the block in view ──
+      var frame = document.querySelector('.v3-stick__frame');
+      var steps = document.querySelectorAll('[data-v3-step]');
+      if (frame && steps.length && 'IntersectionObserver' in window) {
+        var imgs = frame.querySelectorAll('img');
+        var dots = frame.querySelectorAll('.v3-stick__dots span');
+        var cap = frame.querySelector('[data-v3-cap]');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (!en.isIntersecting) return;
+            var n = +en.target.getAttribute('data-v3-step');
+            imgs.forEach(function (im, k) { im.classList.toggle('is-on', k === n); });
+            dots.forEach(function (d, k) { d.classList.toggle('is-on', k === n); });
+            if (cap) cap.textContent = en.target.getAttribute('data-v3-cap');
+          });
+        }, { rootMargin: '-45% 0px -45% 0px' });
+        steps.forEach(function (s) { io.observe(s); });
+      }
+
+      // ── Testimonial row arrows ──
+      var row = document.querySelector('[data-v3-row]');
+      document.querySelectorAll('[data-v3-scroll]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (!row) return;
+          var card = row.querySelector('.v3-q');
+          var step = card ? card.getBoundingClientRect().width + 22 : 400;
+          row.scrollBy({ left: step * +b.getAttribute('data-v3-scroll'), behavior: reduce ? 'auto' : 'smooth' });
+        });
+      });
+    })();
+  </script>
+  <script src="./bf-deadline.js"></script>
+  <script src="../../public/js/animations.js" defer></script>
+</body>
+
+</html>
