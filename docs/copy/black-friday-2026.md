@@ -3,7 +3,7 @@
 **Source:** public/custom-sales-pages/black-friday-2026.html (built from mockups/black-friday-2026/black-friday-v1.html)
 **Live URL:** theloanatlas.com/black-friday-2026/
 **SEO title:** Black Friday Pricing Is Live — The Loan Atlas
-**Meta description:** Black Friday pricing on The Loan Atlas: $199/month (normally $349) or $1,990 for the full year (normally $4,188). Plan your 2027 for less than the cost of one loan, with the AI Business & Life Planner and the 2-Part 2027 Business Planning Workshop.
+**Meta description:** Black Friday pricing on The Loan Atlas: $199/month (normally $349) or $1,990 for the full year (normally $3,490). Plan your 2027 for less than the cost of one loan, with the AI Business & Life Planner and the 2-Part 2027 Business Planning Workshop.
 **Every button →** https://members.theloanatlas.com/checkouts/premium-membership-checkout-bf2026/
 **Campaign:** Black Friday 2026 emails #1–7 + SMS #1–4 (11/25–12/4)
 
@@ -28,9 +28,9 @@
 ✓ AI Business & Life Planner ✓ 2027 Business Planning Workshop ✓ Seven live coaching calls a month
 **[Button: Save $150/month]**
 
-**Annual Membership** *(Best Value)* — $1,990/year, normally ~~$4,188~~ a year. **$2,198 off** the full year.
+**Annual Membership** *(Best Value)* — $1,990/year, normally ~~$3,490~~ a year. **$1,500 off** the full year.
 ✓ Everything in monthly ✓ $1,990 locked in for all of 2027
-**[Button: Save $2,198/yr]**
+**[Button: Save $1,500/yr]**
 
 
 ## The One Black Friday Purchase That Pays You Back (6 live-event graphics in a clean 2×3 grid, no frame)
@@ -94,12 +94,12 @@ Tim Braheem and Josh Mettle are going to show you the process that top-producing
 - **The Perfect Loan Process and the AI Sales & Scripting Coach:** so you can close with confidence
 - **200+ training modules:** across the 8 Disciplines of Mortgage Origination Mastery
 
-*Ticket:* Monthly $199/mo (normally $349) · Annual $1,990/yr (normally $4,188) · **Save $2,198/yr** (green text) · deadline + countdown
+*Ticket:* Monthly $199/mo (normally $349) · Annual $1,990/yr (normally $3,490) · **Save $1,500/yr** (green text) · deadline + countdown
 **[Button: Start 2027 With a Plan]**
 Want to see everything first? [Schedule a free business assessment] and we'll walk you through it.
 
 ## Deal bar (sticky at the top under the site header; always visible until the offer ends)
 
-BLACK FRIDAY PRICING · Ends in 5d 09h 54m 01s · **$199**/mo ~~$349~~ or **$1,990**/yr ~~$4,188~~ · *Save $2,198* (green pill) · **[Button: Start 2027 With a Plan]**
+BLACK FRIDAY PRICING · Ends in 5d 09h 54m 01s · **$199**/mo ~~$349~~ or **$1,990**/yr ~~$3,490~~ · *Save $1,500* (green pill) · **[Button: Start 2027 With a Plan]**
 
 *Phones: just the two prices + the button.*
