@@ -10,7 +10,7 @@
    in tla-fullhtml-template.php; convert-pages.sh detects the <link> tag
    automatically and emits it.
 
-   Shared across every page in public/trainings/ — deliberately NOT an inline
+   Shared across every page in public/product-pages/ — deliberately NOT an inline
    <style> block, because these pages are copy-and-filled per product and
    inlining would re-duplicate the whole suite with every new training.
 

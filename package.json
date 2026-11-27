@@ -1,5 +1,5 @@
 {
-  "name": "tla-website-v1",
+  "name": "tla-website",
   "private": true,
   "version": "0.0.0",
   "description": "The Loan Atlas marketing site. Static HTML/CSS/JS. Playwright is used only for design-review screenshots of the v2 rebuild.",

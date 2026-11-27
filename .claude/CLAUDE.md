@@ -88,7 +88,7 @@ legal/utility (`privacy-policy`, `terms-of-use`, `end-user-agreement`).
 `patterns.html`, section mockups, `emails/`. They never deploy. Put every new mockup there.
 View them with `npm run serve` at `http://localhost:4321/mockups/<file>.html`. Live pages in
 `public/` are grouped into subfolders (`live-events/`, `custom-sales-pages/`,
-`webinar-sales-pages/`, `custom-download-pages/`, `custom-consultation-pages/`, `webinar-registration/`, `trainings/`). Subfolder pages
+`webinar-sales-pages/`, `custom-download-pages/`, `custom-consultation-pages/`, `webinar-registration/`, `product-pages/`). Subfolder pages
 reference shared files with `../` (`../css/…`, `../js/…`, `../assets/…`, `url('../assets/…')`)
 so they render when opened straight from disk; the build strips any `../`. Links to other
 pages stay bare (`join.html`) — the build's link map only matches that form.
@@ -103,7 +103,7 @@ without renaming the file: `git mv` it, then update its `convert` line and its
 `href="<old>.html"` link in `public/`.
 
 **Shared live-event sidebar:** the Join The Loan Atlas / Free Business Assessment sidebar on
-every `public/live-events/` page is ONE file, `public/partials/event-sidebar.html`. Pages
+every `public/live-events/` page is ONE file, `public/live-events/_event-sidebar.html`. Pages
 include it with `<!-- TLA_EVENT_SIDEBAR title="Want to Be Coached By Josh?" -->` (own line);
 the build inlines it and fills `{{TITLE}}`. The column heading is the only per-page value —
 edit card copy in the partial, never per page. Like the header, it's absent in `npm run

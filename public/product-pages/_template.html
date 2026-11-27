@@ -15,16 +15,16 @@
        paste page CSS inline here.
 
        -- HOW TO USE -------------------------------------------------------------
-       1. Copy this file to public/trainings/<your-slug>.html
+       1. Copy this file to public/product-pages/<your-slug>.html
        2. Replace every [[TOKEN]]. Unreplaced tokens are loud on the page by
           design — [[BRACKETS]] are meant to be impossible to miss.
        3. Register it in scripts/convert-pages.sh, in the slug map (~line 155):
-                convert trainings/<your-slug>   <your-slug>   ""
+                convert product-pages/<your-slug>   <your-slug>   ""
           Empty third field = no nav highlight (correct for sales pages).
           NOTE: a missing file only prints "SKIP", so a forgotten line means the
           page silently never builds.
        4. If another page will link here, also add a rewrite() line (~line 108):
-                s/href="trainings\/<your-slug>\.html"/href="\/<your-slug>\/"/g
+                s/href="<your-slug>\.html"/href="\/<your-slug>\/"/g
        5. npm run build && npm run preview
           Judge from wp-theme/_preview-<your-slug>.html — NEVER from this raw
           file, which has no header/footer.

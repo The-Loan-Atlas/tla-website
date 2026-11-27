@@ -848,3 +848,63 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 @media (prefers-reduced-motion: reduce) {
   .atim__link, .atim__link svg { transition: none; }
 }
+
+/* ==========================================================================
+   END-OF-POST FAQ BLOCK (.tfaq-*) — [tla_faq]
+   Sits after the closing [tla_cta] band, before [tla-tim-bio]. Markup:
+   tla_faq_shortcode() in functions.php. Mockup: mockups/blog/blog-faq.html
+   (option A). Questions are native <details>. Resets .tla-article's
+   p/h2/h3 styles (incl. the gold-gradient h3) the way .ctab/.atim do.
+   ========================================================================== */
+.tfaq { position: relative; margin: 2.6em 0; border-radius: var(--radius-xl); }
+.tla-article .tfaq p, .tla-article .tfaq h2, .tla-article .tfaq h3 { margin: 0; }
+.tla-article .tfaq h2, .tla-article .tfaq h3 { background: none; -webkit-background-clip: border-box; background-clip: border-box; width: auto; }
+.tfaq__title, .tla-article .tfaq .tfaq__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.375rem, 3vw, 1.75rem); line-height: 1.15; letter-spacing: -0.015em; }
+.tfaq__q, .tla-article .tfaq .tfaq__q { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; line-height: 1.4; letter-spacing: -0.005em; }
+.tfaq__a { font-size: 0.9875rem; line-height: 1.7; }
+
+.tfaq summary { list-style: none; cursor: pointer; }
+.tfaq summary::-webkit-details-marker { display: none; }
+.tfaq summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 6px; }
+/* +/− toggle drawn with two bars; the vertical one flattens when open. */
+.tfaq__icon { flex: 0 0 auto; position: relative; width: 30px; height: 30px; border-radius: 50%; transition: background-color 200ms ease, border-color 200ms ease; }
+.tfaq__icon::before, .tfaq__icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: currentColor; transition: transform 250ms ease; }
+.tfaq__icon::after { transform: rotate(90deg); }
+.tfaq details[open] .tfaq__icon::after { transform: rotate(0deg); }
+/* Smooth open where supported (Chrome 131+); instant elsewhere. */
+@supports (interpolate-size: allow-keywords) {
+  .tfaq { interpolate-size: allow-keywords; }
+  .tfaq details::details-content { height: 0; overflow: clip; transition: height 300ms ease, content-visibility 300ms allow-discrete; }
+  .tfaq details[open]::details-content { height: auto; }
+}
+
+/* Navy band, brass top rule, faded logomark cropped off the top-right. */
+.tfaq--dark { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); border: 1px solid rgba(201, 150, 28, 0.32); padding: clamp(24px, 4vw, 40px); overflow: hidden; }
+.tfaq--dark::before { content: ""; position: absolute; right: -48px; top: -44px; width: 240px; aspect-ratio: 870 / 650; background: url('../assets/Loan%20Atlas%20logomark-18.png') center / contain no-repeat; opacity: 0.08; pointer-events: none; }
+.tfaq--dark::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); }
+.tfaq--dark .tfaq__head { position: relative; padding: 2px 84px 24px 0; }
+.tla-article .tfaq--dark .tfaq__title { color: #fff; }
+.tfaq--dark .tfaq__title span { background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.tfaq--dark .tfaq__list { position: relative; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.tfaq--dark details { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.tfaq--dark details:last-child { border-bottom: 0; }
+.tfaq--dark summary { display: flex; align-items: center; gap: 18px; padding: 20px 0; }
+.tfaq--dark .tfaq__n { flex: 0 0 auto; width: 28px; font-family: var(--font-display); font-weight: 800; font-size: 0.875rem; color: var(--brass-bright); letter-spacing: 0.02em; }
+.tla-article .tfaq--dark .tfaq__q { flex: 1 1 auto; color: #fff; transition: color 150ms ease; }
+.tfaq--dark summary:hover .tfaq__q { color: #ffd56c; }
+.tfaq--dark .tfaq__icon { color: var(--brass-bright); border: 1px solid rgba(234, 194, 90, 0.45); }
+.tfaq--dark details[open] .tfaq__icon { background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); border-color: transparent; color: #021c36; }
+.tla-article .tfaq--dark .tfaq__a { color: rgba(255, 255, 255, 0.78); padding: 0 48px 22px 46px; }
+.tla-article .tfaq--dark .tfaq__a a { color: var(--brass-bright); }
+.tla-article .tfaq--dark .tfaq__a strong { color: #fff; }
+
+@media (max-width: 640px) {
+  .tfaq--dark::before { width: 160px; right: -36px; top: -30px; }
+  .tfaq--dark summary { gap: 12px; }
+  .tfaq--dark .tfaq__n { width: 22px; }
+  .tla-article .tfaq--dark .tfaq__a { padding: 0 0 20px 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tfaq__icon, .tfaq__icon::before, .tfaq__icon::after, .tla-article .tfaq--dark .tfaq__q { transition: none; }
+  .tfaq details::details-content { transition: none; }
+}

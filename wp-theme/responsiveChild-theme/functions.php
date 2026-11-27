@@ -646,3 +646,85 @@ function tla_tim_bio_shortcode() {
 		. '</aside>';
 }
 add_shortcode( 'tla-tim-bio', 'tla_tim_bio_shortcode' );
+
+/**
+ * End-of-post FAQ block: a navy band of numbered, expandable questions.
+ *
+ *   [tla_faq title="Business Planning"][tla_faq_item q="How do I build a business plan as a loan officer?"]Start with your income goal and work backwards.[/tla_faq_item][tla_faq_item q="How many goals should be in my business plan?"]No more than three major goals for the year, and one is fine.[/tla_faq_item][/tla_faq] -> FAQ block (writers put each [tla_faq_item] on its own line)
+ *
+ * Sits after the closing [tla_cta] band and before [tla-tim-bio]. `title`
+ * fills the gold half of the "FAQs: <title>" heading. Each
+ * [tla_faq_item q="Question"]Answer[/tla_faq_item] inside becomes one
+ * question; items are numbered automatically and the first starts open.
+ * [tla_faq_item] is parsed here, not registered on its own, so it can't render
+ * outside a [tla_faq]. Answers may use <strong>, <em> and <a>.
+ *
+ * WordPress runs wpautop before shortcodes, so the content arrives with
+ * <p>/<br> wrapped around the item lines; those are stripped here. Native
+ * <details> keeps the answers in the HTML for search engines and works with
+ * no JS. Styles come from .tfaq-* in tla/css/blog.css. Source mockup:
+ * mockups/blog/blog-faq.html (option A).
+ *
+ * @param array  $atts     title.
+ * @param string $content  the [tla_faq_item] lines.
+ * @return string  FAQ HTML, or empty string if no items were found.
+ */
+function tla_faq_shortcode( $atts, $content = '' ) {
+	static $instance = 0;
+	$atts  = shortcode_atts( array( 'title' => '' ), $atts, 'tla_faq' );
+	$title = trim( (string) $atts['title'] );
+
+	// Accept straight or curly quotes around q (editors sometimes curl them).
+	preg_match_all(
+		'/\[tla_faq_item\s+q\s*=\s*(?:"|&#8220;|&#8221;|“|”)(.*?)(?:"|&#8221;|&#8220;|”|“)\s*\](.*?)\[\/tla_faq_item\]/s',
+		(string) $content,
+		$items,
+		PREG_SET_ORDER
+	);
+	if ( ! $items ) {
+		return '';
+	}
+
+	$instance++;
+	$id   = 'tla-faq-' . $instance;
+	$html = '';
+	foreach ( $items as $i => $item ) {
+		$q = trim( wp_strip_all_tags( $item[1] ) );
+		// Drop the <p>/<br> wpautop wrapped around the answer, keep inline tags.
+		$a = preg_replace( '#</?p[^>]*>|<br\s*/?>#i', ' ', $item[2] );
+		$a = trim( preg_replace( '/\s+/', ' ', $a ) );
+		if ( '' === $q || '' === $a ) {
+			continue;
+		}
+		$html .= '<details' . ( '' === $html ? ' open' : '' ) . '>'
+			. '<summary><span class="tfaq__n">' . sprintf( '%02d', $i + 1 ) . '</span>'
+			. '<h3 class="tfaq__q">' . esc_html( $q ) . '</h3>'
+			. '<span class="tfaq__icon" aria-hidden="true"></span></summary>'
+			. '<p class="tfaq__a">' . wp_kses_post( $a ) . '</p>'
+			. '</details>';
+	}
+	if ( '' === $html ) {
+		return '';
+	}
+
+	$heading = '' !== $title ? 'FAQs: <span>' . esc_html( $title ) . '</span>' : 'FAQs';
+
+	return '<section class="tfaq tfaq--dark" aria-labelledby="' . $id . '">'
+		. '<div class="tfaq__head"><h2 class="tfaq__title" id="' . $id . '">' . $heading . '</h2></div>'
+		. '<div class="tfaq__list">' . $html . '</div>'
+		. '</section>';
+}
+add_shortcode( 'tla_faq', 'tla_faq_shortcode' );
+
+/**
+ * wpautop leaves a stray <p> before / </p> after a multi-line [tla_faq]
+ * (it wraps the opening and closing lines in their own paragraphs), which
+ * browsers turn into empty paragraphs around the band. Strip them once the
+ * shortcode has run (do_shortcode is priority 11 on the_content).
+ */
+function tla_faq_unautop( $content ) {
+	$content = preg_replace( '#<p>\s*(<section class="tfaq\b)#', '$1', $content );
+	$content = preg_replace( '#(<section class="tfaq\b.*?</details></div></section>)\s*</p>#s', '$1', $content );
+	return $content;
+}
+add_filter( 'the_content', 'tla_faq_unautop', 12 );

@@ -9,7 +9,7 @@
 //   public/**  (pages, css, js)  and the hand-edited theme PHP/CSS/JS in
 //   wp-theme/responsiveChild-theme/ (header/footer partials, blog templates,
 //   functions.php). Generated copies under tla/ are skipped.
-// Mockups and alternate-styles are checked separately: an image only they use
+// Mockups are checked separately: an image only they use
 // is reported as "mockup-only" and is never moved (moving it breaks them).
 //
 // Limits — read before moving anything:
@@ -63,7 +63,7 @@ const live = corpus(
   [path.join(REPO, 'public'), theme],
   (p) => p === ASSETS || generated.includes(p),
 );
-const mock = corpus([path.join(REPO, 'mockups'), path.join(REPO, 'alternate-styles')]);
+const mock = corpus([path.join(REPO, 'mockups')]);
 
 const unused = [];
 const mockupOnly = [];
@@ -83,7 +83,7 @@ const list = (files) =>
 
 console.log(`\nUnused — no live page or theme file references these (${unused.length} files, ${mb(unused)} MB):`);
 list(unused);
-console.log(`\nMockup-only — used only by mockups/ or alternate-styles/, left in place (${mockupOnly.length} files, ${mb(mockupOnly)} MB):`);
+console.log(`\nMockup-only — used only by mockups/, left in place (${mockupOnly.length} files, ${mb(mockupOnly)} MB):`);
 list(mockupOnly);
 
 if (!process.argv.includes('--move')) {

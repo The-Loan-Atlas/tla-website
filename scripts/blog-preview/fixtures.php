@@ -122,9 +122,15 @@ block looks like this:</p>
 
 <p>A closing paragraph wraps up the sample so the last-child spacing rule can be
 verified at the bottom of the article body. The post then ends the way a
-real one does: a final CTA band, then the About Tim author card.</p>
+real one does: a final CTA band, the FAQ block, then the About Tim author card.</p>
 
 [tla_cta offer="consult"]
+
+[tla_faq title="Business Planning"]
+[tla_faq_item q="How do I build a business plan as a loan officer?"]Start with your income goal and work backwards: divide it by your average income per loan to get closings needed, then divide monthly closings by your lead-to-close ratio to get the leads you need each month. From there, choose up to three SMART goals that close the gap between the leads you need and the leads you have.[/tla_faq_item]
+[tla_faq_item q="What if I don't know my lead-to-close ratio?"]Estimate it for now (10% to 20% is a reasonable placeholder) and start tracking it right away. Count every lead that comes in and every loan that closes. After a few months you'll have a real number, and it will tell you more about your business than almost anything else you measure.[/tla_faq_item]
+[tla_faq_item q="How many goals should be in my business plan?"]No more than three major goals for the year, and one is fine. Fewer goals pursued to completion will do more for your production than a long list of goals that each get partly done.[/tla_faq_item]
+[/tla_faq]
 
 [tla-tim-bio]
 HTML;

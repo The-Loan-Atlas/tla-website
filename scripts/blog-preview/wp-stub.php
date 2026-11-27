@@ -270,6 +270,7 @@ function esc_html( $s ) { return htmlspecialchars( (string) $s, ENT_QUOTES, 'UTF
 function esc_attr( $s ) { return htmlspecialchars( (string) $s, ENT_QUOTES, 'UTF-8', false ); }
 function esc_url( $s ) { return htmlspecialchars( (string) $s, ENT_QUOTES, 'UTF-8', false ); }
 function sanitize_key( $s ) { return preg_replace( '/[^a-z0-9_\-]/', '', strtolower( (string) $s ) ); }
+function wp_kses_post( $s ) { return (string) $s; }
 function wp_strip_all_tags( $s ) { return trim( strip_tags( preg_replace( '@<(script|style)[^>]*?>.*?</\\1>@si', '', (string) $s ) ) ); }
 function wp_trim_words( $text, $num = 55, $more = '&hellip;' ) {
 	$words = preg_split( '/\s+/', wp_strip_all_tags( $text ), -1, PREG_SPLIT_NO_EMPTY );
@@ -290,7 +291,8 @@ function shortcode_atts( $pairs, $atts, $shortcode = '' ) {
 	return $out;
 }
 function do_shortcode( $content ) {
-	return preg_replace_callback( '/\[([a-z_-]+)((?:\s+[a-z_]+="[^"]*")*)\s*\]/i', function ( $m ) {
+	// Self-closing [tag a="b"] or enclosing [tag a="b"]content[/tag].
+	return preg_replace_callback( '/\[([a-z_-]+)((?:\s+[a-z_]+="[^"]*")*)\s*\](?:(.*?)\[\/\1\])?/is', function ( $m ) {
 		$cb = $GLOBALS['tla_shortcodes'][ $m[1] ] ?? null;
 		if ( ! $cb ) {
 			return $m[0];
@@ -300,7 +302,7 @@ function do_shortcode( $content ) {
 		foreach ( $pairs as $p ) {
 			$atts[ strtolower( $p[1] ) ] = $p[2];
 		}
-		return call_user_func( $cb, $atts, '', $m[1] );
+		return call_user_func( $cb, $atts, $m[3] ?? '', $m[1] );
 	}, $content );
 }
 

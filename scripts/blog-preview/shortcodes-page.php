@@ -41,7 +41,9 @@ foreach ( $GLOBALS['tla_shortcodes'] as $tag => $cb ) {
 	// Examples: lines that start with "[tag" (this shortcode's own tag only).
 	$examples = array();
 	$seen     = array();
-	$pattern  = '/^\s*(\[' . preg_quote( $tag, '/' ) . '(?:\s[^\]]*)?\])\s*(?:->\s*(.*))?$/';
+	// An enclosing shortcode's example carries its content and [/tag] on the same line.
+	$q        = preg_quote( $tag, '/' );
+	$pattern  = '/^\s*(\[' . $q . '(?:\s[^\]]*)?\](?:.*\[\/' . $q . '\])?)\s*(?:->\s*(.*))?$/';
 	foreach ( $body as $line ) {
 		if ( preg_match( $pattern, $line, $m ) && ! isset( $seen[ $m[1] ] ) ) {
 			$seen[ $m[1] ] = true;

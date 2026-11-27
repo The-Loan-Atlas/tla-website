@@ -288,18 +288,18 @@ convert privacy-policy          privacy-policy                ""
 convert terms-of-use            terms-of-use                  ""
 convert end-user-agreement      end-user-agreement            ""
 convert ai-originator-masterplan ai-originator-masterplan     ""
-convert ai-business-planner     ai-business-planner           ""
+convert product-pages/ai-business-planner ai-business-planner ""
 convert perfect-loan-process    perfect-loan-process          ""
 convert 5-scripts-for-dominating-point-of-sale               5-scripts-for-dominating-point-of-sale  ""
 # Lead magnet.
 convert refinance-masterplan    refinance-masterplan          ""
 convert contact                 contact                       ""
 convert platinum-marketing      platinum-marketing            ""
-# Individual training sales pages (public/trainings/, .trn-* suite). One page
-# per training sold à la carte. public/trainings/_template.html is the
+# Individual training sales pages (public/product-pages/, .trn-* suite). One page
+# per training sold à la carte. public/product-pages/_template.html is the
 # copy-and-fill source and is deliberately NOT listed here (never deploys).
 # Staged on a draft slug for review; move to its real slug once approved.
-convert trainings/standalone-product-draft standalone-product-draft ""
+convert product-pages/standalone-product-draft standalone-product-draft ""
 # NOTE: blog/blog-post/blog-archive are NOT fullhtml partials — the live blog
 # is rendered by home.php/single.php/archive.php (WP post loop) with CSS in
 # tla/css/blog.css. Do NOT add them here. The blog*.html link rewrites in

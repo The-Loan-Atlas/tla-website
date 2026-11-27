@@ -40,8 +40,7 @@ npm run assets:unused -- --move   # git mv the unused ones into retired/
 ```
 
 The report lists images in `public/assets/` that no page, stylesheet, script or theme
-template references, plus a separate **mockup-only** group (used only by `mockups/` or
-`alternate-styles/`) that is never moved, because moving them would break those mockups.
+template references, plus a separate **mockup-only** group (used only by `mockups/`) that is never moved, because moving them would break those mockups.
 
 **Spot-check before `--move`.** The script can't see the WordPress database, so an image
 linked directly from a blog post or Elementor page looks unused here — and the next ship

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mockup — Blog FAQ block</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../public/css/styles.css" />
+  <link rel="stylesheet" href="../../public/css/blog.css" />
+  <style>
+    /* ---------------------------------------------------------------------
+       Mockup scaffolding (same as blog-about-tim.html). Each option is shown
+       at the END of a post body inside .tla-article: the last paragraph, the
+       closing [tla_cta] band, the proposed FAQ block, then the live
+       [tla-tim-bio] card (real .ctab-* / .atim-* styles from blog.css).
+       Resize below 640px for mobile.
+       --------------------------------------------------------------------- */
+    body { background: #f7f9fb; margin: 0; }
+    .mk-top { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); color: #fff; padding: 48px 24px 32px; }
+    .mk-top__in, .mk-main { max-width: 760px; margin: 0 auto; }
+    .mk-top .t-eyebrow { color: var(--brass-bright); margin: 0 0 8px; }
+    .mk-top h1 { color: #fff; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.5rem); margin: 0 0 12px; letter-spacing: -0.01em; }
+    .mk-top p { color: rgba(255,255,255,.78); margin: 0 0 20px; line-height: 1.6; }
+    .mk-top code, .mk-offer__head code { font-family: ui-monospace, Menlo, monospace; font-size: .8125em; }
+    .mk-top code { background: rgba(255,255,255,.1); padding: 2px 6px; border-radius: 4px; color: #ffd56c; }
+    .mk-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+    .mk-nav a { font: 600 .8125rem var(--font-body); color: #fff; text-decoration: none; padding: 6px 12px; border: 1px solid rgba(234,194,90,.4); border-radius: 999px; }
+    .mk-nav a:hover { background: rgba(234,194,90,.15); }
+    .mk-main { padding: 16px 24px 80px; }
+    .mk-offer { padding-top: 48px; border-bottom: 1px solid var(--outline-variant); padding-bottom: 24px; }
+    .mk-offer__head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+    .mk-offer__head h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin: 0; color: var(--primary); }
+    .mk-num { font: 700 .875rem var(--font-body); color: var(--brass); }
+    .mk-offer__head code { color: var(--on-surface-variant); }
+    .mk-why { color: var(--on-surface-variant); font-size: .9375rem; line-height: 1.6; margin: 0 0 8px; }
+    .mk-variant { margin-top: 20px; }
+    .mk-article { background: var(--surface-container-lowest); border: 1px solid var(--outline-variant); border-radius: var(--radius-xl); padding: clamp(20px, 4vw, 40px); }
+    .mk-article > p:first-child { margin-top: 0; }
+
+    /* =====================================================================
+       PROPOSED: FAQ BLOCK (.tfaq-*)
+       Would move to public/css/blog.css. Resets .tla-article's p/h2/h3/a
+       styles (incl. the gold-gradient h3) the same way .ctab/.atim do.
+       Questions are native <details>, so answers stay in the HTML for
+       search engines and work without JS.
+       ===================================================================== */
+    .tfaq { position: relative; margin: 2.6em 0; border-radius: var(--radius-xl); }
+    .tla-article .tfaq p, .tla-article .tfaq h2, .tla-article .tfaq h3 { margin: 0; }
+    .tla-article .tfaq h2, .tla-article .tfaq h3 { background: none; -webkit-background-clip: border-box; background-clip: border-box; width: auto; scroll-margin-top: 88px; }
+    .tfaq__eyebrow { font-family: var(--font-body); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .tfaq__title, .tla-article .tfaq .tfaq__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.375rem, 3vw, 1.75rem); line-height: 1.15; letter-spacing: -0.015em; }
+    .tfaq__q, .tla-article .tfaq .tfaq__q { font-family: var(--font-display); font-weight: 700; font-size: 1.0625rem; line-height: 1.4; letter-spacing: -0.005em; }
+    .tfaq__a { font-size: 0.9875rem; line-height: 1.7; }
+
+    /* <details> plumbing shared by A and C */
+    .tfaq summary { list-style: none; cursor: pointer; }
+    .tfaq summary::-webkit-details-marker { display: none; }
+    .tfaq summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 6px; }
+    .tfaq__icon { flex: 0 0 auto; position: relative; width: 30px; height: 30px; border-radius: 50%; transition: transform 250ms ease, background-color 200ms ease, border-color 200ms ease; }
+    .tfaq__icon::before, .tfaq__icon::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: currentColor; transition: transform 250ms ease; }
+    .tfaq__icon::after { transform: rotate(90deg); }
+    .tfaq details[open] .tfaq__icon::after { transform: rotate(0deg); }
+    /* Smooth open where supported (Chrome 131+); instant elsewhere. */
+    @supports (interpolate-size: allow-keywords) {
+      .tfaq { interpolate-size: allow-keywords; }
+      .tfaq details::details-content { height: 0; overflow: clip; transition: height 300ms ease, content-visibility 300ms allow-discrete; }
+      .tfaq details[open]::details-content { height: auto; }
+    }
+
+    /* --- A · DARK Q&A BAND ---------------------------------------------- */
+    .tfaq--dark { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); border: 1px solid rgba(201,150,28,.32); padding: clamp(24px, 4vw, 40px); overflow: hidden; }
+    /* Faded Loan Atlas logomark bleeding off the top-right corner. In blog.css
+       the url becomes ../assets/Loan%20Atlas%20logomark-18.png */
+    .tfaq--dark::before { content: ""; position: absolute; right: -48px; top: -44px; width: 240px; aspect-ratio: 870 / 650; background: url("../../public/assets/Loan%20Atlas%20logomark-18.png") center / contain no-repeat; opacity: .08; pointer-events: none; }
+    .tfaq--dark::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); }
+    .tfaq--dark .tfaq__head { position: relative; padding: 2px 84px 24px 0; min-height: 45px; }
+    .tfaq--dark .tfaq__eyebrow { color: var(--brass-bright); }
+    .tla-article .tfaq--dark .tfaq__eyebrow { margin-bottom: 8px; }
+    .tla-article .tfaq--dark .tfaq__title { color: #fff; }
+    .tfaq--dark .tfaq__title span { background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tfaq--dark .tfaq__count { font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,.55); }
+    .tfaq--dark .tfaq__list { position: relative; border-top: 1px solid rgba(255,255,255,.12); }
+    .tfaq--dark details { border-bottom: 1px solid rgba(255,255,255,.12); }
+    .tfaq--dark details:last-child { border-bottom: 0; }
+    .tfaq--dark summary { display: flex; align-items: center; gap: 18px; padding: 20px 0; }
+    .tfaq--dark .tfaq__n { flex: 0 0 auto; width: 28px; font-family: var(--font-display); font-weight: 800; font-size: 0.875rem; color: var(--brass-bright); letter-spacing: 0.02em; }
+    .tla-article .tfaq--dark .tfaq__q { flex: 1 1 auto; color: #fff; transition: color 150ms ease; }
+    .tfaq--dark summary:hover .tfaq__q { color: #ffd56c; }
+    .tfaq--dark .tfaq__icon { color: var(--brass-bright); border: 1px solid rgba(234,194,90,.45); }
+    .tfaq--dark details[open] .tfaq__icon { background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); border-color: transparent; color: #021c36; }
+    .tla-article .tfaq--dark .tfaq__a { color: rgba(255,255,255,.78); padding: 0 48px 22px 46px; }
+
+    /* --- B · SPLIT Q&A SHEET (all answers visible) ---------------------- */
+    .tfaq--split { display: grid; grid-template-columns: minmax(170px, 32%) 1fr; background: linear-gradient(180deg, #fbf7ec 0%, #f6f1e2 100%); border: 1px solid rgba(201,150,28,.3); overflow: hidden; }
+    .tfaq--split .tfaq__head { position: relative; padding: clamp(24px, 3.5vw, 34px); background: #021c36; color: #fff; overflow: hidden; }
+    .tfaq--split .tfaq__head::before { content: "?"; position: absolute; left: -14px; bottom: -64px; font-family: var(--font-display); font-weight: 800; font-size: 14rem; line-height: 1; background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; opacity: .9; pointer-events: none; }
+    .tfaq--split .tfaq__head-in { position: relative; position: sticky; top: 100px; }
+    .tfaq--split .tfaq__eyebrow { color: var(--brass-bright); }
+    .tla-article .tfaq--split .tfaq__eyebrow { margin-bottom: 10px; }
+    .tla-article .tfaq--split .tfaq__title { color: #fff; font-size: clamp(1.375rem, 2.6vw, 1.625rem); }
+    .tla-article .tfaq--split .tfaq__sub { margin-top: 10px; font-size: 0.8125rem; line-height: 1.5; color: rgba(255,255,255,.6); }
+    .tfaq--split .tfaq__list { padding: clamp(10px, 2vw, 14px) clamp(22px, 3.5vw, 34px); }
+    .tfaq--split .tfaq__item { display: grid; grid-template-columns: 30px 1fr; column-gap: 12px; row-gap: 8px; padding: 20px 0; }
+    .tfaq--split .tfaq__item + .tfaq__item { border-top: 1px dashed rgba(201,150,28,.45); }
+    .tfaq--split .tfaq__tag { font-family: var(--font-display); font-weight: 800; font-size: 0.8125rem; line-height: 1.75rem; height: 26px; width: 26px; border-radius: 6px; text-align: center; line-height: 26px; }
+    .tfaq--split .tfaq__tag--q { background: #021c36; color: var(--brass-bright); }
+    .tfaq--split .tfaq__tag--a { background: rgba(201,150,28,.16); color: #8a6512; }
+    .tla-article .tfaq--split .tfaq__q { color: var(--primary); padding-top: 2px; }
+    .tla-article .tfaq--split .tfaq__a { color: #3d4a5a; }
+
+    /* --- C · STACKED ACCORDION CARDS ------------------------------------ */
+    .tfaq--cards { background: radial-gradient(120% 80% at 50% 0%, #eaf0f7 0%, #f2f5f9 55%, #f7f9fb 100%); border: 1px solid var(--outline-variant); padding: clamp(24px, 4vw, 40px) clamp(16px, 3.5vw, 36px); }
+    .tfaq--cards .tfaq__head { text-align: center; margin-bottom: 24px; }
+    .tfaq--cards .tfaq__pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: #021c36; color: #fff; margin-bottom: 14px; }
+    .tfaq--cards .tfaq__pill b { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); color: #021c36; font-family: var(--font-display); font-weight: 800; font-size: 0.8125rem; }
+    .tla-article .tfaq--cards .tfaq__title { color: var(--primary); text-wrap: balance; }
+    .tfaq--cards .tfaq__list { display: grid; gap: 12px; }
+    .tfaq--cards details { background: #fff; border: 1px solid var(--outline-variant); border-radius: var(--radius-lg, 12px); box-shadow: 0 1px 2px rgba(2,28,54,.04); transition: box-shadow 200ms ease, border-color 200ms ease; position: relative; overflow: hidden; }
+    .tfaq--cards details::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%); transform: scaleY(0); transform-origin: top; transition: transform 250ms ease; }
+    .tfaq--cards details[open] { border-color: rgba(201,150,28,.45); box-shadow: 0 12px 28px rgba(2,28,54,.10); }
+    .tfaq--cards details[open]::before { transform: scaleY(1); }
+    .tfaq--cards details:not([open]):hover { border-color: rgba(201,150,28,.45); }
+    .tfaq--cards summary { display: flex; align-items: center; gap: 14px; padding: 18px 20px; }
+    .tla-article .tfaq--cards .tfaq__q { flex: 1 1 auto; color: var(--on-surface); }
+    .tfaq--cards .tfaq__icon { color: var(--primary); background: var(--surface-container-low, #f2f4f6); }
+    .tfaq--cards details[open] .tfaq__icon { background: #021c36; color: var(--brass-bright); transform: rotate(180deg); }
+    .tla-article .tfaq--cards .tfaq__a { color: var(--on-surface-variant); padding: 0 64px 20px 20px; }
+
+    /* --- mobile ---------------------------------------------------------- */
+    @media (max-width: 640px) {
+      .tfaq--dark::before { width: 160px; right: -36px; top: -30px; }
+      .tfaq--dark summary { gap: 12px; }
+      .tfaq--dark .tfaq__n { width: 22px; }
+      .tla-article .tfaq--dark .tfaq__a { padding: 0 0 20px 34px; }
+      .tfaq--split { grid-template-columns: 1fr; }
+      .tfaq--split .tfaq__head::before { left: auto; right: -6px; bottom: -70px; font-size: 10rem; }
+      .tfaq--split .tfaq__head-in { position: relative; top: 0; }
+      .tfaq--split .tfaq__head { padding-right: 96px; }
+      .tla-article .tfaq--cards .tfaq__a { padding: 0 20px 20px; }
+      .tfaq--cards summary { padding: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tfaq *, .tfaq *::before, .tfaq *::after, .tfaq details, .tfaq details::before { transition: none !important; }
+      .tfaq details::details-content { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="mk-top"><div class="mk-top__in">
+    <p class="t-eyebrow">Blog · end-of-post FAQ section</p>
+    <h1>FAQ block</h1>
+    <p>Three options for a new <code>[tla_faq]</code> shortcode. It sits after the closing <code>[tla_cta]</code> band and before <code>[tla-tim-bio]</code>. Each option is shown in that position, with the real consult band above it and the live author card below it. Questions use native expand/collapse, so the answers stay in the page for search engines and work without JavaScript. Make the window narrower than 640px to see the mobile layouts.</p>
+    <nav class="mk-nav"><a href="#a">A · Dark Q&amp;A band</a><a href="#b">B · Split Q&amp;A sheet</a><a href="#c">C · Accordion cards</a></nav>
+  </div></div>
+
+  <main class="mk-main">
+
+  <!-- ============================ A ============================ -->
+  <section class="mk-offer" id="a">
+    <header class="mk-offer__head"><span class="mk-num">A</span><h2>Dark Q&amp;A band</h2><code>[tla_faq title="Business Planning"]</code></header>
+    <p class="mk-why">A navy band with a brass top rule, numbered questions, and gold plus/minus toggles. The first answer starts open. This one breaks most clearly from the white body copy, and the light consult band and white author card on either side keep it from feeling heavy.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>A business plan doesn't need to be long to work. It needs a real number at the top, the math that connects it to your daily activity, and no more than three goals you'll actually finish.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <section class="tfaq tfaq--dark" aria-labelledby="faq-a-title">
+          <div class="tfaq__head">
+            <h2 class="tfaq__title" id="faq-a-title">FAQs: <span>Business Planning</span></h2>
+          </div>
+          <div class="tfaq__list">
+            <details open>
+              <summary><span class="tfaq__n">01</span><h3 class="tfaq__q">How do I build a business plan as a loan officer?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">Start with your income goal and work backwards: divide it by your average income per loan to get closings needed, then divide monthly closings by your lead-to-close ratio to get the leads you need each month. From there, choose up to three SMART goals that close the gap between the leads you need and the leads you have.</p>
+            </details>
+            <details>
+              <summary><span class="tfaq__n">02</span><h3 class="tfaq__q">What if I don't know my lead-to-close ratio?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">Estimate it for now (10% to 20% is a reasonable placeholder) and start tracking it right away. Count every lead that comes in and every loan that closes. After a few months you'll have a real number, and it will tell you more about your business than almost anything else you measure.</p>
+            </details>
+            <details>
+              <summary><span class="tfaq__n">03</span><h3 class="tfaq__q">How many goals should be in my business plan?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">No more than three major goals for the year, and one is fine. Fewer goals pursued to completion will do more for your production than a long list of goals that each get partly done.</p>
+            </details>
+          </div>
+        </section>
+
+        <aside class="atim atim--card" aria-label="About Tim Braheem">
+          <div class="atim__head">
+            <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+            <div>
+              <p class="atim__eyebrow">About the author</p>
+              <h3 class="atim__name">Tim Braheem</h3>
+              <p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>
+            </div>
+          </div>
+          <p class="atim__bio">Tim has spent more than 30 years as a mortgage originator and coach. He founded First Rate Financial in 1995 and built Loantoolbox.com into an <em>Inc. 500</em> company with 10,800 paying members. Today he teaches the scripts, systems, and personal development work behind everything at The Loan Atlas, and hosts <em>The 360 Experience</em> podcast.</p>
+          <div class="atim__links"><a class="atim__link" href="/faculty/">Learn more about Tim and The Loan Atlas Faculty<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ B ============================ -->
+  <section class="mk-offer" id="b">
+    <header class="mk-offer__head"><span class="mk-num">B</span><h2>Split Q&amp;A sheet</h2><code>[tla_faq title="Business Planning" style="sheet"]</code></header>
+    <p class="mk-why">A navy title column with an oversized brass question mark, next to a warm paper sheet where every answer is visible and tagged Q and A. Nothing to click, so skimmers get every answer at a glance. It's the most distinctive of the three, but it takes the most vertical space, so it suits posts with three to five questions.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>A business plan doesn't need to be long to work. It needs a real number at the top, the math that connects it to your daily activity, and no more than three goals you'll actually finish.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <section class="tfaq tfaq--split" aria-labelledby="faq-b-title">
+          <div class="tfaq__head"><div class="tfaq__head-in">
+            <p class="tfaq__eyebrow">FAQs</p>
+            <h2 class="tfaq__title" id="faq-b-title">Business Planning</h2>
+            <p class="tfaq__sub">Quick answers to the questions loan officers ask most about this topic.</p>
+          </div></div>
+          <div class="tfaq__list">
+            <div class="tfaq__item">
+              <span class="tfaq__tag tfaq__tag--q" aria-hidden="true">Q</span><h3 class="tfaq__q">How do I build a business plan as a loan officer?</h3>
+              <span class="tfaq__tag tfaq__tag--a" aria-hidden="true">A</span><p class="tfaq__a">Start with your income goal and work backwards: divide it by your average income per loan to get closings needed, then divide monthly closings by your lead-to-close ratio to get the leads you need each month. From there, choose up to three SMART goals that close the gap between the leads you need and the leads you have.</p>
+            </div>
+            <div class="tfaq__item">
+              <span class="tfaq__tag tfaq__tag--q" aria-hidden="true">Q</span><h3 class="tfaq__q">What if I don't know my lead-to-close ratio?</h3>
+              <span class="tfaq__tag tfaq__tag--a" aria-hidden="true">A</span><p class="tfaq__a">Estimate it for now (10% to 20% is a reasonable placeholder) and start tracking it right away. Count every lead that comes in and every loan that closes. After a few months you'll have a real number, and it will tell you more about your business than almost anything else you measure.</p>
+            </div>
+            <div class="tfaq__item">
+              <span class="tfaq__tag tfaq__tag--q" aria-hidden="true">Q</span><h3 class="tfaq__q">How many goals should be in my business plan?</h3>
+              <span class="tfaq__tag tfaq__tag--a" aria-hidden="true">A</span><p class="tfaq__a">No more than three major goals for the year, and one is fine. Fewer goals pursued to completion will do more for your production than a long list of goals that each get partly done.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="atim atim--card" aria-label="About Tim Braheem">
+          <div class="atim__head">
+            <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+            <div>
+              <p class="atim__eyebrow">About the author</p>
+              <h3 class="atim__name">Tim Braheem</h3>
+              <p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>
+            </div>
+          </div>
+          <p class="atim__bio">Tim has spent more than 30 years as a mortgage originator and coach. He founded First Rate Financial in 1995 and built Loantoolbox.com into an <em>Inc. 500</em> company with 10,800 paying members. Today he teaches the scripts, systems, and personal development work behind everything at The Loan Atlas, and hosts <em>The 360 Experience</em> podcast.</p>
+          <div class="atim__links"><a class="atim__link" href="/faculty/">Learn more about Tim and The Loan Atlas Faculty<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================ C ============================ -->
+  <section class="mk-offer" id="c">
+    <header class="mk-offer__head"><span class="mk-num">C</span><h2>Accordion cards</h2><code>[tla_faq title="Business Planning" style="cards"]</code></header>
+    <p class="mk-why">A centered heading over a stack of white question cards on a soft slate panel. The open card lifts and gets a brass edge. It's the lightest and most familiar of the three and handles long FAQ lists best, but it stands out the least from the rest of the post.</p>
+    <div class="mk-variant">
+      <article class="tla-article mk-article">
+        <p>A business plan doesn't need to be long to work. It needs a real number at the top, the math that connects it to your daily activity, and no more than three goals you'll actually finish.</p>
+        <div class="ctab ctab--consult"><div class="ctab__body"><p class="ctab__eyebrow">Free business assessment</p><h3 class="ctab__title">See Where Your Next 10 Loans Are Hiding</h3><p class="ctab__pitch">Tour the Loan Atlas to find out what&#039;s holding your production back and how to fix it.</p><a class="ctab-btn ctab-btn--gold" href="#">Book my call <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="ctab__photo"><img src="../../public/assets/consultation-header.png" alt=""></div></div>
+
+        <section class="tfaq tfaq--cards" aria-labelledby="faq-c-title">
+          <div class="tfaq__head">
+            <p class="tfaq__pill"><b>?</b><span class="tfaq__eyebrow">FAQs</span></p>
+            <h2 class="tfaq__title" id="faq-c-title">Business Planning</h2>
+          </div>
+          <div class="tfaq__list">
+            <details open>
+              <summary><h3 class="tfaq__q">How do I build a business plan as a loan officer?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">Start with your income goal and work backwards: divide it by your average income per loan to get closings needed, then divide monthly closings by your lead-to-close ratio to get the leads you need each month. From there, choose up to three SMART goals that close the gap between the leads you need and the leads you have.</p>
+            </details>
+            <details>
+              <summary><h3 class="tfaq__q">What if I don't know my lead-to-close ratio?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">Estimate it for now (10% to 20% is a reasonable placeholder) and start tracking it right away. Count every lead that comes in and every loan that closes. After a few months you'll have a real number, and it will tell you more about your business than almost anything else you measure.</p>
+            </details>
+            <details>
+              <summary><h3 class="tfaq__q">How many goals should be in my business plan?</h3><span class="tfaq__icon" aria-hidden="true"></span></summary>
+              <p class="tfaq__a">No more than three major goals for the year, and one is fine. Fewer goals pursued to completion will do more for your production than a long list of goals that each get partly done.</p>
+            </details>
+          </div>
+        </section>
+
+        <aside class="atim atim--card" aria-label="About Tim Braheem">
+          <div class="atim__head">
+            <div class="atim__avatar"><img src="../../public/assets/tim-braheem-headshot.png" alt="Tim Braheem"></div>
+            <div>
+              <p class="atim__eyebrow">About the author</p>
+              <h3 class="atim__name">Tim Braheem</h3>
+              <p class="atim__role">Founder &amp; Chief Content Officer, The Loan Atlas</p>
+            </div>
+          </div>
+          <p class="atim__bio">Tim has spent more than 30 years as a mortgage originator and coach. He founded First Rate Financial in 1995 and built Loantoolbox.com into an <em>Inc. 500</em> company with 10,800 paying members. Today he teaches the scripts, systems, and personal development work behind everything at The Loan Atlas, and hosts <em>The 360 Experience</em> podcast.</p>
+          <div class="atim__links"><a class="atim__link" href="/faculty/">Learn more about Tim and The Loan Atlas Faculty<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        </aside>
+      </article>
+    </div>
+  </section>
+
+  </main>
+</body>
+</html>
