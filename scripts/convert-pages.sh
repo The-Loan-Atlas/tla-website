@@ -19,7 +19,7 @@ set -euo pipefail
 SRC="public"
 TLA="wp-theme/responsiveChild-theme/tla"
 OUT="$TLA/pages"
-SIDEBAR="$SRC/partials/event-sidebar.html"   # shared live-event sidebar (TLA_EVENT_SIDEBAR marker)
+SIDEBAR="$SRC/live-events/_event-sidebar.html"   # shared live-event sidebar (TLA_EVENT_SIDEBAR marker)
 MISSING=()   # source files listed below that no longer exist (see end-of-run warning)
 mkdir -p "$OUT"
 
@@ -118,7 +118,7 @@ convert() {
   #    scripts (carousel, inline blocks, form embeds) and post-footer markup
   #    (e.g. the faculty modal) are preserved wherever they sit.
   #    Also expands <!-- TLA_EVENT_SIDEBAR title="..." --> into the shared live-event
-  #    sidebar (public/partials/event-sidebar.html), filling {{TITLE}}. Runs before
+  #    sidebar (public/live-events/_event-sidebar.html), filling {{TITLE}}. Runs before
   #    rewrite() so the sidebar's ../assets/ and join.html links get rewritten too.
   awk 'NR>'"$body_open"' && NR<'"$body_close"'' "$file" \
     | grep -vE '<script[^>]*src="(\.\./)*js/(nav|animations)\.js' \
@@ -197,6 +197,7 @@ rewrite() {
   perl -0pi -e 's/href="market-update-with-barry-habib\.html"/href="\/market-update-with-barry-habib\/"/g' "$f"
   perl -0pi -e 's/href="leveraging-google-reviews-to-attract-clients-and-agents\.html"/href="\/leveraging-google-reviews-to-attract-clients-and-agents\/"/g' "$f"
   perl -0pi -e 's/href="winning-mortgage-referrals-from-listing-agents\.html"/href="\/winning-mortgage-referrals-from-listing-agents\/"/g' "$f"
+  perl -0pi -e 's/href="realtor-pitch-session\.html"/href="\/realtor-pitch-session\/"/g' "$f"
   perl -0pi -e 's/href="emergency-game-plan\.html"/href="\/emergency-game-plan\/"/g' "$f"
   perl -0pi -e 's/href="2027-business-planning\.html"/href="\/2027-business-planning\/"/g' "$f"
   perl -0pi -e 's/href="winning-the-ai-game\.html"/href="\/winning-the-ai-game\/"/g' "$f"
@@ -250,6 +251,7 @@ convert live-events/leveraging-google-reviews-to-attract-clients-and-agents leve
 # is the copy-and-fill source and is deliberately NOT listed here (never deploys);
 # the pages themselves live in public/live-events/ and are listed individually.
 convert live-events/winning-mortgage-referrals-from-listing-agents winning-mortgage-referrals-from-listing-agents ""
+convert live-events/realtor-pitch-session   realtor-pitch-session         ""
 convert live-events/emergency-game-plan     emergency-game-plan           ""
 convert live-events/2027-business-planning  2027-business-planning        ""
 # Revolution Mortgage webinar registration (.evc-* suite). The two

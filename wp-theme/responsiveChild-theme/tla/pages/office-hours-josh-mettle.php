@@ -350,13 +350,13 @@ $tla_active      = '';
             <!-- Header: thumbnail + title + date -->
             <div class="oh-header" data-reveal="up">
               <div class="oh-thumb">
-                <img src="<?php echo TLA_BASE; ?>/assets/live-events/Office-Hours-Josh-Mettle-0923-16x9.png" alt="Office Hours with Josh Mettle" loading="eager" />
+                <img src="<?php echo TLA_BASE; ?>/assets/live-events/December-2026-Josh-Mettle-Office-Hours-1920x1080.png" alt="Office Hours with Josh Mettle" loading="eager" />
               </div>
               <div class="oh-titleblock">
               <div class="oh-meta">
                 <span class="oh-meta__item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  Sep 23, 2026
+                  Dec 30, 2026
                 </span>
                 <span class="oh-meta__item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>
@@ -432,7 +432,7 @@ $tla_active      = '';
 
           </div>
 
-          <!-- ─────────── RIGHT: sticky sidebar (shared — public/partials/event-sidebar.html) ─────────── -->
+          <!-- ─────────── RIGHT: sticky sidebar (shared — public/live-events/_event-sidebar.html) ─────────── -->
           <aside class="oh-side" data-reveal="up">
 
             <!-- Column header — frames the two cards as an either/or choice -->
@@ -501,7 +501,7 @@ $tla_active      = '';
         <div class="ev-modal__strip" aria-hidden="true">
           <div class="ev-modal__strip-row">
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/AI-Lab-Inside-Platinum-0717.png" alt="" loading="lazy" />
-            <img src="<?php echo TLA_BASE; ?>/assets/live-events/Office-Hours-Josh-Mettle-Square.png" alt="" loading="lazy" />
+            <img src="<?php echo TLA_BASE; ?>/assets/live-events/December-2026-Josh-Mettle-Office-Hours-500x500.png" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Office-Hours-Jay-Dacey-0722.png" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Talk-to-Tim-0731.png" alt="" loading="lazy" />
             <img src="<?php echo TLA_BASE; ?>/assets/live-events/Masterclass-Mortgage-Success-Plan-0723.png" alt="" loading="lazy" />

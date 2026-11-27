@@ -430,7 +430,7 @@ $tla_active      = '';
 
           </div>
 
-          <!-- ─────────── RIGHT: sticky sidebar (shared — public/partials/event-sidebar.html) ─────────── -->
+          <!-- ─────────── RIGHT: sticky sidebar (shared — public/live-events/_event-sidebar.html) ─────────── -->
           <aside class="oh-side" data-reveal="up">
 
             <!-- Column header — frames the two cards as an either/or choice -->
