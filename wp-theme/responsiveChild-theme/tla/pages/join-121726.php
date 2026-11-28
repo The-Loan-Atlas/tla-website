@@ -1,0 +1,830 @@
+<?php
+/**
+ * Body partial for /join-121726/ (TLA Full HTML template).
+ * Generated from public/webinar-sales-pages/join-121726.html by scripts/convert-pages.sh — do not hand-edit;
+ * edit the source HTML (or the shared header/footer partials) and re-run.
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+$tla_title       = 'Save $1,000/yr on The Loan Atlas';
+$tla_description = 'Download the MBS Live Campaign Playbook: three ready-to-send text and email follow-up campaigns for buyers who pressed pause and past clients sitting on equity.';
+$tla_active      = '';
+?>
+  <style>
+    /* ══════════════════════════════════════════════════════════════════════════
+       STICKY OFFER BAR — from join-mbs-111926 (Platinum lockup removed)
+       ══════════════════════════════════════════════════════════════════════════ */
+    .apm-bar {
+      position: sticky;
+      top: var(--header-h);
+      z-index: 40;
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(90deg, #c9961c, #ffd56c, #c9961c) 1;
+      box-shadow: 0 8px 26px rgba(2, 28, 54, 0.28);
+    }
+    .apm-bar__link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: filter 0.2s ease;
+    }
+    .apm-bar__link:hover { filter: brightness(1.06); }
+    .apm-bar__link:focus-visible {
+      outline: 3px solid #ffd56c;
+      outline-offset: -3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .apm-bar__link { transition: none; }
+    }
+    .apm-bar__strip {
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+    }
+    .apm-bar__strip-in {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding: 9px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .apm-bar__strip-in::before,
+    .apm-bar__strip-in::after {
+      content: "";
+      height: 1px;
+      width: clamp(20px, 6vw, 70px);
+      background: rgba(2, 28, 54, 0.32);
+    }
+    .apm-bar__label {
+      font-family: var(--font-body);
+      font-weight: 900;
+      font-size: 0.9375rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #021c36;
+      text-align: center;
+    }
+    .apm-bar__row {
+      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+    }
+    .apm-bar__row-in {
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding: 17px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 2vw, 28px);
+    }
+    .apm-bar__copy {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: clamp(9px, 1.3vw, 14px);
+      flex-wrap: wrap;
+    }
+    .apm-bar__price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.875rem;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+    .apm-bar__price i {
+      font-style: normal;
+      font-size: 0.46em;
+      font-weight: 700;
+      opacity: 0.72;
+      letter-spacing: 0;
+    }
+    .apm-bar__price s {
+      font-family: var(--font-display);
+      font-size: 0.6em;
+      font-weight: 600;
+      opacity: 0.42;
+      margin-right: 9px;
+      letter-spacing: 0;
+    }
+    .apm-bar__or {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: rgba(234, 194, 90, 0.85);
+      text-transform: lowercase;
+    }
+    /* Countdown — sits after the prices, behind a brass hairline. */
+    .apm-bar__cd {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .apm-bar__cd::before {
+      content: "";
+      align-self: stretch;
+      width: 1px;
+      margin-right: clamp(6px, 1vw, 14px);
+      background: rgba(234, 194, 90, 0.35);
+    }
+    .apm-bar__cd-lbl {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(234, 194, 90, 0.9);
+      margin-right: 4px;
+    }
+    .apm-bar__cd-u {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 2.75rem;
+      padding: 5px 4px 4px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(234, 194, 90, 0.28);
+    }
+    .apm-bar__cd-u b {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.375rem;
+      line-height: 1;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+    }
+    .apm-bar__cd-u i {
+      font-family: var(--font-body);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.5625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 3px;
+    }
+    .apm-bar__brands {
+      display: flex;
+      align-items: center;
+      gap: clamp(8px, 1vw, 14px);
+      flex-shrink: 0;
+    }
+    .apm-bar__brands::after {
+      content: "";
+      align-self: stretch;
+      width: 1px;
+      margin-left: clamp(6px, 1vw, 14px);
+      background: rgba(234, 194, 90, 0.35);
+    }
+    .apm-bar__la { height: 24px; width: auto; display: block; }
+    @media (max-width: 1279px) {
+      .apm-bar__label { font-size: 0.875rem; letter-spacing: 0.15em; }
+      .apm-bar__row-in { padding: 15px var(--gutter); }
+      .apm-bar__price { font-size: 1.625rem; }
+      .apm-bar__cd-u b { font-size: 1.25rem; }
+    }
+    @media (max-width: 1099px) {
+      .apm-bar__la { height: 20px; }
+      .apm-bar__label { font-size: 0.8125rem; letter-spacing: 0.14em; }
+      .apm-bar__price { font-size: 1.375rem; }
+      .apm-bar__cd-u { min-width: 2.5rem; }
+      .apm-bar__cd-u b { font-size: 1.125rem; }
+    }
+    @media (max-width: 899px) {
+      .apm-bar__strip-in { padding: 6px var(--gutter); }
+      .apm-bar__label { font-size: 0.75rem; letter-spacing: 0.12em; }
+      .apm-bar__row-in { padding: 13px var(--gutter); }
+      .apm-bar__price { font-size: 1.1875rem; }
+      .apm-bar__cd-lbl { display: none; }
+    }
+    /* Phones: drop the logo; prices on one line, countdown centred below. */
+    @media (max-width: 639px) {
+      .apm-bar__row-in { flex-wrap: wrap; row-gap: 8px; padding: 9px 14px; gap: 8px 12px; }
+      .apm-bar__brands { display: none; }
+      .apm-bar__label { font-size: 0.625rem; letter-spacing: 0.06em; }
+      .apm-bar__strip-in::before,
+      .apm-bar__strip-in::after { width: clamp(12px, 4vw, 40px); }
+      .apm-bar__copy { gap: 4px 8px; }
+      .apm-bar__price { font-size: 1.25rem; }
+      .apm-bar__price s { display: none; }
+      .apm-bar__or { font-size: 0.8125rem; }
+      .apm-bar__cd { flex-basis: 100%; justify-content: center; gap: 5px; }
+      .apm-bar__cd::before { display: none; }
+      .apm-bar__cd-lbl { display: inline; font-size: 0.625rem; }
+      .apm-bar__cd-u { flex-direction: row; align-items: baseline; gap: 2px; min-width: 0; padding: 3px 7px; }
+      .apm-bar__cd-u b { font-size: 0.9375rem; }
+      .apm-bar__cd-u i { font-size: 0.5625rem; margin-top: 0; letter-spacing: 0.04em; }
+    }
+    @media (max-width: 380px) {
+      .apm-bar__strip-in { gap: 8px; }
+      .apm-bar__strip-in::before,
+      .apm-bar__strip-in::after { display: none; }
+    }
+
+    /* Anchor targets clear the fixed header + sticky offer bar. */
+    #offer, #replay { scroll-margin-top: calc(var(--header-h) + 110px); }
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       DOWNLOAD HERO — dark band, copy left · GHL form right
+       (layout from namb-build-your-custom-gpt.html's .naq-hero)
+       ══════════════════════════════════════════════════════════════════════════ */
+    .dl-hero {
+      background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%);
+      padding-block: clamp(48px, 7vw, 104px);
+      position: relative;
+      overflow: hidden;
+    }
+    .dl-hero::before {
+      content: '';
+      position: absolute;
+      top: -140px;
+      right: -80px;
+      width: 560px;
+      height: 560px;
+      max-width: 90vw;
+      background: radial-gradient(closest-side, rgba(234, 194, 90, 0.14), transparent);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .dl-hero > .container { position: relative; z-index: 1; }
+    .dl-hero__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .dl-hero__grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: clamp(40px, 4vw, 72px);
+        /* Top-align: the headline's top edge sits level with the form card's top. */
+        align-items: start;
+      }
+    }
+
+    .dl-hero__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin: 0 0 var(--space-md);
+      text-wrap: balance;
+    }
+    .dl-hero__title em {
+      font-style: normal;
+      /* Bottom padding so background-clip: text doesn't crop the "g". */
+      padding-bottom: 0.08em;
+      background: linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .dl-hero__sub {
+      font-family: var(--font-body);
+      font-size: clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem);
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 0 clamp(28px, 3vw, 40px);
+      max-width: 36rem;
+    }
+
+    /* The three worksheets — checklist */
+    .dl-checks {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 2.2vw, 28px);
+      max-width: 36rem;
+    }
+    .dl-check {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .dl-check__box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-top: 1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #1f9a45 0%, #3dbb5e 55%, #6ee7a0 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(61, 187, 94, 0.3);
+    }
+    .dl-check__box svg { width: 20px; height: 20px; }
+    .dl-check__name {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.125rem, 0.98rem + 0.5vw, 1.375rem);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--brass-bright);
+      margin: 0 0 6px;
+    }
+    .dl-check__desc {
+      display: block;
+      font-family: var(--font-body);
+      font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* ── Right column — GHL form card ───────────────────────────────────────── */
+    .dl-formcard {
+      background: #ffffff;
+      border: 1px solid rgba(234, 194, 90, 0.4);
+      border-radius: var(--radius-2xl);
+      box-shadow:
+        inset 0 0 0 1px rgba(234, 194, 90, 0.12),
+        0 40px 90px rgba(2, 28, 54, 0.5),
+        0 0 60px rgba(234, 194, 90, 0.14);
+      padding: clamp(20px, 2vw, 28px) clamp(18px, 2.4vw, 32px);
+      overflow: hidden;
+      text-align: center;
+    }
+    /* TEMP placeholder until the 2027 Planning Kit GHL form arrives. */
+    .dl-formcard__ph {
+      min-height: 492px;
+      display: grid;
+      place-items: center;
+      border: 2px dashed #c7d1db;
+      border-radius: var(--radius-xl);
+      background: #f7f9fb;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: #6b7686;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       EVENT OFFER PRICING — .mm-pricing band + the .naq-card shell (from
+       join-mbs-111926), with an .evp-* "Today's Price" layout: $249/mo · $2,490/yr
+       ══════════════════════════════════════════════════════════════════════════ */
+    .mm-pricing {
+      background-color: #021c36;
+      background-image: url('<?php echo TLA_BASE; ?>/assets/consultation-header.png');
+      background-size: cover;
+      background-position: center;
+      padding-block: clamp(56px, 7vw, 104px);
+      position: relative;
+      overflow: hidden;
+    }
+    .mm-pricing::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(6, 14, 28, 0.92) 0%, rgba(2, 28, 54, 0.88) 50%, rgba(6, 14, 28, 0.94) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .mm-pricing > .container { position: relative; z-index: 1; }
+    .mm-pricing::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      left: 6%;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(closest-side, rgba(234, 194, 90, 0.1), transparent);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .mm-plan {
+      position: relative;
+      z-index: 1;
+      max-width: 64rem;
+      margin-inline: auto;
+      border-radius: var(--radius-3xl);
+      overflow: hidden;
+      text-align: center;
+    }
+    .mm-plan > * { position: relative; z-index: 1; }
+
+    .naq-card {
+      --naq-pad: clamp(20px, 4vw, 56px);
+      border: 3px solid transparent;
+      background:
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        linear-gradient(135deg, #c9961c 0%, #eac25a 50%, #ffd56c 100%) border-box;
+      box-shadow: 0 40px 90px rgba(2, 28, 54, 0.45), 0 0 60px rgba(234, 194, 90, 0.16);
+      padding: 0;
+      color: #021c36;
+    }
+    .evp-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: #2c3e5c;
+      margin: 0;
+      padding: calc(var(--naq-pad) * 0.9) var(--naq-pad) 0;
+    }
+    .evp-prices {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      gap: clamp(16px, 2.4vw, 32px);
+      padding: clamp(20px, 3vw, 40px) var(--naq-pad) 0;
+    }
+    .evp-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .evp-amount {
+      display: flex;
+      align-items: baseline;
+      gap: clamp(8px, 1vw, 14px);
+      white-space: nowrap;
+    }
+    .evp-price {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 1.6rem + 5.6vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #a8812f 0%, #eac87a 45%, #a8812f 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* Was-price with a brass brush-stroke strike through it. */
+    .evp-was {
+      position: relative;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.375rem, 0.9rem + 1.8vw, 2.25rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #2c3e5c;
+      text-decoration: none;
+    }
+    .evp-was::after {
+      content: '';
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: 50%;
+      height: 0.32em;
+      background: linear-gradient(90deg, rgba(201, 150, 28, 0.55) 0%, #c9961c 30%, #eac25a 70%, rgba(234, 194, 90, 0.5) 100%);
+      border-radius: 40% 60% 55% 45% / 60% 40% 60% 40%;
+      transform: translateY(-50%) rotate(-9deg);
+    }
+    .evp-rule {
+      align-self: center;
+      width: clamp(32px, 6vw, 96px);
+      height: 3px;
+      background: #c7d1db;
+      border-radius: 2px;
+      margin-top: -1.5em;
+    }
+    .evp-per {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.25rem, 0.95rem + 1.1vw, 1.875rem);
+      line-height: 1.2;
+      color: #021c36;
+      margin-top: clamp(10px, 1.4vw, 18px);
+    }
+    .evp-per em {
+      font-style: italic;
+      background: linear-gradient(90deg, #a8812f 0%, #c9961c 50%, #a8812f 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .evp-terms {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1rem, 0.85rem + 0.5vw, 1.375rem);
+      color: #021c36;
+      margin-top: 2px;
+    }
+    .evp-visual {
+      margin: clamp(24px, 3.4vw, 44px) auto 0;
+      padding-inline: var(--naq-pad);
+      max-width: 44rem;
+    }
+    .evp-visual img { display: block; width: 100%; height: auto; }
+    .evp-deal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(24px, 3vw, 40px) var(--naq-pad) var(--naq-pad);
+    }
+    .evp-valid {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: clamp(1.0625rem, 0.9rem + 0.6vw, 1.5rem);
+      color: #2c3e5c;
+      margin: var(--space-md) 0 4px;
+      text-wrap: balance;
+    }
+    .evp-new {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(0.9375rem, 0.85rem + 0.3vw, 1.125rem);
+      color: #021c36;
+      margin: 0;
+    }
+    /* Phones: stack the two prices with a short horizontal rule between them. */
+    @media (max-width: 639px) {
+      .evp-prices { grid-template-columns: 1fr; justify-items: center; gap: 18px; }
+      .evp-rule { margin-top: 0; width: 64px; }
+    }
+
+    .naq-plan__cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .naq-plan__cta .btn--gold.btn--lg {
+      font-size: clamp(1.0625rem, 0.95rem + 0.6vw, 1.3125rem);
+      padding: clamp(20px, 1.6vw, 26px) clamp(36px, 4vw, 56px);
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 10px 32px rgba(201, 150, 28, 0.34);
+    }
+    @media (max-width: 520px) {
+      .naq-plan__cta { align-self: stretch; }
+      .naq-plan__cta .btn--gold.btn--lg {
+        width: 100%;
+        white-space: normal;
+        padding-inline: var(--space-md);
+      }
+    }
+    .naq-plan__fine {
+      font-size: 0.9375rem;
+      color: #3a4658;
+      margin: var(--space-md) 0 0;
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════════════════════════════════════════════
+       REPLAY — light band at the bottom (namb-build-your-custom-gpt.html's
+       .naq-replay), holding the YouTube replay embed
+       ══════════════════════════════════════════════════════════════════════════ */
+    .rp-replay {
+      background: var(--background);
+      padding-block: clamp(56px, 7vw, 104px);
+    }
+    .rp-replay__head {
+      max-width: 52rem;
+      margin: 0 auto clamp(32px, 4vw, 52px);
+      text-align: center;
+    }
+    .rp-replay__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin: 0 0 var(--space-sm);
+    }
+    .rp-replay__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--primary);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .rp-replay__frame {
+      max-width: 68rem;
+      margin-inline: auto;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      border: 1px solid rgba(2, 28, 54, 0.12);
+      box-shadow: 0 30px 70px rgba(2, 28, 54, 0.22);
+    }
+    .rp-replay__frame wistia-player { display: block; }
+    .rp-replay__video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+    .rp-replay__soon {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2.4vw, 28px);
+      padding: var(--space-md);
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(234, 194, 90, 0.12), transparent 60%),
+        linear-gradient(135deg, #0a1628 0%, #021c36 55%, #0a223d 100%);
+    }
+    .rp-replay__soon-icon {
+      display: grid;
+      place-items: center;
+      width: clamp(56px, 8vw, 96px);
+      height: clamp(56px, 8vw, 96px);
+      border-radius: 50%;
+      border: 2px solid rgba(234, 194, 90, 0.55);
+      color: var(--brass-bright);
+    }
+    .rp-replay__soon-icon svg { width: 40%; height: 40%; margin-left: 6%; }
+    .rp-replay__soon-text {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.25rem, 0.9rem + 1.8vw, 2.25rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0;
+    }
+  </style>
+
+
+  <!-- ── Header (minimal landing chrome — logo only) ─────────────────────────── -->
+<?php include get_stylesheet_directory() . '/tla/partials/header-minimal.php'; ?>
+
+  <!-- ── Sticky offer bar ─────────────────────────────────────────────────────── -->
+  <div class="apm-bar">
+    <a class="apm-bar__link" href="#offer" aria-label="Save $1,000 a year on The Loan Atlas — $249/mo or $2,490/yr. Event pricing ends Monday, December 21st at midnight Pacific.">
+      <div class="apm-bar__strip">
+        <div class="apm-bar__strip-in">
+          <span class="apm-bar__label">Save $1,000/yr on The Loan Atlas</span>
+        </div>
+      </div>
+      <div class="apm-bar__row">
+        <div class="apm-bar__row-in">
+          <div class="apm-bar__brands" aria-hidden="true">
+            <img class="apm-bar__la" src="<?php echo TLA_BASE; ?>/assets/Loan Atlas logo-white.png" alt="" />
+          </div>
+          <div class="apm-bar__copy">
+            <span class="apm-bar__price"><s>$349/mo</s>$249<i>/mo</i></span>
+            <span class="apm-bar__or">or</span>
+            <span class="apm-bar__price">$2,490<i>/yr</i></span>
+          </div>
+          <!-- Countdown to the offer deadline (script at the bottom of the page). -->
+          <div class="apm-bar__cd" data-cd aria-hidden="true">
+            <span class="apm-bar__cd-lbl">Ends in</span>
+            <span class="apm-bar__cd-u"><b data-u="d">&ndash;</b><i>Days</i></span>
+            <span class="apm-bar__cd-u"><b data-u="h">&ndash;</b><i>Hrs</i></span>
+            <span class="apm-bar__cd-u"><b data-u="m">&ndash;</b><i>Min</i></span>
+            <span class="apm-bar__cd-u"><b data-u="s">&ndash;</b><i>Sec</i></span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <main>
+
+    <!-- ── 1. FREE DOWNLOAD — copy (left) · GHL form (right) ───────────────── -->
+    <section class="dl-hero" aria-labelledby="dl-title">
+      <div class="container">
+        <div class="dl-hero__grid">
+
+          <!-- LEFT: copy -->
+          <div class="dl-hero__copy">
+            <h1 id="dl-title" class="dl-hero__title">Start Taking <em>ACTION</em> to Build Your 2027 Plan</h1>
+            <p class="dl-hero__sub">A plan you never write down is just a wish. These three worksheets will take you from a number in your head to SMART goals you will execute on.</p>
+
+            <ul class="dl-checks">
+              <li class="dl-check">
+                <span class="dl-check__box" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>
+                  <span class="dl-check__name">2027 Business Planning Template</span>
+                  <span class="dl-check__desc">Know your goals, own your week, and track what matters.</span>
+                </span>
+              </li>
+              <li class="dl-check">
+                <span class="dl-check__box" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>
+                  <span class="dl-check__name">Know Your Numbers Worksheet</span>
+                  <span class="dl-check__desc">Reverse-engineer the business required to reach your income goal.</span>
+                </span>
+              </li>
+              <li class="dl-check">
+                <span class="dl-check__box" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 10.5l3.2 3.2L15 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span>
+                  <span class="dl-check__name">Three SMART Goals Worksheet</span>
+                  <span class="dl-check__desc">Turn your three biggest opportunities into three goals specific enough to act on.</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- RIGHT: GHL LeadConnector form card -->
+          <div class="dl-formcard">
+            <!-- TODO: GHL form for the 2027 Planning Kit goes here (the MBS 11/19 form was removed).
+                 When it's added, also restore the form_embed.js script at the bottom of the page. -->
+            <div class="dl-formcard__ph">Form coming</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 2. EVENT OFFER PRICING ────────────────────────────────────────────── -->
+    <section class="mm-pricing" id="pricing" aria-label="Event offer pricing">
+      <div class="container">
+        <article id="offer" class="mm-plan naq-card" data-reveal="scale">
+          <h2 class="evp-title">Today&rsquo;s Price</h2>
+
+          <div class="evp-prices">
+            <div class="evp-col">
+              <div class="evp-amount">
+                <s class="evp-was"><span class="visually-hidden">Regularly </span>$349</s>
+                <span class="evp-price">$249</span>
+              </div>
+              <span class="evp-per">Per Month</span>
+              <span class="evp-terms">(annual subscription)</span>
+            </div>
+            <span class="evp-rule" aria-hidden="true"></span>
+            <div class="evp-col">
+              <div class="evp-amount">
+                <span class="evp-price">$2,490</span>
+              </div>
+              <span class="evp-per">Per Year &ndash; <em>$1,000 Savings</em></span>
+            </div>
+          </div>
+
+          <div class="evp-visual">
+            <img src="<?php echo TLA_BASE; ?>/assets/ai-planner-devices.webp" alt="The Loan Atlas on desktop, tablet and phone" loading="lazy" />
+          </div>
+
+          <div class="evp-deal">
+            <div class="naq-plan__cta">
+              <!-- TODO: checkout URL for this event's $249/mo · $2,490/yr offer. -->
+              <a class="btn btn--gold btn--lg" href="#CHECKOUT-URL-PLACEHOLDER">Start Your Transformation</a>
+            </div>
+            <p class="evp-valid">Event pricing valid through Monday, December&nbsp;21st</p>
+            <p class="evp-new">Offer available to new members only</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── 4. REPLAY (bottom) ───────────────────────────────────────────────── -->
+    <section class="rp-replay" id="replay" aria-labelledby="rp-title">
+      <div class="container">
+        <div class="rp-replay__head">
+          <span class="rp-replay__eyebrow">Webinar Replay</span>
+          <h2 id="rp-title" class="rp-replay__title">2027 Business Planning</h2>
+        </div>
+        <div class="rp-replay__frame">
+          <iframe class="rp-replay__video"
+            src="https://www.youtube.com/embed/8_r6k6BRixg?rel=0"
+            title="2027 Business Planning — Webinar Replay"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer (standard site chrome) ──────────────────────────────────────── -->
+<?php include get_stylesheet_directory() . '/tla/partials/footer.php'; ?>
+
+  <script>
+    // ── Sticky-bar countdown to the offer deadline ──
+    // Ends Monday 12/21/26 at midnight Pacific (matches "Event pricing valid through
+    // Monday, December 21st"). After that the countdown hides itself.
+    // QA: append ?now=2026-12-21T23:59:30-08:00 to preview any moment.
+    (function () {
+      var END = Date.parse('2026-12-21T23:59:59-08:00');
+      var box = document.querySelector('[data-cd]');
+      if (!box) return;
+      var offset = 0;
+      var q = /[?&]now=([^&]+)/.exec(location.search);
+      if (q) { var t0 = Date.parse(decodeURIComponent(q[1])); if (!isNaN(t0)) offset = t0 - Date.now(); }
+      var units = box.querySelectorAll('[data-u]');
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      var timer;
+      function tick() {
+        var s = Math.floor((END - (Date.now() + offset)) / 1000);
+        if (s < 0) { box.style.display = 'none'; clearInterval(timer); return; }
+        var p = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+        units.forEach(function (el) {
+          var u = el.getAttribute('data-u'), v = u === 'd' ? String(p.d) : pad(p[u]);
+          if (el.textContent !== v) el.textContent = v;
+        });
+      }
+      tick();
+      timer = setInterval(tick, 1000);
+    })();
+  </script>
