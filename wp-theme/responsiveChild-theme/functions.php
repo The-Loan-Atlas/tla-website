@@ -580,9 +580,9 @@ function tla_cta_shortcode( $atts ) {
 			return '<div class="ctab ctab--ai">' . $body . '<div class="ctab__device">' . $img . '</div></div>';
 
 		case 'scripts':
+			// Button stacks under the copy (bottom of the band), not beside it.
 			return '<div class="ctab ctab--scripts"><div class="ctab__thumb">' . $img . '</div>'
-				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . '</div>'
-				. $button . '</div>';
+				. '<div class="ctab__body">' . $eyebrow . $title . $pitch . $button . '</div></div>';
 
 		case 'podcast':
 			return '<div class="ctab ctab--podcast"><div class="ctab__cover">' . $img . '</div>'

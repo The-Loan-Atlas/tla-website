@@ -691,6 +691,7 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
    p reset above otherwise zeroes the pitch's margin-bottom. */
 .tla-article .ctab--ai .ctab__pitch,
 .tla-article .ctab--consult .ctab__pitch,
+.tla-article .ctab--scripts .ctab__pitch,
 .tla-article .ctab--doc-img .ctab__pitch { margin-bottom: 22px; }
 .tla-article .ctab a { color: inherit; }
 
@@ -722,8 +723,7 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
 .ctab--scripts .ctab__body { flex: 1 1 15rem; min-width: 0; padding-block: 22px; }
 .ctab--scripts .ctab__eyebrow { color: var(--secondary); }
 .ctab--scripts .ctab__title { color: var(--on-surface); }
-.ctab--scripts .ctab__pitch { color: var(--on-surface-variant); }
-.ctab--scripts .ctab-btn { flex: 0 0 auto; }
+.ctab--scripts .ctab__pitch { color: var(--on-surface-variant); margin-bottom: 16px; }
 
 /* --- 03 · 360 PODCAST — dark gradient, circular cover, centered --- */
 .ctab--podcast { background: linear-gradient(160deg, #060e1c 0%, #021c36 50%, #060e1c 100%); border: 1px solid rgba(201, 150, 28, 0.3); display: flex; align-items: center; gap: clamp(16px, 3vw, 26px); padding: clamp(18px, 3vw, 24px) clamp(20px, 3vw, 28px); }
@@ -788,10 +788,9 @@ body { --blog-overlap: clamp(64px, 9vw, 132px); }
   .ctab--ai .ctab__device { position: static; transform: none; order: -1; height: auto; width: 150px; aspect-ratio: auto; margin-bottom: 16px; }
   .ctab--ai .ctab__body { text-align: center; }
   /* Scripts: photo bleeds edge to edge across the top; copy + button padded. */
-  .ctab--scripts { padding: 0 0 20px; gap: 0; }
+  .ctab--scripts { padding: 0; gap: 0; }
   .ctab--scripts .ctab__thumb { flex: 0 0 auto; height: 170px; min-height: 0; }
-  .ctab--scripts .ctab__body { padding: 18px 20px 16px; }
-  .ctab--scripts .ctab-btn { margin-inline: 20px; }
+  .ctab--scripts .ctab__body { padding: 18px 20px 22px; }
   .ctab--podcast { text-align: center; }
   .ctab--podcast .ctab__cover { align-self: center; }
   .ctab--podcast .ctab__body { text-align: center; }
